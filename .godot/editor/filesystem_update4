@@ -2,3 +2,4 @@ res://Node2d.cs
 res://Scripts/Console.cs
 res://Scenes/console.tscn
 res://Scenes/text_display.tscn
+res://Scripts/TextDisplay.cs

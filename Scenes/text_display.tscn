@@ -1,16 +1,41 @@
-[gd_scene load_steps=2 format=3 uid="uid://lv6of8i8mu6e"]
+[gd_scene load_steps=7 format=3 uid="uid://lv6of8i8mu6e"]
 
 [ext_resource type="Texture2D" uid="uid://cfvp22gk4h1s3" path="res://Assets/screen_placeholder.png" id="1_dke7e"]
+[ext_resource type="Script" uid="uid://tssjwb7oyfs" path="res://Scripts/TextDisplay.cs" id="1_dwgup"]
+[ext_resource type="FontFile" uid="uid://cd388dl0iwpxu" path="res://Assets/Linebeam.ttf" id="3_ftviv"]
+
+[sub_resource type="Gradient" id="Gradient_dwgup"]
+offsets = PackedFloat32Array(0, 0.5925926, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ftviv"]
+gradient = SubResource("Gradient_dwgup")
+
+[sub_resource type="Theme" id="Theme_hfjju"]
+default_font = ExtResource("3_ftviv")
 
 [node name="TextDisplay" type="Node2D"]
+script = ExtResource("1_dwgup")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_dke7e")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 17.0
-offset_top = 17.0
-offset_right = 301.0
-offset_bottom = 300.0
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 14.0
+offset_top = 20.0
+offset_right = 299.0
+offset_bottom = 298.0
+texture = SubResource("GradientTexture1D_ftviv")
+
+[node name="Text" type="RichTextLabel" parent="."]
+offset_left = 16.0
+offset_top = 22.0
+offset_right = 297.0
+offset_bottom = 296.0
+theme = SubResource("Theme_hfjju")
+text = "Text sentence.
+Text sentence.
+Text sentence is overflowing the total length that is allowed."
+vertical_alignment = 2
