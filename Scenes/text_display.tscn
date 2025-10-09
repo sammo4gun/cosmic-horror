@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://lv6of8i8mu6e"]
+
+[ext_resource type="Texture2D" uid="uid://cfvp22gk4h1s3" path="res://Assets/screen_placeholder.png" id="1_dke7e"]
+
+[node name="TextDisplay" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_dke7e")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 301.0
+offset_bottom = 300.0
