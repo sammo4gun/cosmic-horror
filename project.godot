@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="CosmicHorror"
+run/main_scene="uid://b6dbtg8e0dt0r"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=648
 
 [dotnet]
 

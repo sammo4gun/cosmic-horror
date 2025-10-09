@@ -1,6 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://b6dbtg8e0dt0r"]
 
-[ext_resource type="Script" uid="uid://c0hq3ej3jkc4d" path="res://Node2d.cs" id="1_lu137"]
+[ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 
 [node name="Console" type="Node2D"]
-script = ExtResource("1_lu137")
+script = ExtResource("1_2kium")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
