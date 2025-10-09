@@ -1,3 +1,6 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760037772
+::res://::1760040709
 icon.svg::CompressedTexture2D::5042559581171983171::1760037767::1760037772::1::::<><><>0<>0<>2255868c557376306daf6b9495a31c5b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+Node2d.cs::CSharpScript::6543034802010286213::1760040788::0::1::::<><><>0<>0<><>::
+console.tscn::PackedScene::4568562983145181207::1760041614::0::1::::<><><>0<>0<><>::uid://c0hq3ej3jkc4d::::res://Node2d.cs
+::res://Scenes/::0
