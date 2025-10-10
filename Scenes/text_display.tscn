@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://lv6of8i8mu6e"]
+[gd_scene load_steps=9 format=3 uid="uid://lv6of8i8mu6e"]
 
 [ext_resource type="Script" uid="uid://tssjwb7oyfs" path="res://Scripts/TextDisplay.cs" id="1_dwgup"]
 [ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="2_ftviv"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="3_hfjju"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
 [sub_resource type="Gradient" id="Gradient_ftviv"]
 offsets = PackedFloat32Array(0, 0.5925926, 1)
@@ -14,25 +16,30 @@ width = 324
 
 [sub_resource type="Theme" id="Theme_hfjju"]
 default_font = ExtResource("2_ftviv")
-default_font_size = 21
+default_font_size = 27
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftviv"]
+resource_local_to_scene = true
 shader = ExtResource("3_hfjju")
 shader_parameter/hpass = 1.0
 shader_parameter/vpass = 1.0
 shader_parameter/radius = 65
-shader_parameter/unit = Vector2(1, 1)
+shader_parameter/flickerstrength = 0.25999999418848
+shader_parameter/unit = Vector2(0.5, 0.5)
 
 [node name="TextDisplay" type="Node2D"]
+material = SubResource("ShaderMaterial_hfjju")
 script = ExtResource("1_dwgup")
 
 [node name="Screen" type="TextureRect" parent="."]
+use_parent_material = true
 offset_right = 432.0
 offset_bottom = 278.0
 texture = SubResource("GradientTexture1D_ftviv")
 
 [node name="Text" type="RichTextLabel" parent="."]
 modulate = Color(4.7459574, 14.139331, 4.586748, 1)
+use_parent_material = true
 offset_right = 432.0
 offset_bottom = 278.0
 theme = SubResource("Theme_hfjju")
@@ -41,8 +48,9 @@ Text sentence.
 Text sentence is overflowing the total length that is allowed_"
 vertical_alignment = 2
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="GlowEffect" type="ColorRect" parent="Text"]
 material = SubResource("ShaderMaterial_ftviv")
+layout_mode = 0
 offset_right = 432.0
 offset_bottom = 278.0
 metadata/_edit_use_anchors_ = true

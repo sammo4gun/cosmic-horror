@@ -1,7 +1,8 @@
-Control
-CanvasLayer
-Line2D
 ColorRect
+Node3D
+CanvasLayer
+Control
+Line2D
 Camera2D
 TextureRect
 RichTextLabel

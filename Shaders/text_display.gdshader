@@ -4,6 +4,7 @@ uniform sampler2D screen_texture : hint_screen_texture, filter_linear_mipmap_ani
 uniform float hpass : hint_range(0.0, 1.0, 0.1) = 1.0;
 uniform float vpass : hint_range(0.0, 1.0, 0.1) = 1.0;
 uniform int radius : hint_range(0, 65, 1) = 65;
+uniform float flickerstrength: hint_range(0.0, 1.0, 0.01) = 0.2;
 uniform vec2 unit = vec2(1., 1.);
 render_mode blend_add;
 
@@ -54,8 +55,8 @@ void fragment() {
 			blurred += textureThresholded(screen_texture, SCREEN_UV + vec2(float(i) * cos(float(i)), float(-i) * sin(float(i))) * vec2(px, py) * vec2(hpass, vpass), k) * w[i];
 		}
 		
-		blurred /= float(radius) / 6.;
-		pixel += blurred;
+		blurred /= float(radius) / 4.;
+		pixel += (1. + sin(200. * TIME)*flickerstrength) * blurred;
 		
 	} else {
 		pixel = vec4(0., 0., 0., 1.);
