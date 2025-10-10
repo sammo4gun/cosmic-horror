@@ -55,7 +55,7 @@ void fragment() {
 			blurred += textureThresholded(screen_texture, SCREEN_UV + vec2(float(i) * cos(float(i)), float(-i) * sin(float(i))) * vec2(px, py) * vec2(hpass, vpass), k) * w[i];
 		}
 		
-		blurred /= float(radius) / 4.;
+		blurred /= float(radius) / 3.;
 		pixel += (1. + sin(200. * TIME)*flickerstrength) * blurred;
 		
 	} else {

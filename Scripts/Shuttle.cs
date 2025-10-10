@@ -25,7 +25,7 @@ public partial class Shuttle : Node2D
         }
         if (@event.IsActionPressed("input_test"))
         {
-            _console.OutputLine("Houston, we have a situation.");
+            _console.OutputLine("010230501 Houston, we have a .{p=0.8} .{p=0.8} .{p=0.8} problem.");
         }
     }
 }

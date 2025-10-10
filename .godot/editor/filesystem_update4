@@ -8,3 +8,4 @@ res://Scripts/Shuttle.cs
 res://Scenes/text_display.tscn
 res://Scenes/shuttle.tscn
 res://Shaders/skew.gdshader
+res://Scripts/PauseCalculator.cs
