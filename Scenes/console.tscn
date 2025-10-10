@@ -13,4 +13,4 @@ offset_bottom = 648.0
 texture = ExtResource("2_j4mgr")
 
 [node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
-position = Vector2(157, 258)
+position = Vector2(106, 304)

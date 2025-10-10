@@ -4,7 +4,7 @@
 
 [node name="Window" type="Node2D"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="PlaceholderWindow" type="TextureRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_efths")

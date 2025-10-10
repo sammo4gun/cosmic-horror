@@ -1,41 +1,48 @@
-[gd_scene load_steps=7 format=3 uid="uid://lv6of8i8mu6e"]
+[gd_scene load_steps=8 format=3 uid="uid://lv6of8i8mu6e"]
 
-[ext_resource type="Texture2D" uid="uid://cfvp22gk4h1s3" path="res://Assets/screen_placeholder.png" id="1_dke7e"]
 [ext_resource type="Script" uid="uid://tssjwb7oyfs" path="res://Scripts/TextDisplay.cs" id="1_dwgup"]
-[ext_resource type="FontFile" uid="uid://cd388dl0iwpxu" path="res://Assets/Linebeam.ttf" id="3_ftviv"]
+[ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="2_ftviv"]
+[ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="3_hfjju"]
 
-[sub_resource type="Gradient" id="Gradient_dwgup"]
+[sub_resource type="Gradient" id="Gradient_ftviv"]
 offsets = PackedFloat32Array(0, 0.5925926, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ftviv"]
-gradient = SubResource("Gradient_dwgup")
+gradient = SubResource("Gradient_ftviv")
+width = 324
 
 [sub_resource type="Theme" id="Theme_hfjju"]
-default_font = ExtResource("3_ftviv")
+default_font = ExtResource("2_ftviv")
+default_font_size = 21
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftviv"]
+shader = ExtResource("3_hfjju")
+shader_parameter/hpass = 1.0
+shader_parameter/vpass = 1.0
+shader_parameter/radius = 65
+shader_parameter/unit = Vector2(1, 1)
 
 [node name="TextDisplay" type="Node2D"]
 script = ExtResource("1_dwgup")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-texture = ExtResource("1_dke7e")
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-offset_left = 14.0
-offset_top = 20.0
-offset_right = 299.0
-offset_bottom = 298.0
+[node name="Screen" type="TextureRect" parent="."]
+offset_right = 432.0
+offset_bottom = 278.0
 texture = SubResource("GradientTexture1D_ftviv")
 
 [node name="Text" type="RichTextLabel" parent="."]
-offset_left = 16.0
-offset_top = 22.0
-offset_right = 297.0
-offset_bottom = 296.0
+modulate = Color(4.7459574, 14.139331, 4.586748, 1)
+offset_right = 432.0
+offset_bottom = 278.0
 theme = SubResource("Theme_hfjju")
 text = "Text sentence.
 Text sentence.
-Text sentence is overflowing the total length that is allowed."
+Text sentence is overflowing the total length that is allowed_"
 vertical_alignment = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ftviv")
+offset_right = 432.0
+offset_bottom = 278.0
+metadata/_edit_use_anchors_ = true

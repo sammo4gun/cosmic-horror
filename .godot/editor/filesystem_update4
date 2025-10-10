@@ -6,3 +6,5 @@ res://Scenes/window.tscn
 res://Scenes/camera.tscn
 res://Scripts/Camera.cs
 res://Scripts/Shuttle.cs
+res://Scenes/text_display.tscn
+res://Shaders/text_display.gdshader

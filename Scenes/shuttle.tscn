@@ -1,10 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://di2cu2sn4tifk"]
+[gd_scene load_steps=10 format=3 uid="uid://di2cu2sn4tifk"]
 
 [ext_resource type="PackedScene" uid="uid://b6dbtg8e0dt0r" path="res://Scenes/console.tscn" id="1_1pfi6"]
 [ext_resource type="Texture2D" uid="uid://1k00hk38db0x" path="res://Assets/blankwall_placeholder.png" id="1_vsyg2"]
 [ext_resource type="Script" uid="uid://c0ablt7k8teao" path="res://Scripts/Shuttle.cs" id="1_x30pb"]
 [ext_resource type="PackedScene" uid="uid://botib5kax6p3u" path="res://Scenes/window.tscn" id="3_gosty"]
 [ext_resource type="PackedScene" uid="uid://ve3mcaxygs60" path="res://Scenes/camera.tscn" id="4_j7j3f"]
+[ext_resource type="Shader" uid="uid://esvovl72o2el" path="res://Shaders/crt_display.gdshader" id="6_5o0t5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0uqxh"]
+shader = ExtResource("6_5o0t5")
+shader_parameter/screen_size = Vector2(1296, 1296)
+shader_parameter/viewport_size = Vector2(1296, 1296)
+shader_parameter/hardScan = -8.0
+shader_parameter/hardPix = -3.0
+shader_parameter/warpX = 0.031
+shader_parameter/warpY = 0.041
+shader_parameter/maskDark = 1.30000001937156
+shader_parameter/maskLight = 1.5000000223518
+shader_parameter/scaleInLinearGamma = false
+shader_parameter/shadowMask = 3
+shader_parameter/brightBoost = 1.10000001639132
+shader_parameter/hardBloomPix = -1.5
+shader_parameter/hardBloomScan = -2.0
+shader_parameter/bloomAmount = 0.15
+shader_parameter/shape = 1.65000002458698
+shader_parameter/doBloom = true
+shader_parameter/enable_compression = true
+shader_parameter/compression_intensity = 8.0
+shader_parameter/compression_quantization = 16.0
+shader_parameter/compression_block_size = 8.0
+shader_parameter/compression_blend = 0.7
+shader_parameter/enable_chromatic_aberration = true
+shader_parameter/red_shift = Vector2(0.002, 0)
+shader_parameter/green_shift = Vector2(0, 0)
+shader_parameter/blue_shift = Vector2(-0.002, 0)
+shader_parameter/aberration_bias = 1.0
+shader_parameter/aberration_blend = 0.8
+shader_parameter/enable_lens_distortion = true
+shader_parameter/distortion_intensity = 0.15
+shader_parameter/distortion_magnifier = 1.0
+shader_parameter/distortion_invert = false
+shader_parameter/enable_noise = true
+shader_parameter/noise_intensity = 0.08
+shader_parameter/noise_scale = 50.0
+shader_parameter/noise_framerate = 24.0
+shader_parameter/noise_midtones = 1.0
+shader_parameter/noise_shadows = 1.2
+shader_parameter/noise_highlights = 0.8
+shader_parameter/enable_halation = false
+shader_parameter/halation_amount = 0.3
+shader_parameter/halation_threshold = 0.8
+shader_parameter/halation_size = 2.0
+shader_parameter/halation_color_filter = Vector3(1, 0.9, 0.8)
+shader_parameter/enable_sharpen = false
+shader_parameter/sharpen_intensity = 1.0
+shader_parameter/sharpen_offset = 1.0
+shader_parameter/enable_soften = false
+shader_parameter/soften_strength = 1.0
+shader_parameter/soften_blend = 0.5
+shader_parameter/enable_vignette = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_size = 0.8
+shader_parameter/vignette_color = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_dwgup"]
+offsets = PackedFloat32Array(0, 0.5925926, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_23dal"]
+gradient = SubResource("Gradient_dwgup")
 
 [node name="Shuttle" type="Node2D"]
 script = ExtResource("1_x30pb")
@@ -37,3 +101,11 @@ texture = ExtResource("1_vsyg2")
 
 [node name="Camera" parent="." instance=ExtResource("4_j7j3f")]
 position = Vector2(324, 324)
+
+[node name="CRTDisplay" type="TextureRect" parent="Camera"]
+material = SubResource("ShaderMaterial_0uqxh")
+offset_left = -324.0
+offset_top = -324.0
+offset_right = 324.0
+offset_bottom = 324.0
+texture = SubResource("GradientTexture1D_23dal")

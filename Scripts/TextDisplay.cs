@@ -10,6 +10,5 @@ public partial class TextDisplay : Node2D
         base._Ready();
 
         _mainText = GetNode<RichTextLabel>("Text");
-        _mainText.Text = "Hello!";
     }
 }
