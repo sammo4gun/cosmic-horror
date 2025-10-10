@@ -4,11 +4,13 @@ using System;
 public partial class Shuttle : Node2D
 {
     private Camera _camera;
+    private Console _console;
 
     public override void _Ready()
     {
         base._Ready();
         _camera = GetNode<Camera>("Camera");
+        _console = GetNode<Console>("Console");
     }
 
     public override void _Input(InputEvent @event)
@@ -20,6 +22,10 @@ public partial class Shuttle : Node2D
         if (@event.IsActionPressed("right"))
         {
             _camera.Turn("right");
+        }
+        if (@event.IsActionPressed("input_test"))
+        {
+            _console.OutputLine("Houston, we have a situation.");
         }
     }
 }

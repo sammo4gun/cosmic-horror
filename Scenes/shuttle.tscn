@@ -9,8 +9,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0uqxh"]
 shader = ExtResource("6_5o0t5")
-shader_parameter/screen_size = Vector2(1296, 1296)
-shader_parameter/viewport_size = Vector2(1296, 1296)
+shader_parameter/screen_size = Vector2(3000, 3000)
+shader_parameter/viewport_size = Vector2(648, 648)
 shader_parameter/hardScan = -8.0
 shader_parameter/hardPix = -3.0
 shader_parameter/warpX = 0.031
