@@ -2,3 +2,10 @@ res://Scripts/TextDisplay.cs
 res://Scripts/Shuttle.cs
 res://Scripts/Console.cs
 res://Scripts/Camera.cs
+res://Scenes/text_display.tscn
+res://Shaders/text_display.gdshader
+res://Scenes/shuttle.tscn
+res://Shaders/crt_display.gdshader
+res://Shaders/skew.gdshader
+res://Scripts/PauseCalculator.cs
+res://Scenes/console.tscn

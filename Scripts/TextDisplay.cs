@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class TextDisplay : Node2D
 {
@@ -12,6 +13,8 @@ public partial class TextDisplay : Node2D
     private RichTextLabel _mainText;
     private bool _isTyping = false;
     private string _currentText = "";
+
+    private List<string> _linesQueue = new List<string>();
 
     private float _flickerTimer = 0.0f;
     private float _typingTimer = 0.0f;
@@ -29,8 +32,9 @@ public partial class TextDisplay : Node2D
     }
 
     public override void _Process(double delta)
-    {
+    {        
         base._Process(delta);
+
         if (_isTyping)
         {
             _typingTimer += (float)delta;
@@ -46,9 +50,21 @@ public partial class TextDisplay : Node2D
                 _mainText.Text = _currentText.Substring(0, _charsDisplayed);
                 if (_mainText.Text == _currentText)
                 {
-                    _isTyping = false;
-                    _mainText.Text += " ";
-                    _flickerTimer = 0.0f; // Ensures flickering will look smooth
+                    if (_linesQueue.Count > 0)
+                    {
+                        string nextLine = _linesQueue[0];
+                        _linesQueue.RemoveAt(0);
+                        _currentText += _pauseCalculator.ExtractPausesFromString(nextLine);
+                        _currentText += "\n";
+                        _lineProgress = 0; // Reset pause tracking for new line
+                        _typingTimer = _typingSpeed; // Force immediate first char display
+                    }
+                    else
+                    {
+                        _isTyping = false;
+                        _mainText.Text += " ";
+                        _flickerTimer = 0.0f; // Ensures flickering will look smooth
+                    }
                 }
                 _mainText.ScrollToLine(_mainText.GetLineCount() - 1);
             }
@@ -80,14 +96,18 @@ public partial class TextDisplay : Node2D
 
     public void AddLine(string line)
     {
-        if (_mainText.Text.EndsWith('_')) _mainText.Text = _mainText.Text.TrimEnd('_');
-        else if (_mainText.Text.EndsWith(' ')) _mainText.Text = _mainText.Text.TrimEnd(' ');
+        if (_isTyping) _linesQueue.Add(line);
+        else
+        {
+            if (_mainText.Text.EndsWith('_')) _mainText.Text = _mainText.Text.TrimEnd('_');
+            else if (_mainText.Text.EndsWith(' ')) _mainText.Text = _mainText.Text.TrimEnd(' ');
 
-        _currentText += _pauseCalculator.ExtractPausesFromString(line);
-        _currentText += "\n";
-        _typingTimer = _typingSpeed; // Force immediate first char display
+            _currentText += _pauseCalculator.ExtractPausesFromString(line);
+            _currentText += "\n";
+            _typingTimer = _typingSpeed; // Force immediate first char display
 
-        _lineProgress = 0; // Reset pause tracking for new line
-        _isTyping = true;
+            _lineProgress = 0; // Reset pause tracking for new line
+            _isTyping = true;
+        }
     }
 }

@@ -5,8 +5,6 @@
 [ext_resource type="Script" uid="uid://bvrryo18xupji" path="res://Scripts/PauseCalculator.cs" id="2_hfjju"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="3_hfjju"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
-
 [sub_resource type="Gradient" id="Gradient_ftviv"]
 offsets = PackedFloat32Array(0, 0.5925926, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
@@ -15,6 +13,11 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 gradient = SubResource("Gradient_ftviv")
 width = 324
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f3tff"]
+shader = ExtResource("3_hfjju")
+shader_parameter/flicker_strength = 0.30000001425
+shader_parameter/flicker_speed = 100.00000475
+
 [sub_resource type="Theme" id="Theme_hfjju"]
 default_font = ExtResource("2_ftviv")
 default_font_size = 27
@@ -22,34 +25,39 @@ default_font_size = 27
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ftviv"]
 resource_local_to_scene = true
 shader = ExtResource("3_hfjju")
-shader_parameter/hpass = 1.0
-shader_parameter/vpass = 1.0
-shader_parameter/radius = 65
-shader_parameter/flickerstrength = 0.27999999374144
-shader_parameter/unit = Vector2(0.5, 0.5)
+shader_parameter/flicker_strength = 1.0
+shader_parameter/flicker_speed = 1.0
 
 [node name="TextDisplay" type="Node2D"]
-material = SubResource("ShaderMaterial_hfjju")
 script = ExtResource("1_dwgup")
 
 [node name="PauseCalculator" type="Node" parent="."]
 script = ExtResource("2_hfjju")
 
 [node name="Screen" type="TextureRect" parent="."]
-use_parent_material = true
 offset_right = 432.0
 offset_bottom = 278.0
 texture = SubResource("GradientTexture1D_ftviv")
 
 [node name="Text" type="RichTextLabel" parent="."]
-modulate = Color(4.7459574, 14.139331, 4.586748, 1)
-use_parent_material = true
+modulate = Color(1.211586, 15.79569, 0.0063084685, 1)
+material = SubResource("ShaderMaterial_f3tff")
 offset_right = 432.0
 offset_bottom = 278.0
 theme = SubResource("Theme_hfjju")
 text = "Text sentence.
 Text sentence.
-Text sentence is overflowing the total length that is allowed"
+Text sentence is overflowing the total length that is allowed
+
+
+
+
+
+
+
+
+
+"
 autowrap_mode = 1
 vertical_alignment = 2
 
