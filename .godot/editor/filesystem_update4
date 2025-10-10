@@ -1,5 +1,8 @@
-res://Node2d.cs
+res://Scripts/TextDisplay.cs
 res://Scripts/Console.cs
 res://Scenes/console.tscn
-res://Scenes/text_display.tscn
-res://Scripts/TextDisplay.cs
+res://Scenes/shuttle.tscn
+res://Scenes/window.tscn
+res://Scenes/camera.tscn
+res://Scripts/Camera.cs
+res://Scripts/Shuttle.cs
