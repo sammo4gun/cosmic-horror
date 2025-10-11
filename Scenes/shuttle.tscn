@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://di2cu2sn4tifk"]
+[gd_scene load_steps=12 format=3 uid="uid://di2cu2sn4tifk"]
 
 [ext_resource type="PackedScene" uid="uid://b6dbtg8e0dt0r" path="res://Scenes/console.tscn" id="1_1pfi6"]
 [ext_resource type="Texture2D" uid="uid://1k00hk38db0x" path="res://Assets/blankwall_placeholder.png" id="1_vsyg2"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://botib5kax6p3u" path="res://Scenes/window.tscn" id="3_gosty"]
 [ext_resource type="PackedScene" uid="uid://ve3mcaxygs60" path="res://Scenes/camera.tscn" id="4_j7j3f"]
 [ext_resource type="Shader" uid="uid://esvovl72o2el" path="res://Shaders/crt_display.gdshader" id="6_5o0t5"]
+[ext_resource type="Script" uid="uid://bh2fuxs36fxte" path="res://Scripts/TimeHandler.cs" id="7_0uqxh"]
+[ext_resource type="Script" uid="uid://c6djcormwfpyy" path="res://Scripts/SpaceHandler.cs" id="8_23dal"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0uqxh"]
 shader = ExtResource("6_5o0t5")
@@ -110,3 +112,9 @@ offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
 texture = SubResource("GradientTexture1D_23dal")
+
+[node name="TimeHandler" type="Node" parent="."]
+script = ExtResource("7_0uqxh")
+
+[node name="SpaceHandler" type="Node" parent="."]
+script = ExtResource("8_23dal")

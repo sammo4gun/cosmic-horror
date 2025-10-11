@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfqd4ln5jt8ry"]
+[gd_scene load_steps=11 format=3 uid="uid://bfqd4ln5jt8ry"]
 
 [ext_resource type="Shader" uid="uid://oc4wyd5myqy7" path="res://Shaders/skew.gdshader" id="1_p005u"]
+[ext_resource type="Script" uid="uid://bw3fdflw88y70" path="res://Scripts/DistDisplay.cs" id="1_rxjq2"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="2_rxjq2"]
 [ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="3_iya3c"]
 
@@ -32,6 +33,7 @@ default_font = ExtResource("3_iya3c")
 default_font_size = 28
 
 [node name="DistDisplay" type="Node2D"]
+script = ExtResource("1_rxjq2")
 
 [node name="ScreenContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_q6cw6")
