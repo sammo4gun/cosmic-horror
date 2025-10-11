@@ -1,8 +1,8 @@
-Node
+ColorRect
 TextureRect
+Node
 SubViewport
 SubViewportContainer
-ColorRect
 Node3D
 CanvasLayer
 Control

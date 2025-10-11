@@ -14,3 +14,5 @@ res://Scripts/SpaceHandler.cs
 res://Scripts/DistDisplay.cs
 res://Scenes/dist_display.tscn
 res://Scenes/time_display.tscn
+res://Scripts/HibernationHandler.cs
+res://Scenes/camera.tscn

@@ -7,9 +7,11 @@ public partial class Shuttle : Node2D
     private Console _console;
     private TimeHandler _timeHandler;
     private SpaceHandler _spaceHandler;
+    private HibernationHandler _hibernationHandler;
 
     public DateTime CurrentTime => _timeHandler.CurrentTime;
     public float DistanceFromEarth => _spaceHandler.DistanceFromEarth;
+    public bool Hibernating => _hibernationHandler.IsHibernating;
 
     public float Speed = 10.0f; // in km/s (this may need to be updated)
     public float SpinTilt = 0.0f; // degrees
@@ -22,11 +24,7 @@ public partial class Shuttle : Node2D
         _console = GetNode<Console>("Console");
         _timeHandler = GetNode<TimeHandler>("TimeHandler");
         _spaceHandler = GetNode<SpaceHandler>("SpaceHandler");
-    }
-
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
+        _hibernationHandler = GetNode<HibernationHandler>("HibernationHandler");
     }
 
     public override void _Input(InputEvent @event)
@@ -41,9 +39,8 @@ public partial class Shuttle : Node2D
         }
         if (@event.IsActionPressed("input_test"))
         {
-            _console.OutputLine("0159879");
-            _timeHandler.AddTime(1, "years");
-            _spaceHandler.AddDistance(315_600_000);
+            _console.OutputLine("01\n\n\n\n\n\n\n\n\n59879");
+            _hibernationHandler.EnterHibernation(1, "years", 315_600_000); // 1 year
         }
     }
 }

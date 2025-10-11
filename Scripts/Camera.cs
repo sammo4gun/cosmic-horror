@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using static Godot.Control;
 
 public partial class Camera : Camera2D
 {
@@ -9,6 +10,11 @@ public partial class Camera : Camera2D
     public int ZoomSpeed { get; set; } = 8;
     [Export]
     public float ZoomFactor { get; set; } = 1.2f;
+
+    [Signal]
+    public delegate void HibernationStartedEventHandler();
+    [Signal]
+    public delegate void HibernationEndedEventHandler();
 
     private static Vector2 LEFT_POSITION = new((648 / 2) + (648 * -2), 648 / 2);
     private static Vector2 SWITCH_POSITION_1 = new((648 / 2) + (648 * -1), 648 / 2);
@@ -20,10 +26,16 @@ public partial class Camera : Camera2D
     public bool FacingConsole = true;
     private Vector2 TargetPosition;
 
+    private TextureRect _mouseBlocker;
+    private ColorRect _screenBlocker;
+    private bool _hibernating = false;
+
     public override void _Ready()
     {
         base._Ready();
         TargetPosition = Position;
+        _mouseBlocker = GetNode<TextureRect>("MouseBlocker");
+        _screenBlocker = GetNode<ColorRect>("ScreenBlocker");
     }
 
     public override void _PhysicsProcess(double delta)
@@ -32,6 +44,7 @@ public partial class Camera : Camera2D
         HandleZoom(delta);
         MoveToTarget(delta);
         HandleSwitching();
+        HandleHibernationVisibility(delta);
     }
 
     private void HandleZoom(double delta)
@@ -64,9 +77,57 @@ public partial class Camera : Camera2D
             TargetPosition = CONSOLE_POSITION;
         }
     }
+
+    private void HandleHibernationVisibility(double delta)
+    {
+        if (_hibernating && _screenBlocker.Size.Y < 648)
+        {
+            _screenBlocker.Visible = true;
+            _screenBlocker.Size = new Vector2(_screenBlocker.Size.X, _screenBlocker.Size.Y + 648 * (float)delta);
+            _screenBlocker.Position = new Vector2(_screenBlocker.Position.X, _screenBlocker.Position.Y - 648 * (float)delta / 2);
+        }
+        if (!_hibernating && _screenBlocker.Size.Y > 10)
+        {
+            _screenBlocker.Size = new Vector2(_screenBlocker.Size.X, _screenBlocker.Size.Y - 648 * (float)delta);
+            _screenBlocker.Position = new Vector2(_screenBlocker.Position.X, _screenBlocker.Position.Y + 648 * (float)delta / 2);
+        }
+        else if (!_hibernating && _screenBlocker.Size.Y <= 10)
+        {
+            _screenBlocker.Visible = false;
+        }
+    }
+
+    public async void StartHibernation()
+    {
+        if (!FacingConsole) Turn("left");
+        
+        // all the technical stuff required to enter hibernation
+        _hibernating = true;
+        _mouseBlocker.MouseFilter = MouseFilterEnum.Stop;
+        _mouseBlocker.MouseForcePassScrollEvents = false;
+
+        // all the visual stuff required to enter hibernation
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        
+        EmitSignal(SignalName.HibernationStarted);
+    }
+    
+    public async void  EndHibernation()
+    {
+        // all the technical stuff required to leave hibernation
+        _hibernating = false;
+        _mouseBlocker.MouseFilter = MouseFilterEnum.Ignore;
+        _mouseBlocker.MouseForcePassScrollEvents = true;
+        
+        // all the visual stuff required to leave hibernation
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        
+        EmitSignal(SignalName.HibernationEnded);
+    }
     
     public bool Turn(string direction)
     {
+        if (_hibernating) return false;
         if (Position.DistanceTo(TargetPosition) > 1) return false;
         if (direction == "right")
         {

@@ -1,7 +1,95 @@
-[gd_scene load_steps=2 format=3 uid="uid://ve3mcaxygs60"]
+[gd_scene load_steps=6 format=3 uid="uid://ve3mcaxygs60"]
 
 [ext_resource type="Script" uid="uid://byjgtxmsdgeq1" path="res://Scripts/Camera.cs" id="1_375tr"]
+[ext_resource type="Shader" uid="uid://esvovl72o2el" path="res://Shaders/crt_display.gdshader" id="2_f1cf7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhsga"]
+shader = ExtResource("2_f1cf7")
+shader_parameter/screen_size = Vector2(3000, 3000)
+shader_parameter/viewport_size = Vector2(648, 648)
+shader_parameter/hardScan = -8.0
+shader_parameter/hardPix = -3.0
+shader_parameter/warpX = 0.031
+shader_parameter/warpY = 0.041
+shader_parameter/maskDark = 1.30000001937156
+shader_parameter/maskLight = 1.5000000223518
+shader_parameter/scaleInLinearGamma = false
+shader_parameter/shadowMask = 3
+shader_parameter/brightBoost = 1.10000001639132
+shader_parameter/hardBloomPix = -1.5
+shader_parameter/hardBloomScan = -2.0
+shader_parameter/bloomAmount = 0.15
+shader_parameter/shape = 1.65000002458698
+shader_parameter/doBloom = true
+shader_parameter/enable_compression = true
+shader_parameter/compression_intensity = 8.0
+shader_parameter/compression_quantization = 16.0
+shader_parameter/compression_block_size = 8.0
+shader_parameter/compression_blend = 0.7
+shader_parameter/enable_chromatic_aberration = true
+shader_parameter/red_shift = Vector2(0.002, 0)
+shader_parameter/green_shift = Vector2(0, 0)
+shader_parameter/blue_shift = Vector2(-0.002, 0)
+shader_parameter/aberration_bias = 1.0
+shader_parameter/aberration_blend = 0.8
+shader_parameter/enable_lens_distortion = true
+shader_parameter/distortion_intensity = 0.15
+shader_parameter/distortion_magnifier = 1.0
+shader_parameter/distortion_invert = false
+shader_parameter/enable_noise = true
+shader_parameter/noise_intensity = 0.08
+shader_parameter/noise_scale = 50.0
+shader_parameter/noise_framerate = 24.0
+shader_parameter/noise_midtones = 1.0
+shader_parameter/noise_shadows = 1.2
+shader_parameter/noise_highlights = 0.8
+shader_parameter/enable_halation = false
+shader_parameter/halation_amount = 0.3
+shader_parameter/halation_threshold = 0.8
+shader_parameter/halation_size = 2.0
+shader_parameter/halation_color_filter = Vector3(1, 0.9, 0.8)
+shader_parameter/enable_sharpen = false
+shader_parameter/sharpen_intensity = 1.0
+shader_parameter/sharpen_offset = 1.0
+shader_parameter/enable_soften = false
+shader_parameter/soften_strength = 1.0
+shader_parameter/soften_blend = 0.5
+shader_parameter/enable_vignette = true
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_size = 0.8
+shader_parameter/vignette_color = Vector3(0, 0, 0)
+
+[sub_resource type="Gradient" id="Gradient_dwgup"]
+offsets = PackedFloat32Array(0, 0.5925926, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xfji6"]
+gradient = SubResource("Gradient_dwgup")
 
 [node name="Camera" type="Camera2D"]
 script = ExtResource("1_375tr")
 ZoomFactor = 1.05
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CRTDisplay" type="TextureRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_mhsga")
+offset_right = 648.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = SubResource("GradientTexture1D_xfji6")
+metadata/_edit_use_anchors_ = true
+
+[node name="MouseBlocker" type="TextureRect" parent="."]
+offset_left = -324.0
+offset_top = -324.0
+offset_right = 324.0
+offset_bottom = 324.0
+
+[node name="ScreenBlocker" type="ColorRect" parent="."]
+visible = false
+offset_left = -324.0
+offset_top = -5.0
+offset_right = 324.0
+offset_bottom = 5.0
+color = Color(0, 0, 0, 1)
