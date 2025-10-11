@@ -45,19 +45,7 @@ material = SubResource("ShaderMaterial_f3tff")
 offset_right = 432.0
 offset_bottom = 278.0
 theme = SubResource("Theme_hfjju")
-text = "Text sentence.
-Text sentence.
-Text sentence is overflowing the total length that is allowed
-
-
-
-
-
-
-
-
-
-"
+text = "No text."
 autowrap_mode = 1
 vertical_alignment = 2
 

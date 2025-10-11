@@ -9,3 +9,4 @@ res://Shaders/crt_display.gdshader
 res://Shaders/skew.gdshader
 res://Scripts/PauseCalculator.cs
 res://Scenes/console.tscn
+res://Scenes/small_display.tscn

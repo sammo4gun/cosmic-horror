@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=5 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
+[ext_resource type="PackedScene" uid="uid://cvust45cuswxf" path="res://Scenes/small_display.tscn" id="4_atbq5"]
 
 [node name="Console" type="Node2D"]
 script = ExtResource("1_2kium")
@@ -14,3 +15,6 @@ texture = ExtResource("2_j4mgr")
 
 [node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
 position = Vector2(108, 180)
+
+[node name="SmallDisplay" parent="TextDisplay" instance=ExtResource("4_atbq5")]
+position = Vector2(-76, -116)
