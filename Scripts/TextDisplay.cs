@@ -11,8 +11,11 @@ public partial class TextDisplay : Node2D
 
     private PauseCalculator _pauseCalculator;
     private RichTextLabel _mainText;
+    private Control _screenHeightHandler;
     private bool _isTyping = false;
     private string _currentText = "";
+
+    private bool _raised = false;
 
     private List<string> _linesQueue = new List<string>();
 
@@ -25,14 +28,17 @@ public partial class TextDisplay : Node2D
     {
         base._Ready();
 
-        _mainText = GetNode<RichTextLabel>("ScreenContainer/SubViewport/Text");
+        _screenHeightHandler = GetNode<Control>("ScreenContainer/SubViewport/ScreenHeightHandler");
+        _mainText = GetNode<RichTextLabel>("ScreenContainer/SubViewport/ScreenHeightHandler/Text");
         _pauseCalculator = GetNode<PauseCalculator>("PauseCalculator");
         _mainText.Text = _currentText;
         _charsDisplayed = _currentText.Length;
+
+        _screenHeightHandler.Position = new Vector2(0, 290);
     }
 
     public override void _Process(double delta)
-    {        
+    {
         base._Process(delta);
 
         if (_isTyping)
@@ -73,6 +79,20 @@ public partial class TextDisplay : Node2D
         {
             Flicker(delta);
         }
+
+        if (_raised && _screenHeightHandler.Position.Y > 0)
+        {
+            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Max(_screenHeightHandler.Position.Y - 200 * (float)delta, 0));
+        }
+        else if (!_raised && _screenHeightHandler.Position.Y < 460)
+        {
+            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Min(_screenHeightHandler.Position.Y + 200 * (float)delta, 460));
+        }
+    }
+    
+    public void ToggleRaise()
+    {
+        _raised = !_raised;
     }
 
     private void Flicker(double delta)

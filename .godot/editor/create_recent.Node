@@ -1,11 +1,12 @@
-ColorRect
+Control
 TextureRect
+Sprite2D
+ColorRect
 Node
 SubViewport
 SubViewportContainer
 Node3D
 CanvasLayer
-Control
 Line2D
 Camera2D
 RichTextLabel

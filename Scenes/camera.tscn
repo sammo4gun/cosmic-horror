@@ -85,6 +85,7 @@ offset_left = -324.0
 offset_top = -324.0
 offset_right = 324.0
 offset_bottom = 324.0
+mouse_filter = 2
 
 [node name="ScreenBlocker" type="ColorRect" parent="."]
 visible = false

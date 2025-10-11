@@ -15,4 +15,9 @@ public partial class Console : Node2D
     {
         _textDisplay.AddLine(line);
     }
+
+    public void ToggleRaiseText()
+    {
+        _textDisplay.ToggleRaise();
+    }
 }

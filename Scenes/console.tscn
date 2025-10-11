@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=8 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
 [ext_resource type="PackedScene" uid="uid://cvust45cuswxf" path="res://Scenes/time_display.tscn" id="4_atbq5"]
 [ext_resource type="PackedScene" uid="uid://bfqd4ln5jt8ry" path="res://Scenes/dist_display.tscn" id="5_qxy8f"]
+[ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
@@ -18,10 +19,16 @@ texture = ExtResource("2_j4mgr")
 
 [node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
 material = SubResource("ShaderMaterial_hfjju")
-position = Vector2(103, 241)
+position = Vector2(85, 236)
 
 [node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
 position = Vector2(324, 64)
 
 [node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
 position = Vector2(65, 64)
+
+[node name="Dial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(560, 311)
+
+[node name="Dial2" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(76, 312)

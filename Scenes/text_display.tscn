@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://lv6of8i8mu6e"]
+[gd_scene load_steps=12 format=3 uid="uid://lv6of8i8mu6e"]
 
 [ext_resource type="Script" uid="uid://tssjwb7oyfs" path="res://Scripts/TextDisplay.cs" id="1_dwgup"]
 [ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="2_ftviv"]
 [ext_resource type="Script" uid="uid://bvrryo18xupji" path="res://Scripts/PauseCalculator.cs" id="2_hfjju"]
 [ext_resource type="Shader" uid="uid://oc4wyd5myqy7" path="res://Shaders/skew.gdshader" id="3_ftviv"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="3_hfjju"]
+[ext_resource type="Texture2D" uid="uid://cfvp22gk4h1s3" path="res://Assets/screen_placeholder.png" id="4_agw8y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_agw8y"]
 shader = ExtResource("3_ftviv")
@@ -39,30 +40,49 @@ script = ExtResource("2_hfjju")
 
 [node name="ScreenContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_agw8y")
-offset_right = 432.0
-offset_bottom = 278.0
+offset_right = 480.0
+offset_bottom = 310.0
 
 [node name="SubViewport" type="SubViewport" parent="ScreenContainer"]
+transparent_bg = true
 handle_input_locally = false
-size = Vector2i(432, 278)
+size = Vector2i(460, 290)
 render_target_update_mode = 4
 
-[node name="Screen" type="TextureRect" parent="ScreenContainer/SubViewport"]
-offset_right = 432.0
-offset_bottom = 278.0
+[node name="ScreenHeightHandler" type="Control" parent="ScreenContainer/SubViewport"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Screen2" type="TextureRect" parent="ScreenContainer/SubViewport/ScreenHeightHandler"]
+layout_mode = 0
+offset_right = 460.0
+offset_bottom = 290.0
+texture = ExtResource("4_agw8y")
+
+[node name="Screen" type="TextureRect" parent="ScreenContainer/SubViewport/ScreenHeightHandler"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 445.99994
+offset_bottom = 290.0
 texture = SubResource("GradientTexture1D_ftviv")
 
-[node name="Text" type="RichTextLabel" parent="ScreenContainer/SubViewport"]
+[node name="Text" type="RichTextLabel" parent="ScreenContainer/SubViewport/ScreenHeightHandler"]
 modulate = Color(0.1257813, 0.94167095, 0.41024905, 1)
 material = SubResource("ShaderMaterial_f3tff")
-offset_right = 432.0
-offset_bottom = 278.0
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 445.99994
+offset_bottom = 290.0
 theme = SubResource("Theme_hfjju")
 text = "No text."
 autowrap_mode = 1
 vertical_alignment = 2
 
-[node name="ScrollBlock" type="TextureRect" parent="ScreenContainer/SubViewport/Text"]
+[node name="ScrollBlock" type="TextureRect" parent="ScreenContainer/SubViewport/ScreenHeightHandler/Text"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
