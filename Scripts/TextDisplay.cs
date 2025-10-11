@@ -25,7 +25,7 @@ public partial class TextDisplay : Node2D
     {
         base._Ready();
 
-        _mainText = GetNode<RichTextLabel>("Text");
+        _mainText = GetNode<RichTextLabel>("ScreenContainer/SubViewport/Text");
         _pauseCalculator = GetNode<PauseCalculator>("PauseCalculator");
         _mainText.Text = _currentText;
         _charsDisplayed = _currentText.Length;
