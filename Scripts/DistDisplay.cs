@@ -11,13 +11,26 @@ public partial class DistDisplay : Node2D
     {
         base._Ready();
         _mainText = GetNode<RichTextLabel>("ScreenContainer/SubViewport/Text");
-        _mainText.Text = ((Shuttle)GetParent().GetParent()).DistanceFromEarth.ToString("F0") + " km";
+        string distance = GetStringDistance(((Shuttle)GetParent().GetParent()).DistanceFromEarth);
+        _mainText.Text = "dist " + distance + " km";
+    }
+
+    private static String GetStringDistance(float distance)
+    {
+        if (distance < 1_000.0f) return distance.ToString("F1");
+        if (distance < 1_000_000.0f) return distance.ToString("F0");
+        if (distance < 10_000_000.0f) return (distance / 1_000_000.0f).ToString("F1") + " mil";
+        if (distance < 1_000_000_000.0f) return (distance / 1_000_000.0f).ToString("F0") + " mil";
+        if (distance < 10_000_000_000.0f) return (distance / 1_000_000_000.0f).ToString("F1") + " bil";
+        if (distance < 1000_000_000_000.0f) return (distance / 1_000_000_000.0f).ToString("F0") + " bil";
+        return distance.ToString("F0");
     }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
         if (!DisplayRunning) return;
-        _mainText.Text = ((Shuttle)GetParent().GetParent()).DistanceFromEarth.ToString("F0") + " km";
+        string distance = GetStringDistance(((Shuttle)GetParent().GetParent()).DistanceFromEarth);
+        _mainText.Text = "dist " + distance + " km";
     }
 }

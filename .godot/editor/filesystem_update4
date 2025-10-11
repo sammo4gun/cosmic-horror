@@ -13,3 +13,4 @@ res://Scripts/PauseCalculator.cs
 res://Scripts/SpaceHandler.cs
 res://Scripts/DistDisplay.cs
 res://Scenes/dist_display.tscn
+res://Scenes/time_display.tscn
