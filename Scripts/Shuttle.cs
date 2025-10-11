@@ -43,7 +43,7 @@ public partial class Shuttle : Node2D
         {
             _console.OutputLine("0159879");
             _timeHandler.AddTime(1, "years");
-            _spaceHandler.AddDistance(315600000);
+            _spaceHandler.AddDistance(315_600_000);
         }
     }
 }

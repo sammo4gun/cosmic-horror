@@ -11,8 +11,6 @@ public partial class DistDisplay : Node2D
     {
         base._Ready();
         _mainText = GetNode<RichTextLabel>("ScreenContainer/SubViewport/Text");
-        string distance = GetStringDistance(((Shuttle)GetParent().GetParent()).DistanceFromEarth);
-        _mainText.Text = "dist " + distance + " km";
     }
 
     private static String GetStringDistance(float distance)
@@ -31,6 +29,6 @@ public partial class DistDisplay : Node2D
         base._Process(delta);
         if (!DisplayRunning) return;
         string distance = GetStringDistance(((Shuttle)GetParent().GetParent()).DistanceFromEarth);
-        _mainText.Text = "dist " + distance + " km";
+        _mainText.Text = "distance " + distance + " km";
     }
 }

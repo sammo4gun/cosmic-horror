@@ -3,7 +3,13 @@ using System;
 
 public partial class SpaceHandler : Node
 {
-    public float DistanceFromEarth = 1_000.0f; // in km
+    public float DistanceFromEarth; // in km
+
+    public override void _Ready()
+    {
+        base._Ready();
+        DistanceFromEarth = 1_000.0f;
+    }
 
     // Calculating distance from Earth in process
     public override void _Process(double delta)
