@@ -2,24 +2,25 @@
 
 [ext_resource type="Shader" uid="uid://oc4wyd5myqy7" path="res://Shaders/skew.gdshader" id="1_00dml"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="1_4u4tq"]
+[ext_resource type="Script" uid="uid://7ao1br33l8bo" path="res://Scripts/TimeDisplay.cs" id="1_hbkvd"]
 [ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="2_00dml"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6cw6"]
 shader = ExtResource("1_00dml")
 shader_parameter/fov = 73.63200345002
 shader_parameter/cull_back = true
-shader_parameter/y_rot = 16.55200933622001
-shader_parameter/x_rot = 8.549999989782009e-06
-shader_parameter/inset = 0.230000010925
+shader_parameter/y_rot = 20.690009532775008
+shader_parameter/x_rot = -4.137991646555008
+shader_parameter/inset = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4u4tq"]
 
-[sub_resource type="Gradient" id="Gradient_ftviv"]
+[sub_resource type="Gradient" id="Gradient_00dml"]
 offsets = PackedFloat32Array(0, 0.5925926, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_q6cw6"]
-gradient = SubResource("Gradient_ftviv")
+gradient = SubResource("Gradient_00dml")
 width = 324
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oogu0"]
@@ -31,47 +32,34 @@ shader_parameter/flicker_speed = 100.00000475
 default_font = ExtResource("2_00dml")
 default_font_size = 28
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dh6sn"]
-resource_local_to_scene = true
-shader = ExtResource("1_4u4tq")
-shader_parameter/flicker_strength = 1.0
-shader_parameter/flicker_speed = 1.0
+[node name="TimeDisplay" type="Node2D"]
+script = ExtResource("1_hbkvd")
 
-[node name="SmallDisplay" type="Node2D"]
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+[node name="ScreenContainer" type="SubViewportContainer" parent="."]
 material = SubResource("ShaderMaterial_q6cw6")
-offset_right = 40.0
+offset_right = 324.0
 offset_bottom = 40.0
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="ScreenContainer"]
 handle_input_locally = false
-size = Vector2i(324, 32)
+size = Vector2i(255, 32)
 render_target_update_mode = 4
 
-[node name="Screen" type="TextureRect" parent="SubViewportContainer/SubViewport"]
+[node name="Screen" type="TextureRect" parent="ScreenContainer/SubViewport"]
 material = SubResource("ShaderMaterial_4u4tq")
 offset_right = 324.0
 offset_bottom = 32.0
 texture = SubResource("GradientTexture1D_q6cw6")
 
-[node name="Text" type="RichTextLabel" parent="SubViewportContainer/SubViewport"]
+[node name="Text" type="RichTextLabel" parent="ScreenContainer/SubViewport"]
 modulate = Color(0.1257813, 0.94167095, 0.41024905, 1)
 material = SubResource("ShaderMaterial_oogu0")
-offset_top = -2.0
-offset_right = 324.0
-offset_bottom = 30.0
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 259.0
+offset_bottom = 29.0
 theme = SubResource("Theme_5wsuc")
 text = "05-09-1977 12:56:01.000"
 scroll_active = false
 autowrap_mode = 1
-horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="GlowEffect" type="ColorRect" parent="SubViewportContainer/SubViewport/Text"]
-visible = false
-material = SubResource("ShaderMaterial_dh6sn")
-layout_mode = 0
-offset_right = 432.0
-offset_bottom = 278.0
-metadata/_edit_use_anchors_ = true
