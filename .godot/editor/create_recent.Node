@@ -1,8 +1,10 @@
+ColorRect
+Sprite2D
+Node2D
 Node
 TextureRect
 SubViewport
 SubViewportContainer
-ColorRect
 Node3D
 CanvasLayer
 Control
