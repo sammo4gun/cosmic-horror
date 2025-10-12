@@ -15,3 +15,8 @@ res://Scripts/TimeHandler.cs
 res://Scripts/TextDisplay.cs
 res://Scenes/console.tscn
 res://Scenes/dial.tscn
+res://Scripts/Stars.cs
+res://Scripts/PlanetBody.cs
+res://Scripts/Window.cs
+res://Scenes/camera.tscn
+res://Scenes/window.tscn

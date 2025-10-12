@@ -3,9 +3,9 @@ using System;
 
 public partial class DistDisplay : Node2D
 {
-    private RichTextLabel _mainText;
+	private RichTextLabel _mainText;
 
-    public bool DisplayRunning = true;
+	public bool DisplayRunning = true;
 
     public override void _Ready()
     {
