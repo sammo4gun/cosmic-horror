@@ -27,8 +27,8 @@ position = Vector2(324, 64)
 [node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
 position = Vector2(65, 64)
 
-[node name="Dial" parent="." instance=ExtResource("6_xivcw")]
+[node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
 position = Vector2(560, 311)
 
-[node name="Dial2" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(76, 312)
+[node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(73, 298)

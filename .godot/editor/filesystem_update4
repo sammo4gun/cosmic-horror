@@ -2,3 +2,16 @@ res://Scenes/text_display.tscn
 res://Shaders/skew.gdshader
 res://Shaders/text_display.gdshader
 res://Shaders/crt_display.gdshader
+res://Scripts/SpaceHandler.cs
+res://Scripts/Shuttle.cs
+res://Scripts/DistDisplay.cs
+res://Scripts/Console.cs
+res://Scripts/HibernationHandler.cs
+res://Scripts/PauseCalculator.cs
+res://Scripts/Camera.cs
+res://Scripts/TimeDisplay.cs
+res://Scripts/Dial.cs
+res://Scripts/TimeHandler.cs
+res://Scripts/TextDisplay.cs
+res://Scenes/console.tscn
+res://Scenes/dial.tscn
