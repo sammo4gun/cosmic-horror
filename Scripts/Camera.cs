@@ -23,7 +23,7 @@ public partial class Camera : Camera2D
     private static Vector2 SWITCH_POSITION_2 = new((648 / 2) + (648 * 3), 648 / 2);
     private static Vector2 RIGHT_POSITION = new((648 / 2) + (648 * 4), 648 / 2);
 
-    public bool FacingConsole = true;
+    public bool FacingConsole = false;
     private Vector2 TargetPosition;
 
     private TextureRect _mouseBlocker;

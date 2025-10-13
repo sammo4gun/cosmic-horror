@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dc7eqb0x0reuj"
+path="res://.godot/imported/button_bipmap_placeholder.png-fad93502ffe69d5597005479a41d378b.res"
+
+[deps]
+
+source_file="res://Assets/button_bipmap_placeholder.png"
+dest_files=["res://.godot/imported/button_bipmap_placeholder.png-fad93502ffe69d5597005479a41d378b.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

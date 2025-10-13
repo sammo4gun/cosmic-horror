@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=10 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cvust45cuswxf" path="res://Scenes/time_display.tscn" id="4_atbq5"]
 [ext_resource type="PackedScene" uid="uid://bfqd4ln5jt8ry" path="res://Scenes/dist_display.tscn" id="5_qxy8f"]
 [ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
+[ext_resource type="Script" uid="uid://4hh4yltl2d4o" path="res://Scripts/ButtonHandler.cs" id="7_uqptw"]
+[ext_resource type="PackedScene" uid="uid://cu6blqcigefog" path="res://Scenes/flippable_button.tscn" id="7_uukfc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
@@ -32,3 +34,91 @@ position = Vector2(560, 311)
 
 [node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
 position = Vector2(73, 298)
+
+[node name="ButtonHandler" type="Node" parent="."]
+script = ExtResource("7_uqptw")
+
+[node name="FlippableButtonA" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 432.00003
+offset_top = 110.0
+offset_right = 540.0
+offset_bottom = 218.0
+rotation = 0.29653293
+scale = Vector2(0.33462042, 0.33462042)
+
+[node name="FlippableButtonB" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 455.00003
+offset_top = 127.99999
+offset_right = 563.0
+offset_bottom = 236.0
+rotation = 0.29653293
+scale = Vector2(0.33462042, 0.33462042)
+
+[node name="FlippableButtonC" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 475.99997
+offset_top = 151.99998
+offset_right = 583.99994
+offset_bottom = 260.0
+rotation = 0.29653293
+scale = Vector2(0.33462042, 0.33462042)
+
+[node name="FlippableButtonD" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 497.00003
+offset_top = 175.99998
+offset_right = 605.0
+offset_bottom = 284.0
+rotation = 0.29653293
+scale = Vector2(0.33462042, 0.33462042)
+
+[node name="FlippableButtonE" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 518.0
+offset_top = 198.99998
+offset_right = 626.0
+offset_bottom = 307.0
+rotation = 0.29653293
+scale = Vector2(0.33462042, 0.33462042)
+
+[node name="FlippableButton1" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 173.0
+offset_top = 117.28515
+offset_right = 281.0
+offset_bottom = 225.28516
+rotation = -0.17480478
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButton2" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 148.0
+offset_top = 132.0
+offset_right = 256.0
+offset_bottom = 240.0
+rotation = -0.17480478
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButton3" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 124.0
+offset_top = 151.00003
+offset_right = 232.0
+offset_bottom = 259.00006
+rotation = -0.17480478
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButton4" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 100.000015
+offset_top = 171.0
+offset_right = 208.00002
+offset_bottom = 279.00003
+rotation = -0.17480478
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButton5" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 76.0
+offset_top = 193.0
+offset_right = 184.0
+offset_bottom = 301.00003
+rotation = -0.17480478
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true

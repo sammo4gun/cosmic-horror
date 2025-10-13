@@ -7,7 +7,7 @@ public partial class TextDisplay : Node2D
     [Export]
     private float _flickerUnderscore = 0.5f;
     [Export]
-    private float _typingSpeed = 0.05f;
+    private float _typingSpeed = 0.04f;
 
     private PauseCalculator _pauseCalculator;
     private RichTextLabel _mainText;

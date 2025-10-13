@@ -39,7 +39,7 @@ offset_bottom = 648.0
 texture = ExtResource("1_vsyg2")
 
 [node name="Camera" parent="." instance=ExtResource("4_j7j3f")]
-position = Vector2(324, 324)
+position = Vector2(1620, 324)
 
 [node name="TimeHandler" type="Node" parent="."]
 script = ExtResource("7_0uqxh")

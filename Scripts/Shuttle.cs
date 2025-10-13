@@ -39,6 +39,12 @@ public partial class Shuttle : Node2D
         }
         if (@event.IsActionPressed("input_test"))
         {
+            _console.OutputLine("VOY01 - Booting systems...");
+            _console.OutputLine("Standby for further instructions.");
+            // _hibernationHandler.EnterHibernation(1, "years", 315_600_000); // 1 year
+        }
+        if (@event.IsActionPressed("text_test"))
+        {
             _console.ToggleRaiseText();
             // _console.OutputLine("01\n\n\n\n\n\n\n\n\n59879");
             // _hibernationHandler.EnterHibernation(1, "years", 315_600_000); // 1 year
