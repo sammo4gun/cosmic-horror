@@ -13,11 +13,18 @@ public partial class Console : Node2D
         base._Ready();
         _textDisplay = GetNode<TextDisplay>("TextDisplay");
         _buttonHandler = GetNode<ButtonHandler>("ButtonHandler");
+
+        _textDisplay.InputReceived += (question, input) => ((Shuttle)GetParent()).ReceiveInput(question, input);
     }
 
-    public void OutputLine(string line)
+    public void OutputLine(string line, bool noquestion = false)
     {
-        _textDisplay.AddLine(line);
+        _textDisplay.AddLine(line, noquestion);
+    }
+
+    public void RequestInput()
+    {
+        _textDisplay.AskForInput();
     }
 
     public void ToggleRaiseText()
