@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=12 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
 [ext_resource type="Script" uid="uid://4hh4yltl2d4o" path="res://Scripts/ButtonHandler.cs" id="7_uqptw"]
 [ext_resource type="PackedScene" uid="uid://cu6blqcigefog" path="res://Scenes/flippable_button.tscn" id="7_uukfc"]
+[ext_resource type="Script" uid="uid://dydif2173vasd" path="res://Scripts/LightHandler.cs" id="9_gyscv"]
+[ext_resource type="PackedScene" uid="uid://c2gsxsrr8xw3u" path="res://Scenes/light.tscn" id="10_ekwfd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
@@ -30,10 +32,10 @@ position = Vector2(324, 64)
 position = Vector2(65, 64)
 
 [node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(560, 311)
+position = Vector2(569, 311)
 
 [node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(73, 298)
+position = Vector2(66, 298)
 
 [node name="ButtonHandler" type="Node" parent="."]
 script = ExtResource("7_uqptw")
@@ -122,3 +124,30 @@ offset_bottom = 301.00003
 rotation = -0.17480478
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
+
+[node name="LightHandler" type="Node" parent="."]
+script = ExtResource("9_gyscv")
+
+[node name="FlippableLight1" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(241, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight2" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(270, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight3" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(301, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight4" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(331, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight5" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(362, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight6" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(394, 234)
+scale = Vector2(0.25246653, 0.25246653)

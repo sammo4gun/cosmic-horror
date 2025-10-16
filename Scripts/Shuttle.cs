@@ -9,6 +9,7 @@ public partial class Shuttle : Node2D
     private TimeHandler _timeHandler;
     private SpaceHandler _spaceHandler;
     private HibernationHandler _hibernationHandler;
+    private SoundScapeHandler _soundScapeHandler;
 
     public DateTime CurrentTime => _timeHandler.CurrentTime;
     public float DistanceFromEarth => _spaceHandler.DistanceFromEarth;
@@ -26,6 +27,7 @@ public partial class Shuttle : Node2D
         _timeHandler = GetNode<TimeHandler>("TimeHandler");
         _spaceHandler = GetNode<SpaceHandler>("SpaceHandler");
         _hibernationHandler = GetNode<HibernationHandler>("HibernationHandler");
+        _soundScapeHandler = GetNode<SoundScapeHandler>("SoundScapeHandler");
     }
 
     public override void _Input(InputEvent @event)
@@ -33,6 +35,7 @@ public partial class Shuttle : Node2D
         if (@event.IsActionPressed("left"))
         {
             _camera.Turn("left");
+            _console.SetLightState("1", true); // Example of setting a light on
         }
         if (@event.IsActionPressed("right"))
         {
@@ -62,7 +65,7 @@ public partial class Shuttle : Node2D
         {
             if (input.ToLower() == "y" || input.ToLower() == "yes")
             {
-                if (_console.IsButtonPressed("A") && _console.IsButtonPressed("E") && _console.IsButtonPressed("1") && _console.IsButtonPressed("4"))
+                if (_console.AreButtonsPressed("E41A", exact: true))
                 {
                     _console.OutputLine("Affermative. All systems active.", noquestion: true);
                     return;

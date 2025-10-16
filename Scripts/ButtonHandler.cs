@@ -25,7 +25,7 @@ public partial class ButtonHandler : Node
 
     private static string GetButtonName(TextureButton button)
     {
-        return ((string)button.Name)[((string)button.Name).Length - 1].ToString();
+        return ((string)button.Name).Substr("FlippableButton".Length, ((string)button.Name).Length - "FlippableButton".Length).ToString();
     }
 
 }

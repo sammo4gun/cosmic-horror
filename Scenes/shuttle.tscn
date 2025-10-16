@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://di2cu2sn4tifk"]
+[gd_scene load_steps=10 format=3 uid="uid://di2cu2sn4tifk"]
 
 [ext_resource type="PackedScene" uid="uid://b6dbtg8e0dt0r" path="res://Scenes/console.tscn" id="1_1pfi6"]
 [ext_resource type="Texture2D" uid="uid://1k00hk38db0x" path="res://Assets/blankwall_placeholder.png" id="1_vsyg2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bh2fuxs36fxte" path="res://Scripts/TimeHandler.cs" id="7_0uqxh"]
 [ext_resource type="Script" uid="uid://c6djcormwfpyy" path="res://Scripts/SpaceHandler.cs" id="8_23dal"]
 [ext_resource type="Script" uid="uid://bsim3q725pqj1" path="res://Scripts/HibernationHandler.cs" id="9_qp0on"]
+[ext_resource type="PackedScene" uid="uid://b74wyvqud5xb0" path="res://Scenes/sound_scape_handler.tscn" id="9_y8b7f"]
 
 [node name="Shuttle" type="Node2D"]
 script = ExtResource("1_x30pb")
@@ -49,3 +50,5 @@ script = ExtResource("8_23dal")
 
 [node name="HibernationHandler" type="Node" parent="."]
 script = ExtResource("9_qp0on")
+
+[node name="SoundScapeHandler" parent="." instance=ExtResource("9_y8b7f")]

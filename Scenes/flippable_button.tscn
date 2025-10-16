@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu6blqcigefog"]
+[gd_scene load_steps=7 format=3 uid="uid://cu6blqcigefog"]
 
 [ext_resource type="Texture2D" uid="uid://br44xkd14isx8" path="res://Assets/button_out_placeholder.png" id="1_vcxq3"]
 [ext_resource type="Texture2D" uid="uid://b8qw32jo3p7xp" path="res://Assets/button_in_placeholder.png" id="2_vc1od"]
 [ext_resource type="BitMap" uid="uid://dc7eqb0x0reuj" path="res://Assets/button_bipmap_placeholder.png" id="3_vvlvl"]
+[ext_resource type="Script" uid="uid://w4ft5aux25tb" path="res://Scripts/FlippableButton.cs" id="4_jm01f"]
+[ext_resource type="AudioStream" uid="uid://blhifyxgxjwbt" path="res://Assets/SFX/OnSwitch.mp3" id="4_qxey5"]
+[ext_resource type="AudioStream" uid="uid://byghfesrbokq3" path="res://Assets/SFX/OffSwitch.mp3" id="5_qxey5"]
 
 [node name="FlippableButton" type="TextureButton"]
 offset_right = 108.0
@@ -13,3 +16,10 @@ action_mode = 0
 texture_normal = ExtResource("1_vcxq3")
 texture_pressed = ExtResource("2_vc1od")
 texture_click_mask = ExtResource("3_vvlvl")
+script = ExtResource("4_jm01f")
+
+[node name="OnSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qxey5")
+
+[node name="OffSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_qxey5")
