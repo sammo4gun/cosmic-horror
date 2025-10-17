@@ -88,19 +88,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SamWhitehead\\.nuget\\packages\\": {}
+    "C:\\Users\\sam\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SamWhitehead\\Documents\\cosmic-horror\\CosmicHorror.csproj",
+      "projectUniqueName": "C:\\Users\\sam\\Documents\\GitHub\\cosmic-horror\\CosmicHorror.csproj",
       "projectName": "CosmicHorror",
-      "projectPath": "C:\\Users\\SamWhitehead\\Documents\\cosmic-horror\\CosmicHorror.csproj",
-      "packagesPath": "C:\\Users\\SamWhitehead\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SamWhitehead\\Documents\\cosmic-horror\\.godot\\mono\\temp\\obj\\",
+      "projectPath": "C:\\Users\\sam\\Documents\\GitHub\\cosmic-horror\\CosmicHorror.csproj",
+      "packagesPath": "C:\\Users\\sam\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sam\\Documents\\GitHub\\cosmic-horror\\.godot\\mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SamWhitehead\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\sam\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -160,15 +160,15 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.21, 8.0.21]"
+            "version": "[8.0.16, 8.0.16]"
           },
           {
             "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.21, 8.0.21]"
+            "version": "[8.0.16, 8.0.16]"
           },
           {
             "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.21, 8.0.21]"
+            "version": "[8.0.16, 8.0.16]"
           }
         ],
         "frameworkReferences": {
@@ -176,7 +176,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

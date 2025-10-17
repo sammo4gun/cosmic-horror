@@ -67,7 +67,7 @@ public partial class Shuttle : Node2D
             {
                 if (_console.AreButtonsPressed("E41A", exact: true))
                 {
-                    _console.OutputLine("Affermative. All systems active.", noquestion: true);
+                    _console.OutputLine("Affirmative. All systems active.", noquestion: true);
                     return;
                 }
                 _console.OutputLine("Incorrect Launch sequence.", noquestion: true);

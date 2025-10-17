@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c3mmjw1mjhx3r"
+path="res://.godot/imported/Keyboard click 1.mp3-9bd65b2b6655bdc49c6e7df68a124c5d.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/Keyboard click 1.mp3"
+dest_files=["res://.godot/imported/Keyboard click 1.mp3-9bd65b2b6655bdc49c6e7df68a124c5d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
