@@ -33,7 +33,7 @@ public partial class Dial : Node2D
         if (_dialSprite.Rotation != Mathf.DegToRad(CurrentValue * 10))
         {
             if (!_turnSoundPlayer.Playing)
-                _turnSoundPlayer.PitchScale = (float)GD.RandRange(0.7, 0.74);
+                // _turnSoundPlayer.PitchScale = (float)GD.RandRange(0.7, 0.74);
                 _turnSoundPlayer.Play();
         }
         _dialSprite.Rotation = Mathf.DegToRad(CurrentValue * 10);

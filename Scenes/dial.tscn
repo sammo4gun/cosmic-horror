@@ -1,10 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtlkolrigax87"]
+[gd_scene load_steps=12 format=3 uid="uid://dtlkolrigax87"]
 
 [ext_resource type="Texture2D" uid="uid://c6ia6uvi6orlw" path="res://Assets/dial_placeholder.png" id="1_3hysx"]
 [ext_resource type="Script" uid="uid://ddlo66fdtcbtn" path="res://Scripts/Dial.cs" id="1_suo4o"]
 [ext_resource type="AudioStream" uid="uid://efj52pev8e2n" path="res://Assets/SFX/RotaryClick.mp3" id="3_m4fgq"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="3_p1td7"]
 [ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="4_m4fgq"]
+[ext_resource type="AudioStream" uid="uid://bpqq4a8yx7voh" path="res://Assets/SFX/RotaryClick2.mp3" id="4_n3mys"]
+[ext_resource type="AudioStream" uid="uid://b8ulvr0skdde8" path="res://Assets/SFX/RotaryClick3.mp3" id="5_8vfqw"]
+[ext_resource type="AudioStream" uid="uid://ceg2uktiacetg" path="res://Assets/SFX/RotaryClick4.mp3" id="6_c86ua"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_d1y0i"]
+random_pitch = 1.04
+streams_count = 4
+stream_0/stream = ExtResource("3_m4fgq")
+stream_1/stream = ExtResource("4_n3mys")
+stream_2/stream = ExtResource("5_8vfqw")
+stream_3/stream = ExtResource("6_c86ua")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d1y0i"]
 shader = ExtResource("3_p1td7")
@@ -23,8 +34,9 @@ DragSensitivity = 0.0
 texture = ExtResource("1_3hysx")
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_m4fgq")
-pitch_scale = 0.7
+stream = SubResource("AudioStreamRandomizer_d1y0i")
+volume_db = -16.22
+pitch_scale = 1.18
 
 [node name="Screen" type="ColorRect" parent="."]
 offset_left = -40.0
