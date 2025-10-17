@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://dos7hvxaxhthg"]
+
+[ext_resource type="Texture2D" uid="uid://d1tnqep8b5f1a" path="res://Assets/record_activated_placeholder.png" id="1_kgpb7"]
+[ext_resource type="Texture2D" uid="uid://cho0xwaxvub2s" path="res://Assets/record_playing_placeholder.png" id="2_2p0nn"]
+[ext_resource type="Texture2D" uid="uid://6ggb2yh2eucj" path="res://Assets/record_deactivated_placeholder.png" id="3_ax7bx"]
+[ext_resource type="BitMap" uid="uid://waul262qv7i7" path="res://Assets/record_bitmap_placeholder.png" id="4_xcud7"]
+[ext_resource type="Script" uid="uid://fj7v8ycgw2b6" path="res://Scripts/RecordPlayer.cs" id="5_a7dwo"]
+[ext_resource type="AudioStream" uid="uid://b67lhdvfllv6l" path="res://Assets/SFX/French Children.mp3" id="6_3yily"]
+[ext_resource type="AudioStream" uid="uid://dsydpg21tl62t" path="res://Assets/SFX/Tapedeck_LoadIn.mp3" id="7_2p0nn"]
+[ext_resource type="AudioStream" uid="uid://bpxn7rnb2j0bp" path="res://Assets/SFX/Tapedeck_background.mp3" id="8_ax7bx"]
+[ext_resource type="AudioStream" uid="uid://dnidhdaalkpr3" path="res://Assets/SFX/Tapedeck_Pause.mp3" id="9_ax7bx"]
+[ext_resource type="AudioStream" uid="uid://dioyun5qeo1np" path="res://Assets/SFX/Tapedeck_LoadOut.mp3" id="9_xcud7"]
+
+[node name="RecordPlayer" type="TextureButton"]
+offset_right = 108.0
+offset_bottom = 108.0
+focus_mode = 0
+disabled = true
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("1_kgpb7")
+texture_pressed = ExtResource("2_2p0nn")
+texture_disabled = ExtResource("3_ax7bx")
+texture_click_mask = ExtResource("4_xcud7")
+script = ExtResource("5_a7dwo")
+
+[node name="LoadBarFillerNotDone" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 65.0
+offset_right = 250.0
+offset_bottom = 80.0
+color = Color(0, 0, 0, 1)
+
+[node name="LoadBarFiller" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 51.0
+offset_top = 65.0
+offset_right = 51.0
+offset_bottom = 80.0
+color = Color(31.444193, 30.946575, 0, 1)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3yily")
+
+[node name="LoadPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2p0nn")
+
+[node name="BackgroundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ax7bx")
+
+[node name="PausePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ax7bx")
+
+[node name="UnloadPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_xcud7")

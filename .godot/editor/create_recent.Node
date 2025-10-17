@@ -1,10 +1,11 @@
-Label      - Matches the "text" keyword.
-TextEdit
+Node2D
 AudioStreamPlayer
-Node
-AudioStreamPlayer2D      - Matches the "sound" keyword.
 ColorRect
 Sprite2D
+Label      - Matches the "text" keyword.
+TextEdit
+Node
+AudioStreamPlayer2D      - Matches the "sound" keyword.
 SubViewport
 SubViewportContainer
 TextureButton
@@ -12,4 +13,3 @@ Button
 Control
 TextureRect
 Node3D
-CanvasLayer

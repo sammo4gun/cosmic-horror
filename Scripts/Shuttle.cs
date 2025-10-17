@@ -2,6 +2,9 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
+// SCENE_ID: Departing_Earth
+// Window: The player sees earth moving away very slowly, starting out very close to the ground
+// 
 public partial class Shuttle : Node2D
 {
     private Camera _camera;
@@ -10,14 +13,17 @@ public partial class Shuttle : Node2D
     private SpaceHandler _spaceHandler;
     private HibernationHandler _hibernationHandler;
     private SoundScapeHandler _soundScapeHandler;
+    private RecordPlayer _recordPlayer;
 
     public DateTime CurrentTime => _timeHandler.CurrentTime;
     public float DistanceFromEarth => _spaceHandler.DistanceFromEarth;
     public bool Hibernating => _hibernationHandler.IsHibernating;
 
-    public float Speed = 10.0f; // in km/s (this may need to be updated)
-    public float SpinTilt = 0.0f; // degrees
-    public float HeightTilt = 0.0f; // degrees
+    public float Speed = 15.0f; // in km/s (this may need to be updated)
+    // define starting time
+    // define starting distance
+
+    public bool TriggeredConsole = false;
 
     public override void _Ready()
     {
@@ -28,36 +34,53 @@ public partial class Shuttle : Node2D
         _spaceHandler = GetNode<SpaceHandler>("SpaceHandler");
         _hibernationHandler = GetNode<HibernationHandler>("HibernationHandler");
         _soundScapeHandler = GetNode<SoundScapeHandler>("SoundScapeHandler");
+        _recordPlayer = GetNode<RecordPlayer>("Window/RecordPlayer");
+        _recordPlayer.ValidationDone += RecordValidated;
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        if (_camera.FacingConsole)
+        {
+            if (!TriggeredConsole) TriggerConsole();
+        }
     }
 
     public override void _Input(InputEvent @event)
     {
+        HandleTurning(@event);
+    }
+    
+    public async void TriggerConsole()
+    {
+        TriggeredConsole = true;
+
+        await ToSignal(GetTree().CreateTimer(2f), "timeout");
+        
+        _console.ToggleRaiseText();
+        if (!(_console.LaunchCodes is string))
+        {
+            _console.OutputLine("VOY01 - Booting systems...");
+            _console.OutputLine("THRUS1 - Operational.");
+            _console.OutputLine("THRUS2 - Operational.");
+            _console.OutputLine("RENDEZVOUS SAT1 - 0.34u87. Nominal trajectory.");
+            _console.OutputLine("Estimed time to Mars orbit: 7 months.");
+            _console.OutputLine("Launch code E41A.");
+            _console.LaunchCodes = "E41A";
+            _recordPlayer.Disabled = false;
+        }
+    }
+
+    public void HandleTurning(InputEvent @event)
+    {
         if (@event.IsActionPressed("left"))
         {
             _camera.Turn("left");
-            _console.SetLightState("1", true); // Example of setting a light on
         }
         if (@event.IsActionPressed("right"))
         {
             _camera.Turn("right");
-        }
-        if (@event.IsActionPressed("input_test"))
-        {
-            // _hibernationHandler.EnterHibernation(1, "years", 315_600_000); // 1 year
-        }
-        if (@event.IsActionPressed("text_test"))
-        {
-            _console.ToggleRaiseText();
-            if (!(_console.LaunchCodes is string)) 
-            {
-                _console.OutputLine("VOY01 - Booting systems...");
-                _console.OutputLine("THRUS1 - Operational.");
-                _console.OutputLine("THRUS2 - Operational.");
-                _console.OutputLine("RENDEZVOUS SAT1 - 0.34u87. Nominal trajectory.");
-                _console.OutputLine("Estimed time to Mars orbit: 7 months.");
-                _console.OutputLine("Launch code E41A.");
-                _console.LaunchCodes = "E41A";
-            }
         }
     }
 
@@ -97,5 +120,11 @@ public partial class Shuttle : Node2D
         {
             _console.OutputLine($"Random Input received: {input}");
         }
+    }
+
+    public void RecordValidated()
+    {
+        _console.OutputLine($"Validation complete.");
+        _console.OutputLine($"Golden Drive Integrity at 100%.");
     }
 }
