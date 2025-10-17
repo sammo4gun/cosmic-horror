@@ -43,20 +43,29 @@ public partial class Shuttle : Node2D
         }
         if (@event.IsActionPressed("input_test"))
         {
-            _console.OutputLine("VOY01 - Booting systems...");
-            _console.OutputLine("THRUS1 - Operational.");
-            _console.OutputLine("THRUS2 - Operational.");
-            _console.OutputLine("RENDEZVOUS SAT1 - 0.34u87. Nominal trajectory.");
-            _console.OutputLine("Estimed time to Mars orbit: 7 months.");
-            _console.OutputLine("Boot code E41A.");
-            _console.OutputLine("Engage thrusters and activate system? (Y/N)");
-            _console.RequestInput();
             // _hibernationHandler.EnterHibernation(1, "years", 315_600_000); // 1 year
         }
         if (@event.IsActionPressed("text_test"))
         {
             _console.ToggleRaiseText();
+            if (!(_console.LaunchCodes is string)) 
+            {
+                _console.OutputLine("VOY01 - Booting systems...");
+                _console.OutputLine("THRUS1 - Operational.");
+                _console.OutputLine("THRUS2 - Operational.");
+                _console.OutputLine("RENDEZVOUS SAT1 - 0.34u87. Nominal trajectory.");
+                _console.OutputLine("Estimed time to Mars orbit: 7 months.");
+                _console.OutputLine("Launch code E41A.");
+                _console.LaunchCodes = "E41A";
+            }
         }
+    }
+
+    public void LaunchCodesEntered(bool correct, bool shuffled)
+    {
+        if (correct) _console.OutputLine("Launch code received. Ready for takeoff. Psheeewwww!!!");
+        else if (shuffled) _console.OutputLine("Incorrect ordering on launch codes. Holding off on launch.");
+        else _console.OutputLine("Launch codes incorrect. Awaiting instruction.");
     }
 
     public void ReceiveInput(string question, string input)

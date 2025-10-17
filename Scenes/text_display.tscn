@@ -82,7 +82,8 @@ offset_top = 12.0
 offset_right = 445.99994
 offset_bottom = 290.0
 theme = SubResource("Theme_hfjju")
-text = "No text."
+bbcode_enabled = true
+text = "No [b]text[/b]."
 autowrap_mode = 1
 vertical_alignment = 2
 

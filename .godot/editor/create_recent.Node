@@ -1,9 +1,10 @@
+Label      - Matches the "text" keyword.
+TextEdit
 AudioStreamPlayer
 Node
 AudioStreamPlayer2D      - Matches the "sound" keyword.
 ColorRect
 Sprite2D
-TextEdit
 SubViewport
 SubViewportContainer
 TextureButton

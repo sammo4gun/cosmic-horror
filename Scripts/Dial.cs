@@ -14,6 +14,7 @@ public partial class Dial : Node2D
     private AudioStreamPlayer _turnSoundPlayer;
 
     public float CurrentValue = 0.0f;
+    public bool Activated = false;
 
     private bool _dragging = false;
     private Vector2 _lastMousePos;
@@ -30,6 +31,7 @@ public partial class Dial : Node2D
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
+        if (!Activated) return;
         if (_dialSprite.Rotation != Mathf.DegToRad(CurrentValue * 10))
         {
             if (!_turnSoundPlayer.Playing)
@@ -48,6 +50,7 @@ public partial class Dial : Node2D
 
     public override void _UnhandledInput(InputEvent @event)
     {
+        if (!Activated) return;
         if (@event is InputEventMouseButton mouseEvent)
         {
             var mousePos = GetGlobalMousePosition();
@@ -84,5 +87,12 @@ public partial class Dial : Node2D
             CurrentValue = Mathf.Clamp(CurrentValue + Math.Sign(delta.X) * RotationSpeed, -ValueCap, ValueCap);
             _lastMousePos = motionEvent.Position;
         }
+    }
+
+    public void ToggleActivate(bool activate)
+    {
+        Activated = activate;
+        if (activate) _numDisplay.Visible = true;
+        else _numDisplay.Visible = false;
     }
 }

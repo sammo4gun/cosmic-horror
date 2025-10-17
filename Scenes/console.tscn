@@ -125,6 +125,15 @@ rotation = -0.17480478
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
+[node name="FlippableButtonLaunch" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 319.0
+offset_top = 88.00001
+offset_right = 427.0
+offset_bottom = 196.00003
+rotation = 0.7612072
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource("9_gyscv")
 
@@ -151,3 +160,21 @@ scale = Vector2(0.25246653, 0.25246653)
 [node name="FlippableLight6" parent="LightHandler" instance=ExtResource("10_ekwfd")]
 position = Vector2(394, 234)
 scale = Vector2(0.25246653, 0.25246653)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 98.00001
+offset_top = 137.0
+offset_right = 144.0
+offset_bottom = 160.0
+rotation = -0.6065403
+text = "54321"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 501.00003
+offset_top = 119.0
+offset_right = 553.0
+offset_bottom = 142.0
+rotation = 0.7279254
+text = "ABCDE"

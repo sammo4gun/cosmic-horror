@@ -46,6 +46,7 @@ offset_bottom = 76.0
 color = Color(0, 0, 0, 1)
 
 [node name="Number" type="RichTextLabel" parent="."]
+visible = false
 modulate = Color(0.1257813, 0.94167095, 0.41024905, 1)
 material = SubResource("ShaderMaterial_d1y0i")
 offset_left = -40.0
