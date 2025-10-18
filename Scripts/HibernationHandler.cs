@@ -4,31 +4,35 @@ using System.Threading.Tasks;
 public partial class HibernationHandler : Node
 {
     [Export]
-    float HibernationLength = 5.0f; // length of dark screen during hibernation
+    float HibernationLength = 4.0f; // length of dark screen during hibernation
 
-    public bool IsHibernating = false;
+    public bool IsHibernating = true;
     private Camera _camera;
 
     public override void _Ready()
     {
         base._Ready();
         _camera = GetParent().GetNode<Camera>("Camera");
+        _ = EndHibernation();
     }
 
-    public async Task EnterHibernation(int TimePassed, string TimeUnit, int DistancePassed)
+    public async Task EndHibernation()
+    {
+        await ToSignal(GetTree().CreateTimer(1.0f), "timeout");
+        _camera.EndHibernation();
+        await ToSignal(_camera, "HibernationEnded");
+
+        IsHibernating = false;
+    }
+
+    public async Task EnterHibernation(string newSceneName)
     {
         IsHibernating = true;
         _camera.StartHibernation();
         await ToSignal(_camera, "HibernationStarted");
 
-        ((Shuttle)GetParent()).GetNode<TimeHandler>("TimeHandler").AddTime(TimePassed, TimeUnit);
-        ((Shuttle)GetParent()).GetNode<SpaceHandler>("SpaceHandler").AddDistance(DistancePassed);
-
         await ToSignal(GetTree().CreateTimer(HibernationLength), "timeout");
 
-        _camera.EndHibernation();
-        await ToSignal(_camera, "HibernationEnded");
-
-        IsHibernating = false;
+        GetTree().ChangeSceneToFile($"res://Scenes/{newSceneName}.tscn");
     }
 }

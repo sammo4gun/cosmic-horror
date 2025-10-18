@@ -1,15 +1,14 @@
+AudioStreamPlayer
+AnimatedSprite2D
+Node2D
+ColorRect
+Sprite2D
+Label      - Matches the "text" keyword.
 TextEdit
+Node
+AudioStreamPlayer2D      - Matches the "sound" keyword.
 SubViewport
 SubViewportContainer
-Node
 TextureButton
 Button
 Control
-TextureRect
-Sprite2D
-ColorRect
-Node3D
-CanvasLayer
-Line2D
-Camera2D
-RichTextLabel

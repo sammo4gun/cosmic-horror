@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://waul262qv7i7"
+path="res://.godot/imported/record_bitmap_placeholder.png-03050056e31032a496ab841efc6be93a.res"
+
+[deps]
+
+source_file="res://Assets/record_bitmap_placeholder.png"
+dest_files=["res://.godot/imported/record_bitmap_placeholder.png-03050056e31032a496ab841efc6be93a.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

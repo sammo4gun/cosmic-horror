@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=13 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
 [ext_resource type="Script" uid="uid://4hh4yltl2d4o" path="res://Scripts/ButtonHandler.cs" id="7_uqptw"]
 [ext_resource type="PackedScene" uid="uid://cu6blqcigefog" path="res://Scenes/flippable_button.tscn" id="7_uukfc"]
+[ext_resource type="Script" uid="uid://dydif2173vasd" path="res://Scripts/LightHandler.cs" id="9_gyscv"]
+[ext_resource type="PackedScene" uid="uid://c2gsxsrr8xw3u" path="res://Scenes/light.tscn" id="10_ekwfd"]
+[ext_resource type="PackedScene" uid="uid://l3i23e4u2cux" path="res://Scenes/radio_receiver.tscn" id="11_ekwfd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
@@ -18,22 +21,6 @@ script = ExtResource("1_2kium")
 offset_right = 648.0
 offset_bottom = 648.0
 texture = ExtResource("2_j4mgr")
-
-[node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
-material = SubResource("ShaderMaterial_hfjju")
-position = Vector2(85, 236)
-
-[node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
-position = Vector2(324, 64)
-
-[node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
-position = Vector2(65, 64)
-
-[node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(560, 311)
-
-[node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(73, 298)
 
 [node name="ButtonHandler" type="Node" parent="."]
 script = ExtResource("7_uqptw")
@@ -122,3 +109,87 @@ offset_bottom = 301.00003
 rotation = -0.17480478
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
+
+[node name="FlippableButtonLaunch" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 319.0
+offset_top = 88.00001
+offset_right = 427.0
+offset_bottom = 196.00003
+rotation = 0.7612072
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButtonHibernation" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 319.0
+offset_top = 299.0
+offset_right = 427.0
+offset_bottom = 407.00003
+rotation = 0.7612072
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="LightHandler" type="Node" parent="."]
+script = ExtResource("9_gyscv")
+
+[node name="FlippableLight1" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(241, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight2" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(270, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight3" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(301, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight4" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(331, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight5" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(362, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight6" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+position = Vector2(394, 234)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
+position = Vector2(324, 64)
+
+[node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
+position = Vector2(65, 64)
+
+[node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(569, 311)
+
+[node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(66, 298)
+
+[node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
+z_index = 1
+material = SubResource("ShaderMaterial_hfjju")
+position = Vector2(85, 236)
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 98.00001
+offset_top = 137.0
+offset_right = 144.0
+offset_bottom = 160.0
+rotation = -0.6065403
+text = "54321"
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 501.00003
+offset_top = 119.0
+offset_right = 553.0
+offset_bottom = 142.0
+rotation = 0.7279254
+text = "ABCDE"
+
+[node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
+position = Vector2(588, 586)
+scale = Vector2(0.51353294, 0.51353294)

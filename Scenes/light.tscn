@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2gsxsrr8xw3u"]
+
+[ext_resource type="Script" uid="uid://b061rab4w8k5g" path="res://Scripts/Light.cs" id="1_hsho4"]
+[ext_resource type="Texture2D" uid="uid://cu1niru1t56gh" path="res://Assets/light_placeholder_on.png" id="1_wh1uv"]
+[ext_resource type="Texture2D" uid="uid://cytq82t85ekwh" path="res://Assets/light_placeholder_off.png" id="2_hsho4"]
+
+[node name="FlippableLight" type="Node2D"]
+script = ExtResource("1_hsho4")
+
+[node name="OnLight" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_wh1uv")
+
+[node name="OffLight" type="Sprite2D" parent="."]
+texture = ExtResource("2_hsho4")

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b74wyvqud5xb0"]
+
+[ext_resource type="AudioStream" uid="uid://byfr3wsjx2qal" path="res://Assets/SFX/Voyager Reversed.mp3" id="1_w8crl"]
+[ext_resource type="Script" uid="uid://b4nlmseyn3ti5" path="res://Scripts/SoundScapeHandler.cs" id="1_yb6c1"]
+[ext_resource type="AudioStream" uid="uid://cqx3mvkt7ebkv" path="res://Assets/SFX/StaticContinuous.mp3" id="3_h28lt"]
+
+[node name="SoundScapeHandler" type="Node"]
+script = ExtResource("1_yb6c1")
+
+[node name="VoyagerReversedPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_w8crl")
+volume_db = -4.771
+parameters/looping = true
+
+[node name="HumPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_h28lt")
+volume_db = -10.495
+parameters/looping = true

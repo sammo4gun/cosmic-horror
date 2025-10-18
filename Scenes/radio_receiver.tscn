@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://l3i23e4u2cux"]
+
+[ext_resource type="Script" uid="uid://cjc3leormvxmu" path="res://Scripts/RadioReceiver.cs" id="1_1nhh5"]
+[ext_resource type="Texture2D" uid="uid://cu1niru1t56gh" path="res://Assets/light_placeholder_on.png" id="2_5to70"]
+[ext_resource type="Texture2D" uid="uid://cytq82t85ekwh" path="res://Assets/light_placeholder_off.png" id="3_a6tqo"]
+[ext_resource type="AudioStream" uid="uid://c5goniqkl1vox" path="res://Assets/SFX/RadioReceived.mp3" id="4_5to70"]
+[ext_resource type="AudioStream" uid="uid://b4mfobht5npm4" path="res://Assets/SFX/ScreenOn.mp3" id="5_a6tqo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nhh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a6tqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_5to70")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="RadioReceiver" type="Node2D"]
+script = ExtResource("1_1nhh5")
+
+[node name="OnSprite" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_1nhh5")
+frame_progress = 0.4669141
+
+[node name="OffSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_5to70")
+
+[node name="AlertPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5to70")
+volume_db = -15.266
+pitch_scale = 0.6
+bus = &"Console"
+
+[node name="AlertStartPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a6tqo")
+volume_db = -13.358
+pitch_scale = 1.22
+bus = &"Console"
