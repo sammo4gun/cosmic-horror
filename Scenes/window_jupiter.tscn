@@ -1,9 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://xqlo42a4lw2i"]
+[gd_scene load_steps=10 format=3 uid="uid://xqlo42a4lw2i"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_jaxv1"]
 [ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_j8y2x"]
+[ext_resource type="Shader" uid="uid://dyipnr1slkgwy" path="res://Shaders/sun.gdshader" id="3_ojpgs"]
 [ext_resource type="Script" uid="uid://1xijxcktdj2x" path="res://Scripts/PlanetBody.cs" id="3_uxsss"]
 [ext_resource type="Texture2D" uid="uid://ctg8vlcikhw50" path="res://Assets/window_placeholder.png" id="4_ojpgs"]
+[ext_resource type="Shader" uid="uid://cuc2xbcxwh60s" path="res://Shaders/lensflare.gdshader" id="5_y3tji"]
+[ext_resource type="Script" uid="uid://cqkdveg85h6n3" path="res://Scripts/LensFlare.cs" id="6_ojpgs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_krxve"]
+shader = ExtResource("3_ojpgs")
+shader_parameter/surface_color = Color(1, 0.85, 0.35, 1)
+shader_parameter/surface_intensity = 12.0
+shader_parameter/corona_intensity = 40.0
+shader_parameter/corona_power = 2.5
+shader_parameter/granulation_scale = 6.0
+shader_parameter/granulation_contrast = 1.6
+shader_parameter/turbulence_scale = 2.5
+shader_parameter/flow_speed = 0.25
+shader_parameter/limb_darkening = 0.55
+shader_parameter/limb_power = 1.4
+shader_parameter/spot_scale = 1.2
+shader_parameter/spot_threshold = 0.58
+shader_parameter/spot_darkness = 0.55
+shader_parameter/flicker_strength = 0.15
+shader_parameter/enable_spots = true
+shader_parameter/enable_time = true
+shader_parameter/corona_outer = 0.3
+shader_parameter/antialias = 0.003
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8igm5"]
+shader = ExtResource("5_y3tji")
+shader_parameter/sun_position = Vector2(0, 0)
+shader_parameter/tint = Vector3(1.4, 1.2, 1)
 
 [node name="Window" type="Node2D"]
 script = ExtResource("1_jaxv1")
@@ -23,6 +52,14 @@ offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_j8y2x")
 
+[node name="SunNode" type="Node2D" parent="."]
+position = Vector2(62, 233)
+
+[node name="Sun" type="ColorRect" parent="SunNode"]
+material = SubResource("ShaderMaterial_krxve")
+offset_right = 18.0
+offset_bottom = 18.0
+
 [node name="PlanetBody" type="ColorRect" parent="."]
 offset_left = -254.0
 offset_top = -19.0
@@ -33,7 +70,13 @@ script = ExtResource("3_uxsss")
 MinRadius = 0.02
 ShrinkRate = 0.01
 PlanetShader = "res://Shaders/jupiter.gdshader"
-RotationSpeed = 50.0
+
+[node name="LensFlare" type="ColorRect" parent="." node_paths=PackedStringArray("Sun")]
+material = SubResource("ShaderMaterial_8igm5")
+offset_right = 645.0
+offset_bottom = 645.0
+script = ExtResource("6_ojpgs")
+Sun = NodePath("../SunNode")
 
 [node name="PlaceholderWindow" type="TextureRect" parent="."]
 offset_right = 648.0
