@@ -17,6 +17,7 @@ public partial class RecordPlayer : TextureButton
     private ColorRect _loadBar;
 
     public float SongLength;
+    public bool Repeated = false;
 
     public override void _Ready()
     {
@@ -69,12 +70,20 @@ public partial class RecordPlayer : TextureButton
 
     private void RecordDone()
     {
-        Disabled = true;
-        ButtonPressed = false;
-        _unloadPlayer.Play();
-        _backgroundPlayer.Stop();
-        // what else should happen when the record is done?
-        EmitSignal("MusicDone");
+        if (!Repeated)
+        {
+            Disabled = true;
+            ButtonPressed = false;
+            _unloadPlayer.Play();
+            _backgroundPlayer.Stop();
+            // what else should happen when the record is done?
+            EmitSignal("MusicDone");
+        }
+        else
+        {
+            _loadBar.Size = new Vector2(0, _loadBar.Size.Y);
+            _loadPlayer.Play();
+        }
     }
 
     private void RecordStarted()
