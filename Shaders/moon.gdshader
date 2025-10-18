@@ -4,15 +4,14 @@ uniform float radius = .3;
 uniform int cell_amount = 10;
 uniform float rotation_speed = 8.0;
 uniform vec3 world_period = vec3(9.5, 9.5, 9.5);
-uniform vec3 cloud_period = vec3(2.0, 2.0, 2.0);
 
 // color palette to skin the noise map
-uniform vec4 tangerine : source_color = vec4(.968, .573, .337, 1.);
-uniform vec4 sunset : source_color = vec4(.984, .82, .635, 1.);
-uniform vec4 moonstone : source_color = vec4(0., .698, .792, 1.);
-uniform vec4 ylnmn_blue : source_color = vec4(.114, .306, .537, 1.);
-uniform vec4 emerald : source_color = vec4(.2, .792, .498, 1.);
-uniform vec4 cal_poly_green : source_color = vec4(.078, .349, .114, 1.);
+uniform vec4 tangerine : source_color = vec4(0.85, 0.82, 0.80, 1.); // light gray-beige (highlights)
+uniform vec4 sunset : source_color = vec4(0.78, 0.77, 0.75, 1.); // pale gray
+uniform vec4 moonstone : source_color = vec4(0.65, 0.65, 0.68, 1.); // moonstone gray
+uniform vec4 shadow : source_color = vec4(0.55, 0.56, 0.60, 1.); // bluish gray (shadow)
+uniform vec4 emerald : source_color = vec4(0.45, 0.46, 0.50, 1.); // darker gray
+uniform vec4 deep_shadow : source_color = vec4(0.35, 0.36, 0.38, 1.); // deepest shadow gray
 
 // modulo function that returns positive wrapped values. (13 % 5 = 3, but -13 % 5 = 2)
 vec3 modulo(vec3 divident, vec3 divisor){
@@ -76,74 +75,20 @@ vec4 pixel_color_noise(vec2 uv, vec3 _period, mat3 rot_p){
 	float perlin = seamless_noise(grid_uv, _period, rot_p);
 	vec4 color = vec4(0);
 	
-	if (perlin < 0.60+sin(TIME)/120.){
-		color = ylnmn_blue;
-	}else if (perlin < 0.65+sin(TIME)/60.){
+	if (perlin < 0.20){
+		color = shadow;
+	}else if (perlin < 0.35){
 		color = moonstone;
-	}else if (perlin < 0.7){
+	}else if (perlin < 0.45){
 		color = sunset;
-	}else if (perlin < 0.75){
+	}else if (perlin < 0.80){
 		color = tangerine;
 	}else if (perlin < .85){
 		color = emerald;
 	}else if (perlin < 1.){
-		color = cal_poly_green;
+		color = deep_shadow;
 	};
 	return color;
-}
-
-// shade clouds from new perlin noise
-vec4 clouds(vec2 uv, vec3 _period, mat3 rot_p){
-	uv = round(uv * float(300)) / float(300);
-	
-	// equation of a sphere at coordinates (0.5, 0.5)
-	// (x-.5)^2 + (y-.5)^2 + z^2 = radius^2
-	float w = sqrt(pow(radius*1.18, 2.) - pow(uv.x - .5, 2.) - pow(uv.y - .5, 2.));
-	float theta = TIME / 100.;
-	// rotate about 0,0 on UV coords and with the rot_p matrix (see below)
-	mat3 rot_0 = mat3(vec3(1, 0, 0), vec3(0, cos(theta), -sin(theta)), vec3(0, sin(theta), cos(theta)));
-	vec3 uvw = rot_0*(rot_p * vec3(uv, w));
-	uvw = vec3(uvw * float(cell_amount) * 0.8);
-	vec3 cellsMinimum = floor(uvw);
-	vec3 cellsMaximum = ceil(uvw);
-	vec3 uvw_fract = fract(uvw);
-	
-	vec3 blur = smoothstep(0.0, 1.0, uvw_fract);
-	
-	cellsMinimum = modulo(cellsMinimum, _period);
-	cellsMaximum = modulo(cellsMaximum, _period);
-	
-	// see smooth_noise function for comments on this part
-	vec3 p_000 = random(random(vec3(cellsMinimum.x, cellsMinimum.y, cellsMinimum.z)));
-	vec3 p_100 = random(random(vec3(cellsMaximum.x, cellsMinimum.y, cellsMinimum.z)));
-	vec3 p_010 = random(random(vec3(cellsMinimum.x, cellsMaximum.y, cellsMinimum.z)));
-	vec3 p_110 = random(random(vec3(cellsMaximum.x, cellsMaximum.y, cellsMinimum.z)));
-	vec3 p_001 = random(random(vec3(cellsMinimum.x, cellsMinimum.y, cellsMaximum.z)));
-	vec3 p_101 = random(random(vec3(cellsMaximum.x, cellsMinimum.y, cellsMaximum.z)));
-	vec3 p_011 = random(random(vec3(cellsMinimum.x, cellsMaximum.y, cellsMaximum.z)));
-	vec3 p_111 = random(random(vec3(cellsMaximum.x, cellsMaximum.y, cellsMaximum.z)));
-	
-	float perlin =  mix(mix( mix( dot( p_000, uvw_fract - vec3(0, 0, 0) ),
-                     dot( p_100, uvw_fract - vec3(1, 0, 0) ), blur.x),
-                mix( dot( p_010, uvw_fract - vec3(0, 1, 0) ),
-                     dot( p_110, uvw_fract - vec3(1, 1, 0) ), blur.x), blur.y),
-					mix( mix( dot( p_001, uvw_fract - vec3(0, 0, 1) ),
-                     dot( p_101, uvw_fract - vec3(1, 0, 1) ), blur.x),
-                mix( dot( p_011, uvw_fract - vec3(0, 1, 1) ),
-                     dot( p_111, uvw_fract - vec3(1, 1, 1) ), blur.x), blur.y), blur.z) * 0.8 + 0.5;
-	
-    vec4 color = vec4(0.);
-    // Increase the lower threshold to reduce cloud coverage
-    if (perlin < 0.55){
-        color = vec4(0.0, 0.0, 0.0, 0.0);
-    }else if (perlin < 0.65){
-        color = vec4(0.5, 0.5, 0.5, 0.1);
-    }else if (perlin < 0.92){
-        color = vec4(0.8, 0.8, 0.8, 0.2);
-    }else if (perlin < 1.){
-        color = vec4(1.0, 1.0, 1.0, 0.3);
-    };
-    return color;
 }
 
 void fragment() {
@@ -163,7 +108,6 @@ void fragment() {
 	float dis = distance(vec2(.5, .5), UV);
 	
 	vec4 color = pixel_color_noise(UV, world_period, rot); // get world colors
-	vec4 clouds = clouds(UV, cloud_period, rot); // get cloud colors
 	
 	COLOR = vec4(0., 0., 0., 1);
 	if (dis < radius) {
@@ -172,8 +116,5 @@ void fragment() {
     
     if (COLOR.rgb == vec3(0.)) {
         COLOR.a = .0;
-    }
-	
-	COLOR = COLOR + clouds; // add the clouds
-	
+    }	
 }

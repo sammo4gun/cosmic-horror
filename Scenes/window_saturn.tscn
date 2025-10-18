@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://pvn3vwqw73yt"]
+
+[ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_sfjmg"]
+[ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_bvnx3"]
+[ext_resource type="Script" uid="uid://1xijxcktdj2x" path="res://Scripts/PlanetBody.cs" id="3_l542i"]
+[ext_resource type="Texture2D" uid="uid://ctg8vlcikhw50" path="res://Assets/window_placeholder.png" id="4_ik6p0"]
+
+[node name="Window" type="Node2D"]
+script = ExtResource("1_sfjmg")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(648, 648)
+render_target_update_mode = 4
+
+[node name="Stars" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_bvnx3")
+
+[node name="PlanetBody" type="ColorRect" parent="."]
+offset_left = -141.0
+offset_top = -155.0
+offset_right = 792.0
+offset_bottom = 778.0
+pivot_offset = Vector2(708, -64)
+script = ExtResource("3_l542i")
+MinRadius = 0.02
+ShrinkRate = 0.01
+PlanetShader = "res://Shaders/saturn.gdshader"
+RotationSpeed = 50.0
+
+[node name="PlaceholderWindow" type="TextureRect" parent="."]
+offset_right = 648.0
+offset_bottom = 648.0
+texture = ExtResource("4_ik6p0")

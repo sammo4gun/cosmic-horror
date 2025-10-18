@@ -3,9 +3,10 @@ using System;
 
 public partial class PlanetBody : ColorRect
 {
+    private float rotationSpeed = 8.0f;
     private float minRadius = 0.05f;
     private float shrinkRate = 0.05f;
-
+    private string planetShader = "res://Shaders/planet.gdshader";
     [Export]
     public float MinRadius
     {
@@ -20,12 +21,27 @@ public partial class PlanetBody : ColorRect
         set => shrinkRate = value;
     }
 
+    [Export]
+    public string PlanetShader
+    {
+        get => planetShader;
+        set => planetShader = value;
+    }
+
+    [Export]
+    public float RotationSpeed
+    {
+        get => rotationSpeed;
+        set => rotationSpeed = value;
+    }
+
+
     public override void _Ready()
     {
         base._Ready();
 
         // Load the shader from your .gdshader file
-        var shader = GD.Load<Shader>("res://Shaders/planet.gdshader");
+        var shader = GD.Load<Shader>(PlanetShader);
 
         // Create a ShaderMaterial using that shader
         var material = new ShaderMaterial();
@@ -35,7 +51,8 @@ public partial class PlanetBody : ColorRect
         this.Material = material;
 
         // (Optional) adjust shader parameters
-        material.SetShaderParameter("radius", 0.3f);
+        material.SetShaderParameter("rotation_speed", RotationSpeed);
+        //material.SetShaderParameter("radius", 0.3f);
         material.SetShaderParameter("cell_amount", 10);
 
         this.PivotOffset = new Vector2(this.Size.X / 2, this.Size.Y / 2);
