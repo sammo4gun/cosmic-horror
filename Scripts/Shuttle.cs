@@ -132,9 +132,9 @@ public partial class Shuttle : Node2D
 
     public void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation")
+        if (buttonName == "Hibernation" && toggled)
         {
-            _ = _hibernationHandler.EnterHibernation(7, "days", 15000);
+            _ = _hibernationHandler.EnterHibernation("Shuttle");
         }
     }
 }

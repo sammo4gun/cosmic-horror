@@ -41,9 +41,12 @@ public partial class ButtonHandler : Node
 
         foreach (string buttonName in Buttons.Keys.ToList())
         {
-            var button = GetNode<TextureButton>("FlippableButton" + buttonName);
-            // disable button masks
-            button.MouseFilter = Control.MouseFilterEnum.Ignore;
+            if (buttonName.Length == 1 || buttonName == "Launch")
+            {
+                var button = GetNode<TextureButton>("FlippableButton" + buttonName);
+                // disable button masks
+                button.MouseFilter = Control.MouseFilterEnum.Ignore;
+            }
         }
 
         var console = (Console)GetParent();
@@ -55,10 +58,10 @@ public partial class ButtonHandler : Node
         foreach (string buttonName in Buttons.Keys.ToList())
         {
             var button = GetNode<TextureButton>("FlippableButton" + buttonName);
-            // disable button masks
-            if (!(correct && buttonName == "Launch"))
+            // flip buttons to false
+            if (buttonName.Length == 1 || (!correct && buttonName == "Launch"))
             {
-                button.MouseFilter = Control.MouseFilterEnum.Stop;
+                button.MouseFilter = Control.MouseFilterEnum.Stop; 
                 button.ButtonPressed = false;
             }
         }

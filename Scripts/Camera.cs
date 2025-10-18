@@ -36,6 +36,7 @@ public partial class Camera : Camera2D
         TargetPosition = Position;
         _mouseBlocker = GetNode<TextureRect>("MouseBlocker");
         _screenBlocker = GetNode<ColorRect>("ScreenBlocker");
+        _screenBlocker.Visible = true;
     }
 
     public override void _PhysicsProcess(double delta)
