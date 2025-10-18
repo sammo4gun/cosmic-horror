@@ -60,7 +60,7 @@ public partial class Shuttle : Node2D
 
         await ToSignal(GetTree().CreateTimer(2f), "timeout");
 
-        // _console.ToggleRaiseText();
+        _console.ToggleRaiseText();
         if (!(_console.LaunchCodes is string))
         {
             _console.OutputLine("VOY01 - Booting systems...");

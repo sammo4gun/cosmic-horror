@@ -37,6 +37,7 @@ texture = ExtResource("1_3hysx")
 stream = SubResource("AudioStreamRandomizer_d1y0i")
 volume_db = -16.22
 pitch_scale = 1.18
+bus = &"Console"
 
 [node name="Screen" type="ColorRect" parent="."]
 offset_left = -40.0

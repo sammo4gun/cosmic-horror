@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel.DataAnnotations;
 using static Godot.Control;
 
 public partial class Camera : Camera2D
@@ -10,6 +11,10 @@ public partial class Camera : Camera2D
     public int ZoomSpeed { get; set; } = 8;
     [Export]
     public float ZoomFactor { get; set; } = 1.2f;
+    [Export]
+    public float TurnVolumeReductionDB = 3.0f;
+    [Export]
+    public float ZoomVolumeReductionDB = 3.0f;
 
     [Signal]
     public delegate void HibernationStartedEventHandler();
@@ -22,13 +27,17 @@ public partial class Camera : Camera2D
     private static Vector2 WINDOW_POSITION = new((648 / 2) + (648 * 2), 648 / 2);
     private static Vector2 SWITCH_POSITION_2 = new((648 / 2) + (648 * 3), 648 / 2);
     private static Vector2 RIGHT_POSITION = new((648 / 2) + (648 * 4), 648 / 2);
+    private static float MAX_DISTANCE = 1295f;
 
     public bool FacingConsole = false;
     private Vector2 TargetPosition;
 
     private TextureRect _mouseBlocker;
     private ColorRect _screenBlocker;
-    private bool _hibernating = false;
+    private bool _hibernating = true;
+
+    private int _consoleBusIndex = AudioServer.GetBusIndex("Console");
+    private int _windowBusIndex = AudioServer.GetBusIndex("Window");
 
     public override void _Ready()
     {
@@ -46,6 +55,27 @@ public partial class Camera : Camera2D
         MoveToTarget(delta);
         HandleSwitching();
         HandleHibernationVisibility(delta);
+        HandleVolume();
+    }
+
+    private void HandleVolume()
+    {
+        float distConsole = Math.Min(Position.DistanceTo(CONSOLE_POSITION), Position.DistanceTo(RIGHT_POSITION))/MAX_DISTANCE;
+        float distWindow = Math.Min(Position.DistanceTo(WINDOW_POSITION), Position.DistanceTo(LEFT_POSITION)) / MAX_DISTANCE;
+
+        float consoleReduction = distConsole * -TurnVolumeReductionDB;
+        float windowReduction = distWindow * -TurnVolumeReductionDB;
+
+        float zoomReduction = (Zoom.X - ZoomFactor) / (1 - ZoomFactor) * ZoomVolumeReductionDB;
+
+        if (distConsole < 0.1) consoleReduction -= zoomReduction;
+        else consoleReduction -= ZoomVolumeReductionDB; // maxed out zoom reduction
+
+        if (distWindow < 0.1) windowReduction -= zoomReduction;
+        else windowReduction -= ZoomVolumeReductionDB; // maxed out zoom reduction
+
+        AudioServer.SetBusVolumeDb(_consoleBusIndex, consoleReduction);
+        AudioServer.SetBusVolumeDb(_windowBusIndex, windowReduction);
     }
 
     private void HandleZoom(double delta)
@@ -97,34 +127,6 @@ public partial class Camera : Camera2D
             _screenBlocker.Visible = false;
         }
     }
-
-    public async void StartHibernation()
-    {
-        if (!FacingConsole) Turn("left");
-        
-        // all the technical stuff required to enter hibernation
-        _hibernating = true;
-        _mouseBlocker.MouseFilter = MouseFilterEnum.Stop;
-        _mouseBlocker.MouseForcePassScrollEvents = false;
-
-        // all the visual stuff required to enter hibernation
-        await ToSignal(GetTree().CreateTimer(1), "timeout");
-        
-        EmitSignal(SignalName.HibernationStarted);
-    }
-    
-    public async void  EndHibernation()
-    {
-        // all the technical stuff required to leave hibernation
-        _hibernating = false;
-        _mouseBlocker.MouseFilter = MouseFilterEnum.Ignore;
-        _mouseBlocker.MouseForcePassScrollEvents = true;
-        
-        // all the visual stuff required to leave hibernation
-        await ToSignal(GetTree().CreateTimer(1), "timeout");
-        
-        EmitSignal(SignalName.HibernationEnded);
-    }
     
     public bool Turn(string direction)
     {
@@ -157,5 +159,33 @@ public partial class Camera : Camera2D
             return true;
         }
         return false;
+    }
+
+    public async void StartHibernation()
+    {
+        if (!FacingConsole) Turn("left");
+        
+        // all the technical stuff required to enter hibernation
+        _hibernating = true;
+        _mouseBlocker.MouseFilter = MouseFilterEnum.Stop;
+        _mouseBlocker.MouseForcePassScrollEvents = false;
+
+        // all the visual stuff required to enter hibernation
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        
+        EmitSignal(SignalName.HibernationStarted);
+    }
+    
+    public async void  EndHibernation()
+    {
+        // all the technical stuff required to leave hibernation
+        _hibernating = false;
+        _mouseBlocker.MouseFilter = MouseFilterEnum.Ignore;
+        _mouseBlocker.MouseForcePassScrollEvents = true;
+        
+        // all the visual stuff required to leave hibernation
+        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        
+        EmitSignal(SignalName.HibernationEnded);
     }
 }

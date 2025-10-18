@@ -1,5 +1,5 @@
-Node2D
 AudioStreamPlayer
+Node2D
 ColorRect
 Sprite2D
 Label      - Matches the "text" keyword.
@@ -12,4 +12,3 @@ TextureButton
 Button
 Control
 TextureRect
-Node3D

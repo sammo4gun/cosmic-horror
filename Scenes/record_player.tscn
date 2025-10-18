@@ -44,15 +44,20 @@ color = Color(31.444193, 30.946575, 0, 1)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_3yily")
+bus = &"Window"
 
 [node name="LoadPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2p0nn")
+bus = &"Window"
 
 [node name="BackgroundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ax7bx")
+bus = &"Window"
 
 [node name="PausePlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_ax7bx")
+bus = &"Window"
 
 [node name="UnloadPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_xcud7")
+bus = &"Window"

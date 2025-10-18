@@ -34,10 +34,5 @@ public partial class HibernationHandler : Node
         await ToSignal(GetTree().CreateTimer(HibernationLength), "timeout");
 
         GetTree().ChangeSceneToFile($"res://Scenes/{newSceneName}.tscn");
-
-        // _camera.EndHibernation();
-        // await ToSignal(_camera, "HibernationEnded");
-
-        // IsHibernating = false;
     }
 }

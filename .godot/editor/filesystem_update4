@@ -27,3 +27,6 @@ res://Scenes/record_player.tscn
 res://Scenes/flippable_button.tscn
 res://Scenes/camera.tscn
 res://Scenes/shuttle.tscn
+res://Scenes/console.tscn
+res://default_bus_layout.tres
+res://Scenes/sound_scape_handler.tscn

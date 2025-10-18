@@ -7,6 +7,7 @@ public partial class FlippableButton : TextureButton
     {
         base._Ready();
         Toggled += playSound;
+        GetNode<AudioStreamPlayer>("StartupSoundPlayer").Finished += PlayHum;
     }
 
     private void playSound(bool toggled)
@@ -15,5 +16,20 @@ public partial class FlippableButton : TextureButton
             GetNode<AudioStreamPlayer>("OnSoundPlayer").Play();
         else
             GetNode<AudioStreamPlayer>("OffSoundPlayer").Play();
+    }
+
+    public void WrongLaunchCodeSound()
+    {
+        GetNode<AudioStreamPlayer>("WrongSoundPlayer").Play();
+    }
+    
+    public void CorrectLaunchCodeSound()
+    {
+        GetNode<AudioStreamPlayer>("StartupSoundPlayer").Play();
+    }
+
+    public void PlayHum()
+    {
+        GetNode<AudioStreamPlayer>("HumSoundPlayer").Play();
     }
 }
