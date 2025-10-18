@@ -180,6 +180,8 @@ public partial class TextDisplay : Node2D
             ToggleDisplay(false);
         }
         _raised = !_raised;
+        if (!_raised) GetNode<SubViewportContainer>("ScreenContainer").MouseFilter = Control.MouseFilterEnum.Ignore;
+        else GetNode<SubViewportContainer>("ScreenContainer").MouseFilter = Control.MouseFilterEnum.Pass;
     }
     
     private void ToggleDisplay(bool status)

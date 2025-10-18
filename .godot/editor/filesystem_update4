@@ -30,3 +30,6 @@ res://Scenes/shuttle.tscn
 res://Scenes/console.tscn
 res://default_bus_layout.tres
 res://Scenes/sound_scape_handler.tscn
+res://Scenes/radio_receiver.tscn
+res://Scripts/RadioReceiver.cs
+res://Scenes/window.tscn

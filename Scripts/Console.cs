@@ -9,6 +9,7 @@ public partial class Console : Node2D
     private LightHandler _lightHandler;
     private Dial _flatDial;
     private Dial _heightDial;
+    private RadioReceiver _radioReceiver;
     public string LaunchCodes;
 
     [Signal]
@@ -24,6 +25,7 @@ public partial class Console : Node2D
         _lightHandler = GetNode<LightHandler>("LightHandler");
         _flatDial = GetNode<Dial>("FlatDial");
         _heightDial = GetNode<Dial>("HeightDial");
+        _radioReceiver = GetNode<RadioReceiver>("RadioReceiver");
 
         _textDisplay.InputReceived += (question, input) => ((Shuttle)GetParent()).ReceiveInput(question, input);
     }
@@ -94,5 +96,10 @@ public partial class Console : Node2D
     public void ToggleRaiseText()
     {
         _textDisplay.ToggleRaise();
+    }
+
+    public void RadioAlert(bool isOn)
+    {
+        _radioReceiver.SetAlertState(isOn);
     }
 }

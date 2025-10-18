@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=13 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cu6blqcigefog" path="res://Scenes/flippable_button.tscn" id="7_uukfc"]
 [ext_resource type="Script" uid="uid://dydif2173vasd" path="res://Scripts/LightHandler.cs" id="9_gyscv"]
 [ext_resource type="PackedScene" uid="uid://c2gsxsrr8xw3u" path="res://Scenes/light.tscn" id="10_ekwfd"]
+[ext_resource type="PackedScene" uid="uid://l3i23e4u2cux" path="res://Scenes/radio_receiver.tscn" id="11_ekwfd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
@@ -188,3 +189,7 @@ offset_right = 553.0
 offset_bottom = 142.0
 rotation = 0.7279254
 text = "ABCDE"
+
+[node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
+position = Vector2(588, 586)
+scale = Vector2(0.51353294, 0.51353294)

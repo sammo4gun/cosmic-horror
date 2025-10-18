@@ -36,7 +36,8 @@ public partial class Shuttle : Node2D
         _hibernationHandler = GetNode<HibernationHandler>("HibernationHandler");
         _soundScapeHandler = GetNode<SoundScapeHandler>("SoundScapeHandler");
         _recordPlayer = GetNode<RecordPlayer>("Window/RecordPlayer");
-        _recordPlayer.ValidationDone += RecordValidated;
+        _recordPlayer.MusicStarted += RecordStarted;
+        _recordPlayer.MusicDone += RecordDone;
         _console.ButtonPressed += ButtonPressed;
     }
 
@@ -71,6 +72,7 @@ public partial class Shuttle : Node2D
             _console.OutputLine("Launch code E41A.");
             _console.LaunchCodes = "E41A";
             _recordPlayer.Disabled = false;
+            _console.RadioAlert(true);
         }
     }
 
@@ -124,7 +126,12 @@ public partial class Shuttle : Node2D
         }
     }
 
-    public void RecordValidated()
+    public void RecordStarted()
+    {
+        _console.RadioAlert(false);
+    }
+
+    public void RecordDone()
     {
         _console.OutputLine($"Validation complete.");
         _console.OutputLine($"Golden Drive Integrity at 100%.");

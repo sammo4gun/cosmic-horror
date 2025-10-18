@@ -3,7 +3,9 @@ using Godot;
 public partial class RecordPlayer : TextureButton
 {
     [Signal]
-    public delegate void ValidationDoneEventHandler();
+    public delegate void MusicDoneEventHandler();
+    [Signal]
+    public delegate void MusicStartedEventHandler();
     
     private AudioStreamPlayer _musicPlayer;
     private AudioStreamPlayer _loadPlayer;
@@ -72,13 +74,14 @@ public partial class RecordPlayer : TextureButton
         _unloadPlayer.Play();
         _backgroundPlayer.Stop();
         // what else should happen when the record is done?
-        EmitSignal("ValidationDone");
+        EmitSignal("MusicDone");
     }
 
     private void RecordStarted()
     {
         if (!_musicPlayer.Playing && !_musicPlayer.StreamPaused)
         {
+            EmitSignal("MusicStarted");
             _musicPlayer.Play();
             _backgroundPlayer.Play();
         }

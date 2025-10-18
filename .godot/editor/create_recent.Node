@@ -1,4 +1,5 @@
 AudioStreamPlayer
+AnimatedSprite2D
 Node2D
 ColorRect
 Sprite2D
@@ -11,4 +12,3 @@ SubViewportContainer
 TextureButton
 Button
 Control
-TextureRect
