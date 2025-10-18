@@ -24,8 +24,8 @@ public partial class EarthLeaving : Shuttle
         
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
 
-        _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
-        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
+        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)
@@ -68,6 +68,7 @@ public partial class EarthLeaving : Shuttle
         {
             if (input.ToLower() == "y")
             {
+                AllDoneOutput();
                 //Character line(ish)
                 //                  |                                      |
                 _console.OutputLine("Running usr/sys/advanced_diag.sh");
@@ -163,12 +164,10 @@ public partial class EarthLeaving : Shuttle
     public async void AllDoneOutput()
     {
         _console.OutputLine("Completed pre-launch checklog.");
+        _console.RequestInput();
 
-        await ToSignal(_console, "TextFinished");
-        await ToSignal(GetTree().CreateTimer(2f), "timeout");
-
-        _console.ToggleRaiseText();
-        _console.ToggleActivateButton("Hibernation", true);
+        // _console.ToggleRaiseText();
+        // _console.ToggleActivateButton("Hibernation", true);
     }
 
 }

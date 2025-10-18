@@ -78,6 +78,7 @@ public partial class TextDisplay : Node2D
                         if (nextLine == "{input}")
                         {
                             _isTyping = false;
+                            _linesQueue = new List<string>();
                             _mainText.ScrollToLine(_mainText.GetLineCount() - 1);
                             _mainText.Text += " ";
                             _flickerTimer = 0.0f; // Ensures flickering will look smooth
@@ -274,11 +275,17 @@ public partial class TextDisplay : Node2D
     public bool AskForInput()
     {
         if (_askingForInput) return false;
-        if (_isTyping) _linesQueue.Add("{input}");
+        if (_isTyping || _linesQueue.Count > 0)
+        {
+            _linesQueue.Add("{input}");
+            return true;
+        }
         else
+        {
             _inputText = "";
             _askingForInput = true;
-            return _askingForInput;
+            return true;
+        }
     }
 
     private void GiveInput(string question, string input)
