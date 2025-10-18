@@ -179,6 +179,7 @@ public partial class Camera : Camera2D
     {
         if (!FacingConsole) Turn("left");
         _adjustedHibernationScreenSpeed = _hibernationScreenSpeed / speedFactor;
+        _hibernatingVis = true;
         
         // all the technical stuff required to enter hibernation
         _hibernating = true;

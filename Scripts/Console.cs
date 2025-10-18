@@ -20,6 +20,8 @@ public partial class Console : Node2D
     public delegate void LaunchCodesEnteredEventHandler(bool correct, bool ordered);
     [Signal]
     public delegate void InputReceivedEventHandler(string question, string input);
+    [Signal]
+    public delegate void TextFinishedEventHandler();
 
     public bool IsButtonPressed(string button) => _buttonHandler.Buttons[button];
 
@@ -101,6 +103,11 @@ public partial class Console : Node2D
         _heightDial.ToggleActivate(toggled);
     }
 
+    public void ToggleActivateButton(string buttonName, bool toggled)
+    {
+        _buttonHandler.ToggleButtonAvailable(buttonName, toggled);
+    }
+
     public void RequestInput()
     {
         _textDisplay.AskForInput();
@@ -114,5 +121,10 @@ public partial class Console : Node2D
     public void RadioAlert(bool isOn)
     {
         _radioReceiver.SetAlertState(isOn);
+    }
+
+    public void TextDisplayFinished()
+    {
+        EmitSignal("TextFinished");
     }
 }

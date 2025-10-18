@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://6ggb2yh2eucj" path="res://Assets/record_deactivated_placeholder.png" id="3_ax7bx"]
 [ext_resource type="BitMap" uid="uid://waul262qv7i7" path="res://Assets/record_bitmap_placeholder.png" id="4_xcud7"]
 [ext_resource type="Script" uid="uid://fj7v8ycgw2b6" path="res://Scripts/RecordPlayer.cs" id="5_a7dwo"]
-[ext_resource type="AudioStream" uid="uid://b67lhdvfllv6l" path="res://Assets/SFX/French Children.mp3" id="6_3yily"]
+[ext_resource type="AudioStream" uid="uid://b67lhdvfllv6l" path="res://Assets/SFX/RecordsTransmissions/French Children.mp3" id="6_3yily"]
 [ext_resource type="AudioStream" uid="uid://dsydpg21tl62t" path="res://Assets/SFX/Tapedeck_LoadIn.mp3" id="7_2p0nn"]
 [ext_resource type="AudioStream" uid="uid://bpxn7rnb2j0bp" path="res://Assets/SFX/Tapedeck_background.mp3" id="8_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dnidhdaalkpr3" path="res://Assets/SFX/Tapedeck_Pause.mp3" id="9_ax7bx"]

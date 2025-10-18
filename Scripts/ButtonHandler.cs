@@ -80,6 +80,12 @@ public partial class ButtonHandler : Node
         if (!correct) button.WrongLaunchCodeSound();
         else button.CorrectLaunchCodeSound();
     }
+    
+    public void ToggleButtonAvailable(string buttonName, bool toggle)
+    {
+        FlippableButton button = GetNode<FlippableButton>("FlippableButton" + buttonName);
+        button.Disabled = !toggle;
+    }
 
     private static string GetButtonName(FlippableButton button)
     {

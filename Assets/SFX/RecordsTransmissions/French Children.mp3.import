@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b67lhdvfllv6l"
+path="res://.godot/imported/French Children.mp3-c6105b02b5de824c1b5bb61d90dcd87f.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/RecordsTransmissions/French Children.mp3"
+dest_files=["res://.godot/imported/French Children.mp3-c6105b02b5de824c1b5bb61d90dcd87f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

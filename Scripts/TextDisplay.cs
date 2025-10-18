@@ -94,6 +94,7 @@ public partial class TextDisplay : Node2D
                         _isTyping = false;
                         _mainText.Text += " ";
                         _flickerTimer = 0.0f; // Ensures flickering will look smooth
+                        ((Console)GetParent()).TextDisplayFinished(); // To emit a signal that the text display is done.
                     }
                 }
                 _mainText.ScrollToLine(_mainText.GetLineCount() - 1);
