@@ -8,7 +8,6 @@ public partial class SpaceHandler : Node
     public override void _Ready()
     {
         base._Ready();
-        DistanceFromEarth = 1_000.0f;
     }
 
     // Calculating distance from Earth in process
@@ -16,6 +15,11 @@ public partial class SpaceHandler : Node
     {
         base._Process(delta);
         DistanceFromEarth += ((Shuttle)GetParent()).Speed * (float)delta;
+    }
+
+    public void StartDistance(float distance)
+    {
+        DistanceFromEarth = distance;
     }
 
     // Calculating distance from Earth when time is added

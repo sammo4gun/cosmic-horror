@@ -15,6 +15,8 @@ public partial class Camera : Camera2D
     public float TurnVolumeReductionDB = 3.0f;
     [Export]
     public float ZoomVolumeReductionDB = 3.0f;
+    [Export]
+    private float _hibernationScreenSpeed = 600.0f;
 
     [Signal]
     public delegate void HibernationStartedEventHandler();
@@ -35,10 +37,12 @@ public partial class Camera : Camera2D
     private TextureRect _mouseBlocker;
     private ColorRect _screenBlocker;
     private bool _hibernating = true;
+    private bool _hibernatingVis = true;
 
     private int _masterBusIndex = AudioServer.GetBusIndex("Master");
     private int _consoleBusIndex = AudioServer.GetBusIndex("Console");
     private int _windowBusIndex = AudioServer.GetBusIndex("Window");
+    private float _adjustedHibernationScreenSpeed;
 
     public override void _Ready()
     {
@@ -47,6 +51,7 @@ public partial class Camera : Camera2D
         _mouseBlocker = GetNode<TextureRect>("MouseBlocker");
         _screenBlocker = GetNode<ColorRect>("ScreenBlocker");
         _screenBlocker.Visible = true;
+        _adjustedHibernationScreenSpeed = _hibernationScreenSpeed;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -120,18 +125,18 @@ public partial class Camera : Camera2D
 
     private void HandleHibernationVisibility(double delta)
     {
-        if (_hibernating && _screenBlocker.Size.Y < 648)
+        if (_hibernatingVis && _screenBlocker.Size.Y < 648)
         {
             _screenBlocker.Visible = true;
-            _screenBlocker.Size = new Vector2(_screenBlocker.Size.X, _screenBlocker.Size.Y + 648 * (float)delta);
-            _screenBlocker.Position = new Vector2(_screenBlocker.Position.X, _screenBlocker.Position.Y - 648 * (float)delta / 2);
+            _screenBlocker.Size = new Vector2(_screenBlocker.Size.X, _screenBlocker.Size.Y + _adjustedHibernationScreenSpeed * (float)delta);
+            _screenBlocker.Position = new Vector2(_screenBlocker.Position.X, _screenBlocker.Position.Y - _adjustedHibernationScreenSpeed * (float)delta / 2);
         }
-        if (!_hibernating && _screenBlocker.Size.Y > 10)
+        if (!_hibernatingVis && _screenBlocker.Size.Y > 10)
         {
-            _screenBlocker.Size = new Vector2(_screenBlocker.Size.X, _screenBlocker.Size.Y - 648 * (float)delta);
-            _screenBlocker.Position = new Vector2(_screenBlocker.Position.X, _screenBlocker.Position.Y + 648 * (float)delta / 2);
+            _screenBlocker.Size = new Vector2(_screenBlocker.Size.X, _screenBlocker.Size.Y - _adjustedHibernationScreenSpeed * (float)delta);
+            _screenBlocker.Position = new Vector2(_screenBlocker.Position.X, _screenBlocker.Position.Y + _adjustedHibernationScreenSpeed * (float)delta / 2);
         }
-        else if (!_hibernating && _screenBlocker.Size.Y <= 10)
+        else if (!_hibernatingVis && _screenBlocker.Size.Y <= 10)
         {
             _screenBlocker.Visible = false;
         }
@@ -170,9 +175,10 @@ public partial class Camera : Camera2D
         return false;
     }
 
-    public async void StartHibernation()
+    public async void StartHibernation(float speedFactor = 1f)
     {
         if (!FacingConsole) Turn("left");
+        _adjustedHibernationScreenSpeed = _hibernationScreenSpeed / speedFactor;
         
         // all the technical stuff required to enter hibernation
         _hibernating = true;
@@ -180,20 +186,22 @@ public partial class Camera : Camera2D
         _mouseBlocker.MouseForcePassScrollEvents = false;
 
         // all the visual stuff required to enter hibernation
-        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        await ToSignal(GetTree().CreateTimer(1.5*speedFactor), "timeout");
         
         EmitSignal(SignalName.HibernationStarted);
     }
     
-    public async void  EndHibernation()
+    public async void EndHibernation(float speedFactor = 1f)
     {
+        // all the visual stuff required to leave hibernation
+        _hibernatingVis = false;
+        _adjustedHibernationScreenSpeed = _hibernationScreenSpeed / speedFactor;
+        await ToSignal(GetTree().CreateTimer(1.2 * speedFactor), "timeout");
+        
         // all the technical stuff required to leave hibernation
         _hibernating = false;
         _mouseBlocker.MouseFilter = MouseFilterEnum.Ignore;
         _mouseBlocker.MouseForcePassScrollEvents = true;
-        
-        // all the visual stuff required to leave hibernation
-        await ToSignal(GetTree().CreateTimer(1), "timeout");
         
         EmitSignal(SignalName.HibernationEnded);
     }

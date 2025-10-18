@@ -9,7 +9,6 @@ script = ExtResource("1_yb6c1")
 
 [node name="VoyagerReversedPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w8crl")
-volume_db = -4.771
 parameters/looping = true
 
 [node name="HumPlayer" type="AudioStreamPlayer" parent="."]

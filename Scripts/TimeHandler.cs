@@ -13,13 +13,12 @@ public partial class TimeHandler : Node
     public override void _Ready()
     {
         base._Ready();
-        StartTimer();
     }
 
-    private void StartTimer()
+    public void StartTimer(DateTime startTime)
     {
         _startTime = DateTime.Now;
-        _startTimerTime = DateTime.ParseExact("05-09-1977 12:56:01.000", "dd-MM-yyyy HH:mm:ss.FFF", null);
+        _startTimerTime = startTime;
         TimerRunning = true;
     }
 

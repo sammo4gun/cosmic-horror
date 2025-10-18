@@ -9,11 +9,17 @@ public partial class Console : Node2D
     private LightHandler _lightHandler;
     private Dial _flatDial;
     private Dial _heightDial;
+    private DistDisplay _distDisplay;
+    private TimeDisplay _timeDisplay;
     private RadioReceiver _radioReceiver;
     public string LaunchCodes;
 
     [Signal]
     public delegate void ButtonPressedEventHandler(string buttonName, bool toggled);
+    [Signal]
+    public delegate void LaunchCodesEnteredEventHandler(bool correct, bool ordered);
+    [Signal]
+    public delegate void InputReceivedEventHandler(string question, string input);
 
     public bool IsButtonPressed(string button) => _buttonHandler.Buttons[button];
 
@@ -26,8 +32,15 @@ public partial class Console : Node2D
         _flatDial = GetNode<Dial>("FlatDial");
         _heightDial = GetNode<Dial>("HeightDial");
         _radioReceiver = GetNode<RadioReceiver>("RadioReceiver");
+        _timeDisplay = GetNode<TimeDisplay>("TimeDisplay");
+        _distDisplay = GetNode<DistDisplay>("DistDisplay");
 
-        _textDisplay.InputReceived += (question, input) => ((Shuttle)GetParent()).ReceiveInput(question, input);
+        _textDisplay.InputReceived += ReceiveInput;
+    }
+
+    public void ReceiveInput(string question, string input)
+    {
+        EmitSignal("InputReceived", question, input);
     }
 
     public void OutputLine(string line, bool noquestion = false)
@@ -57,17 +70,17 @@ public partial class Console : Node2D
         if (LaunchCodes is null) return false;
         if (AreButtonsPressed(LaunchCodes, exact: true, ordered: true))
         {
-            ((Shuttle)GetParent()).LaunchCodesEntered(correct: true, shuffled: false);
+            EmitSignal("LaunchCodesEntered", true, false);
             return true;
         }
         else if (AreButtonsPressed(LaunchCodes, exact: true))
         {
-            ((Shuttle)GetParent()).LaunchCodesEntered(correct: false, shuffled: true);
+            EmitSignal("LaunchCodesEntered", false, true);
             return false;
         }
         else
         {
-            ((Shuttle)GetParent()).LaunchCodesEntered(correct: false, shuffled: false);
+            EmitSignal("LaunchCodesEntered", false, false);
             return false;
         }
     }

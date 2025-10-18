@@ -6,6 +6,7 @@ using System.Linq;
 public partial class ButtonHandler : Node
 {
     public Dictionary<string, bool> Buttons = new Dictionary<string, bool>();
+    public Dictionary<string, bool> ButtonsActivated = new Dictionary<string, bool>();
     public string OrderPressed = "";
 
     public bool _checkingLaunchSequence = false;
@@ -17,6 +18,7 @@ public partial class ButtonHandler : Node
         foreach (FlippableButton button in GetChildren())
         {
             Buttons[GetButtonName(button)] = false;
+            ButtonsActivated[GetButtonName(button)] = button.MouseFilter == Control.MouseFilterEnum.Stop;
             button.Toggled += (toggled) => OnButtonPressed(button, toggled);
         }
     }

@@ -13,22 +13,21 @@ public partial class HibernationHandler : Node
     {
         base._Ready();
         _camera = GetParent().GetNode<Camera>("Camera");
-        _ = EndHibernation();
     }
 
-    public async Task EndHibernation()
+    public async Task EndHibernation(float delay, float speedFactor = 1.0f)
     {
-        await ToSignal(GetTree().CreateTimer(1.0f), "timeout");
-        _camera.EndHibernation();
+        await ToSignal(GetTree().CreateTimer(delay), "timeout");
+        _camera.EndHibernation(speedFactor);
         await ToSignal(_camera, "HibernationEnded");
 
         IsHibernating = false;
     }
 
-    public async Task EnterHibernation(string newSceneName)
+    public async Task EnterHibernation(string newSceneName, float speedFactor = 1.0f)
     {
         IsHibernating = true;
-        _camera.StartHibernation();
+        _camera.StartHibernation(speedFactor);
         await ToSignal(_camera, "HibernationStarted");
 
         await ToSignal(GetTree().CreateTimer(HibernationLength), "timeout");
