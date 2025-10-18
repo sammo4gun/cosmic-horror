@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://20s4lptiy1wx"]
+
+[ext_resource type="Script" uid="uid://bd6jte6mhn4k6" path="res://Scripts/Asteroid.cs" id="1_0tomg"]
+
+[node name="Asteroid" type="ColorRect"]
+offset_left = 202.0
+offset_top = 232.0
+offset_right = 409.0
+offset_bottom = 439.0
+pivot_offset = Vector2(708, -64)
+script = ExtResource("1_0tomg")
