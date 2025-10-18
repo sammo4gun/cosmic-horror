@@ -1,14 +1,18 @@
 using Godot;
 using System;
+using System.Text;
 
 public partial class Console : Node2D
-{
+{   
     private TextDisplay _textDisplay;
     private ButtonHandler _buttonHandler;
     private LightHandler _lightHandler;
     private Dial _flatDial;
     private Dial _heightDial;
     public string LaunchCodes;
+
+    [Signal]
+    public delegate void ButtonPressedEventHandler(string buttonName, bool toggled);
 
     public bool IsButtonPressed(string button) => _buttonHandler.Buttons[button];
 
@@ -64,6 +68,11 @@ public partial class Console : Node2D
             ((Shuttle)GetParent()).LaunchCodesEntered(correct: false, shuffled: false);
             return false;
         }
+    }
+
+    public void OnButtonPressed(string buttonName, bool toggled)
+    {
+        EmitSignal("ButtonPressed", buttonName, toggled);
     }
 
     public void SetLightState(string lightName, bool toggled)

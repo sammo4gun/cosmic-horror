@@ -6,7 +6,7 @@ public partial class FlippableButton : TextureButton
     public override void _Ready()
     {
         base._Ready();
-        Toggled += (toggled) => playSound(toggled);
+        Toggled += playSound;
     }
 
     private void playSound(bool toggled)

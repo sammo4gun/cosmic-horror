@@ -23,3 +23,7 @@ res://Scripts/PauseCalculator.cs
 res://Scripts/Console.cs
 res://Scripts/DistDisplay.cs
 res://Scripts/TimeDisplay.cs
+res://Scenes/shuttle.tscn
+res://Scenes/dial.tscn
+res://Scenes/console.tscn
+res://Scenes/text_display.tscn

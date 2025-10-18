@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 // SCENE_ID: Departing_Earth
 // Window: The player sees earth moving away very slowly, starting out very close to the ground
-// 
+// Get used to the basics: the launch code, and the french integrity check.
+// Blast forwards 1 week!
 public partial class Shuttle : Node2D
 {
     private Camera _camera;
@@ -36,6 +37,7 @@ public partial class Shuttle : Node2D
         _soundScapeHandler = GetNode<SoundScapeHandler>("SoundScapeHandler");
         _recordPlayer = GetNode<RecordPlayer>("Window/RecordPlayer");
         _recordPlayer.ValidationDone += RecordValidated;
+        _console.ButtonPressed += ButtonPressed;
     }
 
     public override void _Process(double delta)
@@ -51,14 +53,14 @@ public partial class Shuttle : Node2D
     {
         HandleTurning(@event);
     }
-    
+
     public async void TriggerConsole()
     {
         TriggeredConsole = true;
 
         await ToSignal(GetTree().CreateTimer(2f), "timeout");
-        
-        _console.ToggleRaiseText();
+
+        // _console.ToggleRaiseText();
         if (!(_console.LaunchCodes is string))
         {
             _console.OutputLine("VOY01 - Booting systems...");
@@ -126,5 +128,13 @@ public partial class Shuttle : Node2D
     {
         _console.OutputLine($"Validation complete.");
         _console.OutputLine($"Golden Drive Integrity at 100%.");
+    }
+
+    public void ButtonPressed(string buttonName, bool toggled)
+    {
+        if (buttonName == "Hibernation")
+        {
+            _ = _hibernationHandler.EnterHibernation(7, "days", 15000);
+        }
     }
 }

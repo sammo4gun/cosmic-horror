@@ -21,22 +21,6 @@ offset_right = 648.0
 offset_bottom = 648.0
 texture = ExtResource("2_j4mgr")
 
-[node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
-material = SubResource("ShaderMaterial_hfjju")
-position = Vector2(85, 236)
-
-[node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
-position = Vector2(324, 64)
-
-[node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
-position = Vector2(65, 64)
-
-[node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(569, 311)
-
-[node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(66, 298)
-
 [node name="ButtonHandler" type="Node" parent="."]
 script = ExtResource("7_uqptw")
 
@@ -134,6 +118,15 @@ rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
+[node name="FlippableButtonHibernation" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 319.0
+offset_top = 299.0
+offset_right = 427.0
+offset_bottom = 407.00003
+rotation = 0.7612072
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource("9_gyscv")
 
@@ -160,6 +153,23 @@ scale = Vector2(0.25246653, 0.25246653)
 [node name="FlippableLight6" parent="LightHandler" instance=ExtResource("10_ekwfd")]
 position = Vector2(394, 234)
 scale = Vector2(0.25246653, 0.25246653)
+
+[node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
+position = Vector2(324, 64)
+
+[node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
+position = Vector2(65, 64)
+
+[node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(569, 311)
+
+[node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(66, 298)
+
+[node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
+z_index = 1
+material = SubResource("ShaderMaterial_hfjju")
+position = Vector2(85, 236)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)

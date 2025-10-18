@@ -31,6 +31,7 @@ public partial class ButtonHandler : Node
         }
         else if (buttonName.Length == 1 && toggled) OrderPressed += GetButtonName(button);
         else if (buttonName.Length == 1 && !toggled) OrderPressed = OrderPressed.Replace(buttonName, "");
+        ((Console)GetParent()).OnButtonPressed(buttonName, toggled);
     }
 
     private async void CheckLaunchSequence()

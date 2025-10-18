@@ -14,7 +14,7 @@ public partial class Dial : Node2D
     private AudioStreamPlayer _turnSoundPlayer;
 
     public float CurrentValue = 0.0f;
-    public bool Activated = false;
+    [Export] public bool Activated = false;
 
     private bool _dragging = false;
     private Vector2 _lastMousePos;

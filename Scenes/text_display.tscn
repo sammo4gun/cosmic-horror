@@ -46,6 +46,7 @@ script = ExtResource("2_hfjju")
 material = SubResource("ShaderMaterial_agw8y")
 offset_right = 480.0
 offset_bottom = 310.0
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="ScreenContainer"]
 transparent_bg = true
