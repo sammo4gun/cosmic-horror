@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 public partial class HibernationHandler : Node
 {
     [Export]
-    float HibernationLength = 2.0f; // length of dark screen during hibernation
+    float HibernationLength = 4.0f; // length of dark screen during hibernation
 
     public bool IsHibernating = true;
     private Camera _camera;

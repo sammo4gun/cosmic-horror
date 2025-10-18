@@ -36,6 +36,7 @@ public partial class Camera : Camera2D
     private ColorRect _screenBlocker;
     private bool _hibernating = true;
 
+    private int _masterBusIndex = AudioServer.GetBusIndex("Master");
     private int _consoleBusIndex = AudioServer.GetBusIndex("Console");
     private int _windowBusIndex = AudioServer.GetBusIndex("Window");
 
@@ -55,27 +56,35 @@ public partial class Camera : Camera2D
         MoveToTarget(delta);
         HandleSwitching();
         HandleHibernationVisibility(delta);
-        HandleVolume();
+        HandleVolume(delta);
     }
 
-    private void HandleVolume()
+    private void HandleVolume(double delta)
     {
-        float distConsole = Math.Min(Position.DistanceTo(CONSOLE_POSITION), Position.DistanceTo(RIGHT_POSITION))/MAX_DISTANCE;
-        float distWindow = Math.Min(Position.DistanceTo(WINDOW_POSITION), Position.DistanceTo(LEFT_POSITION)) / MAX_DISTANCE;
+        if (_hibernating)
+        {
+            AudioServer.SetBusVolumeDb(_consoleBusIndex, AudioServer.GetBusVolumeDb(_consoleBusIndex) - 5*(float)delta);
+            AudioServer.SetBusVolumeDb(_windowBusIndex, AudioServer.GetBusVolumeDb(_windowBusIndex) - 5*(float)delta);
+        }
+        else
+        {
+            float distConsole = Math.Min(Position.DistanceTo(CONSOLE_POSITION), Position.DistanceTo(RIGHT_POSITION)) / MAX_DISTANCE;
+            float distWindow = Math.Min(Position.DistanceTo(WINDOW_POSITION), Position.DistanceTo(LEFT_POSITION)) / MAX_DISTANCE;
 
-        float consoleReduction = distConsole * -TurnVolumeReductionDB;
-        float windowReduction = distWindow * -TurnVolumeReductionDB;
+            float consoleReduction = distConsole * -TurnVolumeReductionDB;
+            float windowReduction = distWindow * -TurnVolumeReductionDB;
 
-        float zoomReduction = (Zoom.X - ZoomFactor) / (1 - ZoomFactor) * ZoomVolumeReductionDB;
+            float zoomReduction = (Zoom.X - ZoomFactor) / (1 - ZoomFactor) * ZoomVolumeReductionDB;
 
-        if (distConsole < 0.1) consoleReduction -= zoomReduction;
-        else consoleReduction -= ZoomVolumeReductionDB; // maxed out zoom reduction
+            if (distConsole < 0.1) consoleReduction -= zoomReduction;
+            else consoleReduction -= ZoomVolumeReductionDB; // maxed out zoom reduction
 
-        if (distWindow < 0.1) windowReduction -= zoomReduction;
-        else windowReduction -= ZoomVolumeReductionDB; // maxed out zoom reduction
+            if (distWindow < 0.1) windowReduction -= zoomReduction;
+            else windowReduction -= ZoomVolumeReductionDB; // maxed out zoom reduction
 
-        AudioServer.SetBusVolumeDb(_consoleBusIndex, consoleReduction);
-        AudioServer.SetBusVolumeDb(_windowBusIndex, windowReduction);
+            AudioServer.SetBusVolumeDb(_consoleBusIndex, consoleReduction);
+            AudioServer.SetBusVolumeDb(_windowBusIndex, windowReduction);
+        }
     }
 
     private void HandleZoom(double delta)
