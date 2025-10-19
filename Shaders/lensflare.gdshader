@@ -6,6 +6,7 @@ render_mode blend_add;
 uniform vec2 sun_position = vec2(0.0);
 uniform vec3 tint = vec3(1.4, 1.2, 1.0);
 uniform sampler2D noise_texture;
+uniform float intensity = 4.0;
 
 float noise_float(float t, vec2 texResolution)
 {
@@ -81,6 +82,6 @@ void fragment()
 	sun.x *= resolution.x / resolution.y; //fix aspect ratio
 	
 	vec3 flare_color = tint * lens_flare(uv, sun.xy, texResolution);
-	
-	COLOR = vec4(flare_color * 4.0, 1.0);
+
+	COLOR = vec4(flare_color * intensity, 1.0);
 }

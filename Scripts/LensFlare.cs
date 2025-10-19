@@ -3,6 +3,7 @@ using Godot;
 public partial class LensFlare : ColorRect
 {
     [Export] public Node2D Sun; // Assign your Sun node in the inspector
+    [Export] public float Intensity = 4.0f;
 
     public override void _Process(double delta)
     {
@@ -26,5 +27,6 @@ public partial class LensFlare : ColorRect
         // sunScreen /= GetViewport().GetVisibleRect().Size;
 
         sm.SetShaderParameter("sun_position", sunScreen);
+        sm.SetShaderParameter("intensity", Intensity);
     }
 }
