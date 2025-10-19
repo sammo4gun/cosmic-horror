@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dos7hvxaxhthg"]
+[gd_scene load_steps=18 format=3 uid="uid://dos7hvxaxhthg"]
 
 [ext_resource type="Texture2D" uid="uid://d1tnqep8b5f1a" path="res://Assets/record_activated_placeholder.png" id="1_kgpb7"]
 [ext_resource type="Texture2D" uid="uid://cho0xwaxvub2s" path="res://Assets/record_playing_placeholder.png" id="2_2p0nn"]
@@ -13,6 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://tyy2o1gtafmw" path="res://Assets/SFX/RecordsTransmissions/transmission2.mp3" id="8_hco7b"]
 [ext_resource type="AudioStream" uid="uid://dnidhdaalkpr3" path="res://Assets/SFX/Tapedeck_Pause.mp3" id="9_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dioyun5qeo1np" path="res://Assets/SFX/Tapedeck_LoadOut.mp3" id="9_xcud7"]
+[ext_resource type="AudioStream" uid="uid://b67lhdvfllv6l" path="res://Assets/SFX/RecordsTransmissions/French Children.mp3" id="10_7cy6o"]
+[ext_resource type="AudioStream" uid="uid://bsckrnm0oa51l" path="res://Assets/SFX/RecordsTransmissions/transmission3.mp3" id="11_2squk"]
+[ext_resource type="AudioStream" uid="uid://b1tc1cks3kei1" path="res://Assets/SFX/RecordsTransmissions/CryingSun2.mp3" id="12_uvi22"]
+[ext_resource type="AudioStream" uid="uid://dcg0fhokrh0yx" path="res://Assets/SFX/RecordsTransmissions/Fuckin Shakespeare.mp3" id="13_ydbsb"]
 
 [node name="RecordPlayer" type="TextureButton"]
 offset_right = 108.0
@@ -55,11 +59,29 @@ bus = &"Window"
 
 [node name="MusicPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_b6iu0")
-volume_db = -18.128
+volume_db = -5.725
 bus = &"Window"
 
 [node name="MusicPlayer4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_hco7b")
+bus = &"Window"
+
+[node name="MusicPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7cy6o")
+bus = &"Window"
+
+[node name="MusicPlayer6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2squk")
+bus = &"Window"
+
+[node name="MusicPlayer7" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_uvi22")
+volume_db = -8.587
+bus = &"Window"
+
+[node name="MusicPlayer8" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_ydbsb")
+volume_db = -20.991
 bus = &"Window"
 
 [node name="LoadPlayer" type="AudioStreamPlayer" parent="."]

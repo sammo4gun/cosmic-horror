@@ -36,7 +36,7 @@ public partial class SoundScapeHandler : Node
     {
         GetNode<AudioStreamPlayer>("CrashPlayer").Stop();
         GetNode<AudioStreamPlayer>("AlarmPlayer").Stop();
-        GetNode<AudioStreamPlayer>("RattlePlayer").Stop();
+        // GetNode<AudioStreamPlayer>("RattlePlayer").Stop();
         GetNode<AudioStreamPlayer>("CrashEndPlayer").Play();
     }
 }

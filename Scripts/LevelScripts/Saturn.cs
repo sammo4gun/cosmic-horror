@@ -126,13 +126,13 @@ public partial class Saturn : Shuttle
         _console.ResetThrusterSequence();
         _console.OutputLine("Course stabilized{p=1.0}");
         _console.OutputLine("Assessing damage...{p=2.0}");
-        _console.OutputLine("Hull integrity -{p=1.0} 67% -{p=1.0} pass");
+        _console.OutputLine("Hull integrity -{p=1.0} 45% -{p=1.0} pass");
         _console.OutputLine("THRUSTER1 - {p=1.0}Operational");
         _console.OutputLine("THRUSTER2 - ERROR{p=1.0}");
         _console.OutputLine("THRUSTER2 destroyed");
         _console.OutputLine("==========================={p=1.0}");
         _console.OutputLine("THRUSTER2 dumped");
-        _console.OutputLine("Engage backup thruster...");
+        _console.OutputLine("Engage backup thruster2...");
         await ToSignal(_console, "TextFinished");
         _console.ToggleActivateButton("BackupRight", true);
     }
@@ -149,9 +149,14 @@ public partial class Saturn : Shuttle
         }
     }
 
-    public async void BackupDeployed()
+    public void BackupDeployed()
     {
-        
+        _console.OutputLine("===========================");
+        _console.OutputLine("Backup thruster2 engaged");
+        _console.OutputLine("THRUSTER2 - operational");
+        _console.OutputLine("Backup thruster checks");
+        _console.OutputLine("1/2 available");
+        RequestLaunchcodeCheck();
     }
 
 
@@ -166,8 +171,8 @@ public partial class Saturn : Shuttle
         _console.OutputLine("┗╸Enter thruster sequence{p=1.0}");
         _console.OutputLine("===============================");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("┗╸Confirm sequence D-C-A-3"); ;
-        _console.LaunchCodes = "DCA3";
+        _console.OutputLine("┗╸Confirm sequence 5-3-D-2-C"); ;
+        _console.LaunchCodes = "53D2C";
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)
@@ -203,8 +208,9 @@ public partial class Saturn : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = jupiter_orbit");
-        _console.OutputLine("hibernation time ~26 months");
+        _console.OutputLine("target = ");
+        _console.OutputLine("solar_system_gravitational_exit");
+        _console.OutputLine("hibernation time ~14 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
     }
@@ -220,7 +226,7 @@ public partial class Saturn : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/4_saturn");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/5_solar_flare");
         if (buttonName == "BackupRight" && toggled)
         {
             BackupDeployed();
