@@ -111,10 +111,10 @@ scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonLaunch" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 319.0
-offset_top = 88.00001
-offset_right = 427.0
-offset_bottom = 196.00003
+offset_left = 320.0
+offset_top = 116.999985
+offset_right = 428.0
+offset_bottom = 225.0
 rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
@@ -124,6 +124,24 @@ offset_left = 319.0
 offset_top = 299.0
 offset_right = 427.0
 offset_bottom = 407.00003
+rotation = 0.7612072
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButtonBackupLeft" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 1371.0
+offset_top = 491.99997
+offset_right = 1479.0
+offset_bottom = 600.0
+rotation = 0.7612072
+scale = Vector2(0.33462042, 0.33462042)
+flip_h = true
+
+[node name="FlippableButtonBackupRight" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
+offset_left = 1844.0
+offset_top = 511.0
+offset_right = 1952.0
+offset_bottom = 619.0
 rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
@@ -174,6 +192,7 @@ position = Vector2(85, 236)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
+z_index = 1
 offset_left = 98.00001
 offset_top = 137.0
 offset_right = 144.0
@@ -181,14 +200,46 @@ offset_bottom = 160.0
 rotation = -0.6065403
 text = "54321"
 
+[node name="Label3" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 288.0
+offset_top = 96.0
+offset_right = 354.0
+offset_bottom = 119.0
+text = "LAUNCH"
+
 [node name="Label2" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
+z_index = 1
 offset_left = 501.00003
 offset_top = 119.0
 offset_right = 553.0
 offset_bottom = 142.0
 rotation = 0.7279254
 text = "ABCDE"
+
+[node name="Label4" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 1337.0001
+offset_top = 506.00006
+offset_right = 1404.0001
+offset_bottom = 555.00006
+rotation = 0.74531037
+text = "Thruster
+BackupL"
+
+[node name="Label5" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 1833.0
+offset_top = 571.0
+offset_right = 1901.0
+offset_bottom = 620.0
+rotation = -0.7749453
+text = "Thruster
+BackupR"
 
 [node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
 position = Vector2(588, 586)

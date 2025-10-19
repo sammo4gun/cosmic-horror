@@ -21,8 +21,9 @@ public partial class EarthLeaving : Shuttle
         _timeHandler.StartTimer(DateTime.ParseExact("05-09-1989 12:56:01.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
         _spaceHandler.StartDistance(20_000f);
         Speed = 17f;
-        
+
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("BackupLeft", false, false);
 
         // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
         _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
@@ -68,7 +69,6 @@ public partial class EarthLeaving : Shuttle
         {
             if (input.ToLower() == "y")
             {
-                AllDoneOutput();
                 //Character line(ish)
                 //                  |                                      |
                 _console.OutputLine("Running usr/sys/advanced_diag.sh");

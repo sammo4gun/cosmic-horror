@@ -3,6 +3,8 @@ using System;
 
 public partial class FlippableButton : TextureButton
 {
+    [Export] public bool Available = true;
+
     public override void _Ready()
     {
         base._Ready();

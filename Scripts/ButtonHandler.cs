@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 
 public partial class ButtonHandler : Node
 {
@@ -20,6 +21,7 @@ public partial class ButtonHandler : Node
             Buttons[GetButtonName(button)] = false;
             ButtonsActivated[GetButtonName(button)] = button.MouseFilter == Control.MouseFilterEnum.Stop;
             button.Toggled += (toggled) => OnButtonPressed(button, toggled);
+            ToggleButtonAvailable(GetButtonName(button), button.Available);
         }
     }
 
@@ -80,11 +82,20 @@ public partial class ButtonHandler : Node
         if (!correct) button.WrongLaunchCodeSound();
         else button.CorrectLaunchCodeSound();
     }
-    
+
     public void ToggleButtonAvailable(string buttonName, bool toggle)
     {
         FlippableButton button = GetNode<FlippableButton>("FlippableButton" + buttonName);
-        button.Disabled = !toggle;
+        // button.Disabled = !toggle;
+        if (toggle) button.MouseFilter = Control.MouseFilterEnum.Stop;
+        else button.MouseFilter = Control.MouseFilterEnum.Ignore;
+    }
+    
+    public void ToggleButtonPressed(string buttonName, bool toggle, bool silent)
+    {
+        FlippableButton button = GetNode<FlippableButton>("FlippableButton" + buttonName);
+        if (silent) button.SetPressedNoSignal(toggle);
+        else button.ButtonPressed = toggle;
     }
 
     private static string GetButtonName(FlippableButton button)

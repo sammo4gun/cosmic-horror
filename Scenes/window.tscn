@@ -12,6 +12,7 @@ script = ExtResource("1_30sqi")
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
 handle_input_locally = false
@@ -29,6 +30,7 @@ offset_left = 1.0
 offset_right = 651.0
 offset_bottom = 650.0
 pivot_offset = Vector2(708, -64)
+mouse_filter = 2
 script = ExtResource("3_30sqi")
 MinRadius = 0.02
 ShrinkRate = 0.01
@@ -36,6 +38,7 @@ ShrinkRate = 0.01
 [node name="PlaceholderWindow" type="TextureRect" parent="."]
 offset_right = 648.0
 offset_bottom = 648.0
+mouse_filter = 2
 texture = ExtResource("1_efths")
 
 [node name="RecordPlayer" parent="." instance=ExtResource("5_gvfsm")]

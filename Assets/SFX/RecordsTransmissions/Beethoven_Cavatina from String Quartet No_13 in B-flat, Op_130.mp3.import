@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxxjlmgbx8m13"
+path="res://.godot/imported/Beethoven_Cavatina from String Quartet No_13 in B-flat, Op_130.mp3-6ecc13d920363100f54ddcf4b42551bd.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/RecordsTransmissions/Beethoven_Cavatina from String Quartet No_13 in B-flat, Op_130.mp3"
+dest_files=["res://.godot/imported/Beethoven_Cavatina from String Quartet No_13 in B-flat, Op_130.mp3-6ecc13d920363100f54ddcf4b42551bd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

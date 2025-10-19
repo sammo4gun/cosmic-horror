@@ -108,6 +108,11 @@ public partial class Console : Node2D
         _buttonHandler.ToggleButtonAvailable(buttonName, toggled);
     }
 
+    public void ToggleButtonPressed(string buttonName, bool toggled, bool silent = true)
+    {
+        _buttonHandler.ToggleButtonPressed(buttonName, toggled, silent);
+    }
+
     public void RequestInput()
     {
         _textDisplay.AskForInput();
