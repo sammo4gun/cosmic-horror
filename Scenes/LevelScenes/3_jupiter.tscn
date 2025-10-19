@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://7y0v3wanih4y"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_llmuv"]
+[ext_resource type="Script" uid="uid://0ojl0aqwfvmk" path="res://Scripts/LevelScripts/Jupiter.cs" id="2_llmuv"]
+
+[node name="Jupiter" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_llmuv")]
+script = ExtResource("2_llmuv")

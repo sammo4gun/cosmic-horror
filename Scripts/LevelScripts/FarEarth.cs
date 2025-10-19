@@ -31,8 +31,8 @@ public partial class FarEarth : Shuttle
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(2, repeated: true, loadBar: false);
 
-        // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
-        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
+        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)
@@ -166,6 +166,6 @@ public partial class FarEarth : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/2_far_earth");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/3_jupiter");
     }
 }

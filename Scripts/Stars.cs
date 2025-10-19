@@ -3,18 +3,29 @@ using System;
 
 public partial class Stars : ColorRect
 {
+    private Shader shader;
+    private ShaderMaterial material;
+    private float offset = 0f;
     public override void _Ready()
     {
         base._Ready();
 
         // Load the shader from your .gdshader file
-        var shader = GD.Load<Shader>("res://Shaders/stars.gdshader");
+        shader = GD.Load<Shader>("res://Shaders/stars.gdshader");
 
         // Create a ShaderMaterial using that shader
-        var material = new ShaderMaterial();
+        material = new ShaderMaterial();
         material.Shader = shader;
 
         // Assign the material
         this.Material = material;
+        var rng = new RandomNumberGenerator();
+        GD.Print(material.GetShaderParameter("offset"));
+        material.SetShaderParameter("offset", new Vector2(rng.RandfRange(-100f, 100f), rng.RandfRange(-100f, 100f)));
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
     }
 }

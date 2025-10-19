@@ -93,8 +93,9 @@ offset_bottom = 1161.0
 pivot_offset = Vector2(708, -64)
 script = ExtResource("3_30sqi")
 MinRadius = 0.02
-ShrinkRate = 0.01
+ShrinkRate = 0.001
 PlanetShader = "res://Shaders/jupiter.gdshader"
+RotationSpeed = 100.0
 
 [node name="LensFlare" type="ColorRect" parent="Jupiter/SubViewport" node_paths=PackedStringArray("Sun")]
 material = SubResource("ShaderMaterial_8vpwn")
@@ -104,7 +105,7 @@ script = ExtResource("5_pff0d")
 Sun = NodePath("../../SunNode")
 
 [node name="SunNode" type="Node2D" parent="Jupiter"]
-position = Vector2(62, 233)
+position = Vector2(589, 163)
 
 [node name="Sun" type="ColorRect" parent="Jupiter/SunNode"]
 material = SubResource("ShaderMaterial_j100b")
@@ -132,6 +133,7 @@ offset_left = 221.0
 offset_top = 225.0
 offset_right = 424.0
 offset_bottom = 428.0
+scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(708, -64)
 script = ExtResource("3_30sqi")
 MinRadius = 0.3
@@ -143,6 +145,7 @@ offset_left = 329.0
 offset_top = 252.0
 offset_right = 401.0
 offset_bottom = 324.0
+scale = Vector2(0.4, 0.4)
 pivot_offset = Vector2(708, -64)
 script = ExtResource("3_30sqi")
 MinRadius = 0.3

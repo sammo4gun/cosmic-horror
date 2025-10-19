@@ -55,7 +55,7 @@ public partial class PlanetBody : ColorRect
         //material.SetShaderParameter("radius", 0.3f);
         material.SetShaderParameter("cell_amount", 10);
 
-        this.PivotOffset = new Vector2(this.Size.X / 2, this.Size.Y / 2);
+        PivotOffset = new Vector2(this.Size.X / 2, this.Size.Y / 2);
     }
 
     public override void _Process(double delta)
@@ -67,14 +67,14 @@ public partial class PlanetBody : ColorRect
     // shrink function 
     public void Shrink(double delta)
     {
-        float currentRadius = this.Scale.X;
+        float currentRadius = Scale.X;
         if (currentRadius > MinRadius)
         {
             // Logarithmic shrink: ShrinkRate scales with log(currentRadius)
             float logFactor = MathF.Log(currentRadius + 1); // +1 to avoid log(0)
             currentRadius -= (float)delta * ShrinkRate * logFactor;
         }
-        this.Scale = new Vector2(currentRadius, currentRadius);
+        Scale = new Vector2(currentRadius, currentRadius);
 
     }
 }
