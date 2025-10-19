@@ -163,7 +163,7 @@ public partial class Jupiter : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/3_far_earth");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/4_saturn");
     }
 
     public void AllDoneOutput()

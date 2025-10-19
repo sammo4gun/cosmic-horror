@@ -26,14 +26,6 @@ offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_bvnx3")
 
-[node name="PlanetBody" type="ColorRect" parent="SubViewportContainer"]
-z_index = -99
-layout_mode = 2
-script = ExtResource("3_l542i")
-MinRadius = 0.02
-ShrinkRate = 0.01
-PlanetShader = "res://Shaders/saturn.gdshader"
-
 [node name="AsteroidHandler" type="Node2D" parent="SubViewportContainer"]
 position = Vector2(324, 314)
 script = ExtResource("6_l542i")
@@ -42,3 +34,10 @@ script = ExtResource("6_l542i")
 offset_right = 648.0
 offset_bottom = 648.0
 texture = ExtResource("4_ik6p0")
+
+[node name="PlanetBody" type="ColorRect" parent="."]
+z_index = -99
+script = ExtResource("3_l542i")
+MinRadius = 0.02
+ShrinkRate = 0.01
+PlanetShader = "res://Shaders/saturn.gdshader"

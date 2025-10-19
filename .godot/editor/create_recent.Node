@@ -1,7 +1,8 @@
+ColorRect
+TextureRect
 AudioStreamPlayer
 AnimatedSprite2D
 Node2D
-ColorRect
 Sprite2D
 Label      - Matches the "text" keyword.
 TextEdit
@@ -11,4 +12,3 @@ SubViewport
 SubViewportContainer
 TextureButton
 Button
-Control

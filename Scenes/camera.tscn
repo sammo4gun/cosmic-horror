@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ve3mcaxygs60"]
+[gd_scene load_steps=8 format=3 uid="uid://ve3mcaxygs60"]
 
 [ext_resource type="Script" uid="uid://byjgtxmsdgeq1" path="res://Scripts/Camera.cs" id="1_375tr"]
 [ext_resource type="Shader" uid="uid://esvovl72o2el" path="res://Shaders/crt_display.gdshader" id="2_f1cf7"]
+[ext_resource type="Shader" uid="uid://dh520picq2tvx" path="res://Shaders/darkness.gdshader" id="3_mhsga"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mhsga"]
 shader = ExtResource("2_f1cf7")
@@ -66,6 +67,12 @@ colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_xfji6"]
 gradient = SubResource("Gradient_dwgup")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfji6"]
+shader = ExtResource("3_mhsga")
+shader_parameter/base_color = Color(0.98039216, 0, 0, 1)
+shader_parameter/fade_progress = 0.44800002128
+shader_parameter/softness = 1.0
+
 [node name="Camera" type="Camera2D"]
 script = ExtResource("1_375tr")
 ZoomFactor = 1.05
@@ -93,4 +100,18 @@ offset_left = -324.0
 offset_top = -324.0
 offset_right = 324.0
 offset_bottom = 324.0
+color = Color(0, 0, 0, 1)
+
+[node name="EmergencyLight" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_xfji6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -324.0
+offset_top = -324.0
+offset_right = 324.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 1)

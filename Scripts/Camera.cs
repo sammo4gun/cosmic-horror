@@ -17,11 +17,19 @@ public partial class Camera : Camera2D
     public float ZoomVolumeReductionDB = 3.0f;
     [Export]
     private float _hibernationScreenSpeed = 600.0f;
+    [Export]
+    private float _shakeStrength = 50.0f;
+    [Export]
+    private float _shakeFallOff = 3.0f;
 
     [Signal]
     public delegate void HibernationStartedEventHandler();
     [Signal]
     public delegate void HibernationEndedEventHandler();
+
+    private ColorRect _emergencyLight;
+
+    private RandomNumberGenerator rng = new RandomNumberGenerator();
 
     private static Vector2 LEFT_POSITION = new((648 / 2) + (648 * -2), 648 / 2);
     private static Vector2 SWITCH_POSITION_1 = new((648 / 2) + (648 * -1), 648 / 2);
@@ -44,12 +52,16 @@ public partial class Camera : Camera2D
     private int _windowBusIndex = AudioServer.GetBusIndex("Window");
     private float _adjustedHibernationScreenSpeed;
 
+    public bool Emergency = false;
+    private float shakeStrength = 0.0f;
+
     public override void _Ready()
     {
         base._Ready();
         TargetPosition = Position;
         _mouseBlocker = GetNode<TextureRect>("MouseBlocker");
         _screenBlocker = GetNode<ColorRect>("ScreenBlocker");
+        _emergencyLight = GetNode<ColorRect>("EmergencyLight");
         _screenBlocker.Visible = true;
         _adjustedHibernationScreenSpeed = _hibernationScreenSpeed;
     }
@@ -62,6 +74,8 @@ public partial class Camera : Camera2D
         HandleSwitching();
         HandleHibernationVisibility(delta);
         HandleVolume(delta);
+        HandleEmergencyLight(delta);
+        HandleShake(delta);
     }
 
     private void HandleVolume(double delta)
@@ -141,7 +155,7 @@ public partial class Camera : Camera2D
             _screenBlocker.Visible = false;
         }
     }
-    
+
     public bool Turn(string direction)
     {
         if (_hibernating) return false;
@@ -173,6 +187,40 @@ public partial class Camera : Camera2D
             return true;
         }
         return false;
+    }
+    
+    private void HandleEmergencyLight(double delta)
+    {
+        // this shit isn't great but we can improve
+        if (Emergency)
+        {
+            _emergencyLight.Visible = true;
+            float lightStrength = (float)((ShaderMaterial)_emergencyLight.Material).GetShaderParameter("fade_progress");
+            if (lightStrength < 0.5)
+            {
+                ((ShaderMaterial)_emergencyLight.Material).SetShaderParameter("fade_progress", 1.0);
+            }
+            else
+            {
+                ((ShaderMaterial)_emergencyLight.Material).SetShaderParameter("fade_progress",  lightStrength - (lightStrength-0.3)*0.06);
+            }
+        }
+        else _emergencyLight.Visible = false;
+    }
+
+    private void HandleShake(double delta)
+    {
+        if (shakeStrength > 0)
+        {
+            shakeStrength = float.Lerp(shakeStrength, 0, (float)delta * _shakeFallOff);
+
+            Offset = new Vector2(rng.RandfRange(-shakeStrength, shakeStrength), rng.RandfRange(-shakeStrength, shakeStrength));
+        }
+    }
+
+    public void ApplyShake()
+    {
+        shakeStrength = _shakeStrength;
     }
 
     public async void StartHibernation(float speedFactor = 1f)

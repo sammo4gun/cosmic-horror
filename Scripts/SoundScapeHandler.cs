@@ -22,6 +22,16 @@ public partial class SoundScapeHandler : Node
         base._Process(delta);
         // Fade out the voyager reversed sound over time
         if (_voyagerReversedPlayer.VolumeDb > -80)
-            _voyagerReversedPlayer.VolumeDb -= 0.5f*(float)delta; // 1 dB per second
+            _voyagerReversedPlayer.VolumeDb -= 0.5f * (float)delta; // 1 dB per second
+    }
+
+    public void Crash()
+    {
+        
+    }
+    
+    public void CrashFixed()
+    {
+        
     }
 }

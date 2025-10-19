@@ -20,7 +20,6 @@ public partial class Stars : ColorRect
         // Assign the material
         this.Material = material;
         var rng = new RandomNumberGenerator();
-        GD.Print(material.GetShaderParameter("offset"));
         material.SetShaderParameter("offset", new Vector2(rng.RandfRange(-100f, 100f), rng.RandfRange(-100f, 100f)));
     }
 
