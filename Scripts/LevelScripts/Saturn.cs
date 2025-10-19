@@ -208,8 +208,7 @@ public partial class Saturn : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = ");
-        _console.OutputLine("solar_system_gravitational_exit");
+        _console.OutputLine("target = extrasolar_space");
         _console.OutputLine("hibernation time ~14 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();

@@ -16,10 +16,10 @@ public partial class SolarFlare : Shuttle
     {
         base._Ready();
 
-        _window.SetWindow("Jupiter");
+        _window.SetWindow("SolarFlare");
 
         // starting time, distance, and speed
-        _timeHandler.StartTimer(DateTime.ParseExact("29-01-1980 02:29:13.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
+        _timeHandler.StartTimer(DateTime.ParseExact("30-10-1981 00:23:14.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
         _spaceHandler.StartDistance(1_458_491_009f);
         Speed = 15f;
 
@@ -76,16 +76,17 @@ public partial class SolarFlare : Shuttle
                 _console.OutputLine("Running usr/sys/advanced_diag.sh");
                 _console.OutputLine("===============================");
                 _console.OutputLine("Postlaunch tests:");
-                _console.OutputLine("Running . {p=0.3}W . . . {p=0.5}. {p=0.5}. {p=0.5}. . . . {p=1.0}W W W");
-                _console.OutputLine("PASSED with 4 warning and 0 errors");
+                _console.OutputLine("Running . {p=0.3}W W W . {p=0.5}. {p=0.5}. {p=0.5}E . . . {p=1.0}W W W");
+                _console.OutputLine("FAILED with 6 warning and 1 errors");
+                _console.OutputLine("Transmission receiver damaged");
                 _console.OutputLine("Simulating trajectory... {p=0.8}");
                 _console.OutputLine("Trajectory Outline Confirmed");
-                _console.OutputLine("Saturn orbit entry t-minus:{p=0.8}");
-                _console.OutputLine("┣╸15 days{p=0.8}");
-                _console.OutputLine("┣╸2 months{p=0.8}");
-                _console.OutputLine("┗╸1 year{p=0.3}");
+                _console.OutputLine("Extrasolar entry t-minus:{p=0.8}");
+                _console.OutputLine("┣╸#ERR days{p=0.8}");
+                _console.OutputLine("┣╸#ERR months{p=0.8}");
+                _console.OutputLine("┗╸#ERR years{p=0.3}");
                 _console.OutputLine("Backup thruster checks");
-                _console.OutputLine("2/2 available");
+                _console.OutputLine("1/2 available");
                 _console.OutputLine("===============================");
                 RequestDriveCheck();
 
@@ -111,7 +112,7 @@ public partial class SolarFlare : Shuttle
     public void RequestDriveCheck()
     {
         _recordPlayer.Disabled = false;
-        _console.OutputLine("Loading post_jupiter_checklog.yaml{p=1.0}");
+        _console.OutputLine("Loading solar_charge_checklog.yaml{p=1.0}");
         _console.OutputLine("===============================");
         _console.OutputLine("Pre-hibernation checklog");
         _console.OutputLine("┣╸Run Golden Drive integrity test");
@@ -119,8 +120,8 @@ public partial class SolarFlare : Shuttle
         _console.OutputLine("===============================");
         _console.OutputLine("Golden Drive activated, awaiting run");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("┗╸Confirm sequence E-1-4-D");
-        _console.LaunchCodes = "E14D";
+        _console.OutputLine("┗╸Confirm sequence C-A-3");
+        _console.LaunchCodes = "CA3";
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)
@@ -155,7 +156,9 @@ public partial class SolarFlare : Shuttle
     public override void RecordDone()
     {
         _console.OutputLine("Integrity diagnostics completed");
-        _console.OutputLine("Golden Drive integrity - 100%");
+        _console.OutputLine("Data leakage detected");
+        _console.OutputLine("Golden Drive integrity");
+        _console.OutputLine(" - Estimated 75%");
         RecordChecked = true;
         if (LaunchCodesEntered) AllDoneOutput();
         else _console.OutputLine("Awaiting thruster sequence...");
@@ -172,8 +175,8 @@ public partial class SolarFlare : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = saturn_orbit");
-        _console.OutputLine("hibernation time ~14 months");
+        _console.OutputLine("target = extrasolar_space");
+        _console.OutputLine("hibernation time ~8 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
     }

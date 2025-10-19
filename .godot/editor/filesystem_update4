@@ -41,3 +41,4 @@ res://Scenes/LevelScenes/3_jupiter.tscn
 res://Scenes/record_player.tscn
 res://Scenes/LevelScenes/5_solarflare.tscn
 res://Scripts/LevelScripts/SolarFlare.cs
+res://Shaders/lensflare.gdshader
