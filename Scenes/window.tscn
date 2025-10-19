@@ -45,29 +45,32 @@ z_index = -100
 offset_right = 648.0
 offset_bottom = 648.0
 
-[node name="SubViewport" type="SubViewport" parent="Saturn"]
+[node name="AsteroidHandler" type="Node2D" parent="Saturn"]
+position = Vector2(324, 314)
+script = ExtResource("4_pff0d")
+
+[node name="SubViewport2" type="SubViewport" parent="Saturn"]
 handle_input_locally = false
 size = Vector2i(648, 648)
 render_target_update_mode = 0
 
-[node name="Stars" type="ColorRect" parent="Saturn/SubViewport"]
-z_index = 100
+[node name="Stars" type="ColorRect" parent="Saturn/SubViewport2"]
 offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
 
-[node name="PlanetBody" type="ColorRect" parent="Saturn"]
-z_index = -99
-layout_mode = 2
+[node name="PlanetBody" type="ColorRect" parent="Saturn/SubViewport2"]
+offset_left = -29.0
+offset_top = -21.0
+offset_right = 679.0
+offset_bottom = 687.0
+pivot_offset = Vector2(708, -64)
 script = ExtResource("3_30sqi")
 MinRadius = 0.02
-ShrinkRate = 0.01
+ShrinkRate = 0.001
 PlanetShader = "res://Shaders/saturn.gdshader"
-
-[node name="AsteroidHandler" type="Node2D" parent="Saturn"]
-position = Vector2(324, 314)
-script = ExtResource("4_pff0d")
+RotationSpeed = 100.0
 
 [node name="Jupiter" type="SubViewportContainer" parent="."]
 visible = false

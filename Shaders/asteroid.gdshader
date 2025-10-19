@@ -5,13 +5,13 @@ uniform int cell_amount = 10;
 uniform float rotation_speed = 60.0;
 uniform vec3 world_period = vec3(9.5, 9.5, 9.5);
 
-// color palette to skin the noise map
-uniform vec4 tangerine : source_color = vec4(0.40, 0.38, 0.37, 1.); // darker highlight
-uniform vec4 sunset : source_color = vec4(0.36, 0.35, 0.34, 1.); // darker pale gray
-uniform vec4 moonstone : source_color = vec4(0.30, 0.30, 0.31, 1.); // darker moonstone gray
-uniform vec4 shadow : source_color = vec4(0.24, 0.25, 0.26, 1.); // darker shadow
-uniform vec4 emerald : source_color = vec4(0.18, 0.19, 0.20, 1.); // darker gray
-uniform vec4 deep_shadow : source_color = vec4(0.10, 0.11, 0.12, 1.); // deepest darker shadow
+// color palette to skin the noise map (darkened)
+uniform vec4 tangerine : source_color = vec4(0.35, 0.33, 0.32, 1.); // darker highlight
+uniform vec4 sunset : source_color = vec4(0.31, 0.30, 0.29, 1.); // darker pale gray
+uniform vec4 moonstone : source_color = vec4(0.25, 0.25, 0.26, 1.); // darker moonstone gray
+uniform vec4 shadow : source_color = vec4(0.19, 0.20, 0.21, 1.); // darker shadow
+uniform vec4 emerald : source_color = vec4(0.13, 0.14, 0.15, 1.); // darker gray
+uniform vec4 deep_shadow : source_color = vec4(0.06, 0.07, 0.08, 1.); // deepest darker shadow
 
 uniform int polygon_sides = 9;          // number of sides
 uniform float jag_amplitude = 0.02;     // how far the edge can protrude
