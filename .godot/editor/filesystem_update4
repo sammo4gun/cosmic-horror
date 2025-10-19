@@ -42,3 +42,5 @@ res://Scenes/record_player.tscn
 res://Scenes/LevelScenes/5_solarflare.tscn
 res://Scripts/LevelScripts/SolarFlare.cs
 res://Shaders/lensflare.gdshader
+res://Scenes/LevelScenes/6_danger.tscn
+res://Scripts/LevelScripts/Danger.cs

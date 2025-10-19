@@ -19,15 +19,15 @@ public partial class SolarFlare : Shuttle
         _window.SetWindow("SolarFlare");
 
         // starting time, distance, and speed
-        _timeHandler.StartTimer(DateTime.ParseExact("30-10-1981 00:23:14.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
+        _timeHandler.StartTimer(DateTime.ParseExact("21-09-1981 09:23:14.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
         _spaceHandler.StartDistance(1_458_491_009f);
         Speed = 15f;
 
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(5, repeated: false, loadBar: true);
 
-        // _ = _hibernationHandler.EndHibernation(delay: 1.5f, speedFactor: 4);
-        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        _ = _hibernationHandler.EndHibernation(delay: 1.5f, speedFactor: 4);
+        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)
@@ -167,7 +167,7 @@ public partial class SolarFlare : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/4_saturn");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/6_danger");
     }
 
     public void AllDoneOutput()
@@ -176,7 +176,7 @@ public partial class SolarFlare : Shuttle
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
         _console.OutputLine("target = extrasolar_space");
-        _console.OutputLine("hibernation time ~8 months");
+        _console.OutputLine("hibernation time ~9 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
     }

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckikxyjogdmrc"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_6y38w"]
+[ext_resource type="Script" uid="uid://bilv2xny4a0od" path="res://Scripts/LevelScripts/Danger.cs" id="2_6y38w"]
+
+[node name="Danger" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_6y38w")]
+script = ExtResource("2_6y38w")
