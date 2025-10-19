@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="CosmicHorror"
-run/main_scene="uid://cpgjaw8dqebe1"
+run/main_scene="uid://d3e3e3j3carjb"
 config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
 config/icon="res://icon.svg"
 

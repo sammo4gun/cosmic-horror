@@ -15,6 +15,7 @@ public partial class Shuttle : Node2D
     protected HibernationHandler _hibernationHandler;
     protected SoundScapeHandler _soundScapeHandler;
     protected RecordPlayer _recordPlayer;
+    protected Window _window;
 
     public DateTime CurrentTime => _timeHandler.CurrentTime;
     public float DistanceFromEarth => _spaceHandler.DistanceFromEarth;
@@ -32,6 +33,7 @@ public partial class Shuttle : Node2D
         _hibernationHandler = GetNode<HibernationHandler>("HibernationHandler");
         _soundScapeHandler = GetNode<SoundScapeHandler>("SoundScapeHandler");
         _recordPlayer = GetNode<RecordPlayer>("Window/RecordPlayer");
+        _window = GetNode<Window>("Window");
         _recordPlayer.MusicStarted += RecordStarted;
         _recordPlayer.MusicDone += RecordDone;
 

@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-// SCENE_ID: Departing_Earth
+// SCENE_ID: Earth_Leaving
 // Window: The player sees earth moving away very slowly, starting out very close to the ground
-// Get used to the basics: the launch code, and the french integrity check.
+// Get used to the basics: the launch code, and the classical music integrity check
 // Blast forwards 1 week!
 public partial class EarthLeaving : Shuttle
 {
@@ -17,16 +17,21 @@ public partial class EarthLeaving : Shuttle
     public override void _Ready()
     {
         base._Ready();
+
+        _window.SetWindow("EarthLeaving");
+
+
         // starting time, distance, and speed
-        _timeHandler.StartTimer(DateTime.ParseExact("05-09-1989 12:56:01.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
-        _spaceHandler.StartDistance(20_000f);
+        _timeHandler.StartTimer(DateTime.ParseExact("05-09-1977 12:56:01.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
+        _spaceHandler.StartDistance(18_342f);
         Speed = 17f;
 
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
-        _console.ToggleButtonPressed("BackupLeft", false, false);
+        // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
+        _recordPlayer.LoadSong(1, repeated: false, loadBar: true);
 
-        // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
-        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
+        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)
@@ -52,7 +57,7 @@ public partial class EarthLeaving : Shuttle
         _console.OutputLine("Verifying {p=0.3}. {p=0.3}. . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
-        _console.OutputLine("System load logged in usr/logs/050919791256010.json");
+        _console.OutputLine("System load logged in usr/logs/050919771256010.json");
         _console.OutputLine("Running preliminary diagnostics...{p=0.2}");
         _console.OutputLine("Hull integrity - 98% - PASS");
         _console.OutputLine("Battery cell total charge - 94%");
@@ -79,9 +84,9 @@ public partial class EarthLeaving : Shuttle
                 _console.OutputLine("Simulating trajectory... {p=0.8}");
                 _console.OutputLine("Trajectory Outline Confirmed");
                 _console.OutputLine("Jupiter orbit entry t-minus:{p=0.8}");
-                _console.OutputLine("   26 days{p=0.8}");
-                _console.OutputLine("   6 months{p=0.8}");
-                _console.OutputLine("   2 years{p=0.3}");
+                _console.OutputLine("┣╸26 days{p=0.8}");
+                _console.OutputLine("┣╸6 months{p=0.8}");
+                _console.OutputLine("┗╸2 years{p=0.3}");
                 _console.OutputLine("Backup thruster checks");
                 _console.OutputLine("2/2 available");
                 _console.OutputLine("===============================");
@@ -90,7 +95,7 @@ public partial class EarthLeaving : Shuttle
             }
             else if (input.ToLower() == "n")
             {
-                _console.OutputLine("Cancelling advanced diagnostics");
+                _console.OutputLine("Skipping advanced diagnostics");
                 RequestDriveCheck();
             }
             else
@@ -99,18 +104,24 @@ public partial class EarthLeaving : Shuttle
                 _console.RequestInput();
             }
         }
+        else if (question == "Confirm hibernation?")
+        {
+            _console.ToggleRaiseText();
+            _console.ToggleActivateButton("Hibernation", true);
+        }
     }
 
     public void RequestDriveCheck()
     {
         _recordPlayer.Disabled = false;
         _console.OutputLine("Loading post_launch_checklog.yaml{p=1.0}");
+        _console.OutputLine("===============================");
         _console.OutputLine("Pre-hibernation checklog");
-        _console.OutputLine("Ensure Golden Drive integrity");
-        _console.OutputLine("Enter thruster sequence{p=1.0}");
+        _console.OutputLine("┣╸Run Golden Drive integrity test");
+        _console.OutputLine("┗╸Enter thruster sequence{p=1.0}");
+        _console.OutputLine("===============================");
         _console.OutputLine("Golden Drive activated, awaiting run");
         _console.OutputLine("Confirm with window-side player...");
-        // _console.OutputLine("Loading thruster sequence...");
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)
@@ -120,7 +131,7 @@ public partial class EarthLeaving : Shuttle
             _console.OutputLine("Thruster Sequence received");
             LaunchCodesEntered = true;
             if (RecordChecked) AllDoneOutput();
-            else _console.OutputLine("Awaiting drive integrity check...");
+            else _console.OutputLine("Awaiting drive integrity test");
         }
         else if (shuffled)
         {
@@ -146,10 +157,9 @@ public partial class EarthLeaving : Shuttle
     public override void RecordDone()
     {
         _console.OutputLine("Integrity diagnostics completed");
-        _console.OutputLine("Golden Drive integrity 100%");
-        _console.OutputLine("No further diagnosis required");
+        _console.OutputLine("Golden Drive integrity - 100%");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("Confirm sequence C-2-E");
+        _console.OutputLine("┗╸Confirm sequence C-2-E");
         RecordChecked = true; 
         if (LaunchCodesEntered) AllDoneOutput();
         else _console.OutputLine("Awaiting thruster sequence...");
@@ -158,16 +168,17 @@ public partial class EarthLeaving : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/1_earth_leaving");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/2_far_earth");
     }
 
-    public async void AllDoneOutput()
+    public void AllDoneOutput()
     {
-        _console.OutputLine("Completed pre-launch checklog.");
+        _console.OutputLine("Completed pre-launch checklog");
+        _console.OutputLine("==============================={p=1.0}");
+        _console.OutputLine("Hibernation module load successful");
+        _console.OutputLine("target = far_earth_orbit");
+        _console.OutputLine("hibernation time ~3 days");
+        _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
-
-        // _console.ToggleRaiseText();
-        // _console.ToggleActivateButton("Hibernation", true);
     }
-
 }

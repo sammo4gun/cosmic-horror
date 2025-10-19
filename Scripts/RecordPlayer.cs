@@ -6,6 +6,8 @@ public partial class RecordPlayer : TextureButton
     public delegate void MusicDoneEventHandler();
     [Signal]
     public delegate void MusicStartedEventHandler();
+
+    public bool showLoadBar;
     
     private AudioStreamPlayer _musicPlayer;
     private AudioStreamPlayer _loadPlayer;
@@ -22,7 +24,6 @@ public partial class RecordPlayer : TextureButton
     public override void _Ready()
     {
         base._Ready();
-        _musicPlayer = GetNode<AudioStreamPlayer>("MusicPlayer");
         _loadPlayer = GetNode<AudioStreamPlayer>("LoadPlayer");
         _backgroundPlayer = GetNode<AudioStreamPlayer>("BackgroundPlayer");
         _unloadPlayer = GetNode<AudioStreamPlayer>("UnloadPlayer");
@@ -31,21 +32,33 @@ public partial class RecordPlayer : TextureButton
         _notLoadedBar = GetNode<ColorRect>("LoadBarFillerNotDone");
         _loadBar = GetNode<ColorRect>("LoadBarFiller");
 
-        SongLength = (float)_musicPlayer.Stream.GetLength();
-
         Toggled += RecordActivated;
-        _musicPlayer.Finished += RecordDone;
         _loadPlayer.Finished += RecordStarted;
         _pausePlayer.Finished += RecordStopped;
+
+        // LoadSong(1, false, true);
+    }
+
+    public void LoadSong(int id, bool repeated, bool loadBar)
+    {
+        _musicPlayer = GetNode<AudioStreamPlayer>($"MusicPlayer{id}");
+        SongLength = (float)_musicPlayer.Stream.GetLength();
+        _musicPlayer.Finished += RecordDone;
+        showLoadBar = loadBar;
+        Repeated = repeated;
     }
 
     public override void _Process(double delta)
     {
         base._Process(delta);
 
-        if (_musicPlayer.Playing && !_musicPlayer.StreamPaused)
+        if (_musicPlayer.Playing && !_musicPlayer.StreamPaused && showLoadBar)
         {
-            _loadBar.Size = new Vector2(_loadBar.Size.X + (float) delta / SongLength * 200, _loadBar.Size.Y);
+            _loadBar.Size = new Vector2(_loadBar.Size.X + (float)delta / SongLength * 200, _loadBar.Size.Y);
+        }
+        else if (!showLoadBar)
+        {
+            _loadBar.Size = new Vector2(0, _loadBar.Size.Y);
         }
         // IF the musicplayer is playing and not paused, progress the loading bar accordingly.
     }
@@ -108,5 +121,13 @@ public partial class RecordPlayer : TextureButton
             _musicPlayer.StreamPaused = true;
             _backgroundPlayer.Stop();
         }
+    }
+
+    public void StopPlaying()
+    {
+        Disabled = true;
+        ButtonPressed = false;
+        _unloadPlayer.Play();
+        _backgroundPlayer.Stop();
     }
 }

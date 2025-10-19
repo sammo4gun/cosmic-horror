@@ -1,31 +1,173 @@
-[gd_scene load_steps=6 format=3 uid="uid://botib5kax6p3u"]
+[gd_scene load_steps=12 format=3 uid="uid://botib5kax6p3u"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_30sqi"]
 [ext_resource type="Texture2D" uid="uid://ctg8vlcikhw50" path="res://Assets/window_placeholder.png" id="1_efths"]
 [ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_0slyu"]
 [ext_resource type="Script" uid="uid://1xijxcktdj2x" path="res://Scripts/PlanetBody.cs" id="3_30sqi"]
+[ext_resource type="Script" uid="uid://d0kc0ist6itlw" path="res://Scripts/AsteroidHandler.cs" id="4_pff0d"]
+[ext_resource type="Shader" uid="uid://cuc2xbcxwh60s" path="res://Shaders/lensflare.gdshader" id="4_r37kj"]
 [ext_resource type="PackedScene" uid="uid://dos7hvxaxhthg" path="res://Scenes/record_player.tscn" id="5_gvfsm"]
+[ext_resource type="Script" uid="uid://cqkdveg85h6n3" path="res://Scripts/LensFlare.cs" id="5_pff0d"]
+[ext_resource type="Shader" uid="uid://dyipnr1slkgwy" path="res://Shaders/sun.gdshader" id="6_u56ti"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8vpwn"]
+shader = ExtResource("4_r37kj")
+shader_parameter/sun_position = Vector2(0, 0)
+shader_parameter/tint = Vector3(1.4, 1.2, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j100b"]
+shader = ExtResource("6_u56ti")
+shader_parameter/surface_color = Color(1, 0.85, 0.35, 1)
+shader_parameter/surface_intensity = 12.0
+shader_parameter/corona_intensity = 40.0
+shader_parameter/corona_power = 2.5
+shader_parameter/granulation_scale = 6.0
+shader_parameter/granulation_contrast = 1.6
+shader_parameter/turbulence_scale = 2.5
+shader_parameter/flow_speed = 0.25
+shader_parameter/limb_darkening = 0.55
+shader_parameter/limb_power = 1.4
+shader_parameter/spot_scale = 1.2
+shader_parameter/spot_threshold = 0.58
+shader_parameter/spot_darkness = 0.55
+shader_parameter/flicker_strength = 0.15
+shader_parameter/enable_spots = true
+shader_parameter/enable_time = true
+shader_parameter/corona_outer = 0.3
+shader_parameter/antialias = 0.003
 
 [node name="Window" type="Node2D"]
 script = ExtResource("1_30sqi")
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-mouse_filter = 2
+[node name="Saturn" type="SubViewportContainer" parent="."]
+visible = false
+z_index = -100
+offset_right = 648.0
+offset_bottom = 648.0
 
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="Saturn"]
 handle_input_locally = false
 size = Vector2i(648, 648)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
-[node name="Stars" type="ColorRect" parent="SubViewportContainer/SubViewport"]
+[node name="Stars" type="ColorRect" parent="Saturn/SubViewport"]
+z_index = 100
 offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
 
-[node name="PlanetBody" type="ColorRect" parent="."]
+[node name="PlanetBody" type="ColorRect" parent="Saturn"]
+z_index = -99
+layout_mode = 2
+script = ExtResource("3_30sqi")
+MinRadius = 0.02
+ShrinkRate = 0.01
+PlanetShader = "res://Shaders/saturn.gdshader"
+
+[node name="AsteroidHandler" type="Node2D" parent="Saturn"]
+position = Vector2(324, 314)
+script = ExtResource("4_pff0d")
+
+[node name="Jupiter" type="SubViewportContainer" parent="."]
+visible = false
+offset_right = 648.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="Jupiter"]
+handle_input_locally = false
+size = Vector2i(648, 648)
+render_target_update_mode = 0
+
+[node name="Stars" type="ColorRect" parent="Jupiter/SubViewport"]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_0slyu")
+
+[node name="PlanetBody" type="ColorRect" parent="Jupiter/SubViewport"]
+offset_left = -254.0
+offset_top = -19.0
+offset_right = 926.0
+offset_bottom = 1161.0
+pivot_offset = Vector2(708, -64)
+script = ExtResource("3_30sqi")
+MinRadius = 0.02
+ShrinkRate = 0.01
+PlanetShader = "res://Shaders/jupiter.gdshader"
+
+[node name="LensFlare" type="ColorRect" parent="Jupiter/SubViewport" node_paths=PackedStringArray("Sun")]
+material = SubResource("ShaderMaterial_8vpwn")
+offset_right = 645.0
+offset_bottom = 645.0
+script = ExtResource("5_pff0d")
+Sun = NodePath("../../SunNode")
+
+[node name="SunNode" type="Node2D" parent="Jupiter"]
+position = Vector2(62, 233)
+
+[node name="Sun" type="ColorRect" parent="Jupiter/SunNode"]
+material = SubResource("ShaderMaterial_j100b")
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="FarEarth" type="SubViewportContainer" parent="."]
+visible = false
+offset_right = 648.0
+offset_bottom = 648.0
+
+[node name="SubViewport" type="SubViewport" parent="FarEarth"]
+handle_input_locally = false
+size = Vector2i(648, 648)
+render_target_update_mode = 0
+
+[node name="Stars" type="ColorRect" parent="FarEarth/SubViewport"]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_0slyu")
+
+[node name="Earth" type="ColorRect" parent="FarEarth/SubViewport"]
+offset_left = 221.0
+offset_top = 225.0
+offset_right = 424.0
+offset_bottom = 428.0
+pivot_offset = Vector2(708, -64)
+script = ExtResource("3_30sqi")
+MinRadius = 0.3
+ShrinkRate = 0.01
+RotationSpeed = 50.0
+
+[node name="Moon" type="ColorRect" parent="FarEarth/SubViewport"]
+offset_left = 329.0
+offset_top = 252.0
+offset_right = 401.0
+offset_bottom = 324.0
+pivot_offset = Vector2(708, -64)
+script = ExtResource("3_30sqi")
+MinRadius = 0.3
+ShrinkRate = 0.01
+PlanetShader = "res://Shaders/moon.gdshader"
+RotationSpeed = 50.0
+
+[node name="EarthLeaving" type="SubViewportContainer" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="EarthLeaving"]
+handle_input_locally = false
+size = Vector2i(648, 648)
+render_target_update_mode = 0
+
+[node name="Stars" type="ColorRect" parent="EarthLeaving/SubViewport"]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_0slyu")
+
+[node name="Earth" type="ColorRect" parent="EarthLeaving/SubViewport"]
 offset_left = 1.0
 offset_right = 651.0
 offset_bottom = 650.0

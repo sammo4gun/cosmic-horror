@@ -7,8 +7,8 @@ public partial class Console : Node2D
     private TextDisplay _textDisplay;
     private ButtonHandler _buttonHandler;
     private LightHandler _lightHandler;
-    private Dial _flatDial;
-    private Dial _heightDial;
+    private Dial _leftDial;
+    private Dial _rightDial;
     private DistDisplay _distDisplay;
     private TimeDisplay _timeDisplay;
     private RadioReceiver _radioReceiver;
@@ -31,8 +31,8 @@ public partial class Console : Node2D
         _textDisplay = GetNode<TextDisplay>("TextDisplay");
         _buttonHandler = GetNode<ButtonHandler>("ButtonHandler");
         _lightHandler = GetNode<LightHandler>("LightHandler");
-        _flatDial = GetNode<Dial>("FlatDial");
-        _heightDial = GetNode<Dial>("HeightDial");
+        _leftDial = GetNode<Dial>("LeftDial");
+        _rightDial = GetNode<Dial>("RightDial");
         _radioReceiver = GetNode<RadioReceiver>("RadioReceiver");
         _timeDisplay = GetNode<TimeDisplay>("TimeDisplay");
         _distDisplay = GetNode<DistDisplay>("DistDisplay");
@@ -99,8 +99,8 @@ public partial class Console : Node2D
 
     public void ToggleActivateDials(bool toggled)
     {
-        _flatDial.ToggleActivate(toggled);
-        _heightDial.ToggleActivate(toggled);
+        _leftDial.ToggleActivate(toggled);
+        _rightDial.ToggleActivate(toggled);
     }
 
     public void ToggleActivateButton(string buttonName, bool toggled)
@@ -131,5 +131,17 @@ public partial class Console : Node2D
     public void TextDisplayFinished()
     {
         EmitSignal("TextFinished");
+    }
+
+    public float getDialValue(string which)
+    {
+        if (which == "left")
+        {
+            return _leftDial.getValue();
+        }
+        else
+        {
+            return _rightDial.getValue();
+        }
     }
 }

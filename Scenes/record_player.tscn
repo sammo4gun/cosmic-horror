@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dos7hvxaxhthg"]
+[gd_scene load_steps=13 format=3 uid="uid://dos7hvxaxhthg"]
 
 [ext_resource type="Texture2D" uid="uid://d1tnqep8b5f1a" path="res://Assets/record_activated_placeholder.png" id="1_kgpb7"]
 [ext_resource type="Texture2D" uid="uid://cho0xwaxvub2s" path="res://Assets/record_playing_placeholder.png" id="2_2p0nn"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://c8pdb23s0r3c6" path="res://Assets/SFX/RecordsTransmissions/classical.mp3" id="6_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dsydpg21tl62t" path="res://Assets/SFX/Tapedeck_LoadIn.mp3" id="7_2p0nn"]
 [ext_resource type="AudioStream" uid="uid://bpxn7rnb2j0bp" path="res://Assets/SFX/Tapedeck_background.mp3" id="8_ax7bx"]
+[ext_resource type="AudioStream" uid="uid://bpy63ivtn1uj1" path="res://Assets/SFX/RecordsTransmissions/transmission1.mp3" id="8_ewnbp"]
+[ext_resource type="AudioStream" uid="uid://tyy2o1gtafmw" path="res://Assets/SFX/RecordsTransmissions/transmission2.mp3" id="8_hco7b"]
 [ext_resource type="AudioStream" uid="uid://dnidhdaalkpr3" path="res://Assets/SFX/Tapedeck_Pause.mp3" id="9_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dioyun5qeo1np" path="res://Assets/SFX/Tapedeck_LoadOut.mp3" id="9_xcud7"]
 
@@ -42,8 +44,21 @@ offset_right = 51.0
 offset_bottom = 80.0
 color = Color(31.444193, 30.946575, 0, 1)
 
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MusicPlayer1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ax7bx")
+bus = &"Window"
+
+[node name="MusicPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ewnbp")
+bus = &"Window"
+
+[node name="MusicPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ewnbp")
+bus = &"Window"
+
+[node name="MusicPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_hco7b")
+bus = &"Window"
 
 [node name="LoadPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2p0nn")

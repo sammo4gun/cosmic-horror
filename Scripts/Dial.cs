@@ -5,9 +5,9 @@ public partial class Dial : Node2D
 {
     [Export] public float RotationSpeed = 1.0f; // How fast it turns with scroll
     [Export] public float DragSensitivity = 0.01f; // How fast it turns when dragging
-    [Export] private float ValueCap = 48.0f;
+    [Export] private float ValueCap = 64.0f;
     [Export] public float DialRadius = 64.0f;
-    [Export] public float DisplayValueCap = 24.0f;
+    [Export] public float DisplayValueCap = 32.0f;
 
     private Sprite2D _dialSprite;
     private RichTextLabel _numDisplay;
@@ -40,7 +40,7 @@ public partial class Dial : Node2D
         }
         _dialSprite.Rotation = Mathf.DegToRad(CurrentValue * 10);
         // format to 3 decimal places
-        string formattedValue = string.Format("{0:F3}", CurrentValue / ValueCap * DisplayValueCap);
+        string formattedValue = string.Format("{0:F1}", CurrentValue / ValueCap * DisplayValueCap);
         if (CurrentValue >= 0)
             _numDisplay.Text = "+" + formattedValue;
         else
@@ -94,5 +94,10 @@ public partial class Dial : Node2D
         Activated = activate;
         if (activate) _numDisplay.Visible = true;
         else _numDisplay.Visible = false;
+    }
+
+    public float getValue()
+    {
+        return CurrentValue / ValueCap * DisplayValueCap;
     }
 }

@@ -8,4 +8,9 @@ public partial class Window : Node2D
         base._Ready();
     }
 
+    public void SetWindow(string windowName)
+    {
+        GetNode<SubViewportContainer>(windowName).Visible = true;
+    }
+
 }

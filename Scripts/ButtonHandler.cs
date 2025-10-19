@@ -94,8 +94,10 @@ public partial class ButtonHandler : Node
     public void ToggleButtonPressed(string buttonName, bool toggle, bool silent)
     {
         FlippableButton button = GetNode<FlippableButton>("FlippableButton" + buttonName);
+        GD.Print(button);
         if (silent) button.SetPressedNoSignal(toggle);
         else button.ButtonPressed = toggle;
+        GD.Print(button.ButtonPressed);
     }
 
     private static string GetButtonName(FlippableButton button)

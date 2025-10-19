@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3e3e3j3carjb"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_4f8y7"]
+[ext_resource type="Script" uid="uid://r6ojnhbfqpid" path="res://Scripts/LevelScripts/FarEarth.cs" id="2_4f8y7"]
+
+[node name="FarEarth" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_4f8y7")]
+script = ExtResource("2_4f8y7")

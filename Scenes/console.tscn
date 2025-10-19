@@ -136,6 +136,7 @@ offset_bottom = 600.0
 rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
+Available = false
 
 [node name="FlippableButtonBackupRight" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
 offset_left = 1844.0
@@ -145,6 +146,7 @@ offset_bottom = 619.0
 rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
+Available = false
 
 [node name="LightHandler" type="Node" parent="."]
 script = ExtResource("9_gyscv")
@@ -179,11 +181,11 @@ position = Vector2(324, 64)
 [node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
 position = Vector2(65, 64)
 
-[node name="HeightDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(569, 311)
-
-[node name="FlatDial" parent="." instance=ExtResource("6_xivcw")]
+[node name="LeftDial" parent="." instance=ExtResource("6_xivcw")]
 position = Vector2(66, 298)
+
+[node name="RightDial" parent="." instance=ExtResource("6_xivcw")]
+position = Vector2(569, 311)
 
 [node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
 z_index = 1
@@ -200,15 +202,6 @@ offset_bottom = 160.0
 rotation = -0.6065403
 text = "54321"
 
-[node name="Label3" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
-z_index = 1
-offset_left = 288.0
-offset_top = 96.0
-offset_right = 354.0
-offset_bottom = 119.0
-text = "LAUNCH"
-
 [node name="Label2" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
@@ -218,6 +211,15 @@ offset_right = 553.0
 offset_bottom = 142.0
 rotation = 0.7279254
 text = "ABCDE"
+
+[node name="Label3" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 288.0
+offset_top = 96.0
+offset_right = 354.0
+offset_bottom = 119.0
+text = "LAUNCH"
 
 [node name="Label4" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -240,6 +242,16 @@ offset_bottom = 620.0
 rotation = -0.7749453
 text = "Thruster
 BackupR"
+
+[node name="Label6" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 1
+offset_left = 262.0
+offset_top = 341.0
+offset_right = 355.0
+offset_bottom = 390.0
+text = "Hibernation
+Station"
 
 [node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
 position = Vector2(588, 586)
