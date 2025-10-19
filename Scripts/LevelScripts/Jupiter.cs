@@ -57,8 +57,8 @@ public partial class Jupiter : Shuttle
         _console.OutputLine("Running preliminary diagnostics...{p=0.2}");
         _console.OutputLine("Hull integrity - 93% - PASS");
         _console.OutputLine("Battery cell total charge - 62%");
-        _console.OutputLine("THRUS1 - Operational");
-        _console.OutputLine("THRUS2 - Operational");
+        _console.OutputLine("THRUSTER1 - Operational");
+        _console.OutputLine("THRUSTER2 - Operational");
         _console.OutputLine("Velocity - 15.94km/s - STABLE");
         _console.OutputLine("Run advanced diagnostics? (y/n)");
         _console.RequestInput();

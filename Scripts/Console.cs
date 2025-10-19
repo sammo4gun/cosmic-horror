@@ -147,7 +147,7 @@ public partial class Console : Node2D
 
     public void ResetThrusterSequence()
     {
-        LaunchCodes = "";
+        LaunchCodes = null;
         _buttonHandler.ResetThrusterSequence();
     }
 }

@@ -26,15 +26,15 @@ public partial class Saturn : Shuttle
         _window.SetWindow("Saturn");
 
         // starting time, distance, and speed
-        _timeHandler.StartTimer(DateTime.ParseExact("08-09-1977 22:03:56.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
-        _spaceHandler.StartDistance(3_802_341f + 18_342f);
-        Speed = 18f;
+        _timeHandler.StartTimer(DateTime.ParseExact("12-04-1981 17:23:14.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
+        _spaceHandler.StartDistance(1_296_487_315f);
+        Speed = 15f;
 
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(4, repeated: false, loadBar: false);
 
-        // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
-        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
+        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)
@@ -54,24 +54,24 @@ public partial class Saturn : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
-        _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . {p=0.5}. {p=0.3}. {p=0.3}.");
+        _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . . . .{p=0.3}");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
-        _console.OutputLine("System load logged in usr/logs/080919772203560.json");
+        _console.OutputLine("System load logged in usr/logs/120419811723140.json");
         _console.OutputLine("Running preliminary diagnostics...{p=0.2}");
-        _console.OutputLine("Hull integrity - 98% - PASS");
-        _console.OutputLine("Battery cell total charge - 93%");
-        _console.OutputLine("THRUS1 - Operational");
-        _console.OutputLine("THRUS2 - Operational");
-        _console.OutputLine("Velocity - 17.68km/s - STABLE");
-        _console.OutputLine("Preparing to vacate deep orbit...");
+        _console.OutputLine("Hull integrity - 97% - PASS");
+        _console.OutputLine("Battery cell total charge - 37%");
+        _console.OutputLine("THRUSTER1 - Operational");
+        _console.OutputLine("THRUSTER2 - Operational");
+        _console.OutputLine("Velocity - 16.08km/s - STABLE");
+        _console.OutputLine("Preparing deep space nav drive...");
 
         await ToSignal(_console, "TextFinished");
 
         _console.RadioAlert(true);
         _recordPlayer.Disabled = false;
         _console.OutputLine("ALERT! Message received");
-        _console.OutputLine("Dated 32hrs - Listen on broadcaster");
+        _console.OutputLine("Dated 5034hrs - broadcaster active");
     }
 
     public override void RecordStarted()
@@ -101,8 +101,16 @@ public partial class Saturn : Shuttle
         _camera.ApplyShake(50f, 5f);
         _soundScapeHandler.Crash();
 
-        _console.OutputLine("ALERT!!!!");
-        _console.OutputLine("Input code A1B5 NOW");
+        _console.OutputLine("**************************");
+        _console.OutputLine("CRITICAL FAILURE{p=1.0}");
+        _console.OutputLine("**************************");
+        _console.OutputLine("CRITICAL FAILURE{p=1.5}");
+        _console.OutputLine("**************************");
+        _console.OutputLine("Impact confirmed");
+        _console.OutputLine("Hull integrity {p=0.5}. {p=0.5}. {p=0.5}. uncompromised");
+        _console.OutputLine("thruster2 damaged");
+        _console.OutputLine("Computing stabilizing sequence...{p=2.0}");
+        _console.OutputLine("Stabilizing Thruster Sequence A-1-B-5");
         _console.LaunchCodes = "A1B5";
 
         while (!enteredSafeLaunchCode)
@@ -114,8 +122,19 @@ public partial class Saturn : Shuttle
         _camera.Emergency = false;
         _camera.ApplyShake(10f, 0f);
         _soundScapeHandler.CrashFixed();
-        _console.OutputLine("Whew...");
-
+        triggeredDangerCutscene = false;
+        _console.ResetThrusterSequence();
+        _console.OutputLine("Course stabilized{p=1.0}");
+        _console.OutputLine("Assessing damage...{p=2.0}");
+        _console.OutputLine("Hull integrity -{p=1.0} 67% -{p=1.0} pass");
+        _console.OutputLine("THRUSTER1 - {p=1.0}Operational");
+        _console.OutputLine("THRUSTER2 - ERROR{p=1.0}");
+        _console.OutputLine("THRUSTER2 destroyed");
+        _console.OutputLine("==========================={p=1.0}");
+        _console.OutputLine("THRUSTER2 dumped");
+        _console.OutputLine("Engage backup thruster...");
+        await ToSignal(_console, "TextFinished");
+        _console.ToggleActivateButton("BackupRight", true);
     }
 
     public override void _Input(InputEvent @event)
@@ -128,6 +147,11 @@ public partial class Saturn : Shuttle
         {
             _camera.Turn("right");
         }
+    }
+
+    public async void BackupDeployed()
+    {
+        
     }
 
 
@@ -196,6 +220,10 @@ public partial class Saturn : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/4_jupiter");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/4_saturn");
+        if (buttonName == "BackupRight" && toggled)
+        {
+            BackupDeployed();
+        }
     }
 }

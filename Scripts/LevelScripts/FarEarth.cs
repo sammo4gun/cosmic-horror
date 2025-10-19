@@ -59,8 +59,8 @@ public partial class FarEarth : Shuttle
         _console.OutputLine("Running preliminary diagnostics...{p=0.2}");
         _console.OutputLine("Hull integrity - 98% - PASS");
         _console.OutputLine("Battery cell total charge - 93%");
-        _console.OutputLine("THRUS1 - Operational");
-        _console.OutputLine("THRUS2 - Operational");
+        _console.OutputLine("THRUSTER1 - Operational");
+        _console.OutputLine("THRUSTER2 - Operational");
         _console.OutputLine("Velocity - 17.68km/s - STABLE");
         _console.OutputLine("Preparing to vacate deep orbit...");
 
