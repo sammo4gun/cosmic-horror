@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://botib5kax6p3u"]
+[gd_scene load_steps=14 format=3 uid="uid://botib5kax6p3u"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_30sqi"]
 [ext_resource type="Texture2D" uid="uid://ctg8vlcikhw50" path="res://Assets/window_placeholder.png" id="1_efths"]
@@ -8,12 +8,25 @@
 [ext_resource type="Shader" uid="uid://cuc2xbcxwh60s" path="res://Shaders/lensflare.gdshader" id="4_r37kj"]
 [ext_resource type="PackedScene" uid="uid://dos7hvxaxhthg" path="res://Scenes/record_player.tscn" id="5_gvfsm"]
 [ext_resource type="Script" uid="uid://cqkdveg85h6n3" path="res://Scripts/LensFlare.cs" id="5_pff0d"]
+[ext_resource type="Shader" uid="uid://dg6xr4s3hb425" path="res://Shaders/solarflare.gdshader" id="6_8vpwn"]
 [ext_resource type="Shader" uid="uid://dyipnr1slkgwy" path="res://Shaders/sun.gdshader" id="6_u56ti"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8vpwn"]
 shader = ExtResource("4_r37kj")
 shader_parameter/sun_position = Vector2(0, 0)
 shader_parameter/tint = Vector3(1.4, 1.2, 1)
+shader_parameter/intensity = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbhbu"]
+shader = ExtResource("6_8vpwn")
+shader_parameter/brightness = 1.5
+shader_parameter/ray_brightness = 10.0
+shader_parameter/gamma = 8.0
+shader_parameter/spot_brightness = 15.0
+shader_parameter/ray_density = 3.5
+shader_parameter/curvature = 15.0
+shader_parameter/rgb = Vector3(4, 1, 0.1)
+shader_parameter/sin_freq = 13.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j100b"]
 shader = ExtResource("6_u56ti")
@@ -71,6 +84,48 @@ MinRadius = 0.02
 ShrinkRate = 0.001
 PlanetShader = "res://Shaders/saturn.gdshader"
 RotationSpeed = 100.0
+
+[node name="SolarFlare" type="SubViewportContainer" parent="."]
+visible = false
+z_index = -100
+offset_right = 648.0
+offset_bottom = 648.0
+
+[node name="SubViewport2" type="SubViewport" parent="SolarFlare"]
+handle_input_locally = false
+size = Vector2i(648, 648)
+render_target_update_mode = 0
+
+[node name="Stars" type="ColorRect" parent="SolarFlare/SubViewport2"]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_0slyu")
+
+[node name="LensFlare" type="ColorRect" parent="SolarFlare/SubViewport2" node_paths=PackedStringArray("Sun")]
+material = SubResource("ShaderMaterial_8vpwn")
+offset_right = 645.0
+offset_bottom = 645.0
+script = ExtResource("5_pff0d")
+Sun = NodePath("../../SunNode")
+Intensity = 50.0
+
+[node name="solarflare" type="ColorRect" parent="SolarFlare/SubViewport2"]
+material = SubResource("ShaderMaterial_kbhbu")
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 610.98315
+offset_bottom = 599.0
+
+[node name="SunNode" type="Node2D" parent="SolarFlare"]
+position = Vector2(305, 302)
+
+[node name="Sun" type="ColorRect" parent="SolarFlare/SunNode"]
+material = SubResource("ShaderMaterial_j100b")
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 27.0
+offset_bottom = 27.0
 
 [node name="Jupiter" type="SubViewportContainer" parent="."]
 visible = false
