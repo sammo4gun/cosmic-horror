@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b74wyvqud5xb0"]
+[gd_scene load_steps=8 format=3 uid="uid://b74wyvqud5xb0"]
 
 [ext_resource type="AudioStream" uid="uid://byfr3wsjx2qal" path="res://Assets/SFX/Voyager Reversed.mp3" id="1_w8crl"]
 [ext_resource type="Script" uid="uid://b4nlmseyn3ti5" path="res://Scripts/SoundScapeHandler.cs" id="1_yb6c1"]
 [ext_resource type="AudioStream" uid="uid://cqx3mvkt7ebkv" path="res://Assets/SFX/StaticContinuous.mp3" id="3_h28lt"]
+[ext_resource type="AudioStream" uid="uid://cf2ky5tu6xk8f" path="res://Assets/SFX/AsteroidImpact.mp3" id="4_m6cp5"]
+[ext_resource type="AudioStream" uid="uid://4n5xcjq01cb2" path="res://Assets/SFX/CrashAlarm.mp3" id="5_r1h1s"]
+[ext_resource type="AudioStream" uid="uid://dgk4eehxw3ukr" path="res://Assets/SFX/Rattle.mp3" id="6_ys2m3"]
+[ext_resource type="AudioStream" uid="uid://c8wlv17522t1h" path="res://Assets/SFX/CrashEnded.mp3" id="7_7evem"]
 
 [node name="SoundScapeHandler" type="Node"]
 script = ExtResource("1_yb6c1")
@@ -15,3 +19,21 @@ parameters/looping = true
 stream = ExtResource("3_h28lt")
 volume_db = -10.495
 parameters/looping = true
+
+[node name="CrashPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_m6cp5")
+volume_db = 10.496
+pitch_scale = 0.52
+
+[node name="AlarmPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_r1h1s")
+volume_db = -13.358
+
+[node name="RattlePlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ys2m3")
+volume_db = -11.449
+pitch_scale = 0.63
+
+[node name="CrashEndPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_7evem")
+volume_db = -19.083

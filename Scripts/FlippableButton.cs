@@ -34,4 +34,9 @@ public partial class FlippableButton : TextureButton
     {
         GetNode<AudioStreamPlayer>("HumSoundPlayer").Play();
     }
+
+    public void StopHum()
+    {
+        GetNode<AudioStreamPlayer>("HumSoundPlayer").Stop();
+    }
 }

@@ -11,10 +11,13 @@ using System.Threading.Tasks;
 public partial class Saturn : Shuttle
 {
     public bool TriggeredConsole = false;
-    public bool LaunchCodesEntered = false;
-
     public bool triggeredDangerCutscene = false;
     public bool enteredSafeLaunchCode = false;
+    public bool BackupInstalled = false;
+    public bool LaunchCodesEntered = false;
+
+
+    private RandomNumberGenerator rng = new RandomNumberGenerator();
 
     public override void _Ready()
     {
@@ -75,7 +78,6 @@ public partial class Saturn : Shuttle
     {
         if (!triggeredDangerCutscene)
         {
-            triggeredDangerCutscene = true;
             _console.RadioAlert(false);
             dangerCutscene();
         }
@@ -84,14 +86,36 @@ public partial class Saturn : Shuttle
     public async void dangerCutscene()
     {
         await ToSignal(GetTree().CreateTimer(15.0f), "timeout");
-        _camera.Turn("left");
+        triggeredDangerCutscene = true;
+        if (!_camera.FacingConsole) _camera.Turn("left");
     }
 
     public override void RecordDone()
     {
+        HandleCrash();
+    }
+
+    public async void HandleCrash()
+    {
         _camera.Emergency = true;
-        _camera.ApplyShake();
+        _camera.ApplyShake(50f, 5f);
         _soundScapeHandler.Crash();
+
+        _console.OutputLine("ALERT!!!!");
+        _console.OutputLine("Input code A1B5 NOW");
+        _console.LaunchCodes = "A1B5";
+
+        while (!enteredSafeLaunchCode)
+        {
+            await ToSignal(GetTree().CreateTimer(rng.RandfRange(2.0f, 5.0f)), "timeout");
+            _camera.ApplyShake(rng.RandfRange(10f, 40f), 3f);
+        }
+
+        _camera.Emergency = false;
+        _camera.ApplyShake(10f, 0f);
+        _soundScapeHandler.CrashFixed();
+        _console.OutputLine("Whew...");
+
     }
 
     public override void _Input(InputEvent @event)
@@ -104,11 +128,6 @@ public partial class Saturn : Shuttle
         {
             _camera.Turn("right");
         }
-        if (@event.IsActionPressed("input_test"))
-        {
-            _camera.ApplyShake();
-        }
-
     }
 
 
@@ -132,8 +151,15 @@ public partial class Saturn : Shuttle
         if (correct)
         {
             _console.OutputLine("Thruster Sequence received");
-            LaunchCodesEntered = true;
-            AllDoneOutput();
+            if (!enteredSafeLaunchCode)
+            {
+                enteredSafeLaunchCode = true;
+            }
+            else
+            {
+                LaunchCodesEntered = true;
+                AllDoneOutput();
+            }
         }
         else if (shuffled)
         {

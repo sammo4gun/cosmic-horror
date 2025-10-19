@@ -144,4 +144,10 @@ public partial class Console : Node2D
             return _rightDial.getValue();
         }
     }
+
+    public void ResetThrusterSequence()
+    {
+        LaunchCodes = "";
+        _buttonHandler.ResetThrusterSequence();
+    }
 }

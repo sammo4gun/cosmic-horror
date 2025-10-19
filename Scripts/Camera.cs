@@ -18,9 +18,11 @@ public partial class Camera : Camera2D
     [Export]
     private float _hibernationScreenSpeed = 600.0f;
     [Export]
-    private float _shakeStrength = 50.0f;
+    private float _shakeStrengthMax = 50.0f;
     [Export]
-    private float _shakeFallOff = 3.0f;
+    private float _shakeStrengthMin = 5.0f;
+    [Export]
+    private float _shakeFallOff = 1.0f;
 
     [Signal]
     public delegate void HibernationStartedEventHandler();
@@ -212,15 +214,16 @@ public partial class Camera : Camera2D
     {
         if (shakeStrength > 0)
         {
-            shakeStrength = float.Lerp(shakeStrength, 0, (float)delta * _shakeFallOff);
+            shakeStrength = float.Lerp(shakeStrength, _shakeStrengthMin, (float)delta * _shakeFallOff);
 
-            Offset = new Vector2(rng.RandfRange(-shakeStrength, shakeStrength), rng.RandfRange(-shakeStrength, shakeStrength));
+            Offset = new Vector2(rng.RandfRange(-shakeStrength*1.5f, shakeStrength/2), rng.RandfRange(-shakeStrength/2, shakeStrength*1.5f));
         }
     }
 
-    public void ApplyShake()
+    public void ApplyShake(float strength, float strengthMin)
     {
-        shakeStrength = _shakeStrength;
+        shakeStrength = strength;
+        _shakeStrengthMin = strengthMin;
     }
 
     public async void StartHibernation(float speedFactor = 1f)

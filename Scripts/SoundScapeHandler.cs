@@ -20,18 +20,23 @@ public partial class SoundScapeHandler : Node
     public override void _Process(double delta)
     {
         base._Process(delta);
-        // Fade out the voyager reversed sound over time
+        // Fade out the voyag-er reversed sound over time
         if (_voyagerReversedPlayer.VolumeDb > -80)
             _voyagerReversedPlayer.VolumeDb -= 0.5f * (float)delta; // 1 dB per second
     }
 
     public void Crash()
     {
-        
+        GetNode<AudioStreamPlayer>("CrashPlayer").Play();
+        GetNode<AudioStreamPlayer>("AlarmPlayer").Play();
+        GetNode<AudioStreamPlayer>("RattlePlayer").Play();
     }
     
     public void CrashFixed()
     {
-        
+        GetNode<AudioStreamPlayer>("CrashPlayer").Stop();
+        GetNode<AudioStreamPlayer>("AlarmPlayer").Stop();
+        GetNode<AudioStreamPlayer>("RattlePlayer").Stop();
+        GetNode<AudioStreamPlayer>("CrashEndPlayer").Play();
     }
 }

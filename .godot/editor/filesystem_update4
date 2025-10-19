@@ -37,3 +37,6 @@ res://Scenes/window.tscn
 res://Scenes/LevelScenes/4_saturn.tscn
 res://Scenes/shuttle.tscn
 res://Scenes/camera.tscn
+res://Scenes/sound_scape_handler.tscn
+res://Scenes/LevelScenes/1_earth_leaving.tscn
+res://Scenes/console.tscn

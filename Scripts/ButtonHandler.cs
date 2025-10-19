@@ -90,7 +90,7 @@ public partial class ButtonHandler : Node
         if (toggle) button.MouseFilter = Control.MouseFilterEnum.Stop;
         else button.MouseFilter = Control.MouseFilterEnum.Ignore;
     }
-    
+
     public void ToggleButtonPressed(string buttonName, bool toggle, bool silent)
     {
         FlippableButton button = GetNode<FlippableButton>("FlippableButton" + buttonName);
@@ -98,6 +98,17 @@ public partial class ButtonHandler : Node
         if (silent) button.SetPressedNoSignal(toggle);
         else button.ButtonPressed = toggle;
         GD.Print(button.ButtonPressed);
+    }
+    
+    public void ResetThrusterSequence()
+    {
+        var button = GetNode<FlippableButton>("FlippableButtonLaunch");
+        if (button.ButtonPressed)
+        {
+            button.MouseFilter = Control.MouseFilterEnum.Stop;
+            button.SetPressedNoSignal(false);
+            button.StopHum();
+        }
     }
 
     private static string GetButtonName(FlippableButton button)
