@@ -1,0 +1,45 @@
+[gd_scene load_steps=10 format=3 uid="uid://da7iu2ygv7p7a"]
+
+[ext_resource type="Shader" uid="uid://dvquecvsr7bs4" path="res://Shaders/blot.gdshader" id="1_bw0hs"]
+[ext_resource type="Script" uid="uid://bcqtssr10kunm" path="res://Scripts/Blot.cs" id="2_ytbte"]
+
+[sub_resource type="Gradient" id="Gradient_bwead"]
+colors = PackedColorArray(0, 0, 0, 1, 0.07551011, 0.07551012, 0.07551008, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yy2v1"]
+gradient = SubResource("Gradient_bwead")
+
+[sub_resource type="Gradient" id="Gradient_j100b"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kbhbu"]
+gradient = SubResource("Gradient_j100b")
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_kbhbu"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bwead"]
+gradient = SubResource("Gradient_kbhbu")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yy2v1"]
+shader = ExtResource("1_bw0hs")
+shader_parameter/resolution = Vector2(64, 64)
+shader_parameter/colorResolution = 100.0
+shader_parameter/distortionIntensity = 0.2000001519922403
+shader_parameter/spiralDistortionIntensity = -0.9999998658891992
+shader_parameter/holeSize = 0.17999999597664
+shader_parameter/holeColor = SubResource("GradientTexture2D_kbhbu")
+shader_parameter/image = SubResource("GradientTexture2D_bwead")
+shader_parameter/rotations = 7.0
+shader_parameter/depth = 3.10000004619372
+shader_parameter/spiralIntensity = 10.0
+shader_parameter/shrinkSpeed = 3.700000204146439
+shader_parameter/roationSpeed = -0.3999998569484795
+shader_parameter/haloColor = SubResource("GradientTexture2D_yy2v1")
+
+[node name="Blot" type="ColorRect"]
+z_index = 200
+material = SubResource("ShaderMaterial_yy2v1")
+offset_right = 192.0
+offset_bottom = 192.0
+script = ExtResource("2_ytbte")
