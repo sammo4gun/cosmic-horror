@@ -54,7 +54,7 @@ public partial class EarthLeaving : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
-        _console.OutputLine("Verifying {p=0.3}. {p=0.3}W . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
+        _console.OutputLine("Verifying {p=0.3}. {p=0.3}. . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
         _console.OutputLine("System load logged in usr/logs/050919771256010.json");
@@ -79,7 +79,7 @@ public partial class EarthLeaving : Shuttle
                 _console.OutputLine("Running usr/sys/advanced_diag.sh");
                 _console.OutputLine("===============================");
                 _console.OutputLine("Postlaunch tests:");
-                _console.OutputLine("Running . {p=0.3}. . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
+                _console.OutputLine("Running . {p=0.3}W . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
                 _console.OutputLine("PASSED with 1 warning and 0 errors");
                 _console.OutputLine("Simulating trajectory... {p=0.8}");
                 _console.OutputLine("Trajectory Outline Confirmed");

@@ -17,17 +17,6 @@ shader_parameter/sun_position = Vector2(0, 0)
 shader_parameter/tint = Vector3(1.4, 1.2, 1)
 shader_parameter/intensity = 4.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbhbu"]
-shader = ExtResource("6_8vpwn")
-shader_parameter/brightness = 1.5
-shader_parameter/ray_brightness = 10.0
-shader_parameter/gamma = 8.0
-shader_parameter/spot_brightness = 15.0
-shader_parameter/ray_density = 3.5
-shader_parameter/curvature = 15.0
-shader_parameter/rgb = Vector3(4, 1, 0.1)
-shader_parameter/sin_freq = 13.0
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_j100b"]
 shader = ExtResource("6_u56ti")
 shader_parameter/surface_color = Color(1, 0.85, 0.35, 1)
@@ -49,31 +38,45 @@ shader_parameter/enable_time = true
 shader_parameter/corona_outer = 0.3
 shader_parameter/antialias = 0.003
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kbhbu"]
+shader = ExtResource("6_8vpwn")
+shader_parameter/brightness = 1.5
+shader_parameter/ray_brightness = 10.0
+shader_parameter/gamma = 8.0
+shader_parameter/spot_brightness = 15.0
+shader_parameter/ray_density = 3.5
+shader_parameter/curvature = 15.0
+shader_parameter/rgb = Vector3(4, 1, 0.1)
+shader_parameter/sin_freq = 13.0
+
 [node name="Window" type="Node2D"]
 script = ExtResource("1_30sqi")
+
+[node name="AsteroidHandler" type="Node2D" parent="."]
+visible = false
+position = Vector2(324, 314)
+script = ExtResource("4_pff0d")
+SpawnInterval = 2.0
 
 [node name="Saturn" type="SubViewportContainer" parent="."]
 visible = false
 z_index = -100
 offset_right = 648.0
 offset_bottom = 648.0
+mouse_filter = 2
 
-[node name="AsteroidHandler" type="Node2D" parent="Saturn"]
-position = Vector2(324, 314)
-script = ExtResource("4_pff0d")
-
-[node name="SubViewport2" type="SubViewport" parent="Saturn"]
+[node name="SubViewport" type="SubViewport" parent="Saturn"]
 handle_input_locally = false
 size = Vector2i(648, 648)
 render_target_update_mode = 0
 
-[node name="Stars" type="ColorRect" parent="Saturn/SubViewport2"]
+[node name="Stars" type="ColorRect" parent="Saturn/SubViewport"]
 offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
 
-[node name="PlanetBody" type="ColorRect" parent="Saturn/SubViewport2"]
+[node name="PlanetBody" type="ColorRect" parent="Saturn/SubViewport"]
 offset_left = -29.0
 offset_top = -21.0
 offset_right = 679.0
@@ -85,52 +88,29 @@ ShrinkRate = 0.001
 PlanetShader = "res://Shaders/saturn.gdshader"
 RotationSpeed = 100.0
 
-[node name="SolarFlare" type="SubViewportContainer" parent="."]
+[node name="Stars" type="SubViewportContainer" parent="."]
 visible = false
 z_index = -100
 offset_right = 648.0
 offset_bottom = 648.0
+mouse_filter = 2
 
-[node name="SubViewport2" type="SubViewport" parent="SolarFlare"]
+[node name="SubViewport" type="SubViewport" parent="Stars"]
 handle_input_locally = false
 size = Vector2i(648, 648)
 render_target_update_mode = 0
 
-[node name="Stars" type="ColorRect" parent="SolarFlare/SubViewport2"]
+[node name="Stars" type="ColorRect" parent="Stars/SubViewport"]
 offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
 
-[node name="LensFlare" type="ColorRect" parent="SolarFlare/SubViewport2" node_paths=PackedStringArray("Sun")]
-material = SubResource("ShaderMaterial_8vpwn")
-offset_right = 645.0
-offset_bottom = 645.0
-script = ExtResource("5_pff0d")
-Sun = NodePath("../../SunNode")
-Intensity = 50.0
-
-[node name="solarflare" type="ColorRect" parent="SolarFlare/SubViewport2"]
-material = SubResource("ShaderMaterial_kbhbu")
-offset_left = 34.0
-offset_top = 40.0
-offset_right = 610.98315
-offset_bottom = 599.0
-
-[node name="SunNode" type="Node2D" parent="SolarFlare"]
-position = Vector2(305, 302)
-
-[node name="Sun" type="ColorRect" parent="SolarFlare/SunNode"]
-material = SubResource("ShaderMaterial_j100b")
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 27.0
-offset_bottom = 27.0
-
 [node name="Jupiter" type="SubViewportContainer" parent="."]
 visible = false
 offset_right = 648.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="Jupiter"]
 handle_input_locally = false
@@ -174,6 +154,7 @@ offset_bottom = 18.0
 visible = false
 offset_right = 648.0
 offset_bottom = 648.0
+mouse_filter = 2
 
 [node name="SubViewport" type="SubViewport" parent="FarEarth"]
 handle_input_locally = false
@@ -237,6 +218,47 @@ mouse_filter = 2
 script = ExtResource("3_30sqi")
 MinRadius = 0.02
 ShrinkRate = 0.01
+
+[node name="SolarFlare" type="SubViewportContainer" parent="."]
+visible = false
+offset_right = 648.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="SolarFlare"]
+handle_input_locally = false
+size = Vector2i(648, 648)
+render_target_update_mode = 0
+
+[node name="Stars" type="ColorRect" parent="SolarFlare/SubViewport"]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_0slyu")
+
+[node name="LensFlare" type="ColorRect" parent="SolarFlare/SubViewport" node_paths=PackedStringArray("Sun")]
+material = SubResource("ShaderMaterial_8vpwn")
+offset_right = 645.0
+offset_bottom = 645.0
+script = ExtResource("5_pff0d")
+Sun = NodePath("")
+
+[node name="solarflare" type="ColorRect" parent="SolarFlare/SubViewport"]
+material = SubResource("ShaderMaterial_kbhbu")
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 610.98315
+offset_bottom = 599.0
+
+[node name="SunNode" type="Node2D" parent="SolarFlare"]
+position = Vector2(305, 302)
+
+[node name="Sun" type="ColorRect" parent="SolarFlare/SunNode"]
+material = SubResource("ShaderMaterial_j100b")
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 27.0
+offset_bottom = 27.0
 
 [node name="PlaceholderWindow" type="TextureRect" parent="."]
 offset_right = 648.0

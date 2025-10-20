@@ -2,7 +2,7 @@ using Godot;
 
 public partial class AsteroidHandler : Node2D
 {
-    [Export] public float SpawnInterval = 1f;
+    [Export] public float SpawnInterval = 5f;
     [Export] public float SpawnMargin = 128f;
     [Export] public PackedScene AsteroidScene;
     // Optional: override spawn area (0 = use viewport size)
@@ -27,7 +27,7 @@ public partial class AsteroidHandler : Node2D
 
     private void SpawnAsteroid()
     {
-        if (AsteroidScene == null) return;
+        if (AsteroidScene == null || !Visible) return;
 
         // Center is this node's global position now
         Vector2 center = GlobalPosition;
@@ -76,6 +76,6 @@ public partial class AsteroidHandler : Node2D
         else if (instance is Control ctrl)
             ctrl.GlobalPosition = new Vector2(x, y);
 
-        (GetTree().CurrentScene ?? this).AddChild(instance);
+        GetTree().CurrentScene.AddChild(instance);
     }
 }

@@ -52,9 +52,9 @@ public partial class TextDisplay : Node2D
         _screenHeightHandler.Position = new Vector2(0, 290);
     }
 
-    public override void _Process(double delta)
+    public override void _PhysicsProcess(double delta)
     {
-        base._Process(delta);
+        base._PhysicsProcess(delta);
 
         if (_isTyping)
         {

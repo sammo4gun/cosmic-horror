@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dco12f7fmbic0"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_nq7s8"]
+[ext_resource type="Script" uid="uid://l4vah40vpfvq" path="res://Scripts/LevelScripts/SolarFlare.cs" id="2_nq7s8"]
+
+[node name="Saturn" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_nq7s8")]
+script = ExtResource("2_nq7s8")

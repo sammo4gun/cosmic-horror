@@ -82,7 +82,7 @@ public partial class Jupiter : Shuttle
                 _console.OutputLine("Saturn orbit entry t-minus:{p=0.8}");
                 _console.OutputLine("┣╸15 days{p=0.8}");
                 _console.OutputLine("┣╸2 months{p=0.8}");
-                _console.OutputLine("┗╸1 years{p=0.3}");
+                _console.OutputLine("┗╸1 year{p=0.3}");
                 _console.OutputLine("Backup thruster checks");
                 _console.OutputLine("2/2 available");
                 _console.OutputLine("===============================");
@@ -171,8 +171,8 @@ public partial class Jupiter : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = far_earth_orbit");
-        _console.OutputLine("hibernation time ~3 days");
+        _console.OutputLine("target = saturn_orbit");
+        _console.OutputLine("hibernation time ~14 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
     }

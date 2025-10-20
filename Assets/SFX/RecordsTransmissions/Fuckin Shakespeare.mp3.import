@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dcg0fhokrh0yx"
+path="res://.godot/imported/Fuckin Shakespeare.mp3-4c7d193965e1032dfbba203398939272.mp3str"
+
+[deps]
+
+source_file="res://Assets/SFX/RecordsTransmissions/Fuckin Shakespeare.mp3"
+dest_files=["res://.godot/imported/Fuckin Shakespeare.mp3-4c7d193965e1032dfbba203398939272.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
