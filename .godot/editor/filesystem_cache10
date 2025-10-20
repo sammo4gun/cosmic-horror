@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1760899652
+::res://::1760976659
 default_bus_layout.tres::AudioBusLayout::9138376462465091547::1760864182::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1760894153::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::5042559581171983171::1760037767::1760179536::1::::<><><>0<>0<>2255868c557376306daf6b9495a31c5b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -55,7 +55,7 @@ Tapedeck_LoadOut.mp3::AudioStreamMP3::7751167742325469409::1760781250::176078175
 Tapedeck_Pause.mp3::AudioStreamMP3::8088426849526997146::1760781250::1760781756::1::::<><><>0<>0<>e9b5ae9b880907c72b66829da84b268b<>res://.godot/imported/Tapedeck_Pause.mp3-c30e87f3658758a6eea55ba94b620b58.mp3str::
 Telemetry.mp3::AudioStreamMP3::192291713703376258::1760893215::1760893238::1::::<><><>0<>0<>86dae3faa11f56a915a9791bc1edf8a8<>res://.godot/imported/Telemetry.mp3-c56c8eee8c3523acfc519844137116cf.mp3str::
 Voyager Reversed.mp3::AudioStreamMP3::4082358194643461043::1760643564::1760644826::1::::<><><>0<>0<>bbb342eb4ea35f31a8c16b057a2c6059<>res://.godot/imported/Voyager Reversed.mp3-64c33bf1a91eb5307d60b2a01b887127.mp3str::
-::res://Assets/SFX/RecordsTransmissions/::1760900936
+::res://Assets/SFX/RecordsTransmissions/::1760900970
 classical.mp3::AudioStreamMP3::7120224272761295915::1760864182::1760864280::1::::<><><>0<>0<>51699a78507022143777b858a763244d<>res://.godot/imported/classical.mp3-a03cec7b34b49bd373ed239003310fcd.mp3str::
 CryingSun1.mp3::AudioStreamMP3::9168232245888692772::1760900448::1760900784::1::::<><><>0<>0<>aae2e2b1a7020242a9ba68d815be034d<>res://.godot/imported/CryingSun1.mp3-316790c83c9607e976c029aa2da8f6cd.mp3str::
 CryingSun2.mp3::AudioStreamMP3::4250721781586536458::1760900710::1760900784::1::::<><><>0<>0<>3d986adb9b38ddc86ccce5c88c7deda4<>res://.godot/imported/CryingSun2.mp3-93798b62c49467ba05c224df7862e56a.mp3str::
@@ -69,7 +69,7 @@ transmission3.mp3::AudioStreamMP3::3654586855605686135::1760815218::1760900970::
 ::res://Export/data_CosmicHorror_windows_x86_64/::1760894152
 CosmicHorror.deps.json::JSON::-1::1760894149::0::1::::<><><>0<>0<><>::
 CosmicHorror.runtimeconfig.json::JSON::-1::1760894149::0::1::::<><><>0<>0<><>::
-::res://Scenes/::1760900814
+::res://Scenes/::1760901797
 asteroid.tscn::PackedScene::1947853517775262795::1760811467::0::1::::<><><>0<>0<><>::uid://bd6jte6mhn4k6::::res://Scripts/Asteroid.cs
 camera.tscn::PackedScene::1483944838863283727::1760899455::0::1::::<><><>0<>0<><>::uid://byjgtxmsdgeq1::::res://Scripts/Camera.cs<>uid://esvovl72o2el::::res://Shaders/crt_display.gdshader<>uid://dh520picq2tvx::::res://Shaders/darkness.gdshader
 console.tscn::PackedScene::4568562983145181207::1760890104::0::1::::<><><>0<>0<><>::uid://b336dobar7jq8::::res://Scripts/Console.cs<>uid://b5wklycmo8vnb::::res://Assets/console_placeholder.png<>uid://lv6of8i8mu6e::::res://Scenes/text_display.tscn<>uid://cvust45cuswxf::::res://Scenes/time_display.tscn<>uid://bfqd4ln5jt8ry::::res://Scenes/dist_display.tscn<>uid://dtlkolrigax87::::res://Scenes/dial.tscn<>uid://4hh4yltl2d4o::::res://Scripts/ButtonHandler.cs<>uid://cu6blqcigefog::::res://Scenes/flippable_button.tscn<>uid://dydif2173vasd::::res://Scripts/LightHandler.cs<>uid://c2gsxsrr8xw3u::::res://Scenes/light.tscn<>uid://l3i23e4u2cux::::res://Scenes/radio_receiver.tscn
@@ -78,23 +78,25 @@ dist_display.tscn::PackedScene::2770629484164945030::1760191516::0::1::::<><><>0
 flippable_button.tscn::PackedScene::6240695155083299190::1760877880::0::1::::<><><>0<>0<><>::uid://br44xkd14isx8::::res://Assets/button_out_placeholder.png<>uid://b8qw32jo3p7xp::::res://Assets/button_in_placeholder.png<>uid://dc7eqb0x0reuj::::res://Assets/button_bipmap_placeholder.png<>uid://w4ft5aux25tb::::res://Scripts/FlippableButton.cs<>uid://blhifyxgxjwbt::::res://Assets/SFX/OnSwitch.mp3<>uid://byghfesrbokq3::::res://Assets/SFX/OffSwitch.mp3<>uid://32in7yrdv0jx::::res://Assets/SFX/SwitchFlip.mp3<>uid://c6dnudjvce8h2::::res://Assets/SFX/LaunchCodeWrong.mp3<>uid://cju7oj8p4mntx::::res://Assets/SFX/LaunchCodeStartup.mp3<>uid://cevs76gck17fh::::res://Assets/SFX/LaunchCodeHum.mp3
 light.tscn::PackedScene::6681461363766453452::1760640971::0::1::::<><><>0<>0<><>::uid://b061rab4w8k5g::::res://Scripts/Light.cs<>uid://cu1niru1t56gh::::res://Assets/light_placeholder_on.png<>uid://cytq82t85ekwh::::res://Assets/light_placeholder_off.png
 radio_receiver.tscn::PackedScene::830415287688033791::1760794024::0::1::::<><><>0<>0<><>::uid://cjc3leormvxmu::::res://Scripts/RadioReceiver.cs<>uid://cu1niru1t56gh::::res://Assets/light_placeholder_on.png<>uid://cytq82t85ekwh::::res://Assets/light_placeholder_off.png<>uid://c5goniqkl1vox::::res://Assets/SFX/RadioReceived.mp3<>uid://b4mfobht5npm4::::res://Assets/SFX/ScreenOn.mp3
-record_player.tscn::PackedScene::8181021244462581288::1760900814::0::1::::<><><>0<>0<><>::uid://d1tnqep8b5f1a::::res://Assets/record_activated_placeholder.png<>uid://cho0xwaxvub2s::::res://Assets/record_playing_placeholder.png<>uid://6ggb2yh2eucj::::res://Assets/record_deactivated_placeholder.png<>uid://waul262qv7i7::::res://Assets/record_bitmap_placeholder.png<>uid://fj7v8ycgw2b6::::res://Scripts/RecordPlayer.cs<>uid://c8pdb23s0r3c6::::res://Assets/SFX/RecordsTransmissions/classical.mp3<>uid://dsydpg21tl62t::::res://Assets/SFX/Tapedeck_LoadIn.mp3<>uid://bpxn7rnb2j0bp::::res://Assets/SFX/Tapedeck_background.mp3<>uid://d3vfpfdvxt2ge::::res://Assets/SFX/RecordsTransmissions/CryingSun1.mp3<>uid://bpy63ivtn1uj1::::res://Assets/SFX/RecordsTransmissions/transmission1.mp3<>uid://tyy2o1gtafmw::::res://Assets/SFX/RecordsTransmissions/transmission2.mp3<>uid://dnidhdaalkpr3::::res://Assets/SFX/Tapedeck_Pause.mp3<>uid://dioyun5qeo1np::::res://Assets/SFX/Tapedeck_LoadOut.mp3
-shuttle.tscn::PackedScene::7776669595973910876::1760899686::0::1::::<><><>0<>0<><>::uid://b6dbtg8e0dt0r::::res://Scenes/console.tscn<>uid://1k00hk38db0x::::res://Assets/blankwall_placeholder.png<>uid://c0ablt7k8teao::::res://Scripts/Shuttle.cs<>uid://botib5kax6p3u::::res://Scenes/window.tscn<>uid://ve3mcaxygs60::::res://Scenes/camera.tscn<>uid://bh2fuxs36fxte::::res://Scripts/TimeHandler.cs<>uid://c6djcormwfpyy::::res://Scripts/SpaceHandler.cs<>uid://bsim3q725pqj1::::res://Scripts/HibernationHandler.cs<>uid://b74wyvqud5xb0::::res://Scenes/sound_scape_handler.tscn
+record_player.tscn::PackedScene::8181021244462581288::1760900979::0::1::::<><><>0<>0<><>::uid://d1tnqep8b5f1a::::res://Assets/record_activated_placeholder.png<>uid://cho0xwaxvub2s::::res://Assets/record_playing_placeholder.png<>uid://6ggb2yh2eucj::::res://Assets/record_deactivated_placeholder.png<>uid://waul262qv7i7::::res://Assets/record_bitmap_placeholder.png<>uid://fj7v8ycgw2b6::::res://Scripts/RecordPlayer.cs<>uid://c8pdb23s0r3c6::::res://Assets/SFX/RecordsTransmissions/classical.mp3<>uid://dsydpg21tl62t::::res://Assets/SFX/Tapedeck_LoadIn.mp3<>uid://bpxn7rnb2j0bp::::res://Assets/SFX/Tapedeck_background.mp3<>uid://d3vfpfdvxt2ge::::res://Assets/SFX/RecordsTransmissions/CryingSun1.mp3<>uid://bpy63ivtn1uj1::::res://Assets/SFX/RecordsTransmissions/transmission1.mp3<>uid://tyy2o1gtafmw::::res://Assets/SFX/RecordsTransmissions/transmission2.mp3<>uid://dnidhdaalkpr3::::res://Assets/SFX/Tapedeck_Pause.mp3<>uid://dioyun5qeo1np::::res://Assets/SFX/Tapedeck_LoadOut.mp3<>uid://b67lhdvfllv6l::::res://Assets/SFX/RecordsTransmissions/French Children.mp3<>uid://bsckrnm0oa51l::::res://Assets/SFX/RecordsTransmissions/transmission3.mp3<>uid://b1tc1cks3kei1::::res://Assets/SFX/RecordsTransmissions/CryingSun2.mp3<>uid://dcg0fhokrh0yx::::res://Assets/SFX/RecordsTransmissions/Fuckin Shakespeare.mp3
+shuttle.tscn::PackedScene::7776669595973910876::1760901797::0::1::::<><><>0<>0<><>::uid://b6dbtg8e0dt0r::::res://Scenes/console.tscn<>uid://1k00hk38db0x::::res://Assets/blankwall_placeholder.png<>uid://c0ablt7k8teao::::res://Scripts/Shuttle.cs<>uid://botib5kax6p3u::::res://Scenes/window.tscn<>uid://ve3mcaxygs60::::res://Scenes/camera.tscn<>uid://bh2fuxs36fxte::::res://Scripts/TimeHandler.cs<>uid://c6djcormwfpyy::::res://Scripts/SpaceHandler.cs<>uid://bsim3q725pqj1::::res://Scripts/HibernationHandler.cs<>uid://b74wyvqud5xb0::::res://Scenes/sound_scape_handler.tscn
 sound_scape_handler.tscn::PackedScene::4693710396493597495::1760899610::0::1::::<><><>0<>0<><>::uid://byfr3wsjx2qal::::res://Assets/SFX/Voyager Reversed.mp3<>uid://b4nlmseyn3ti5::::res://Scripts/SoundScapeHandler.cs<>uid://cqx3mvkt7ebkv::::res://Assets/SFX/StaticContinuous.mp3<>uid://cf2ky5tu6xk8f::::res://Assets/SFX/AsteroidImpact.mp3<>uid://4n5xcjq01cb2::::res://Assets/SFX/CrashAlarm.mp3<>uid://dgk4eehxw3ukr::::res://Assets/SFX/Rattle.mp3<>uid://c8wlv17522t1h::::res://Assets/SFX/CrashEnded.mp3
 space_body.tscn::PackedScene::5923659030717960661::1760273416::0::1::::<><><>0<>0<><>::
 text_display.tscn::PackedScene::817336754747415202::1760794570::0::1::::<><><>0<>0<><>::uid://tssjwb7oyfs::::res://Scripts/TextDisplay.cs<>uid://b3p4qxu6u2gaj::::res://Assets/Open 24 Display St.ttf<>uid://bvrryo18xupji::::res://Scripts/PauseCalculator.cs<>uid://oc4wyd5myqy7::::res://Shaders/skew.gdshader<>uid://72mcgsiu5vo7::::res://Shaders/text_display.gdshader<>uid://cfvp22gk4h1s3::::res://Assets/screen_placeholder.png<>uid://c3mmjw1mjhx3r::::res://Assets/SFX/Keyboard click 1.mp3<>uid://cgssws18t0643::::res://Assets/SFX/Continuous Hum.mp3<>uid://b5kar7wfm3m6y::::res://Assets/SFX/LiftMoving.mp3<>uid://b4mfobht5npm4::::res://Assets/SFX/ScreenOn.mp3
 time_display.tscn::PackedScene::6289223044459684987::1760191705::0::1::::<><><>0<>0<><>::uid://oc4wyd5myqy7::::res://Shaders/skew.gdshader<>uid://72mcgsiu5vo7::::res://Shaders/text_display.gdshader<>uid://7ao1br33l8bo::::res://Scripts/TimeDisplay.cs<>uid://b3p4qxu6u2gaj::::res://Assets/Open 24 Display St.ttf
-window.tscn::PackedScene::3408776784869247728::1760899826::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://d0kc0ist6itlw::::res://Scripts/AsteroidHandler.cs<>uid://cuc2xbcxwh60s::::res://Shaders/lensflare.gdshader<>uid://dos7hvxaxhthg::::res://Scenes/record_player.tscn<>uid://cqkdveg85h6n3::::res://Scripts/LensFlare.cs<>uid://dyipnr1slkgwy::::res://Shaders/sun.gdshader
+window.tscn::PackedScene::3408776784869247728::1760901794::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://d0kc0ist6itlw::::res://Scripts/AsteroidHandler.cs<>uid://cuc2xbcxwh60s::::res://Shaders/lensflare.gdshader<>uid://dos7hvxaxhthg::::res://Scenes/record_player.tscn<>uid://cqkdveg85h6n3::::res://Scripts/LensFlare.cs<>res://Shaders/solarflare.gdshader<>uid://dyipnr1slkgwy::::res://Shaders/sun.gdshader
 window_earth_and_moon.tscn::PackedScene::1666427749681100182::1760867682::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://dos7hvxaxhthg::::res://Scenes/record_player.tscn
 window_jupiter.tscn::PackedScene::1648067900700886750::1760868361::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://dyipnr1slkgwy::::res://Shaders/sun.gdshader<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://cuc2xbcxwh60s::::res://Shaders/lensflare.gdshader<>uid://cqkdveg85h6n3::::res://Scripts/LensFlare.cs
 window_saturn.tscn::PackedScene::1097025048274749459::1760882118::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://d0kc0ist6itlw::::res://Scripts/AsteroidHandler.cs
-::res://Scenes/LevelScenes/::1760900785
+::res://Scenes/LevelScenes/::1760902596
 1_earth_leaving.tscn::PackedScene::6190859499795038803::1760889899::0::1::::<><><>0<>0<><>::uid://cu0yr15pepp2v::::res://Scripts/LevelScripts/EarthLeaving.cs<>uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn
 1_earth_leaving_old.tscn::PackedScene::5838607948066039782::1760814739::0::1::::<><><>0<>0<><>::uid://cu0yr15pepp2v::::res://Scripts/LevelScripts/EarthLeaving.cs<>uid://1k00hk38db0x::::res://Assets/blankwall_placeholder.png<>uid://b6dbtg8e0dt0r::::res://Scenes/console.tscn<>uid://botib5kax6p3u::::res://Scenes/window.tscn<>uid://bh2fuxs36fxte::::res://Scripts/TimeHandler.cs<>uid://c6djcormwfpyy::::res://Scripts/SpaceHandler.cs<>uid://bsim3q725pqj1::::res://Scripts/HibernationHandler.cs<>uid://b74wyvqud5xb0::::res://Scenes/sound_scape_handler.tscn<>uid://ve3mcaxygs60::::res://Scenes/camera.tscn
 2_far_earth.tscn::PackedScene::9134515888765457879::1760868325::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://r6ojnhbfqpid::::res://Scripts/LevelScripts/FarEarth.cs
 3_jupiter.tscn::PackedScene::2297144993662832414::1760900785::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://0ojl0aqwfvmk::::res://Scripts/LevelScripts/Jupiter.cs
-4_saturn.tscn::PackedScene::7993543817111758046::1760899598::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://cjn5bbptx26n5::::res://Scripts/LevelScripts/Saturn.cs
-::res://Scripts/::1760864182
+4_saturn.tscn::PackedScene::7993543817111758046::1760901668::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://cjn5bbptx26n5::::res://Scripts/LevelScripts/Saturn.cs
+5_solarflare.tscn::PackedScene::7330168197453318885::1760901014::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://l4vah40vpfvq::::res://Scripts/LevelScripts/SolarFlare.cs
+6_danger.tscn::PackedScene::5491894344094370924::1760902596::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://bilv2xny4a0od::::res://Scripts/LevelScripts/Danger.cs
+::res://Scripts/::1760901697
 Asteroid.cs::CSharpScript::2661563566539604223::1760807298::0::1::::<>ColorRect<><>0<>0<><>::
 AsteroidHandler.cs::CSharpScript::8934793447302182760::1760807298::0::1::::<>Node2D<><>0<>0<><>::
 ButtonHandler.cs::CSharpScript::2050405195186255260::1760892443::0::1::::<>Node<><>0<>0<><>::
@@ -104,7 +106,7 @@ Dial.cs::CSharpScript::7393443770907493751::1760870616::0::1::::<>Node2D<><>0<>0
 DistDisplay.cs::CSharpScript::3988687043843637841::1760273369::0::1::::<>Node2D<><>0<>0<><>::
 FlippableButton.cs::CSharpScript::1604360606593516359::1760892448::0::1::::<>TextureButton<><>0<>0<><>::
 HibernationHandler.cs::CSharpScript::3667114388427495364::1760817475::0::1::::<>Node<><>0<>0<><>::
-LensFlare.cs::CSharpScript::5916726516687617802::1760878249::0::1::::<>ColorRect<><>0<>0<><>::
+LensFlare.cs::CSharpScript::5916726516687617802::1760901697::0::1::::<>ColorRect<><>0<>0<><>::
 Light.cs::CSharpScript::4206746488221215730::1760640647::0::1::::<>Node2D<><>0<>0<><>::
 LightHandler.cs::CSharpScript::8850483556353461583::1760640954::0::1::::<>Node<><>0<>0<><>::
 PauseCalculator.cs::CSharpScript::3896556646864269990::1760899714::0::1::::<>Node<><>0<>0<><>::
@@ -112,28 +114,31 @@ PlanetBody.cs::CSharpScript::1872893642626028633::1760881990::0::1::::<>ColorRec
 RadioReceiver.cs::CSharpScript::5410389667676981008::1760794331::0::1::::<>Node2D<><>0<>0<><>::
 RecordPlayer.cs::CSharpScript::371505833862875133::1760878424::0::1::::<>TextureButton<><>0<>0<><>::
 Shuttle.cs::CSharpScript::6527643866939330822::1760900791::0::1::::<>Node2D<><>0<>0<><>::
-SoundScapeHandler.cs::CSharpScript::4449424329154572714::1760899643::0::1::::<>Node<><>0<>0<><>::
+SoundScapeHandler.cs::CSharpScript::4449424329154572714::1760901267::0::1::::<>Node<><>0<>0<><>::
 SpaceHandler.cs::CSharpScript::6955439440113509580::1760800351::0::1::::<>Node<><>0<>0<><>::
 Stars.cs::CSharpScript::1336417856476343395::1760880832::0::1::::<>ColorRect<><>0<>0<><>::
 TextDisplay.cs::CSharpScript::40348734271845036::1760899845::0::1::::<>Node2D<><>0<>0<><>::
 TimeDisplay.cs::CSharpScript::2246939545052399116::1760799568::0::1::::<>Node2D<><>0<>0<><>::
 TimeHandler.cs::CSharpScript::2933821326518246782::1760799788::0::1::::<>Node<><>0<>0<><>::
 Window.cs::CSharpScript::2014957169790603372::1760899842::0::1::::<>Node2D<><>0<>0<><>::
-::res://Scripts/LevelScripts/::1760881678
+::res://Scripts/LevelScripts/::1760902330
+Danger.cs::CSharpScript::2971964090624289619::1760903030::0::1::::<>Node2D<><>0<>0<><>::
 EarthLeaving.cs::CSharpScript::6229716662959843327::1760899536::0::1::::<>Node2D<><>0<>0<><>::
 FarEarth.cs::CSharpScript::1258072855936224511::1760893020::0::1::::<>Node2D<><>0<>0<><>::
-Jupiter.cs::CSharpScript::1784189790015839486::1760899592::0::1::::<>Node2D<><>0<>0<><>::
-Saturn.cs::CSharpScript::5433201243098692156::1760900293::0::1::::<>Node2D<><>0<>0<><>::
-::res://Shaders/::1760899639
+Jupiter.cs::CSharpScript::1784189790015839486::1760901127::0::1::::<>Node2D<><>0<>0<><>::
+Saturn.cs::CSharpScript::5433201243098692156::1760902098::0::1::::<>Node2D<><>0<>0<><>::
+SolarFlare.cs::CSharpScript::833219705361509270::1760902511::0::1::::<>Node2D<><>0<>0<><>::
+::res://Shaders/::1760901723
 asteroid.gdshader::Shader::4898800536520106120::1760899639::0::1::::<><><>0<>0<><>::
 crt_display.gdshader::Shader::319215353561767647::1760899342::0::1::::<><><>0<>0<><>::
 darkness.gdshader::Shader::7714200093141663685::1760899342::0::1::::<><><>0<>0<><>::
 jupiter.gdshader::Shader::4597016845002108735::1760795451::0::1::::<><><>0<>0<><>::
-lensflare.gdshader::Shader::6182427484407161432::1760807298::0::1::::<><><>0<>0<><>::
+lensflare.gdshader::Shader::6182427484407161432::1760901723::0::1::::<><><>0<>0<><>::
 moon.gdshader::Shader::94547382285382105::1760795451::0::1::::<><><>0<>0<><>::
 planet.gdshader::Shader::6332675324927188694::1760795451::0::1::::<><><>0<>0<><>::
 saturn.gdshader::Shader::4092227419814066864::1760899342::0::1::::<><><>0<>0<><>::
 skew.gdshader::Shader::988573913271586192::1760899342::0::1::::<><><>0<>0<><>::
+solarflare.gdshader::Shader::7645819224878616096::1760901697::0::1::::<><><>0<>0<><>::
 stars.gdshader::Shader::8768554210826179017::1760899342::0::1::::<><><>0<>0<><>::
 sun.gdshader::Shader::8861244224531624540::1760807298::0::1::::<><><>0<>0<><>::
 text_display.gdshader::Shader::2302513714615651968::1760899342::0::1::::<><><>0<>0<><>::

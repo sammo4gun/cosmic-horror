@@ -5,10 +5,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 
-// SCENE_ID: Saturn
+// SCENE_ID: Asteroids
 // Window: The player sees saturn,and a bunch of ominous rocks....
 // 
-public partial class Saturn : Shuttle
+public partial class Asteroids : Shuttle
 {
     public bool TriggeredConsole = false;
     public bool triggeredDangerCutscene = false;
@@ -23,7 +23,7 @@ public partial class Saturn : Shuttle
     {
         base._Ready();
 
-        _window.SetWindow("Saturn");
+        _window.SetWindow("Stars");
         _window.SetAsteroidsVisible(true);
 
         // starting time, distance, and speed
@@ -34,8 +34,8 @@ public partial class Saturn : Shuttle
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(4, repeated: false, loadBar: false);
 
-        _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
-        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
+        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)
@@ -55,22 +55,21 @@ public partial class Saturn : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
-        _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . . . .{p=0.3}");
-        _console.OutputLine("Verification complete");
-        _console.OutputLine("Boot successful");
-        _console.OutputLine("System load logged in usr/logs/120419811723140.json");
-        _console.OutputLine("Running preliminary diagnostics...{p=0.2}");
-        _console.OutputLine("Hull integrity - 97% - PASS");
-        _console.OutputLine("Battery cell total charge - 37%");
-        _console.OutputLine("THRUSTER1 - Operational");
-        _console.OutputLine("THRUSTER2 - Operational");
-        _console.OutputLine("Velocity - 16.08km/s - STABLE");
-        _console.OutputLine("Preparing deep space nav drive...");
-
+        // _console.OutputLine("ERR - Unexpected t_wakeup{p=2.0}");
+        // _console.OutputLine("Hibernation_length=39 days{p=1.0}");
+        // _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . {p=0.5}. {p=0.3}. {p=0.3}.");
+        // _console.OutputLine("Verification complete");
+        // _console.OutputLine("Boot successful");
+        // _console.OutputLine("SYSERR - failed to save logs");
         await ToSignal(_console, "TextFinished");
 
-        _console.RadioAlert(true);
-        _recordPlayer.Disabled = false;
+        _camera.ApplyShake(50, 10);
+        _camera.Emergency = true;
+        _soundScapeHandler.Crash();
+        _window.SetAsteroidsVisible(false);
+        _window.SetSpinning(10000f);
+        _window.DeleteAllAsteroids();
+
         _console.OutputLine("ALERT! Message received");
         _console.OutputLine("Dated 5034hrs - broadcaster active");
     }

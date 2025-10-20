@@ -6,6 +6,7 @@ public partial class Stars : ColorRect
     private Shader shader;
     private ShaderMaterial material;
     private float offset = 0f;
+    public float spinningStrength = 0f;
     public override void _Ready()
     {
         base._Ready();
@@ -26,5 +27,10 @@ public partial class Stars : ColorRect
     public override void _Process(double delta)
     {
         base._Process(delta);
+        if (spinningStrength > 0)
+        {
+            Vector2 _currentOffset = (Vector2)material.GetShaderParameter("offset");
+            material.SetShaderParameter("offset", new Vector2(_currentOffset.X-spinningStrength*(float)delta, _currentOffset.Y-spinningStrength*(float)delta*0.5f));
+        }
     }
 }

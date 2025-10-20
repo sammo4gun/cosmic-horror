@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvn257wjynpas"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_a1c6q"]
+[ext_resource type="Script" uid="uid://6oykt7oasghh" path="res://Scripts/LevelScripts/Asteroids.cs" id="2_a1c6q"]
+
+[node name="Asteroids" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_a1c6q")]
+script = ExtResource("2_a1c6q")
