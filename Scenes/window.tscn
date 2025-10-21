@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://botib5kax6p3u"]
+[gd_scene load_steps=13 format=3 uid="uid://botib5kax6p3u"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_30sqi"]
-[ext_resource type="Texture2D" uid="uid://ctg8vlcikhw50" path="res://Assets/window_placeholder.png" id="1_efths"]
 [ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_0slyu"]
 [ext_resource type="Script" uid="uid://1xijxcktdj2x" path="res://Scripts/PlanetBody.cs" id="3_30sqi"]
 [ext_resource type="Script" uid="uid://d0kc0ist6itlw" path="res://Scripts/AsteroidHandler.cs" id="4_pff0d"]
@@ -60,7 +59,7 @@ SpawnInterval = 2.0
 
 [node name="Saturn" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -2
+z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -71,12 +70,14 @@ size = Vector2i(648, 648)
 render_target_update_mode = 0
 
 [node name="Stars" type="ColorRect" parent="Saturn/SubViewport"]
+z_index = -2
 offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
 
 [node name="PlanetBody" type="ColorRect" parent="Saturn/SubViewport"]
+z_index = -2
 offset_left = -29.0
 offset_top = -21.0
 offset_right = 679.0
@@ -90,7 +91,7 @@ RotationSpeed = 100.0
 
 [node name="Stars" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -2
+z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -101,6 +102,7 @@ size = Vector2i(648, 648)
 render_target_update_mode = 0
 
 [node name="Stars" type="ColorRect" parent="Stars/SubViewport"]
+z_index = -2
 offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
@@ -108,7 +110,7 @@ script = ExtResource("2_0slyu")
 
 [node name="Jupiter" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -2
+z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -153,7 +155,7 @@ offset_bottom = 18.0
 
 [node name="FarEarth" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -2
+z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -196,7 +198,7 @@ RotationSpeed = 50.0
 
 [node name="EarthLeaving" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -2
+z_index = -20
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -224,7 +226,7 @@ ShrinkRate = 0.01
 
 [node name="SolarFlare" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -2
+z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -262,13 +264,6 @@ offset_left = 9.0
 offset_top = 9.0
 offset_right = 27.0
 offset_bottom = 27.0
-
-[node name="PlaceholderWindow" type="TextureRect" parent="."]
-visible = false
-offset_right = 648.0
-offset_bottom = 648.0
-mouse_filter = 2
-texture = ExtResource("1_efths")
 
 [node name="RecordPlayer" parent="." instance=ExtResource("5_gvfsm")]
 offset_left = 107.00001

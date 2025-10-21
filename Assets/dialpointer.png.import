@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://br44xkd14isx8"
-path="res://.godot/imported/button_out_placeholder.png-f89642aefcb7c759159b8c7863cb6e51.ctex"
+uid="uid://dy12h74u26dh"
+path="res://.godot/imported/dialpointer.png-b006769ad714b0684892468cdfb709f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/button_out_placeholder.png"
-dest_files=["res://.godot/imported/button_out_placeholder.png-f89642aefcb7c759159b8c7863cb6e51.ctex"]
+source_file="res://Assets/dialpointer.png"
+dest_files=["res://.godot/imported/dialpointer.png-b006769ad714b0684892468cdfb709f9.ctex"]
 
 [params]
 

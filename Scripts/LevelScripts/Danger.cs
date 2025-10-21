@@ -25,6 +25,8 @@ public partial class Danger : Shuttle
         _spaceHandler.StartDistance(1_517_243_000f);
         Speed = 21f;
 
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         _console.ToggleButtonPressed("BackupRight", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(6, repeated: true, loadBar: false);
 
@@ -164,6 +166,7 @@ public partial class Danger : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 

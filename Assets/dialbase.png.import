@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctg8vlcikhw50"
-path="res://.godot/imported/window_placeholder.png-ce30059a03523c67ef9c8342681172cc.ctex"
+uid="uid://byvn85xnggrka"
+path="res://.godot/imported/dialbase.png-fd7943304f7c17b4f98fd3e1d26cf299.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/window_placeholder.png"
-dest_files=["res://.godot/imported/window_placeholder.png-ce30059a03523c67ef9c8342681172cc.ctex"]
+source_file="res://Assets/dialbase.png"
+dest_files=["res://.godot/imported/dialbase.png-fd7943304f7c17b4f98fd3e1d26cf299.ctex"]
 
 [params]
 

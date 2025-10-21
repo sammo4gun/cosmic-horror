@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://d4jyum1gvhdmv"
+path="res://.godot/imported/hibernate-button-mask.png-93943258e26bc6a9b3e660e33c2d5a74.res"
+
+[deps]
+
+source_file="res://Assets/hibernate-button-mask.png"
+dest_files=["res://.godot/imported/hibernate-button-mask.png-93943258e26bc6a9b3e660e33c2d5a74.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

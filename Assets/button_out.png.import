@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6ia6uvi6orlw"
-path="res://.godot/imported/dial_placeholder.png-37c6b8693cde2507bd242421f742ef85.ctex"
+uid="uid://4xfpnl4g3or6"
+path="res://.godot/imported/button_out.png-11213548c394e15a51a09c458267afb2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dial_placeholder.png"
-dest_files=["res://.godot/imported/dial_placeholder.png-37c6b8693cde2507bd242421f742ef85.ctex"]
+source_file="res://Assets/button_out.png"
+dest_files=["res://.godot/imported/button_out.png-11213548c394e15a51a09c458267afb2.ctex"]
 
 [params]
 

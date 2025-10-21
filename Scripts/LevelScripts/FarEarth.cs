@@ -28,6 +28,8 @@ public partial class FarEarth : Shuttle
         _spaceHandler.StartDistance(3_802_341f + 18_342f);
         Speed = 18f;
 
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(2, repeated: true, loadBar: false);
 
@@ -162,6 +164,7 @@ public partial class FarEarth : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 

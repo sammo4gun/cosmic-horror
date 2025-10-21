@@ -23,6 +23,8 @@ public partial class SolarFlare : Shuttle
         _spaceHandler.StartDistance(1_458_491_009f);
         Speed = 15f;
 
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(5, repeated: false, loadBar: true);
 
@@ -107,6 +109,7 @@ public partial class SolarFlare : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 

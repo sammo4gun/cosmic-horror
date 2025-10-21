@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b5wklycmo8vnb"
-path="res://.godot/imported/console_placeholder.png-54137a769cfa6459b1f5c65b4575414b.ctex"
+uid="uid://c2fhama2kagu2"
+path="res://.godot/imported/hibernate-button-off.png-c20d409e684ec5a400c071587fcc341e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/console_placeholder.png"
-dest_files=["res://.godot/imported/console_placeholder.png-54137a769cfa6459b1f5c65b4575414b.ctex"]
+source_file="res://Assets/hibernate-button-off.png"
+dest_files=["res://.godot/imported/hibernate-button-off.png-c20d409e684ec5a400c071587fcc341e.ctex"]
 
 [params]
 

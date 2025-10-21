@@ -71,7 +71,6 @@ public partial class TextDisplay : Node2D
                 TimeSpan elapsed = DateTime.Now - _startTime;
                 lengthAdjustFactor = 1 / (float)elapsed.TotalSeconds;
                 calibratedPauseLength = true;
-                GD.Print(lengthAdjustFactor);
             }
             return;
         }

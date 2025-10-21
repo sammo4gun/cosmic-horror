@@ -26,6 +26,8 @@ public partial class Asteroids : Shuttle
         _window.SetWindow("Stars");
         _window.SetAsteroidsVisible(true);
 
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         _console.ToggleButtonPressed("BackupRight", true, silent: true); // to set the backup to being used
         // starting time, distance, and speed
         _timeHandler.StartTimer(DateTime.ParseExact("24-06-1982 12:05:59.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
@@ -203,6 +205,7 @@ public partial class Asteroids : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 
