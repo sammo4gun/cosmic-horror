@@ -26,8 +26,9 @@ public partial class EarthLeaving : Shuttle
         _spaceHandler.StartDistance(18_342f);
         Speed = 17f;
 
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
-        // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
+        
         _recordPlayer.LoadSong(1, repeated: false, loadBar: true);
 
         _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
@@ -54,6 +55,8 @@ public partial class EarthLeaving : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
+        _console.OutputLine("First boot: datetime:");
+        _console.OutputLine("05-09-1977 12:56:09");
         _console.OutputLine("Verifying {p=0.3}. {p=0.3}. . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
@@ -108,6 +111,7 @@ public partial class EarthLeaving : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 

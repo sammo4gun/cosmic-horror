@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bd6jte6mhn4k6" path="res://Scripts/Asteroid.cs" id="1_0tomg"]
 
 [node name="Asteroid" type="ColorRect"]
+z_index = -1
+z_as_relative = false
 offset_left = 202.0
 offset_top = 232.0
 offset_right = 409.0

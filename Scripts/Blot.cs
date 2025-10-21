@@ -7,6 +7,12 @@ public partial class Blot : ColorRect
     private float _lerpSpeed = 0.5f;
     private float _scaleLerpSpeed = 0.5f;
 
+    public override void _Ready()
+    {
+        _desiredPosition = GlobalPosition;
+        _desiredScale = Scale;
+    }
+
     public void SetMoveTarget(Vector2 target, float? speedOverride = null)
     {
         _desiredPosition = target;
@@ -19,12 +25,6 @@ public partial class Blot : ColorRect
         _desiredScale = new Vector2(scale, scale);
         if (speedOverride.HasValue)
             _scaleLerpSpeed = speedOverride.Value;
-    }
-
-    public override void _Ready()
-    {
-        _desiredPosition = Position;
-        _desiredScale = Scale;
     }
 
     public override void _Process(double delta)

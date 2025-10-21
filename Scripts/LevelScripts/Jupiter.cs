@@ -23,6 +23,8 @@ public partial class Jupiter : Shuttle
         _spaceHandler.StartDistance(755_390_849f);
         Speed = 15f;
 
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(3, repeated: false, loadBar: true);
 
@@ -50,6 +52,7 @@ public partial class Jupiter : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
+        _console.OutputLine("Hibernation_length=26 months{p=1.0}");
         _console.OutputLine("Verifying {p=0.3}. {p=0.8}. {p=0.8}. . . {p=0.5}. {p=0.5}. . . . . . . .{p=1.0}");
         _console.OutputLine("Verification complete{p=1.0}");
         _console.OutputLine("Boot successful");
@@ -104,6 +107,7 @@ public partial class Jupiter : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 

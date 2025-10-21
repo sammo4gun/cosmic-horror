@@ -17,13 +17,18 @@ public partial class SolarFlare : Shuttle
         base._Ready();
 
         _window.SetWindow("SolarFlare");
+        _window.ShowBlot(true);
+        _window.SetBlotPos(new Vector2(171, 135));
+        _window.ScaleBlot(0.2f, 0.5f);
 
         // starting time, distance, and speed
         _timeHandler.StartTimer(DateTime.ParseExact("21-09-1981 09:23:14.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
         _spaceHandler.StartDistance(1_458_491_009f);
         Speed = 15f;
 
-        // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
+        _console.ToggleButtonPressed("BackupRight", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(5, repeated: false, loadBar: true);
 
         _ = _hibernationHandler.EndHibernation(delay: 1.5f, speedFactor: 4);
@@ -50,15 +55,15 @@ public partial class SolarFlare : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
-        _console.OutputLine("Hibernation_length=39 days{p=1.0}");
+        _console.OutputLine("Hibernation_length=5 months{p=1.0}");
         _console.OutputLine("Verifying {p=0.3}. {p=0.8}. {p=0.8}. . . {p=0.5}. {p=0.5}. . . . . . . .{p=1.0}");
         _console.OutputLine("Verification complete{p=1.0}");
         _console.OutputLine("Boot successful");
         _console.OutputLine("System load logged in usr/logs/290119800229130.json");
         _console.OutputLine("Running preliminary diagnostics...{p=0.2}");
         _console.OutputLine("Hull integrity - 45% - WARNING");
-        _console.OutputLine("Battery cell total charge - 101%");
         _console.OutputLine("Solar flare detected - charging");
+        _console.OutputLine("Battery cell total charge - 101%");
         _console.OutputLine("THRUSTER1 - Operational");
         _console.OutputLine("THRUSTER2 - Operational");
         _console.OutputLine("Velocity - 13.41km/s - STABLE");
@@ -82,7 +87,7 @@ public partial class SolarFlare : Shuttle
                 _console.OutputLine("Transmission receiver damaged");
                 _console.OutputLine("Simulating trajectory... {p=0.8}");
                 _console.OutputLine("Trajectory Outline Confirmed");
-                _console.OutputLine("Extrasolar entry t-minus:{p=0.8}");
+                _console.OutputLine("Interstellar entry t-minus:{p=0.8}");
                 _console.OutputLine("┣╸#ERR days{p=0.8}");
                 _console.OutputLine("┣╸#ERR months{p=0.8}");
                 _console.OutputLine("┗╸#ERR years{p=0.3}");
@@ -107,6 +112,7 @@ public partial class SolarFlare : Shuttle
         {
             _console.ToggleRaiseText();
             _console.ToggleActivateButton("Hibernation", true);
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
         }
     }
 
@@ -160,6 +166,7 @@ public partial class SolarFlare : Shuttle
         _console.OutputLine("Data leakage detected");
         _console.OutputLine("Golden Drive integrity");
         _console.OutputLine(" - Estimated 75%");
+        _window.ShowBlot(false);
         RecordChecked = true;
         if (LaunchCodesEntered) AllDoneOutput();
         else _console.OutputLine("Awaiting thruster sequence...");
@@ -176,7 +183,7 @@ public partial class SolarFlare : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = extrasolar_space");
+        _console.OutputLine("target = interstellar_space");
         _console.OutputLine("hibernation time ~9 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();

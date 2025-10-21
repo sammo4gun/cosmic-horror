@@ -76,6 +76,8 @@ public partial class AsteroidHandler : Node2D
         else if (instance is Control ctrl)
             ctrl.GlobalPosition = new Vector2(x, y);
 
+        // Asteroid.ZIndex = 2;
+
         GetTree().CurrentScene.AddChild(instance);
     }
 }

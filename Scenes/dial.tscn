@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dtlkolrigax87"]
+[gd_scene load_steps=13 format=3 uid="uid://dtlkolrigax87"]
 
-[ext_resource type="Texture2D" uid="uid://c6ia6uvi6orlw" path="res://Assets/dial_placeholder.png" id="1_3hysx"]
 [ext_resource type="Script" uid="uid://ddlo66fdtcbtn" path="res://Scripts/Dial.cs" id="1_suo4o"]
+[ext_resource type="Texture2D" uid="uid://byvn85xnggrka" path="res://Assets/dialbase.png" id="2_c86ua"]
+[ext_resource type="Texture2D" uid="uid://dy12h74u26dh" path="res://Assets/dialpointer.png" id="3_0wv3a"]
 [ext_resource type="AudioStream" uid="uid://efj52pev8e2n" path="res://Assets/SFX/RotaryClick.mp3" id="3_m4fgq"]
 [ext_resource type="Shader" uid="uid://72mcgsiu5vo7" path="res://Shaders/text_display.gdshader" id="3_p1td7"]
 [ext_resource type="FontFile" uid="uid://b3p4qxu6u2gaj" path="res://Assets/Open 24 Display St.ttf" id="4_m4fgq"]
@@ -30,8 +31,14 @@ default_font_size = 27
 script = ExtResource("1_suo4o")
 DragSensitivity = 0.0
 
+[node name="DialBG" type="Sprite2D" parent="."]
+position = Vector2(5.9999995, 55.999996)
+scale = Vector2(1.6330278, 1.6330278)
+texture = ExtResource("2_c86ua")
+
 [node name="DialSprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_3hysx")
+scale = Vector2(0.41634735, 0.41634735)
+texture = ExtResource("3_0wv3a")
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_d1y0i")
@@ -40,20 +47,20 @@ pitch_scale = 1.18
 bus = &"Console"
 
 [node name="Screen" type="ColorRect" parent="."]
-offset_left = -40.0
-offset_top = 41.0
-offset_right = 40.0
-offset_bottom = 76.0
+offset_left = -64.0
+offset_top = 60.0
+offset_right = 61.0
+offset_bottom = 95.0
 color = Color(0, 0, 0, 1)
 
 [node name="Number" type="RichTextLabel" parent="."]
 visible = false
 modulate = Color(0.1257813, 0.94167095, 0.41024905, 1)
 material = SubResource("ShaderMaterial_d1y0i")
-offset_left = -40.0
-offset_top = 37.0
-offset_right = 40.0
-offset_bottom = 72.0
+offset_left = -64.0
+offset_top = 60.0
+offset_right = 61.0
+offset_bottom = 95.0
 theme = SubResource("Theme_8vfqw")
 text = "+0.000"
 autowrap_mode = 1

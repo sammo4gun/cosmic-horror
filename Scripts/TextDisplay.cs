@@ -26,6 +26,8 @@ public partial class TextDisplay : Node2D
 
     private List<string> _linesQueue = new List<string>();
 
+    public float raiseSpeed = 1f;
+
     private float _flickerTimer = 0.0f;
     private float _typingTimer = 0.0f;
     private int _charsDisplayed = 0;
@@ -34,6 +36,11 @@ public partial class TextDisplay : Node2D
     private bool _askingForInput = false;
     private string _inputText = "";
     private string _currentQuestion = "";
+
+    private float lengthAdjustFactor;
+    private bool calibratedPauseLength = false;
+    private float lengthCalibrateTimer = -1.0f;
+    private DateTime _startTime;
 
     public override void _Ready()
     {
@@ -50,11 +57,25 @@ public partial class TextDisplay : Node2D
         _charsDisplayed = _currentText.Length;
 
         _screenHeightHandler.Position = new Vector2(0, 290);
+        _startTime = DateTime.Now;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
+
+        if (!calibratedPauseLength)
+        {
+            lengthCalibrateTimer += (float)delta;
+            if (lengthCalibrateTimer > 0)
+            {
+                // should have taken approximately 1 second
+                TimeSpan elapsed = DateTime.Now - _startTime;
+                lengthAdjustFactor = 1 / (float)elapsed.TotalSeconds;
+                calibratedPauseLength = true;
+            }
+            return;
+        }
 
         if (_isTyping)
         {
@@ -66,7 +87,7 @@ public partial class TextDisplay : Node2D
                 _lineProgress++;
                 if (_pauseCalculator.Pauses.ContainsKey(_lineProgress))
                 {
-                    _typingTimer -= _pauseCalculator.Pauses[_lineProgress];
+                    _typingTimer -= _pauseCalculator.Pauses[_lineProgress]*lengthAdjustFactor;
                 }
                 _mainText.Text = _currentText.Substring(0, _charsDisplayed);
                 if (_mainText.Text == _currentText)
@@ -108,7 +129,7 @@ public partial class TextDisplay : Node2D
 
         if (_raised && _screenHeightHandler.Position.Y > 0)
         {
-            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Max(_screenHeightHandler.Position.Y - 200 * (float)delta, 0));
+            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Max(_screenHeightHandler.Position.Y - 200 * (float)delta * raiseSpeed, 0));
             if (!_liftPlayer.Playing)
             {
                 _liftStartPlayer.Play();
@@ -122,7 +143,7 @@ public partial class TextDisplay : Node2D
         }
         else if (!_raised && _screenHeightHandler.Position.Y < 290)
         {
-            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Min(_screenHeightHandler.Position.Y + 200 * (float)delta, 290));
+            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Min(_screenHeightHandler.Position.Y + 200 * (float)delta * raiseSpeed, 290));
             if (!_liftPlayer.Playing)
             {
                 _liftStartPlayer.Play();
@@ -300,5 +321,10 @@ public partial class TextDisplay : Node2D
         _mainText.ScrollToLine(_mainText.GetLineCount() - 1);
         _inputText = "";
         EmitSignal(SignalName.InputReceived, question, input);
+    }
+
+    public void TurnOff()
+    {
+        _mainText.Visible = false;
     }
 }

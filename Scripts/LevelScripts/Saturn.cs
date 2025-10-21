@@ -31,6 +31,8 @@ public partial class Saturn : Shuttle
         _spaceHandler.StartDistance(1_296_487_315f);
         Speed = 15f;
 
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(4, repeated: false, loadBar: false);
 
@@ -55,6 +57,7 @@ public partial class Saturn : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
+        _console.OutputLine("Hibernation_length=14 months{p=1.0}");
         _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . . . .{p=0.3}");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
@@ -99,7 +102,7 @@ public partial class Saturn : Shuttle
     public async void HandleCrash()
     {
         _camera.Emergency = true;
-        _camera.ApplyShake(50f, 5f);
+        _camera.ApplyShake(40f, 5f);
         _soundScapeHandler.Crash();
 
         _console.OutputLine("**************************");
@@ -117,7 +120,7 @@ public partial class Saturn : Shuttle
         while (!enteredSafeLaunchCode)
         {
             await ToSignal(GetTree().CreateTimer(rng.RandfRange(2.0f, 5.0f)), "timeout");
-            _camera.ApplyShake(rng.RandfRange(10f, 40f), 3f);
+            // _camera.ApplyShake(rng.RandfRange(10f, 40f), 3f);
         }
 
         _camera.Emergency = false;
@@ -164,7 +167,6 @@ public partial class Saturn : Shuttle
     public async void RequestLaunchcodeCheck()
     {
         await ToSignal(_console, "TextFinished");
-        _recordPlayer.StopPlaying();
 
         _console.OutputLine("Loading post_orbit_checklog.yaml{p=1.0}");
         _console.OutputLine("===============================");
@@ -209,7 +211,7 @@ public partial class Saturn : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = extrasolar_space");
+        _console.OutputLine("target = interstellar_space");
         _console.OutputLine("hibernation time ~14 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
@@ -220,13 +222,14 @@ public partial class Saturn : Shuttle
         if (question == "Confirm hibernation?")
         {
             _console.ToggleRaiseText();
+            _console.ToggleButtonPressed("Hibernation", false, silent: true);
             _console.ToggleActivateButton("Hibernation", true);
         }
     }
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/5_solar_flare");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/5_solarflare");
         if (buttonName == "BackupRight" && toggled)
         {
             BackupDeployed();

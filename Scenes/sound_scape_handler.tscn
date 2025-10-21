@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b74wyvqud5xb0"]
+[gd_scene load_steps=9 format=3 uid="uid://b74wyvqud5xb0"]
 
 [ext_resource type="AudioStream" uid="uid://byfr3wsjx2qal" path="res://Assets/SFX/Voyager Reversed.mp3" id="1_w8crl"]
 [ext_resource type="Script" uid="uid://b4nlmseyn3ti5" path="res://Scripts/SoundScapeHandler.cs" id="1_yb6c1"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://4n5xcjq01cb2" path="res://Assets/SFX/CrashAlarm.mp3" id="5_r1h1s"]
 [ext_resource type="AudioStream" uid="uid://dgk4eehxw3ukr" path="res://Assets/SFX/Rattle.mp3" id="6_ys2m3"]
 [ext_resource type="AudioStream" uid="uid://c8wlv17522t1h" path="res://Assets/SFX/CrashEnded.mp3" id="7_7evem"]
+[ext_resource type="AudioStream" uid="uid://bgseloomnktfg" path="res://Assets/SFX/RecordsTransmissions/CryingSun3_outside.mp3" id="8_fqulo"]
 
 [node name="SoundScapeHandler" type="Node"]
 script = ExtResource("1_yb6c1")
@@ -37,3 +38,7 @@ pitch_scale = 0.63
 [node name="CrashEndPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_7evem")
 volume_db = -19.083
+
+[node name="FinalSongPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_fqulo")
+volume_db = 1.907

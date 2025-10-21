@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq2lkp3uqytde"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_dhlja"]
+[ext_resource type="Script" uid="uid://c3kbjiimeuywf" path="res://Scripts/LevelScripts/Eye.cs" id="2_dhlja"]
+
+[node name="Eye" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_dhlja")]
+script = ExtResource("2_dhlja")

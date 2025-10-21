@@ -45,6 +45,7 @@ public partial class Camera : Camera2D
     private Vector2 TargetPosition;
 
     private TextureRect _mouseBlocker;
+    private ColorRect _darknessLayer;
     private ColorRect _screenBlocker;
     private bool _hibernating = true;
     private bool _hibernatingVis = true;
@@ -64,6 +65,8 @@ public partial class Camera : Camera2D
         _mouseBlocker = GetNode<TextureRect>("MouseBlocker");
         _screenBlocker = GetNode<ColorRect>("ScreenBlocker");
         _emergencyLight = GetNode<ColorRect>("EmergencyLight");
+        _darknessLayer = GetNode<ColorRect>("Darkness");
+
         _screenBlocker.Visible = true;
         _adjustedHibernationScreenSpeed = _hibernationScreenSpeed;
     }
@@ -84,8 +87,8 @@ public partial class Camera : Camera2D
     {
         if (_hibernating)
         {
-            AudioServer.SetBusVolumeDb(_consoleBusIndex, AudioServer.GetBusVolumeDb(_consoleBusIndex) - 5*(float)delta);
-            AudioServer.SetBusVolumeDb(_windowBusIndex, AudioServer.GetBusVolumeDb(_windowBusIndex) - 5*(float)delta);
+            AudioServer.SetBusVolumeDb(_consoleBusIndex, AudioServer.GetBusVolumeDb(_consoleBusIndex) - 5 * (float)delta);
+            AudioServer.SetBusVolumeDb(_windowBusIndex, AudioServer.GetBusVolumeDb(_windowBusIndex) - 5 * (float)delta);
         }
         else
         {
@@ -242,19 +245,24 @@ public partial class Camera : Camera2D
         
         EmitSignal(SignalName.HibernationStarted);
     }
-    
+
     public async void EndHibernation(float speedFactor = 1f)
     {
         // all the visual stuff required to leave hibernation
         _hibernatingVis = false;
         _adjustedHibernationScreenSpeed = _hibernationScreenSpeed / speedFactor;
         await ToSignal(GetTree().CreateTimer(1.2 * speedFactor), "timeout");
-        
+
         // all the technical stuff required to leave hibernation
         _hibernating = false;
         _mouseBlocker.MouseFilter = MouseFilterEnum.Ignore;
         _mouseBlocker.MouseForcePassScrollEvents = true;
-        
+
         EmitSignal(SignalName.HibernationEnded);
+    }
+    
+    public void setDarkness(float strength)
+    {
+        _darknessLayer.Modulate = new Color(1, 1, 1, strength);
     }
 }

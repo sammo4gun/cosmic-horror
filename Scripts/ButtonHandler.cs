@@ -86,7 +86,6 @@ public partial class ButtonHandler : Node
     public void ToggleButtonAvailable(string buttonName, bool toggle)
     {
         FlippableButton button = GetNode<FlippableButton>("FlippableButton" + buttonName);
-        // button.Disabled = !toggle;
         if (toggle) button.MouseFilter = Control.MouseFilterEnum.Stop;
         else button.MouseFilter = Control.MouseFilterEnum.Ignore;
     }

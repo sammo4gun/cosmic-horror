@@ -31,4 +31,9 @@ public partial class DistDisplay : Node2D
         string distance = GetStringDistance(((Shuttle)GetParent().GetParent()).DistanceFromEarth);
         _mainText.Text = "distance " + distance + " km";
     }
+
+    public void TurnOff()
+    {
+        _mainText.Visible = false;
+    }
 }
