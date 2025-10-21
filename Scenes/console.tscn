@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=15 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bfqd4ln5jt8ry" path="res://Scenes/dist_display.tscn" id="5_qxy8f"]
 [ext_resource type="Texture2D" uid="uid://c2fhama2kagu2" path="res://Assets/hibernate-button-off.png" id="6_bmbpd"]
 [ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
-[ext_resource type="BitMap" uid="uid://d4jyum1gvhdmv" path="res://Assets/hibernate-button-mask.png" id="7_bmbpd"]
 [ext_resource type="Script" uid="uid://4hh4yltl2d4o" path="res://Scripts/ButtonHandler.cs" id="7_uqptw"]
 [ext_resource type="PackedScene" uid="uid://cu6blqcigefog" path="res://Scenes/flippable_button.tscn" id="7_uukfc"]
 [ext_resource type="Script" uid="uid://dydif2173vasd" path="res://Scripts/LightHandler.cs" id="9_gyscv"]
@@ -124,14 +123,13 @@ scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonHibernation" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 262.0
-offset_top = 321.0
-offset_right = 382.0
-offset_bottom = 436.0
-scale = Vector2(1.0264348, 1.0264348)
+offset_left = 264.0
+offset_top = 341.0
+offset_right = 384.0
+offset_bottom = 456.0
+scale = Vector2(0.92386967, 0.92386967)
 texture_normal = ExtResource("5_7kqtp")
 texture_pressed = ExtResource("6_bmbpd")
-texture_click_mask = ExtResource("7_bmbpd")
 flip_h = true
 
 [node name="FlippableButtonBackupLeft" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
@@ -256,5 +254,6 @@ text = "Thruster
 BackupR"
 
 [node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
+z_index = 1
 position = Vector2(595, 612.99994)
 scale = Vector2(0.51353294, 0.51353294)

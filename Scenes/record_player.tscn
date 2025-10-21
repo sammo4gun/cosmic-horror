@@ -76,7 +76,7 @@ bus = &"Window"
 
 [node name="MusicPlayer7" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_uvi22")
-volume_db = -8.587
+volume_db = -11.449
 bus = &"Window"
 
 [node name="MusicPlayer8" type="AudioStreamPlayer" parent="."]

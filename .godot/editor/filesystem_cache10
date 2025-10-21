@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1761064606
+::res://::1761065740
 default_bus_layout.tres::AudioBusLayout::9138376462465091547::1760864182::0::1::::<><><>0<>0<><>::
 export_presets.cfg::TextFile::-1::1760989517::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::5042559581171983171::1760037767::1760179536::1::::<><><>0<>0<>2255868c557376306daf6b9495a31c5b<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -24,10 +24,9 @@ record_deactivated_placeholder.png::CompressedTexture2D::2188607962613935565::17
 record_playing_placeholder.png::CompressedTexture2D::5294624716075809020::1760781250::1760781756::1::::<><><>0<>0<>9ed3c12221920ef0806dbe0302bcef01<>res://.godot/imported/record_playing_placeholder.png-7e5b9b97e1113e50d770b1c81c7a9428.ctex::
 screen_placeholder.png::CompressedTexture2D::5168097917631242672::1761063492::1761063495::1::::<><><>0<>0<>b1d9088eb63f04b5a34830ba8835ef1d<>res://.godot/imported/screen_placeholder.png-0daa6bc7e3c45114f329ebcc453552fa.ctex::
 voyagerbg.png::CompressedTexture2D::4793944102135700491::1760985092::1760985092::1::::<><><>0<>0<>fe218bf011c46361d293a58640e5d77d<>res://.godot/imported/voyagerbg.png-8ae69a332764b029139a149b06605184.ctex::
-::res://Assets/SFX/::1760900943
+::res://Assets/SFX/::1761066666
 AsteroidImpact.mp3::AudioStreamMP3::5180175419920199927::1760884870::1760884871::1::::<><><>0<>0<>3d11fd02f3349f41480f0df7fc2e688e<>res://.godot/imported/AsteroidImpact.mp3-0354d0a50bf35395146dd0831b73e8d3.mp3str::
 Continuous Hum.mp3::AudioStreamMP3::5232266409234172682::1760781250::1760781756::1::::<><><>0<>0<>92d677708671f6d094eec8f552c509ee<>res://.godot/imported/Continuous Hum.mp3-2220bb0e173d1e7e0dabfdc583826349.mp3str::
-CrashAlamar.mp3::AudioStreamMP3::2834589478431081713::1760888307::1760888317::1::::<><><>0<>0<>c2141ab7a4bd2069904b70040a66266e<>res://.godot/imported/CrashAlamar.mp3-82752a144c012678903075594a28f93b.mp3str::
 CrashAlarm.mp3::AudioStreamMP3::2064176079059862245::1760888314::1760888317::1::::<><><>0<>0<>811013f8ba308d91bd3d60fc140ac0c0<>res://.godot/imported/CrashAlarm.mp3-3f448b4bc4bdc80377324a9f9c6519e6.mp3str::
 CrashEnded.mp3::AudioStreamMP3::7135196323064092687::1760890700::1760890703::1::::<><><>0<>0<>99f3b1b6640bef37e84f5c1994f450d1<>res://.godot/imported/CrashEnded.mp3-19da82e1af4de19924c4e13bc43d4ef1.mp3str::
 Keyboard click 1.mp3::AudioStreamMP3::6763647394594340589::1760781250::1760781756::1::::<><><>0<>0<>960d2411b9d9d16e50dbd98f60b8072e<>res://.godot/imported/Keyboard click 1.mp3-9bd65b2b6655bdc49c6e7df68a124c5d.mp3str::
@@ -59,7 +58,7 @@ Telemetry.mp3::AudioStreamMP3::192291713703376258::1760893215::1760893238::1::::
 Voyager Reversed.mp3::AudioStreamMP3::4082358194643461043::1760643564::1760644826::1::::<><><>0<>0<>bbb342eb4ea35f31a8c16b057a2c6059<>res://.godot/imported/Voyager Reversed.mp3-64c33bf1a91eb5307d60b2a01b887127.mp3str::
 ::res://Assets/SFX/RecordsTransmissions/::1760900970
 classical.mp3::AudioStreamMP3::7120224272761295915::1760864182::1760864280::1::::<><><>0<>0<>51699a78507022143777b858a763244d<>res://.godot/imported/classical.mp3-a03cec7b34b49bd373ed239003310fcd.mp3str::
-CryingSun1.mp3::AudioStreamMP3::9168232245888692772::1760900448::1760900784::1::::<><><>0<>0<>aae2e2b1a7020242a9ba68d815be034d<>res://.godot/imported/CryingSun1.mp3-316790c83c9607e976c029aa2da8f6cd.mp3str::
+CryingSun1.mp3::AudioStreamMP3::9168232245888692772::1761066708::1761066711::1::::<><><>0<>0<>aae2e2b1a7020242a9ba68d815be034d<>res://.godot/imported/CryingSun1.mp3-316790c83c9607e976c029aa2da8f6cd.mp3str::
 CryingSun2.mp3::AudioStreamMP3::4250721781586536458::1760900710::1760900784::1::::<><><>0<>0<>3d986adb9b38ddc86ccce5c88c7deda4<>res://.godot/imported/CryingSun2.mp3-93798b62c49467ba05c224df7862e56a.mp3str::
 CryingSun3_outside.mp3::AudioStreamMP3::2844975814315567516::1760900776::1760900784::1::::<><><>0<>0<>39e47cde870dd55bc1b832f05371f245<>res://.godot/imported/CryingSun3_outside.mp3-dca6d916a8a70ae7c5ed6144d478b944.mp3str::
 French Children.mp3::AudioStreamMP3::4629015502333060837::1760781250::1760812491::1::::<><><>0<>0<>cec433fb7a743e4dbb5a0245c57749d8<>res://.godot/imported/French Children.mp3-c6105b02b5de824c1b5bb61d90dcd87f.mp3str::
@@ -71,11 +70,11 @@ transmission3.mp3::AudioStreamMP3::3654586855605686135::1760815218::1760900970::
 ::res://Export/data_CosmicHorror_windows_x86_64/::1760989516
 CosmicHorror.deps.json::JSON::-1::1760989514::0::1::::<><><>0<>0<><>::
 CosmicHorror.runtimeconfig.json::JSON::-1::1760989514::0::1::::<><><>0<>0<><>::
-::res://Scenes/::1761064595
-asteroid.tscn::PackedScene::1947853517775262795::1761064595::0::1::::<><><>0<>0<><>::uid://bd6jte6mhn4k6::::res://Scripts/Asteroid.cs
+::res://Scenes/::1761066357
+asteroid.tscn::PackedScene::1947853517775262795::1761064864::0::1::::<><><>0<>0<><>::uid://bd6jte6mhn4k6::::res://Scripts/Asteroid.cs
 blot.tscn::PackedScene::7225845046537157260::1761061665::0::1::::<><><>0<>0<><>::uid://dvquecvsr7bs4::::res://Shaders/blot.gdshader<>uid://bcqtssr10kunm::::res://Scripts/Blot.cs
 camera.tscn::PackedScene::1483944838863283727::1760899455::0::1::::<><><>0<>0<><>::uid://byjgtxmsdgeq1::::res://Scripts/Camera.cs<>uid://esvovl72o2el::::res://Shaders/crt_display.gdshader<>uid://dh520picq2tvx::::res://Shaders/darkness.gdshader
-console.tscn::PackedScene::4568562983145181207::1761064296::0::1::::<><><>0<>0<><>::uid://b336dobar7jq8::::res://Scripts/Console.cs<>uid://lv6of8i8mu6e::::res://Scenes/text_display.tscn<>uid://cakhtafj6y2pr::::res://Assets/voyagerbg.png<>uid://cvust45cuswxf::::res://Scenes/time_display.tscn<>uid://beirqqv3qjl7p::::res://Assets/hibernate-button-on.png<>uid://bfqd4ln5jt8ry::::res://Scenes/dist_display.tscn<>uid://c2fhama2kagu2::::res://Assets/hibernate-button-off.png<>uid://dtlkolrigax87::::res://Scenes/dial.tscn<>uid://d4jyum1gvhdmv::::res://Assets/hibernate-button-mask.png<>uid://4hh4yltl2d4o::::res://Scripts/ButtonHandler.cs<>uid://cu6blqcigefog::::res://Scenes/flippable_button.tscn<>uid://dydif2173vasd::::res://Scripts/LightHandler.cs<>uid://c2gsxsrr8xw3u::::res://Scenes/light.tscn<>uid://l3i23e4u2cux::::res://Scenes/radio_receiver.tscn
+console.tscn::PackedScene::4568562983145181207::1761066357::0::1::::<><><>0<>0<><>::uid://b336dobar7jq8::::res://Scripts/Console.cs<>uid://lv6of8i8mu6e::::res://Scenes/text_display.tscn<>uid://cakhtafj6y2pr::::res://Assets/voyagerbg.png<>uid://cvust45cuswxf::::res://Scenes/time_display.tscn<>uid://beirqqv3qjl7p::::res://Assets/hibernate-button-on.png<>uid://bfqd4ln5jt8ry::::res://Scenes/dist_display.tscn<>uid://c2fhama2kagu2::::res://Assets/hibernate-button-off.png<>uid://dtlkolrigax87::::res://Scenes/dial.tscn<>uid://4hh4yltl2d4o::::res://Scripts/ButtonHandler.cs<>uid://cu6blqcigefog::::res://Scenes/flippable_button.tscn<>uid://dydif2173vasd::::res://Scripts/LightHandler.cs<>uid://c2gsxsrr8xw3u::::res://Scenes/light.tscn<>uid://l3i23e4u2cux::::res://Scenes/radio_receiver.tscn
 dial.tscn::PackedScene::8516191010928964990::1761063631::0::1::::<><><>0<>0<><>::uid://ddlo66fdtcbtn::::res://Scripts/Dial.cs<>uid://byvn85xnggrka::::res://Assets/dialbase.png<>uid://dy12h74u26dh::::res://Assets/dialpointer.png<>uid://efj52pev8e2n::::res://Assets/SFX/RotaryClick.mp3<>uid://72mcgsiu5vo7::::res://Shaders/text_display.gdshader<>uid://b3p4qxu6u2gaj::::res://Assets/Open 24 Display St.ttf<>uid://bpqq4a8yx7voh::::res://Assets/SFX/RotaryClick2.mp3<>uid://b8ulvr0skdde8::::res://Assets/SFX/RotaryClick3.mp3<>uid://ceg2uktiacetg::::res://Assets/SFX/RotaryClick4.mp3
 dist_display.tscn::PackedScene::2770629484164945030::1760191516::0::1::::<><><>0<>0<><>::uid://oc4wyd5myqy7::::res://Shaders/skew.gdshader<>uid://bw3fdflw88y70::::res://Scripts/DistDisplay.cs<>uid://72mcgsiu5vo7::::res://Shaders/text_display.gdshader<>uid://b3p4qxu6u2gaj::::res://Assets/Open 24 Display St.ttf
 flippable_button.tscn::PackedScene::6240695155083299190::1761062789::0::1::::<><><>0<>0<><>::uid://4xfpnl4g3or6::::res://Assets/button_out.png<>uid://5r2kni52a7o0::::res://Assets/button_in.png<>uid://d0ri3l1xx68as::::res://Assets/button_bitmap.png<>uid://w4ft5aux25tb::::res://Scripts/FlippableButton.cs<>uid://blhifyxgxjwbt::::res://Assets/SFX/OnSwitch.mp3<>uid://byghfesrbokq3::::res://Assets/SFX/OffSwitch.mp3<>uid://32in7yrdv0jx::::res://Assets/SFX/SwitchFlip.mp3<>uid://c6dnudjvce8h2::::res://Assets/SFX/LaunchCodeWrong.mp3<>uid://cju7oj8p4mntx::::res://Assets/SFX/LaunchCodeStartup.mp3<>uid://cevs76gck17fh::::res://Assets/SFX/LaunchCodeHum.mp3
@@ -87,11 +86,11 @@ sound_scape_handler.tscn::PackedScene::4693710396493597495::1760899610::0::1::::
 space_body.tscn::PackedScene::5923659030717960661::1760273416::0::1::::<><><>0<>0<><>::
 text_display.tscn::PackedScene::817336754747415202::1760794570::0::1::::<><><>0<>0<><>::uid://tssjwb7oyfs::::res://Scripts/TextDisplay.cs<>uid://b3p4qxu6u2gaj::::res://Assets/Open 24 Display St.ttf<>uid://bvrryo18xupji::::res://Scripts/PauseCalculator.cs<>uid://oc4wyd5myqy7::::res://Shaders/skew.gdshader<>uid://72mcgsiu5vo7::::res://Shaders/text_display.gdshader<>uid://cfvp22gk4h1s3::::res://Assets/screen_placeholder.png<>uid://c3mmjw1mjhx3r::::res://Assets/SFX/Keyboard click 1.mp3<>uid://cgssws18t0643::::res://Assets/SFX/Continuous Hum.mp3<>uid://b5kar7wfm3m6y::::res://Assets/SFX/LiftMoving.mp3<>uid://b4mfobht5npm4::::res://Assets/SFX/ScreenOn.mp3
 time_display.tscn::PackedScene::6289223044459684987::1760191705::0::1::::<><><>0<>0<><>::uid://oc4wyd5myqy7::::res://Shaders/skew.gdshader<>uid://72mcgsiu5vo7::::res://Shaders/text_display.gdshader<>uid://7ao1br33l8bo::::res://Scripts/TimeDisplay.cs<>uid://b3p4qxu6u2gaj::::res://Assets/Open 24 Display St.ttf
-window.tscn::PackedScene::3408776784869247728::1761064563::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://d0kc0ist6itlw::::res://Scripts/AsteroidHandler.cs<>uid://cuc2xbcxwh60s::::res://Shaders/lensflare.gdshader<>uid://dos7hvxaxhthg::::res://Scenes/record_player.tscn<>uid://cqkdveg85h6n3::::res://Scripts/LensFlare.cs<>uid://dg6xr4s3hb425::::res://Shaders/solarflare.gdshader<>uid://dyipnr1slkgwy::::res://Shaders/sun.gdshader
+window.tscn::PackedScene::3408776784869247728::1761064886::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://d0kc0ist6itlw::::res://Scripts/AsteroidHandler.cs<>uid://cuc2xbcxwh60s::::res://Shaders/lensflare.gdshader<>uid://dos7hvxaxhthg::::res://Scenes/record_player.tscn<>uid://cqkdveg85h6n3::::res://Scripts/LensFlare.cs<>uid://dg6xr4s3hb425::::res://Shaders/solarflare.gdshader<>uid://dyipnr1slkgwy::::res://Shaders/sun.gdshader
 window_earth_and_moon.tscn::PackedScene::1666427749681100182::1760867682::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://dos7hvxaxhthg::::res://Scenes/record_player.tscn
 window_jupiter.tscn::PackedScene::1648067900700886750::1760868361::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://dyipnr1slkgwy::::res://Shaders/sun.gdshader<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://cuc2xbcxwh60s::::res://Shaders/lensflare.gdshader<>uid://cqkdveg85h6n3::::res://Scripts/LensFlare.cs
 window_saturn.tscn::PackedScene::1097025048274749459::1760882118::0::1::::<><><>0<>0<><>::uid://3ycbya702pf5::::res://Scripts/Window.cs<>uid://tbmuvrmik6ct::::res://Scripts/Stars.cs<>uid://1xijxcktdj2x::::res://Scripts/PlanetBody.cs<>uid://ctg8vlcikhw50::::res://Assets/window_placeholder.png<>uid://d0kc0ist6itlw::::res://Scripts/AsteroidHandler.cs
-::res://Scenes/LevelScenes/::1761064535
+::res://Scenes/LevelScenes/::1761065131
 1_earth_leaving.tscn::PackedScene::6190859499795038803::1761064265::0::1::::<><><>0<>0<><>::uid://cu0yr15pepp2v::::res://Scripts/LevelScripts/EarthLeaving.cs<>uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn
 1_earth_leaving_old.tscn::PackedScene::5838607948066039782::1760814739::0::1::::<><><>0<>0<><>::uid://cu0yr15pepp2v::::res://Scripts/LevelScripts/EarthLeaving.cs<>uid://1k00hk38db0x::::res://Assets/blankwall_placeholder.png<>uid://b6dbtg8e0dt0r::::res://Scenes/console.tscn<>uid://botib5kax6p3u::::res://Scenes/window.tscn<>uid://bh2fuxs36fxte::::res://Scripts/TimeHandler.cs<>uid://c6djcormwfpyy::::res://Scripts/SpaceHandler.cs<>uid://bsim3q725pqj1::::res://Scripts/HibernationHandler.cs<>uid://b74wyvqud5xb0::::res://Scenes/sound_scape_handler.tscn<>uid://ve3mcaxygs60::::res://Scenes/camera.tscn
 2_far_earth.tscn::PackedScene::9134515888765457879::1761063565::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://r6ojnhbfqpid::::res://Scripts/LevelScripts/FarEarth.cs
@@ -99,17 +98,17 @@ window_saturn.tscn::PackedScene::1097025048274749459::1760882118::0::1::::<><><>
 4_saturn.tscn::PackedScene::7993543817111758046::1761064433::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://cjn5bbptx26n5::::res://Scripts/LevelScripts/Saturn.cs
 5_solarflare.tscn::PackedScene::7330168197453318885::1760901014::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://l4vah40vpfvq::::res://Scripts/LevelScripts/SolarFlare.cs
 6_danger.tscn::PackedScene::5491894344094370924::1760976730::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://bilv2xny4a0od::::res://Scripts/LevelScripts/Danger.cs
-7_asteroids.tscn::PackedScene::3888917958690820566::1761064535::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://6oykt7oasghh::::res://Scripts/LevelScripts/Asteroids.cs
+7_asteroids.tscn::PackedScene::3888917958690820566::1761065131::0::1::::<><><>0<>0<><>::uid://di2cu2sn4tifk::::res://Scenes/shuttle.tscn<>uid://6oykt7oasghh::::res://Scripts/LevelScripts/Asteroids.cs
 ::res://Scripts/::1761061665
 Asteroid.cs::CSharpScript::2661563566539604223::1760981124::0::1::::<>ColorRect<><>0<>0<><>::
-AsteroidHandler.cs::CSharpScript::8934793447302182760::1761064449::0::1::::<>Node2D<><>0<>0<><>::
+AsteroidHandler.cs::CSharpScript::8934793447302182760::1761065462::0::1::::<>Node2D<><>0<>0<><>::
 Blot.cs::CSharpScript::2561015155084096886::1761061665::0::1::::<>ColorRect<><>0<>0<><>::
-ButtonHandler.cs::CSharpScript::2050405195186255260::1760977392::0::1::::<>Node<><>0<>0<><>::
+ButtonHandler.cs::CSharpScript::2050405195186255260::1761065940::0::1::::<>Node<><>0<>0<><>::
 Camera.cs::CSharpScript::4089931790230002026::1760890940::0::1::::<>Camera2D<><>0<>0<><>::
-Console.cs::CSharpScript::4411399203724849461::1760978450::0::1::::<>Node2D<><>0<>0<><>::
+Console.cs::CSharpScript::4411399203724849461::1761065404::0::1::::<>Node2D<><>0<>0<><>::
 Dial.cs::CSharpScript::7393443770907493751::1760870616::0::1::::<>Node2D<><>0<>0<><>::
 DistDisplay.cs::CSharpScript::3988687043843637841::1760273369::0::1::::<>Node2D<><>0<>0<><>::
-FlippableButton.cs::CSharpScript::1604360606593516359::1760892448::0::1::::<>TextureButton<><>0<>0<><>::
+FlippableButton.cs::CSharpScript::1604360606593516359::1761065501::0::1::::<>TextureButton<><>0<>0<><>::
 HibernationHandler.cs::CSharpScript::3667114388427495364::1760817475::0::1::::<>Node<><>0<>0<><>::
 LensFlare.cs::CSharpScript::5916726516687617802::1760976845::0::1::::<>ColorRect<><>0<>0<><>::
 Light.cs::CSharpScript::4206746488221215730::1760640647::0::1::::<>Node2D<><>0<>0<><>::
@@ -122,30 +121,30 @@ Shuttle.cs::CSharpScript::6527643866939330822::1760989482::0::1::::<>Node2D<><>0
 SoundScapeHandler.cs::CSharpScript::4449424329154572714::1760901267::0::1::::<>Node<><>0<>0<><>::
 SpaceHandler.cs::CSharpScript::6955439440113509580::1760800351::0::1::::<>Node<><>0<>0<><>::
 Stars.cs::CSharpScript::1336417856476343395::1760981811::0::1::::<>ColorRect<><>0<>0<><>::
-TextDisplay.cs::CSharpScript::40348734271845036::1761064466::0::1::::<>Node2D<><>0<>0<><>::
+TextDisplay.cs::CSharpScript::40348734271845036::1761064639::0::1::::<>Node2D<><>0<>0<><>::
 TimeDisplay.cs::CSharpScript::2246939545052399116::1760799568::0::1::::<>Node2D<><>0<>0<><>::
 TimeHandler.cs::CSharpScript::2933821326518246782::1760977396::0::1::::<>Node<><>0<>0<><>::
-Window.cs::CSharpScript::2014957169790603372::1760980656::0::1::::<>Node2D<><>0<>0<><>::
+Window.cs::CSharpScript::2014957169790603372::1761065123::0::1::::<>Node2D<><>0<>0<><>::
 ::res://Scripts/LevelScripts/::1760979151
-Asteroids.cs::CSharpScript::2206231555115489501::1760988828::0::1::::<>Node2D<><>0<>0<><>::
-Danger.cs::CSharpScript::2971964090624289619::1760982049::0::1::::<>Node2D<><>0<>0<><>::
-EarthLeaving.cs::CSharpScript::6229716662959843327::1761064151::0::1::::<>Node2D<><>0<>0<><>::
-FarEarth.cs::CSharpScript::1258072855936224511::1760981432::0::1::::<>Node2D<><>0<>0<><>::
-Jupiter.cs::CSharpScript::1784189790015839486::1760981407::0::1::::<>Node2D<><>0<>0<><>::
-Saturn.cs::CSharpScript::5433201243098692156::1761064437::0::1::::<>Node2D<><>0<>0<><>::
-SolarFlare.cs::CSharpScript::833219705361509270::1760981318::0::1::::<>Node2D<><>0<>0<><>::
-::res://Shaders/::1761062092
+Asteroids.cs::CSharpScript::2206231555115489501::1761065116::0::1::::<>Node2D<><>0<>0<><>::
+Danger.cs::CSharpScript::2971964090624289619::1761065003::0::1::::<>Node2D<><>0<>0<><>::
+EarthLeaving.cs::CSharpScript::6229716662959843327::1761066339::0::1::::<>Node2D<><>0<>0<><>::
+FarEarth.cs::CSharpScript::1258072855936224511::1761065041::0::1::::<>Node2D<><>0<>0<><>::
+Jupiter.cs::CSharpScript::1784189790015839486::1761065037::0::1::::<>Node2D<><>0<>0<><>::
+Saturn.cs::CSharpScript::5433201243098692156::1761065494::0::1::::<>Node2D<><>0<>0<><>::
+SolarFlare.cs::CSharpScript::833219705361509270::1761065016::0::1::::<>Node2D<><>0<>0<><>::
+::res://Shaders/::1761065775
 asteroid.gdshader::Shader::4898800536520106120::1760899639::0::1::::<><><>0<>0<><>::
 blot.gdshader::Shader::8667479432903296405::1761061665::0::1::::<><><>0<>0<><>::
-crt_display.gdshader::Shader::319215353561767647::1761062092::0::1::::<><><>0<>0<><>::
-darkness.gdshader::Shader::7714200093141663685::1761062092::0::1::::<><><>0<>0<><>::
+crt_display.gdshader::Shader::319215353561767647::1761065774::0::1::::<><><>0<>0<><>::
+darkness.gdshader::Shader::7714200093141663685::1761065774::0::1::::<><><>0<>0<><>::
 jupiter.gdshader::Shader::4597016845002108735::1760795451::0::1::::<><><>0<>0<><>::
 lensflare.gdshader::Shader::6182427484407161432::1760901723::0::1::::<><><>0<>0<><>::
 moon.gdshader::Shader::94547382285382105::1760795451::0::1::::<><><>0<>0<><>::
 planet.gdshader::Shader::6332675324927188694::1760795451::0::1::::<><><>0<>0<><>::
-saturn.gdshader::Shader::4092227419814066864::1761062092::0::1::::<><><>0<>0<><>::
-skew.gdshader::Shader::988573913271586192::1761062092::0::1::::<><><>0<>0<><>::
+saturn.gdshader::Shader::4092227419814066864::1761065775::0::1::::<><><>0<>0<><>::
+skew.gdshader::Shader::988573913271586192::1761065774::0::1::::<><><>0<>0<><>::
 solarflare.gdshader::Shader::7645819224878616096::1760901697::0::1::::<><><>0<>0<><>::
-stars.gdshader::Shader::8768554210826179017::1761062092::0::1::::<><><>0<>0<><>::
+stars.gdshader::Shader::8768554210826179017::1761065775::0::1::::<><><>0<>0<><>::
 sun.gdshader::Shader::8861244224531624540::1760807298::0::1::::<><><>0<>0<><>::
-text_display.gdshader::Shader::2302513714615651968::1761062092::0::1::::<><><>0<>0<><>::
+text_display.gdshader::Shader::2302513714615651968::1761065774::0::1::::<><><>0<>0<><>::

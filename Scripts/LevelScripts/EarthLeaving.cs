@@ -26,9 +26,9 @@ public partial class EarthLeaving : Shuttle
         _spaceHandler.StartDistance(18_342f);
         Speed = 17f;
 
-        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
         _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
-        // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
+        _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
+        
         _recordPlayer.LoadSong(1, repeated: false, loadBar: true);
 
         _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);

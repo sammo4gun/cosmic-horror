@@ -102,7 +102,7 @@ public partial class Saturn : Shuttle
     public async void HandleCrash()
     {
         _camera.Emergency = true;
-        _camera.ApplyShake(50f, 5f);
+        _camera.ApplyShake(40f, 5f);
         _soundScapeHandler.Crash();
 
         _console.OutputLine("**************************");
@@ -120,7 +120,7 @@ public partial class Saturn : Shuttle
         while (!enteredSafeLaunchCode)
         {
             await ToSignal(GetTree().CreateTimer(rng.RandfRange(2.0f, 5.0f)), "timeout");
-            _camera.ApplyShake(rng.RandfRange(10f, 40f), 3f);
+            // _camera.ApplyShake(rng.RandfRange(10f, 40f), 3f);
         }
 
         _camera.Emergency = false;
@@ -167,7 +167,6 @@ public partial class Saturn : Shuttle
     public async void RequestLaunchcodeCheck()
     {
         await ToSignal(_console, "TextFinished");
-        _recordPlayer.StopPlaying();
 
         _console.OutputLine("Loading post_orbit_checklog.yaml{p=1.0}");
         _console.OutputLine("===============================");
@@ -223,8 +222,8 @@ public partial class Saturn : Shuttle
         if (question == "Confirm hibernation?")
         {
             _console.ToggleRaiseText();
-            _console.ToggleActivateButton("Hibernation", true);
             _console.ToggleButtonPressed("Hibernation", false, silent: true);
+            _console.ToggleActivateButton("Hibernation", true);
         }
     }
 

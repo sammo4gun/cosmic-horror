@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 public partial class Asteroids : Shuttle
 {
     public bool TriggeredConsole = false;
-    public bool triggeredDangerCutscene = false;
     public bool enteredSafeLaunchCode = false;
     public bool BackupInstalled = false;
     public bool LaunchCodesEntered = false;
@@ -24,7 +23,7 @@ public partial class Asteroids : Shuttle
         base._Ready();
 
         _window.SetWindow("Stars");
-        _window.SetAsteroidsVisible(true);
+        _window.SetAsteroidsVisible(true, 1);
 
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
         _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
@@ -58,7 +57,7 @@ public partial class Asteroids : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
-        _console.OutputLine("Hibernation_length=39 days{p=1.0}");
+        _console.OutputLine("Hibernation_length=8 months{p=1.0}");
         _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . {p=0.5}. {p=0.3}. {p=0.3}.");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
@@ -71,30 +70,9 @@ public partial class Asteroids : Shuttle
         HandleCrash();
     }
 
-    public override void RecordStarted()
-    {
-        if (!triggeredDangerCutscene)
-        {
-            _console.RadioAlert(false);
-            dangerCutscene();
-        }
-    }
-
-    public async void dangerCutscene()
-    {
-        await ToSignal(GetTree().CreateTimer(15.0f), "timeout");
-        triggeredDangerCutscene = true;
-        if (!_camera.FacingConsole) _camera.Turn("left");
-    }
-
-    public override void RecordDone()
-    {
-        HandleCrash();
-    }
-
     public async void HandleCrash()
     {
-        _camera.ApplyShake(50, 10);
+        _camera.ApplyShake(60f, 6f);
         _camera.Emergency = true;
         _soundScapeHandler.Crash();
         _window.SetAsteroidsVisible(false);
@@ -116,9 +94,17 @@ public partial class Asteroids : Shuttle
         _console.OutputLine("Deploy backup thruster1");
         await ToSignal(_console, "TextFinished");
         _console.ToggleActivateButton("BackupLeft", true);
+
+        while (!enteredSafeLaunchCode)
+        {
+            await ToSignal(GetTree().CreateTimer(rng.RandfRange(2.0f, 5.0f)), "timeout");
+            _camera.ApplyShake(rng.RandfRange(10f, 60f), 4f);
+        }
+
+        Stabilized();
     }
 
-    public async void BackupDeployed()
+    public void BackupDeployed()
     {
         _console.OutputLine("===========================");
         _console.OutputLine("Backup thruster1 engaged");
@@ -126,75 +112,70 @@ public partial class Asteroids : Shuttle
         _console.OutputLine("THRUSTER2 - destroyed");
         _console.OutputLine("Backup thruster checks");
         _console.OutputLine("0/2 available");
-        RequestLaunchcodeCheck();
 
+        _console.OutputLine("===========================");
         _console.OutputLine("Computing stabilizing sequence...{p=2.0}");
         _console.OutputLine("Stabilizing Thruster Sequence A-1-B-5");
         _console.LaunchCodes = "A1B5";
-
-        while (!enteredSafeLaunchCode)
-        {
-            await ToSignal(GetTree().CreateTimer(rng.RandfRange(2.0f, 5.0f)), "timeout");
-            _camera.ApplyShake(rng.RandfRange(10f, 60f), 3f);
-        }
-
-        _camera.Emergency = false;
-        _camera.ApplyShake(10f, 0f);
-        _soundScapeHandler.CrashFixed();
-        _console.ResetThrusterSequence();
     }
 
-
-    public async void RequestLaunchcodeCheck()
+    public async void Stabilized()
     {
-        await ToSignal(_console, "TextFinished");
-        _recordPlayer.StopPlaying();
+        _camera.Emergency = false;
+        _camera.ApplyShake(10f, 2f);
+        _soundScapeHandler.CrashFixed();
+        _window.SetSpinning(100f);
+        _console.ResetThrusterSequence();
 
-        _console.OutputLine("Loading post_orbit_checklog.yaml{p=1.0}");
+        _console.OutputLine("Course stabilized{p=1.0}");
+        _console.OutputLine("WARNING - Critical damage detected{p=2.0}");
+        _console.OutputLine("Hull integrity -{p=1.0} 17% -{p=1.0} failure");
+        _console.OutputLine("Sending distress beacon.{p=1.0}.{p=1.0}.{p=1.0}.{p=1.0}");
+        _console.OutputLine("ERR - Transmittor damaged{p=1.0}");
+        _console.OutputLine("THRUSTER1 - {p=1.0}Operational");
+        _console.OutputLine("THRUSTER2 - ERROR{p=1.0}");
+        _console.OutputLine("THRUSTER2 destroyed");
+        _console.OutputLine("==========================={p=1.0}");
+        _console.OutputLine("THRUSTER2 dumped");
+        _console.OutputLine("Backup Thrusters depleted{p=2.0}");
+        _console.OutputLine("SYSERR{p=1.0}");
+        _console.OutputLine("SYSERR{p=1.0}");
+        await ToSignal(_console, "TextFinished");
+        RequestLaunchcodeCheck();
+    }
+
+    public void RequestLaunchcodeCheck()
+    {
         _console.OutputLine("===============================");
-        _console.OutputLine("Pre-hibernation checklog");
-        _console.OutputLine("┗╸Enter thruster sequence{p=1.0}");
-        _console.OutputLine("===============================");
+        _console.OutputLine("Loading emergency sequence...{p=2.0}");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("┗╸Confirm sequence 5-3-D-2-C"); ;
-        _console.LaunchCodes = "53D2C";
+        _console.OutputLine("┗╸Confirm sequence 5-3"); ;
+        _console.LaunchCodes = "53";
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)
     {
-        if (correct)
+        if (!enteredSafeLaunchCode && correct)
         {
-            _console.OutputLine("Thruster Sequence received");
-            if (!enteredSafeLaunchCode)
-            {
-                enteredSafeLaunchCode = true;
-            }
-            else
-            {
-                LaunchCodesEntered = true;
-                AllDoneOutput();
-            }
+            enteredSafeLaunchCode = true;
         }
-        else if (shuffled)
+        else if (enteredSafeLaunchCode)
         {
-            _console.OutputLine("Thruster sequence received");
-            _console.OutputLine("Ordering incorrect");
-            _console.OutputLine("Awaiting further instruction");
-        }
-        else
-        {
-            _console.OutputLine("Thruster sequence incorrect");
-            _console.OutputLine("Awaiting further instruction");
+            _console.OutputLine("ERR - critical failure");
+            LaunchCodesEntered = true;
+            AllDoneOutput();
         }
     }
 
     public void AllDoneOutput()
     {
-        _console.OutputLine("Completed pre-launch checklog");
-        _console.OutputLine("==============================={p=1.0}");
-        _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = interstellar_space");
-        _console.OutputLine("hibernation time ~14 months");
+        _console.OutputLine("Sequence not recognized");
+        _console.OutputLine("✱✱ERROR✱✱");
+        _console.OutputLine("✱✱ERROR✱✱");
+        _console.OutputLine("✱✱ERROR✱✱");
+        _console.OutputLine("✱✱Enation module load successful");
+        _console.OutputLine("target = ???");
+        _console.OutputLine("hibernation time ~SYSERR months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
     }
@@ -211,7 +192,7 @@ public partial class Asteroids : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/8_?");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/8_deep_space");
         if (buttonName == "BackupLeft" && toggled)
         {
             BackupDeployed();

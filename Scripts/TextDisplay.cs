@@ -26,6 +26,8 @@ public partial class TextDisplay : Node2D
 
     private List<string> _linesQueue = new List<string>();
 
+    public float raiseSpeed = 1f;
+
     private float _flickerTimer = 0.0f;
     private float _typingTimer = 0.0f;
     private int _charsDisplayed = 0;
@@ -127,7 +129,7 @@ public partial class TextDisplay : Node2D
 
         if (_raised && _screenHeightHandler.Position.Y > 0)
         {
-            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Max(_screenHeightHandler.Position.Y - 200 * (float)delta, 0));
+            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Max(_screenHeightHandler.Position.Y - 200 * (float)delta * raiseSpeed, 0));
             if (!_liftPlayer.Playing)
             {
                 _liftStartPlayer.Play();
@@ -141,7 +143,7 @@ public partial class TextDisplay : Node2D
         }
         else if (!_raised && _screenHeightHandler.Position.Y < 290)
         {
-            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Min(_screenHeightHandler.Position.Y + 200 * (float)delta, 290));
+            _screenHeightHandler.Position = new Vector2(_screenHeightHandler.Position.X, Math.Min(_screenHeightHandler.Position.Y + 200 * (float)delta * raiseSpeed, 290));
             if (!_liftPlayer.Playing)
             {
                 _liftStartPlayer.Play();

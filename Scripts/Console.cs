@@ -150,4 +150,9 @@ public partial class Console : Node2D
         LaunchCodes = null;
         _buttonHandler.ResetThrusterSequence();
     }
+
+    public void SetTextDisplaySpeed(float speedFactor)
+    {
+        _textDisplay.raiseSpeed = speedFactor;
+    }
 }

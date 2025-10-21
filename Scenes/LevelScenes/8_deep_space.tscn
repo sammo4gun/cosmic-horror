@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwqxdak4btoqp"]
+
+[ext_resource type="PackedScene" uid="uid://di2cu2sn4tifk" path="res://Scenes/shuttle.tscn" id="1_k8ir7"]
+[ext_resource type="Script" uid="uid://bi36n1dsjpklx" path="res://Scripts/LevelScripts/DeepSpace.cs" id="2_k8ir7"]
+
+[node name="DeepSpace" type="Node2D"]
+
+[node name="Shuttle" parent="." instance=ExtResource("1_k8ir7")]
+script = ExtResource("2_k8ir7")

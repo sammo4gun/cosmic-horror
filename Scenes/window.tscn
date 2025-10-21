@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://botib5kax6p3u"]
+[gd_scene load_steps=14 format=3 uid="uid://botib5kax6p3u"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_30sqi"]
 [ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_0slyu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" uid="uid://cuc2xbcxwh60s" path="res://Shaders/lensflare.gdshader" id="4_r37kj"]
 [ext_resource type="PackedScene" uid="uid://dos7hvxaxhthg" path="res://Scenes/record_player.tscn" id="5_gvfsm"]
 [ext_resource type="Script" uid="uid://cqkdveg85h6n3" path="res://Scripts/LensFlare.cs" id="5_pff0d"]
+[ext_resource type="PackedScene" uid="uid://da7iu2ygv7p7a" path="res://Scenes/blot.tscn" id="5_u56ti"]
 [ext_resource type="Shader" uid="uid://dg6xr4s3hb425" path="res://Shaders/solarflare.gdshader" id="6_8vpwn"]
 [ext_resource type="Shader" uid="uid://dyipnr1slkgwy" path="res://Shaders/sun.gdshader" id="6_u56ti"]
 
@@ -90,7 +91,6 @@ PlanetShader = "res://Shaders/saturn.gdshader"
 RotationSpeed = 100.0
 
 [node name="Stars" type="SubViewportContainer" parent="."]
-visible = false
 z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
@@ -99,7 +99,7 @@ mouse_filter = 2
 [node name="SubViewport" type="SubViewport" parent="Stars"]
 handle_input_locally = false
 size = Vector2i(648, 648)
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Stars" type="ColorRect" parent="Stars/SubViewport"]
 z_index = -2
@@ -107,6 +107,14 @@ offset_right = 647.0
 offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
+
+[node name="Blot" parent="Stars/SubViewport" instance=ExtResource("5_u56ti")]
+visible = false
+offset_left = 467.0
+offset_top = 61.0
+offset_right = 659.0
+offset_bottom = 253.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Jupiter" type="SubViewportContainer" parent="."]
 visible = false
@@ -254,6 +262,14 @@ offset_left = 34.0
 offset_top = 40.0
 offset_right = 610.98315
 offset_bottom = 599.0
+
+[node name="Blot" parent="SolarFlare/SubViewport" instance=ExtResource("5_u56ti")]
+visible = false
+offset_left = 171.0
+offset_top = 135.0
+offset_right = 363.0
+offset_bottom = 327.0
+scale = Vector2(0.5, 0.5)
 
 [node name="SunNode" type="Node2D" parent="SolarFlare"]
 position = Vector2(305, 302)
