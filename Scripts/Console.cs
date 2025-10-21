@@ -25,6 +25,8 @@ public partial class Console : Node2D
 
     public bool IsButtonPressed(string button) => _buttonHandler.Buttons[button];
 
+    public bool OminousGlow = false;
+
     public override void _Ready()
     {
         base._Ready();
@@ -38,6 +40,16 @@ public partial class Console : Node2D
         _distDisplay = GetNode<DistDisplay>("DistDisplay");
 
         _textDisplay.InputReceived += ReceiveInput;
+    }
+
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+        if (OminousGlow)
+        {
+            GetNode<ColorRect>("OminousGlow").Modulate = new Color(255, 255, 255, GetNode<ColorRect>("OminousGlow").Modulate.A + (float)delta * 50);
+        }
     }
 
     public void ReceiveInput(string question, string input)
@@ -154,5 +166,12 @@ public partial class Console : Node2D
     public void SetTextDisplaySpeed(float speedFactor)
     {
         _textDisplay.raiseSpeed = speedFactor;
+    }
+
+    public void DisableDisplays()
+    {
+        _textDisplay.TurnOff();
+        _distDisplay.TurnOff();
+        _timeDisplay.TurnOff();
     }
 }

@@ -23,6 +23,8 @@ public partial class DeepSpace : Shuttle
         _window.MoveBlot(new Vector2(166f, 250f), 0.01f);
         _window.ScaleBlot(1.5f, 0.002f);
 
+        _camera.setDarkness(0.3f);
+
         // starting time, distance, and speed
         _timeHandler.StartTimer(DateTime.ParseExact("03-08-1987 19:55:13.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
         _spaceHandler.StartDistance(5_235_342_009f);
@@ -131,6 +133,6 @@ public partial class DeepSpace : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/9_danger");
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/9_eye");
     }
 }

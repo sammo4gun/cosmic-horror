@@ -322,4 +322,9 @@ public partial class TextDisplay : Node2D
         _inputText = "";
         EmitSignal(SignalName.InputReceived, question, input);
     }
+
+    public void TurnOff()
+    {
+        _mainText.Visible = false;
+    }
 }

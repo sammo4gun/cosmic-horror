@@ -25,6 +25,8 @@ public partial class Asteroids : Shuttle
         _window.SetWindow("Stars");
         _window.SetAsteroidsVisible(true, 1);
 
+        _camera.setDarkness(0.2f);
+
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
         _console.ToggleButtonPressed("Hibernation", true, silent: true); // sothe hibernation button is off
         _console.ToggleButtonPressed("BackupRight", true, silent: true); // to set the backup to being used
@@ -36,8 +38,8 @@ public partial class Asteroids : Shuttle
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(4, repeated: false, loadBar: false);
 
-        // _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
-        _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
+        _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
+        // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
     }
 
     public override void _Process(double delta)

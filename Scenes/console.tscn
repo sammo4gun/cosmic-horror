@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=17 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
@@ -15,6 +15,15 @@
 [ext_resource type="PackedScene" uid="uid://l3i23e4u2cux" path="res://Scenes/radio_receiver.tscn" id="11_ekwfd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
+
+[sub_resource type="Gradient" id="Gradient_mhsga"]
+offsets = PackedFloat32Array(0, 0.5466667, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.4554031, 1.0769255e-06, 2.1658838e-07, 0.62, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7kqtp"]
+gradient = SubResource("Gradient_mhsga")
+fill = 1
+fill_from = Vector2(0.4906542, 0.49532712)
 
 [node name="Console" type="Node2D"]
 script = ExtResource("1_2kium")
@@ -257,3 +266,10 @@ BackupR"
 z_index = 1
 position = Vector2(595, 612.99994)
 scale = Vector2(0.51353294, 0.51353294)
+
+[node name="OminousGlow" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_right = 648.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_7kqtp")

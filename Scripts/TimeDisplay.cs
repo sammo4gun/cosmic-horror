@@ -19,4 +19,9 @@ public partial class TimeDisplay : Node2D
         if (!TimerRunning) return;
         _mainText.Text = ((Shuttle)GetParent().GetParent()).CurrentTime.ToString("dd-MM-yyyy HH:mm:ss.FFF");
     }
+
+    public void TurnOff()
+    {
+        _mainText.Visible = false;
+    }
 }

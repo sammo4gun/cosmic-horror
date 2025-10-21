@@ -42,3 +42,7 @@ res://Scripts/LevelScripts/DeepSpace.cs
 res://Scenes/LevelScenes/8_deep_space.tscn
 res://Scenes/record_player.tscn
 res://Scenes/window.tscn
+res://Scenes/LevelScenes/9_eye.tscn
+res://Scripts/LevelScripts/Eye.cs
+res://Scenes/camera.tscn
+res://Scenes/sound_scape_handler.tscn
