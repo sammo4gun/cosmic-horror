@@ -82,7 +82,7 @@ public partial class SolarFlare : Shuttle
                 _console.OutputLine("Transmission receiver damaged");
                 _console.OutputLine("Simulating trajectory... {p=0.8}");
                 _console.OutputLine("Trajectory Outline Confirmed");
-                _console.OutputLine("Extrasolar entry t-minus:{p=0.8}");
+                _console.OutputLine("Interstellar entry t-minus:{p=0.8}");
                 _console.OutputLine("┣╸#ERR days{p=0.8}");
                 _console.OutputLine("┣╸#ERR months{p=0.8}");
                 _console.OutputLine("┗╸#ERR years{p=0.3}");
@@ -176,7 +176,7 @@ public partial class SolarFlare : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = extrasolar_space");
+        _console.OutputLine("target = interstellar_space");
         _console.OutputLine("hibernation time ~9 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();

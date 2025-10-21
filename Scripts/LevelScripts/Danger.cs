@@ -119,8 +119,8 @@ public partial class Danger : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = jupiter_orbit");
-        _console.OutputLine("hibernation time ~26 months");
+        _console.OutputLine("target = interstellar_space");
+        _console.OutputLine("hibernation time ~8 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
     }

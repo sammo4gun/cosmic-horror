@@ -35,6 +35,11 @@ public partial class TextDisplay : Node2D
     private string _inputText = "";
     private string _currentQuestion = "";
 
+    private float lengthAdjustFactor;
+    private bool calibratedPauseLength = false;
+    private float lengthCalibrateTimer = -1.0f;
+    private DateTime _startTime;
+
     public override void _Ready()
     {
         base._Ready();
@@ -50,11 +55,26 @@ public partial class TextDisplay : Node2D
         _charsDisplayed = _currentText.Length;
 
         _screenHeightHandler.Position = new Vector2(0, 290);
+        _startTime = DateTime.Now;
     }
 
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
+
+        if (!calibratedPauseLength)
+        {
+            lengthCalibrateTimer += (float)delta;
+            if (lengthCalibrateTimer > 0)
+            {
+                // should have taken approximately 1 second
+                TimeSpan elapsed = DateTime.Now - _startTime;
+                lengthAdjustFactor = 1 / (float)elapsed.TotalSeconds;
+                calibratedPauseLength = true;
+                GD.Print(lengthAdjustFactor);
+            }
+            return;
+        }
 
         if (_isTyping)
         {
@@ -66,7 +86,7 @@ public partial class TextDisplay : Node2D
                 _lineProgress++;
                 if (_pauseCalculator.Pauses.ContainsKey(_lineProgress))
                 {
-                    _typingTimer -= _pauseCalculator.Pauses[_lineProgress];
+                    _typingTimer -= _pauseCalculator.Pauses[_lineProgress]*lengthAdjustFactor;
                 }
                 _mainText.Text = _currentText.Substring(0, _charsDisplayed);
                 if (_mainText.Text == _currentText)

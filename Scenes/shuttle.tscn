@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://di2cu2sn4tifk"]
 
 [ext_resource type="PackedScene" uid="uid://b6dbtg8e0dt0r" path="res://Scenes/console.tscn" id="1_1pfi6"]
-[ext_resource type="Texture2D" uid="uid://1k00hk38db0x" path="res://Assets/blankwall_placeholder.png" id="1_vsyg2"]
 [ext_resource type="Script" uid="uid://c0ablt7k8teao" path="res://Scripts/Shuttle.cs" id="1_x30pb"]
 [ext_resource type="PackedScene" uid="uid://botib5kax6p3u" path="res://Scenes/window.tscn" id="3_gosty"]
 [ext_resource type="PackedScene" uid="uid://ve3mcaxygs60" path="res://Scenes/camera.tscn" id="4_j7j3f"]
+[ext_resource type="Texture2D" uid="uid://cakhtafj6y2pr" path="res://Assets/voyagerbg.png" id="4_y8b7f"]
 [ext_resource type="Script" uid="uid://bh2fuxs36fxte" path="res://Scripts/TimeHandler.cs" id="7_0uqxh"]
 [ext_resource type="Script" uid="uid://c6djcormwfpyy" path="res://Scripts/SpaceHandler.cs" id="8_23dal"]
 [ext_resource type="Script" uid="uid://bsim3q725pqj1" path="res://Scripts/HibernationHandler.cs" id="9_qp0on"]
@@ -13,31 +13,31 @@
 [node name="Shuttle" type="Node2D"]
 script = ExtResource("1_x30pb")
 
-[node name="Wall1" type="TextureRect" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -648.0
-offset_bottom = 648.0
-grow_horizontal = 0
-texture = ExtResource("1_vsyg2")
-
 [node name="Console" parent="." instance=ExtResource("1_1pfi6")]
 
-[node name="Wall2" type="TextureRect" parent="."]
-offset_left = 648.0
-offset_right = 1296.0
+[node name="Background" type="TextureRect" parent="."]
+offset_left = -648.0
+offset_right = 1944.0
 offset_bottom = 648.0
-texture = ExtResource("1_vsyg2")
+mouse_filter = 2
+texture = ExtResource("4_y8b7f")
+
+[node name="Background2" type="TextureRect" parent="."]
+offset_left = -3240.0
+offset_right = -648.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("4_y8b7f")
+
+[node name="Background3" type="TextureRect" parent="."]
+offset_left = 1944.0
+offset_right = 4536.0
+offset_bottom = 648.0
+mouse_filter = 2
+texture = ExtResource("4_y8b7f")
 
 [node name="Window" parent="." instance=ExtResource("3_gosty")]
 position = Vector2(1296, 0)
-
-[node name="Wall3" type="TextureRect" parent="."]
-offset_left = 1944.0
-offset_right = 2592.0
-offset_bottom = 648.0
-texture = ExtResource("1_vsyg2")
 
 [node name="TimeHandler" type="Node" parent="."]
 script = ExtResource("7_0uqxh")

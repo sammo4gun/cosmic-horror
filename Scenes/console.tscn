@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=14 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="Texture2D" uid="uid://b5wklycmo8vnb" path="res://Assets/console_placeholder.png" id="2_j4mgr"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
+[ext_resource type="Texture2D" uid="uid://cakhtafj6y2pr" path="res://Assets/voyagerbg.png" id="3_sdxnn"]
 [ext_resource type="PackedScene" uid="uid://cvust45cuswxf" path="res://Scenes/time_display.tscn" id="4_atbq5"]
 [ext_resource type="PackedScene" uid="uid://bfqd4ln5jt8ry" path="res://Scenes/dist_display.tscn" id="5_qxy8f"]
 [ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
@@ -18,9 +19,17 @@
 script = ExtResource("1_2kium")
 
 [node name="Placeholder" type="TextureRect" parent="."]
+visible = false
 offset_right = 648.0
 offset_bottom = 648.0
 texture = ExtResource("2_j4mgr")
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+offset_left = -648.0
+offset_right = 1944.0
+offset_bottom = 648.0
+texture = ExtResource("3_sdxnn")
 
 [node name="ButtonHandler" type="Node" parent="."]
 script = ExtResource("7_uqptw")
@@ -129,20 +138,20 @@ scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonBackupLeft" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 1371.0
-offset_top = 491.99997
-offset_right = 1479.0
-offset_bottom = 600.0
+offset_left = 1392.9286
+offset_top = 95.0
+offset_right = 1500.9286
+offset_bottom = 203.0
 rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 Available = false
 
 [node name="FlippableButtonBackupRight" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 1844.0
-offset_top = 511.0
-offset_right = 1952.0
-offset_bottom = 619.0
+offset_left = 1865.9286
+offset_top = 114.00003
+offset_right = 1973.9286
+offset_bottom = 222.0
 rotation = 0.7612072
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
@@ -176,21 +185,25 @@ position = Vector2(394, 234)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
+z_index = 1
 position = Vector2(324, 64)
 
 [node name="TimeDisplay" parent="." instance=ExtResource("4_atbq5")]
-position = Vector2(65, 64)
+z_index = 1
+position = Vector2(56, 63)
 
 [node name="LeftDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(66, 298)
+z_index = 1
+position = Vector2(62, 298)
 
 [node name="RightDial" parent="." instance=ExtResource("6_xivcw")]
-position = Vector2(569, 311)
+z_index = 1
+position = Vector2(565, 311)
 
 [node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
 z_index = 1
 material = SubResource("ShaderMaterial_hfjju")
-position = Vector2(85, 236)
+position = Vector2(94, 261)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -224,10 +237,10 @@ text = "LAUNCH"
 [node name="Label4" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 1337.0001
-offset_top = 506.00006
-offset_right = 1404.0001
-offset_bottom = 555.00006
+offset_left = 1411.0001
+offset_top = 41.99994
+offset_right = 1478.0001
+offset_bottom = 90.99994
 rotation = 0.74531037
 text = "Thruster
 BackupL"
@@ -235,10 +248,10 @@ BackupL"
 [node name="Label5" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 1833.0
-offset_top = 571.0
-offset_right = 1901.0
-offset_bottom = 620.0
+offset_left = 1800.2317
+offset_top = 104.99994
+offset_right = 1868.2317
+offset_bottom = 153.99994
 rotation = -0.7749453
 text = "Thruster
 BackupR"

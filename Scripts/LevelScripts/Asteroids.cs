@@ -26,10 +26,11 @@ public partial class Asteroids : Shuttle
         _window.SetWindow("Stars");
         _window.SetAsteroidsVisible(true);
 
+        _console.ToggleButtonPressed("BackupRight", true, silent: true); // to set the backup to being used
         // starting time, distance, and speed
-        _timeHandler.StartTimer(DateTime.ParseExact("12-04-1981 17:23:14.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
-        _spaceHandler.StartDistance(1_296_487_315f);
-        Speed = 15f;
+        _timeHandler.StartTimer(DateTime.ParseExact("24-06-1982 12:05:59.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
+        _spaceHandler.StartDistance(2_315_487_315f);
+        Speed = 21f;
 
         // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
         _recordPlayer.LoadSong(4, repeated: false, loadBar: false);
@@ -55,23 +56,17 @@ public partial class Asteroids : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
-        // _console.OutputLine("ERR - Unexpected t_wakeup{p=2.0}");
-        // _console.OutputLine("Hibernation_length=39 days{p=1.0}");
-        // _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . {p=0.5}. {p=0.3}. {p=0.3}.");
-        // _console.OutputLine("Verification complete");
-        // _console.OutputLine("Boot successful");
-        // _console.OutputLine("SYSERR - failed to save logs");
+        _console.OutputLine("Hibernation_length=39 days{p=1.0}");
+        _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . {p=0.5}. {p=0.3}. {p=0.3}.");
+        _console.OutputLine("Verification complete");
+        _console.OutputLine("Boot successful");
+        _console.OutputLine("SYSERR - failed to save logs");
+        _console.OutputLine("WARNING - High speed objects nearby");
+        _console.OutputLine("Recommend course correct{p=2.0}");
+        _console.OutputLine("Continue course or");
         await ToSignal(_console, "TextFinished");
 
-        _camera.ApplyShake(50, 10);
-        _camera.Emergency = true;
-        _soundScapeHandler.Crash();
-        _window.SetAsteroidsVisible(false);
-        _window.SetSpinning(10000f);
-        _window.DeleteAllAsteroids();
-
-        _console.OutputLine("ALERT! Message received");
-        _console.OutputLine("Dated 5034hrs - broadcaster active");
+        HandleCrash();
     }
 
     public override void RecordStarted()
@@ -97,9 +92,12 @@ public partial class Asteroids : Shuttle
 
     public async void HandleCrash()
     {
+        _camera.ApplyShake(50, 10);
         _camera.Emergency = true;
-        _camera.ApplyShake(50f, 5f);
         _soundScapeHandler.Crash();
+        _window.SetAsteroidsVisible(false);
+        _window.SetSpinning(10000f);
+        _window.DeleteAllAsteroids();
 
         _console.OutputLine("**************************");
         _console.OutputLine("CRITICAL FAILURE{p=1.0}");
@@ -107,8 +105,27 @@ public partial class Asteroids : Shuttle
         _console.OutputLine("CRITICAL FAILURE{p=1.5}");
         _console.OutputLine("**************************");
         _console.OutputLine("Impact confirmed");
-        _console.OutputLine("Hull integrity {p=0.5}. {p=0.5}. {p=0.5}. uncompromised");
-        _console.OutputLine("thruster2 damaged");
+        _console.OutputLine("Hull integrity ...{p=0.2} compromised");
+        _console.OutputLine("thruster1 destroyed");
+        _console.OutputLine("thruster2 destroyed");
+        _console.OutputLine("Computing stabilizing sequence...{p=2.0}");
+        _console.OutputLine("ERR - Cannot stabilize");
+        _console.OutputLine("Thrusters missing");
+        _console.OutputLine("Deploy backup thruster1");
+        await ToSignal(_console, "TextFinished");
+        _console.ToggleActivateButton("BackupLeft", true);
+    }
+
+    public async void BackupDeployed()
+    {
+        _console.OutputLine("===========================");
+        _console.OutputLine("Backup thruster1 engaged");
+        _console.OutputLine("THRUSTER1 - operational");
+        _console.OutputLine("THRUSTER2 - destroyed");
+        _console.OutputLine("Backup thruster checks");
+        _console.OutputLine("0/2 available");
+        RequestLaunchcodeCheck();
+
         _console.OutputLine("Computing stabilizing sequence...{p=2.0}");
         _console.OutputLine("Stabilizing Thruster Sequence A-1-B-5");
         _console.LaunchCodes = "A1B5";
@@ -116,47 +133,13 @@ public partial class Asteroids : Shuttle
         while (!enteredSafeLaunchCode)
         {
             await ToSignal(GetTree().CreateTimer(rng.RandfRange(2.0f, 5.0f)), "timeout");
-            _camera.ApplyShake(rng.RandfRange(10f, 40f), 3f);
+            _camera.ApplyShake(rng.RandfRange(10f, 60f), 3f);
         }
 
         _camera.Emergency = false;
         _camera.ApplyShake(10f, 0f);
         _soundScapeHandler.CrashFixed();
-        triggeredDangerCutscene = false;
         _console.ResetThrusterSequence();
-        _console.OutputLine("Course stabilized{p=1.0}");
-        _console.OutputLine("Assessing damage...{p=2.0}");
-        _console.OutputLine("Hull integrity -{p=1.0} 45% -{p=1.0} pass");
-        _console.OutputLine("THRUSTER1 - {p=1.0}Operational");
-        _console.OutputLine("THRUSTER2 - ERROR{p=1.0}");
-        _console.OutputLine("THRUSTER2 destroyed");
-        _console.OutputLine("==========================={p=1.0}");
-        _console.OutputLine("THRUSTER2 dumped");
-        _console.OutputLine("Engage backup thruster2...");
-        await ToSignal(_console, "TextFinished");
-        _console.ToggleActivateButton("BackupRight", true);
-    }
-
-    public override void _Input(InputEvent @event)
-    {
-        if (@event.IsActionPressed("left") && !triggeredDangerCutscene)
-        {
-            _camera.Turn("left");
-        }
-        if (@event.IsActionPressed("right") && !triggeredDangerCutscene)
-        {
-            _camera.Turn("right");
-        }
-    }
-
-    public void BackupDeployed()
-    {
-        _console.OutputLine("===========================");
-        _console.OutputLine("Backup thruster2 engaged");
-        _console.OutputLine("THRUSTER2 - operational");
-        _console.OutputLine("Backup thruster checks");
-        _console.OutputLine("1/2 available");
-        RequestLaunchcodeCheck();
     }
 
 
@@ -208,7 +191,7 @@ public partial class Asteroids : Shuttle
         _console.OutputLine("Completed pre-launch checklog");
         _console.OutputLine("==============================={p=1.0}");
         _console.OutputLine("Hibernation module load successful");
-        _console.OutputLine("target = extrasolar_space");
+        _console.OutputLine("target = interstellar_space");
         _console.OutputLine("hibernation time ~14 months");
         _console.OutputLine("Confirm hibernation?");
         _console.RequestInput();
@@ -225,8 +208,8 @@ public partial class Asteroids : Shuttle
 
     public override void ButtonPressed(string buttonName, bool toggled)
     {
-        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/5_solar_flare");
-        if (buttonName == "BackupRight" && toggled)
+        if (buttonName == "Hibernation" && toggled) _ = _hibernationHandler.EnterHibernation("LevelScenes/8_?");
+        if (buttonName == "BackupLeft" && toggled)
         {
             BackupDeployed();
         }

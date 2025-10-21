@@ -30,7 +30,7 @@ public partial class Stars : ColorRect
         if (spinningStrength > 0)
         {
             Vector2 _currentOffset = (Vector2)material.GetShaderParameter("offset");
-            material.SetShaderParameter("offset", new Vector2(_currentOffset.X-spinningStrength*(float)delta, _currentOffset.Y-spinningStrength*(float)delta*0.5f));
+            material.SetShaderParameter("offset", new Vector2(_currentOffset.X+spinningStrength*(float)delta, _currentOffset.Y+spinningStrength*(float)delta*0.5f));
         }
     }
 }

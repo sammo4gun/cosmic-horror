@@ -54,6 +54,8 @@ public partial class EarthLeaving : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
+        _console.OutputLine("First boot: datetime:");
+        _console.OutputLine("05-09-1977 12:56:09");
         _console.OutputLine("Verifying {p=0.3}. {p=0.3}. . . . {p=0.5}. {p=0.5}. . . . . {p=1.0}. . .");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");

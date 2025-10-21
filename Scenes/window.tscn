@@ -60,7 +60,7 @@ SpawnInterval = 2.0
 
 [node name="Saturn" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -100
+z_index = -2
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -90,7 +90,7 @@ RotationSpeed = 100.0
 
 [node name="Stars" type="SubViewportContainer" parent="."]
 visible = false
-z_index = -100
+z_index = -2
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -108,6 +108,7 @@ script = ExtResource("2_0slyu")
 
 [node name="Jupiter" type="SubViewportContainer" parent="."]
 visible = false
+z_index = -2
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -152,6 +153,7 @@ offset_bottom = 18.0
 
 [node name="FarEarth" type="SubViewportContainer" parent="."]
 visible = false
+z_index = -2
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -194,6 +196,7 @@ RotationSpeed = 50.0
 
 [node name="EarthLeaving" type="SubViewportContainer" parent="."]
 visible = false
+z_index = -2
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -221,6 +224,7 @@ ShrinkRate = 0.01
 
 [node name="SolarFlare" type="SubViewportContainer" parent="."]
 visible = false
+z_index = -2
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -236,12 +240,11 @@ offset_bottom = 647.0
 pivot_offset = Vector2(1, 1)
 script = ExtResource("2_0slyu")
 
-[node name="LensFlare" type="ColorRect" parent="SolarFlare/SubViewport" node_paths=PackedStringArray("Sun")]
+[node name="LensFlare" type="ColorRect" parent="SolarFlare/SubViewport"]
 material = SubResource("ShaderMaterial_8vpwn")
 offset_right = 645.0
 offset_bottom = 645.0
 script = ExtResource("5_pff0d")
-Sun = NodePath("")
 
 [node name="solarflare" type="ColorRect" parent="SolarFlare/SubViewport"]
 material = SubResource("ShaderMaterial_kbhbu")
@@ -261,6 +264,7 @@ offset_right = 27.0
 offset_bottom = 27.0
 
 [node name="PlaceholderWindow" type="TextureRect" parent="."]
+visible = false
 offset_right = 648.0
 offset_bottom = 648.0
 mouse_filter = 2

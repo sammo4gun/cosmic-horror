@@ -52,6 +52,7 @@ public partial class FarEarth : Shuttle
         //                  |                                      |
         _console.OutputLine("Bootsys v95.2.5");
         _console.OutputLine("Initialising \"Voyager1\"");
+        _console.OutputLine("Hibernation_length=74 hours{p=1.0}");
         _console.OutputLine("Verifying {p=0.3}. . . . . . . . . . . {p=0.5}. {p=0.3}. {p=0.3}.");
         _console.OutputLine("Verification complete");
         _console.OutputLine("Boot successful");
