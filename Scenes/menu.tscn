@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://cmymn5a7xxcnc"]
+
+[ext_resource type="Script" uid="uid://jmjis2k4k8q8" path="res://Scripts/Menu.cs" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_cayip"]
+[ext_resource type="Texture2D" uid="uid://cpo3vrog35up4" path="res://Scenes/Deserialized piskel.png" id="3_158mb"]
+[ext_resource type="Texture2D" uid="uid://bvbr228mkx1b8" path="res://Assets/start_buttonv2.png" id="3_jsrd8"]
+[ext_resource type="Script" uid="uid://c00p27bevmiev" path="res://Scripts/VoyagerSprite.cs" id="4_158mb"]
+[ext_resource type="Texture2D" uid="uid://bdeqeu3r1fqm1" path="res://Assets/start_button_hoverv2.png" id="4_wbdvm"]
+[ext_resource type="Script" uid="uid://wynafimmnw7x" path="res://Scripts/StartButton.cs" id="5_q3rjx"]
+[ext_resource type="PackedScene" uid="uid://b74wyvqud5xb0" path="res://Scenes/sound_scape_handler.tscn" id="7_wbdvm"]
+[ext_resource type="AudioStream" uid="uid://dfm6p0is8wti8" path="res://Assets/SFX/start_sequence.mp3" id="9_6swd7"]
+[ext_resource type="Script" uid="uid://dy4a5irspw2h6" path="res://Scripts/BlackScreen.cs" id="10_7qvly"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_1rerr")
+
+[node name="Stars" type="ColorRect" parent="."]
+offset_right = 647.0
+offset_bottom = 647.0
+pivot_offset = Vector2(1, 1)
+script = ExtResource("2_cayip")
+
+[node name="StartButton" type="TextureButton" parent="."]
+offset_left = 274.0
+offset_top = 552.0
+offset_right = 374.0
+offset_bottom = 602.0
+texture_normal = ExtResource("3_jsrd8")
+texture_hover = ExtResource("4_wbdvm")
+script = ExtResource("5_q3rjx")
+
+[node name="Voyager" type="Sprite2D" parent="."]
+position = Vector2(324, 267.5)
+scale = Vector2(0.46484375, 0.46484375)
+texture = ExtResource("3_158mb")
+script = ExtResource("4_158mb")
+
+[node name="SoundScapeHandler" parent="." instance=ExtResource("7_wbdvm")]
+
+[node name="StartSequenceAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_6swd7")
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+offset_right = 649.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0)
+script = ExtResource("10_7qvly")
+
+[connection signal="finished" from="StartSequenceAudio" to="." method="_on_start_sequence_audio_finished"]
