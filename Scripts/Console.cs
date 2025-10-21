@@ -48,7 +48,7 @@ public partial class Console : Node2D
         base._Process(delta);
         if (OminousGlow)
         {
-            GetNode<ColorRect>("OminousGlow").Modulate = new Color(255, 255, 255, GetNode<ColorRect>("OminousGlow").Modulate.A + (float)delta * 50);
+            GetNode<ColorRect>("OminousGlow").Modulate = new Color(255, 255, 255, Math.Min(GetNode<ColorRect>("OminousGlow").Modulate.A + (float)delta * 50, 255));
         }
     }
 
