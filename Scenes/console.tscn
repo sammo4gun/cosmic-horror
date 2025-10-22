@@ -1,18 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6dbtg8e0dt0r"]
+[gd_scene load_steps=21 format=3 uid="uid://b6dbtg8e0dt0r"]
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
+[ext_resource type="Texture2D" uid="uid://ckc6fjc1smlol" path="res://Assets/voyagerbg-wiresdark-nowindow.png" id="2_sain2"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
-[ext_resource type="Texture2D" uid="uid://c4ut6npdagcu0" path="res://Assets/voyagerbg.png" id="3_sdxnn"]
 [ext_resource type="PackedScene" uid="uid://cvust45cuswxf" path="res://Scenes/time_display.tscn" id="4_atbq5"]
 [ext_resource type="Texture2D" uid="uid://beirqqv3qjl7p" path="res://Assets/hibernate-button-on.png" id="5_7kqtp"]
 [ext_resource type="PackedScene" uid="uid://bfqd4ln5jt8ry" path="res://Scenes/dist_display.tscn" id="5_qxy8f"]
 [ext_resource type="Texture2D" uid="uid://c2fhama2kagu2" path="res://Assets/hibernate-button-off.png" id="6_bmbpd"]
 [ext_resource type="PackedScene" uid="uid://dtlkolrigax87" path="res://Scenes/dial.tscn" id="6_xivcw"]
+[ext_resource type="Texture2D" uid="uid://dsply2htnropl" path="res://Assets/switch-on-purple.png" id="7_bympw"]
 [ext_resource type="Script" uid="uid://4hh4yltl2d4o" path="res://Scripts/ButtonHandler.cs" id="7_uqptw"]
 [ext_resource type="PackedScene" uid="uid://cu6blqcigefog" path="res://Scenes/flippable_button.tscn" id="7_uukfc"]
+[ext_resource type="Texture2D" uid="uid://bqf7tuxl2m4lj" path="res://Assets/switch-off-purple.png" id="8_3taaa"]
+[ext_resource type="BitMap" uid="uid://bak051cx3gj6i" path="res://Assets/switch-bitmap.png" id="9_3taaa"]
 [ext_resource type="Script" uid="uid://dydif2173vasd" path="res://Scripts/LightHandler.cs" id="9_gyscv"]
 [ext_resource type="PackedScene" uid="uid://c2gsxsrr8xw3u" path="res://Scenes/light.tscn" id="10_ekwfd"]
 [ext_resource type="PackedScene" uid="uid://l3i23e4u2cux" path="res://Scenes/radio_receiver.tscn" id="11_ekwfd"]
+[ext_resource type="FontFile" uid="uid://bpi7eqvmj7ey1" path="res://Assets/Nulshock Bd.otf" id="16_sain2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
@@ -32,7 +36,7 @@ script = ExtResource("1_2kium")
 offset_left = -648.0
 offset_right = 1944.0
 offset_bottom = 648.0
-texture = ExtResource("3_sdxnn")
+texture = ExtResource("2_sain2")
 
 [node name="ButtonHandler" type="Node" parent="."]
 script = ExtResource("7_uqptw")
@@ -123,12 +127,13 @@ rotation = 1.2915436
 scale = Vector2(0.33462042, 0.33462042)
 
 [node name="FlippableButtonLaunch" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 322.0
-offset_top = 165.0
-offset_right = 430.0
-offset_bottom = 273.0
-rotation = 3.8282838
-scale = Vector2(0.33462042, 0.33462042)
+modulate = Color(0.8526237, 1.9608799, 1.1666296, 1)
+offset_left = 360.00003
+offset_top = 178.0
+offset_right = 468.00003
+offset_bottom = 286.0
+rotation = 3.1415927
+scale = Vector2(0.8, 0.4)
 flip_h = true
 
 [node name="FlippableButtonHibernation" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
@@ -142,22 +147,26 @@ texture_pressed = ExtResource("6_bmbpd")
 flip_h = true
 
 [node name="FlippableButtonBackupLeft" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 1392.9286
-offset_top = 95.0
-offset_right = 1500.9286
-offset_bottom = 203.0
-rotation = 0.7612072
-scale = Vector2(0.33462042, 0.33462042)
+offset_left = 1372.0
+offset_top = 18.0
+offset_right = 1480.0
+offset_bottom = 189.0
+scale = Vector2(0.46105814, 0.46105814)
+texture_normal = ExtResource("8_3taaa")
+texture_pressed = ExtResource("7_bympw")
+texture_click_mask = ExtResource("9_3taaa")
 flip_h = true
 Available = false
 
 [node name="FlippableButtonBackupRight" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 1865.9286
-offset_top = 114.00003
-offset_right = 1973.9286
-offset_bottom = 222.0
-rotation = 0.7612072
-scale = Vector2(0.33462042, 0.33462042)
+offset_left = 1819.0001
+offset_top = 17.0
+offset_right = 1927.0001
+offset_bottom = 188.0
+scale = Vector2(0.4610581, 0.4610581)
+texture_normal = ExtResource("8_3taaa")
+texture_pressed = ExtResource("7_bympw")
+texture_click_mask = ExtResource("9_3taaa")
 flip_h = true
 Available = false
 
@@ -247,58 +256,60 @@ z_index = 1
 material = SubResource("ShaderMaterial_hfjju")
 position = Vector2(91, 288)
 
-[node name="Label" type="Label" parent="."]
+[node name="54321" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 98.00001
-offset_top = 137.0
-offset_right = 144.0
-offset_bottom = 160.0
-rotation = -0.6065403
-text = "54321"
+offset_left = 78.0
+offset_top = 157.0
+offset_right = 157.0
+offset_bottom = 180.0
+rotation = -0.61086524
+theme_override_fonts/font = ExtResource("16_sain2")
+text = "5-4-3-2-1"
 
-[node name="Label2" type="Label" parent="."]
+[node name="ABCDE" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 494.99997
-offset_top = 122.99997
-offset_right = 547.0
-offset_bottom = 145.99997
-rotation = 0.6118292
-text = "ABCDE"
+offset_left = 481.99997
+offset_top = 112.000015
+offset_right = 569.0
+offset_bottom = 135.00002
+rotation = 0.61086524
+theme_override_fonts/font = ExtResource("16_sain2")
+text = "A-B-C-D-E"
 
-[node name="Label3" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
+[node name="Confirm" type="Label" parent="."]
+modulate = Color(0.5235651, 0.63179135, 0.7339248, 1)
 z_index = 1
-offset_left = 286.0
-offset_top = 158.0
-offset_right = 352.0
-offset_bottom = 181.0
-text = "LAUNCH"
+offset_left = 275.0
+offset_top = 115.0
+offset_right = 366.0
+offset_bottom = 164.0
+theme_override_fonts/font = ExtResource("16_sain2")
+text = "CONFIRM"
+horizontal_alignment = 1
 
-[node name="Label4" type="Label" parent="."]
+[node name="Backup1" type="Label" parent="."]
 z_index = 1
-offset_left = 1357.0
-offset_top = 59.0
-offset_right = 1424.0
-offset_bottom = 108.0
-rotation = -0.83909005
-text = "Thruster1
-Backup"
+offset_left = 1324.0
+offset_top = 108.0
+offset_right = 1410.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("16_sain2")
+text = "Backup1"
 
-[node name="Label5" type="Label" parent="."]
+[node name="Backup2" type="Label" parent="."]
 z_index = 1
-offset_left = 1882.0
-offset_top = 20.000061
-offset_right = 1958.0
-offset_bottom = 69.00006
-rotation = 0.80198175
-text = "Thruster2
-Backup"
+offset_left = 1826.0
+offset_top = 108.0
+offset_right = 1918.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("16_sain2")
+text = "Backup2"
 
 [node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
 z_index = 1
-position = Vector2(601, 550.99994)
+position = Vector2(592, 500)
 scale = Vector2(0.51353294, 0.51353294)
 
 [node name="OminousGlow" type="TextureRect" parent="."]

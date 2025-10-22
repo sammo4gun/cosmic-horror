@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bak051cx3gj6i"
+path="res://.godot/imported/switch-bitmap.png-9f9b7905227b046c1040e5140bd22092.res"
+
+[deps]
+
+source_file="res://Assets/switch-bitmap.png"
+dest_files=["res://.godot/imported/switch-bitmap.png-9f9b7905227b046c1040e5140bd22092.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

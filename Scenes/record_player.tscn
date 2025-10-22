@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dos7hvxaxhthg"]
+[gd_scene load_steps=17 format=3 uid="uid://dos7hvxaxhthg"]
 
-[ext_resource type="Texture2D" uid="uid://d1tnqep8b5f1a" path="res://Assets/record_activated_placeholder.png" id="1_kgpb7"]
-[ext_resource type="Texture2D" uid="uid://cho0xwaxvub2s" path="res://Assets/record_playing_placeholder.png" id="2_2p0nn"]
-[ext_resource type="Texture2D" uid="uid://6ggb2yh2eucj" path="res://Assets/record_deactivated_placeholder.png" id="3_ax7bx"]
-[ext_resource type="BitMap" uid="uid://waul262qv7i7" path="res://Assets/record_bitmap_placeholder.png" id="4_xcud7"]
+[ext_resource type="Texture2D" uid="uid://c1stpnrel3o5t" path="res://Assets/golden-record-on.png" id="1_tqduo"]
+[ext_resource type="Texture2D" uid="uid://bnjs7mjumlkpm" path="res://Assets/golden-record-off.png" id="2_7cy6o"]
+[ext_resource type="BitMap" uid="uid://bqotrfwat47gn" path="res://Assets/golden-record-bitmap.png" id="3_tqduo"]
 [ext_resource type="Script" uid="uid://fj7v8ycgw2b6" path="res://Scripts/RecordPlayer.cs" id="5_a7dwo"]
 [ext_resource type="AudioStream" uid="uid://c8pdb23s0r3c6" path="res://Assets/SFX/RecordsTransmissions/classical.mp3" id="6_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dsydpg21tl62t" path="res://Assets/SFX/Tapedeck_LoadIn.mp3" id="7_2p0nn"]
@@ -19,34 +18,35 @@
 [ext_resource type="AudioStream" uid="uid://dcg0fhokrh0yx" path="res://Assets/SFX/RecordsTransmissions/Fuckin Shakespeare.mp3" id="13_ydbsb"]
 
 [node name="RecordPlayer" type="TextureButton"]
+modulate = Color(0.7539839, 0.75398386, 0.75398386, 1)
 offset_right = 108.0
 offset_bottom = 108.0
 focus_mode = 0
 disabled = true
 toggle_mode = true
 action_mode = 0
-texture_normal = ExtResource("1_kgpb7")
-texture_pressed = ExtResource("2_2p0nn")
-texture_disabled = ExtResource("3_ax7bx")
-texture_click_mask = ExtResource("4_xcud7")
+texture_normal = ExtResource("1_tqduo")
+texture_pressed = ExtResource("2_7cy6o")
+texture_disabled = ExtResource("2_7cy6o")
+texture_click_mask = ExtResource("3_tqduo")
 script = ExtResource("5_a7dwo")
 
 [node name="LoadBarFillerNotDone" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 50.0
-offset_top = 65.0
+offset_left = 85.0
+offset_top = 83.0
 offset_right = 250.0
-offset_bottom = 80.0
+offset_bottom = 98.0
 color = Color(0, 0, 0, 1)
 
 [node name="LoadBarFiller" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 51.0
-offset_top = 65.0
-offset_right = 51.0
-offset_bottom = 80.0
+offset_left = 86.0
+offset_top = 83.0
+offset_right = 86.0
+offset_bottom = 98.0
 color = Color(31.444193, 30.946575, 0, 1)
 
 [node name="MusicPlayer1" type="AudioStreamPlayer" parent="."]
@@ -81,7 +81,7 @@ bus = &"Window"
 
 [node name="MusicPlayer8" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ydbsb")
-volume_db = -20.0
+volume_db = -27.633
 
 [node name="LoadPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2p0nn")

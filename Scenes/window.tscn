@@ -1,21 +1,23 @@
-[gd_scene load_steps=18 format=3 uid="uid://botib5kax6p3u"]
+[gd_scene load_steps=20 format=3 uid="uid://botib5kax6p3u"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_30sqi"]
 [ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_0slyu"]
 [ext_resource type="Script" uid="uid://1xijxcktdj2x" path="res://Scripts/PlanetBody.cs" id="3_30sqi"]
 [ext_resource type="Texture2D" uid="uid://ddllou8e0wk1v" path="res://Assets/EvilEye.png" id="3_j100b"]
+[ext_resource type="Script" uid="uid://crsftglqcjn40" path="res://Scripts/BobbingSprite.cs" id="4_bwead"]
 [ext_resource type="Script" uid="uid://d0kc0ist6itlw" path="res://Scripts/AsteroidHandler.cs" id="4_pff0d"]
 [ext_resource type="Shader" uid="uid://cuc2xbcxwh60s" path="res://Shaders/lensflare.gdshader" id="4_r37kj"]
 [ext_resource type="PackedScene" uid="uid://dos7hvxaxhthg" path="res://Scenes/record_player.tscn" id="5_gvfsm"]
 [ext_resource type="Script" uid="uid://cqkdveg85h6n3" path="res://Scripts/LensFlare.cs" id="5_pff0d"]
 [ext_resource type="PackedScene" uid="uid://da7iu2ygv7p7a" path="res://Scenes/blot.tscn" id="5_u56ti"]
+[ext_resource type="Texture2D" uid="uid://doxljvhb3h8ae" path="res://Assets/justpupil.png" id="5_yy2v1"]
 [ext_resource type="Shader" uid="uid://dg6xr4s3hb425" path="res://Shaders/solarflare.gdshader" id="6_8vpwn"]
 [ext_resource type="Shader" uid="uid://dyipnr1slkgwy" path="res://Shaders/sun.gdshader" id="6_u56ti"]
-[ext_resource type="Texture2D" uid="uid://cakhtafj6y2pr" path="res://Assets/voyagerbg.png" id="12_j100b"]
+[ext_resource type="Texture2D" uid="uid://ckc6fjc1smlol" path="res://Assets/voyagerbg-wiresdark-nowindow.png" id="12_j100b"]
 
 [sub_resource type="Gradient" id="Gradient_mhsga"]
-offsets = PackedFloat32Array(0, 0.52, 1)
-colors = PackedColorArray(1, 0, 0, 0, 0.45490196, 0, 0, 1, 0, 0, 0, 0)
+offsets = PackedFloat32Array(0, 0.41333333, 0.42, 0.62666667, 0.7733333)
+colors = PackedColorArray(1, 0, 0, 0, 0.85, 0, 0, 0, 0.8252891, 0, 0, 0.32051283, 0.45490196, 0, 0, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_j100b"]
 resource_local_to_scene = true
@@ -73,19 +75,28 @@ SpawnInterval = 2.0
 [node name="Eye" type="Sprite2D" parent="."]
 visible = false
 z_index = -2
-position = Vector2(333.99997, 294)
+position = Vector2(332, 291)
 rotation = 1.5311899
-scale = Vector2(0.20644088, 0.20644088)
+scale = Vector2(0.15847029, 0.15847029)
 texture = ExtResource("3_j100b")
+script = ExtResource("4_bwead")
+BobbingAmplitude = 0.0
+BobbingSpeed = 0.0
+
+[node name="Eye" type="Sprite2D" parent="Eye"]
+position = Vector2(19.415876, -11.861172)
+texture = ExtResource("5_yy2v1")
+script = ExtResource("4_bwead")
+BobbingAmplitude = 8.0
 
 [node name="OminousGlow" type="TextureRect" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.654902)
 z_index = 2
-offset_left = -51.0
-offset_top = -70.0
-offset_right = 549.0
-offset_bottom = 478.0
+offset_left = -71.0
+offset_top = -84.0
+offset_right = 529.0
+offset_bottom = 464.0
 scale = Vector2(1.3634863, 1.3634863)
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_j100b")
@@ -315,10 +326,10 @@ offset_right = 27.0
 offset_bottom = 27.0
 
 [node name="RecordPlayer" parent="." instance=ExtResource("5_gvfsm")]
-offset_left = 107.00001
-offset_top = 513.00006
-offset_right = 407.0
-offset_bottom = 621.00006
+offset_left = 122.00001
+offset_top = 452.00003
+offset_right = 422.0
+offset_bottom = 679.0
 scale = Vector2(1.370738, 1.370738)
 
 [node name="Background" type="TextureRect" parent="."]

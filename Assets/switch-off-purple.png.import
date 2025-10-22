@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ggb2yh2eucj"
-path="res://.godot/imported/record_deactivated_placeholder.png-f4ac92b3dc15aa42f9819c58f796fd2c.ctex"
+uid="uid://bqf7tuxl2m4lj"
+path="res://.godot/imported/switch-off-purple.png-18562c07d1f708dc134ad952df487cae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/record_deactivated_placeholder.png"
-dest_files=["res://.godot/imported/record_deactivated_placeholder.png-f4ac92b3dc15aa42f9819c58f796fd2c.ctex"]
+source_file="res://Assets/switch-off-purple.png"
+dest_files=["res://.godot/imported/switch-off-purple.png-18562c07d1f708dc134ad952df487cae.ctex"]
 
 [params]
 

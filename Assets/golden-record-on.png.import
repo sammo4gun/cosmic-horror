@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cho0xwaxvub2s"
-path="res://.godot/imported/record_playing_placeholder.png-7e5b9b97e1113e50d770b1c81c7a9428.ctex"
+uid="uid://c1stpnrel3o5t"
+path="res://.godot/imported/golden-record-on.png-9bcd0fe0903ef78831a030475e9469c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/record_playing_placeholder.png"
-dest_files=["res://.godot/imported/record_playing_placeholder.png-7e5b9b97e1113e50d770b1c81c7a9428.ctex"]
+source_file="res://Assets/golden-record-on.png"
+dest_files=["res://.godot/imported/golden-record-on.png-9bcd0fe0903ef78831a030475e9469c1.ctex"]
 
 [params]
 

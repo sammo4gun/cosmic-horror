@@ -54,7 +54,7 @@ public partial class RecordPlayer : TextureButton
 
         if (_musicPlayer.Playing && !_musicPlayer.StreamPaused && showLoadBar)
         {
-            _loadBar.Size = new Vector2(_loadBar.Size.X + (float)delta / SongLength * 200, _loadBar.Size.Y);
+            _loadBar.Size = new Vector2(_loadBar.Size.X + (float)delta / SongLength * 165, _loadBar.Size.Y);
         }
         else if (!showLoadBar)
         {

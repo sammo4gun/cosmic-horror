@@ -20,6 +20,8 @@ public partial class Eye : Shuttle
         _window.SetSpinning(100f);
 
         _camera.setDarkness(0.4f);
+        _camera.MoveSpeed = 4f;
+        _camera.ZoomSpeed = 4f;
 
         // starting time, distance, and speed
         _timeHandler.StartTimer(DateTime.ParseExact("06-11-1998 08:52:13.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
@@ -153,7 +155,7 @@ public partial class Eye : Shuttle
         _camera.ZoomSpeed = 1f;
         _camera.Turn("right");
 
-        await ToSignal(GetTree().CreateTimer(5f), "timeout");
+        await ToSignal(GetTree().CreateTimer(13f), "timeout");
         _soundScapeHandler.PlayFinalSong();
 
         await ToSignal(_soundScapeHandler, "FinalSongDone");

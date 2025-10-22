@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://bqotrfwat47gn"
+path="res://.godot/imported/golden-record-bitmap.png-dd2130450a4529dc72c3301f1aebff88.res"
+
+[deps]
+
+source_file="res://Assets/golden-record-bitmap.png"
+dest_files=["res://.godot/imported/golden-record-bitmap.png-dd2130450a4529dc72c3301f1aebff88.res"]
+
+[params]
+
+create_from=0
+threshold=0.5

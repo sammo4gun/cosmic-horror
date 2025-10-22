@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4ut6npdagcu0"
-path="res://.godot/imported/voyagerbg.png-8ae69a332764b029139a149b06605184.ctex"
+uid="uid://doxljvhb3h8ae"
+path="res://.godot/imported/justpupil.png-5604f05f4b6bb214c97c0e6c15827bdc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/voyagerbg.png"
-dest_files=["res://.godot/imported/voyagerbg.png-8ae69a332764b029139a149b06605184.ctex"]
+source_file="res://Assets/justpupil.png"
+dest_files=["res://.godot/imported/justpupil.png-5604f05f4b6bb214c97c0e6c15827bdc.ctex"]
 
 [params]
 
