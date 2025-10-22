@@ -1,4 +1,4 @@
-res://Scenes/LevelScenes/1_earth_leaving.tscn::2a3677f15636ea9d3d68adeb621116e9::1761168029::res://.godot/exported/133200997/export-8ef5798a4e4f99243f39044d86fd03f1-1_earth_leaving.scn
+res://Scenes/LevelScenes/1_earth_leaving.tscn::2a3677f15636ea9d3d68adeb621116e9::1761171042::res://.godot/exported/133200997/export-8ef5798a4e4f99243f39044d86fd03f1-1_earth_leaving.scn
 res://Scenes/LevelScenes/1_earth_leaving_old.tscn::96a28e85ed59da9f4c1deedd5eb6735f::1760814739::res://.godot/exported/133200997/export-4a3a1e55c4b7382536931ef78afb97a2-1_earth_leaving_old.scn
 res://Scenes/LevelScenes/2_far_earth.tscn::b64998008a7d851262b2c3ed566250c6::1761063565::res://.godot/exported/133200997/export-f72e2d626ff4bce429e1981b0e1c9946-2_far_earth.scn
 res://Scenes/LevelScenes/3_jupiter.tscn::06fb824f926c390dd6757c836b68d828::1761168762::res://.godot/exported/133200997/export-290249bed6a951872b37cd46b7b7be2c-3_jupiter.scn
@@ -17,7 +17,7 @@ res://Scenes/sound_scape_handler.tscn::e04c240731140924c6b429b879b94472::1761168
 res://Scenes/space_body.tscn::39ed492d15b49822a3a7d99d8d0e561f::1760273416::res://.godot/exported/133200997/export-3859bf33e15cea966b5189a613029516-space_body.scn
 res://Scenes/text_display.tscn::33d49939f606cb8e95f375d62cbdf66a::1760794570::res://.godot/exported/133200997/export-1a48e97028033b9225cc66a12858fec0-text_display.scn
 res://Scenes/time_display.tscn::304ca3f82d8ba2828540e4a14ffbcb4f::1760191705::res://.godot/exported/133200997/export-f95d783f0de1b29d931b17e8bacbcaba-time_display.scn
-res://Scenes/window.tscn::06c72ca7329b837b7885ec2c37c3a6be::1761169828::res://.godot/exported/133200997/export-84f360c4e226d43f2fb02aa31f31b83c-window.scn
+res://Scenes/window.tscn::06c72ca7329b837b7885ec2c37c3a6be::1761170085::res://.godot/exported/133200997/export-84f360c4e226d43f2fb02aa31f31b83c-window.scn
 res://Scenes/window_earth_and_moon.tscn::d9b0af2fba3810307aa9238106cc7253::1760867682::res://.godot/exported/133200997/export-8eeaba942ed0a55f007a2b6b928b8a5a-window_earth_and_moon.scn
 res://Scenes/window_jupiter.tscn::559e7b3ce3d90b69dd1be42d47a5606c::1760868361::res://.godot/exported/133200997/export-5bf7517af1fbeb116460df144eabe8ff-window_jupiter.scn
 res://Scenes/window_saturn.tscn::ffae28a8bcf791ab70d5e003f5ca3392::1760882118::res://.godot/exported/133200997/export-2d2a0ad47f81655b0f58c51b6c98e4ad-window_saturn.scn

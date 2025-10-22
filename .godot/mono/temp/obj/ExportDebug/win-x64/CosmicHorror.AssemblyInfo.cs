@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CosmicHorror")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("ExportDebug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+164d61fadfca0f080af6644c242c34e917178226")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e2ab6009ddb8b26e3e8368c397b605b2b967dea7")]
 [assembly: System.Reflection.AssemblyProductAttribute("CosmicHorror")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CosmicHorror")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

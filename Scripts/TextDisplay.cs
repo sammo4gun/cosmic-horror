@@ -63,23 +63,13 @@ public partial class TextDisplay : Node2D
     public override void _PhysicsProcess(double delta)
     {
         base._PhysicsProcess(delta);
-
-        if (!calibratedPauseLength)
-        {
-            lengthCalibrateTimer += (float)delta;
-            if (lengthCalibrateTimer > 0)
-            {
-                // should have taken approximately 1 second
-                TimeSpan elapsed = DateTime.Now - _startTime;
-                lengthAdjustFactor = 1 / (float)elapsed.TotalSeconds;
-                calibratedPauseLength = true;
-            }
-            return;
-        }
+        TimeSpan elapsed = DateTime.Now - _startTime;
+        float timePassed = (float)elapsed.TotalSeconds;
+        _startTime = DateTime.Now;
 
         if (_isTyping)
         {
-            _typingTimer += (float)delta;
+            _typingTimer += timePassed;
             if (_typingTimer >= _typingSpeed)
             {
                 _typingTimer = 0.0f;
@@ -87,7 +77,7 @@ public partial class TextDisplay : Node2D
                 _lineProgress++;
                 if (_pauseCalculator.Pauses.ContainsKey(_lineProgress))
                 {
-                    _typingTimer -= _pauseCalculator.Pauses[_lineProgress]*lengthAdjustFactor;
+                    _typingTimer -= _pauseCalculator.Pauses[_lineProgress];
                 }
                 _mainText.Text = _currentText.Substring(0, _charsDisplayed);
                 if (_mainText.Text == _currentText)
