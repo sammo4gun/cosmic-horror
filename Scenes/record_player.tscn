@@ -7,15 +7,15 @@
 [ext_resource type="Script" uid="uid://fj7v8ycgw2b6" path="res://Scripts/RecordPlayer.cs" id="5_a7dwo"]
 [ext_resource type="AudioStream" uid="uid://c8pdb23s0r3c6" path="res://Assets/SFX/RecordsTransmissions/classical.mp3" id="6_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dsydpg21tl62t" path="res://Assets/SFX/Tapedeck_LoadIn.mp3" id="7_2p0nn"]
+[ext_resource type="AudioStream" uid="uid://bvyee83bb3djl" path="res://Assets/SFX/RecordsTransmissions/HarvestMoon1.mp3" id="8_7cy6o"]
 [ext_resource type="AudioStream" uid="uid://bpxn7rnb2j0bp" path="res://Assets/SFX/Tapedeck_background.mp3" id="8_ax7bx"]
-[ext_resource type="AudioStream" uid="uid://d3vfpfdvxt2ge" path="res://Assets/SFX/RecordsTransmissions/CryingSun1.mp3" id="8_b6iu0"]
 [ext_resource type="AudioStream" uid="uid://bpy63ivtn1uj1" path="res://Assets/SFX/RecordsTransmissions/transmission1.mp3" id="8_ewnbp"]
 [ext_resource type="AudioStream" uid="uid://tyy2o1gtafmw" path="res://Assets/SFX/RecordsTransmissions/transmission2.mp3" id="8_hco7b"]
 [ext_resource type="AudioStream" uid="uid://dnidhdaalkpr3" path="res://Assets/SFX/Tapedeck_Pause.mp3" id="9_ax7bx"]
 [ext_resource type="AudioStream" uid="uid://dioyun5qeo1np" path="res://Assets/SFX/Tapedeck_LoadOut.mp3" id="9_xcud7"]
 [ext_resource type="AudioStream" uid="uid://b67lhdvfllv6l" path="res://Assets/SFX/RecordsTransmissions/French Children.mp3" id="10_7cy6o"]
 [ext_resource type="AudioStream" uid="uid://bsckrnm0oa51l" path="res://Assets/SFX/RecordsTransmissions/transmission3.mp3" id="11_2squk"]
-[ext_resource type="AudioStream" uid="uid://b1tc1cks3kei1" path="res://Assets/SFX/RecordsTransmissions/CryingSun2.mp3" id="12_uvi22"]
+[ext_resource type="AudioStream" uid="uid://cfnm5aeahyyrr" path="res://Assets/SFX/RecordsTransmissions/HarvestMoon2.mp3" id="12_2squk"]
 [ext_resource type="AudioStream" uid="uid://dcg0fhokrh0yx" path="res://Assets/SFX/RecordsTransmissions/Fuckin Shakespeare.mp3" id="13_ydbsb"]
 
 [node name="RecordPlayer" type="TextureButton"]
@@ -58,8 +58,8 @@ stream = ExtResource("8_ewnbp")
 bus = &"Window"
 
 [node name="MusicPlayer3" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_b6iu0")
-volume_db = -5.725
+stream = ExtResource("8_7cy6o")
+volume_db = -15.267
 bus = &"Window"
 
 [node name="MusicPlayer4" type="AudioStreamPlayer" parent="."]
@@ -75,13 +75,13 @@ stream = ExtResource("11_2squk")
 bus = &"Window"
 
 [node name="MusicPlayer7" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("12_uvi22")
-volume_db = -11.449
+stream = ExtResource("12_2squk")
+volume_db = -10.495
 bus = &"Window"
 
 [node name="MusicPlayer8" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_ydbsb")
-volume_db = -20.991
+volume_db = -20.0
 
 [node name="LoadPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_2p0nn")

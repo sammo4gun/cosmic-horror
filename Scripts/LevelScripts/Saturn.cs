@@ -174,8 +174,8 @@ public partial class Saturn : Shuttle
         _console.OutputLine("┗╸Enter thruster sequence{p=1.0}");
         _console.OutputLine("===============================");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("┗╸Confirm sequence 5-3-D-2-C"); ;
-        _console.LaunchCodes = "53D2C";
+        _console.OutputLine("┗╸Confirm sequence 5-3-B-2-C"); ;
+        _console.LaunchCodes = "53B2C";
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)
@@ -233,6 +233,7 @@ public partial class Saturn : Shuttle
         if (buttonName == "BackupRight" && toggled)
         {
             BackupDeployed();
+            _console.ToggleActivateButton("BackupRight", false);
         }
     }
 }

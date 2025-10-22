@@ -73,4 +73,10 @@ public partial class Window : Node2D
             _blot.Position = newPos;
         }
     }
+
+    public void ShowEye(bool toggle)
+    {
+        GetNode<Sprite2D>("Eye").Visible = toggle;
+        GetNode<TextureRect>("OminousGlow").Visible = toggle;
+    }
 }

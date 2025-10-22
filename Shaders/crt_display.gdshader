@@ -191,7 +191,8 @@ float noise(vec2 p) {
 }
 
 vec3 apply_noise_grain(vec3 color, vec2 uv, float time) {
-    float frame_time = (noise_framerate > 0.0) ? floor(time * noise_framerate) / noise_framerate : time;
+	float loop_time = mod(time, 5.0);
+    float frame_time = (noise_framerate > 0.0) ? floor(loop_time * noise_framerate) / noise_framerate : loop_time;
 
     vec2 noise_uv = uv * noise_scale + vec2(frame_time * 12.9898, frame_time * 78.233);
     float n = noise(noise_uv) * 2.0 - 1.0;

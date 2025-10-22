@@ -47,6 +47,7 @@ public partial class EarthLeaving : Shuttle
     public async void TriggerConsole()
     {
         TriggeredConsole = true;
+        
 
         await ToSignal(GetTree().CreateTimer(2f), "timeout");
 

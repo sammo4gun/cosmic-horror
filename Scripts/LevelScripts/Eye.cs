@@ -24,6 +24,7 @@ public partial class Eye : Shuttle
         // starting time, distance, and speed
         _timeHandler.StartTimer(DateTime.ParseExact("06-11-1998 08:52:13.000", "dd-MM-yyyy HH:mm:ss.FFF", null));
         _spaceHandler.StartDistance(11_055_342_009f);
+        _soundScapeHandler.FinalScene = true;
         Speed = 15f;
 
         _console.ToggleActivateButton("Hibernation", false); // so we can't hibernate right away.
@@ -95,8 +96,8 @@ public partial class Eye : Shuttle
     {
         _window.ShowBlot(true);
         _window.SetBlotPos(new Vector2(274, 272));
-        _window.MoveBlot(new Vector2(-66, -76), 0.02f);
-        _window.ScaleBlot(5.0f, 0.015f);
+        _window.MoveBlot(new Vector2(-255, -284), 0.02f);
+        _window.ScaleBlot(6.0f, 0.015f);
         await ToSignal(GetTree().CreateTimer(32f), "timeout");
         _camera.Turn("left");
 
@@ -105,6 +106,7 @@ public partial class Eye : Shuttle
         _timeHandler.AddTime(5, "years");
         _timeHandler.AddTime(4, "months");
         _timeHandler.AddTime(13, "days");
+        _spaceHandler.StartDistance(13_555_342_009f);
         await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
 
         _camera.setDarkness(0.5f);
@@ -114,6 +116,7 @@ public partial class Eye : Shuttle
         _timeHandler.AddTime(8, "years");
         _timeHandler.AddTime(7, "months");
         _timeHandler.AddTime(1, "days");
+        _spaceHandler.StartDistance(17_255_342_009f);
         await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
 
         _camera.setDarkness(0.6f);
@@ -123,23 +126,39 @@ public partial class Eye : Shuttle
         _timeHandler.AddTime(13, "years");
         _timeHandler.AddTime(7, "months");
         _timeHandler.AddTime(1, "days");
+        _spaceHandler.StartDistance(28_855_342_009f);
         await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
 
         _camera.setDarkness(0.7f);
 
+        await ToSignal(GetTree().CreateTimer(4f), "timeout");
+        _camera.setDarkness(1f);
+        _timeHandler.StartTimer(DateTime.Now);
+        _spaceHandler.StartDistance(68_000_342_009f);
+        await ToSignal(GetTree().CreateTimer(0.2f), "timeout");
+
+        _camera.setDarkness(0.7f);
         _console.DisableDisplays();
 
         await ToSignal(GetTree().CreateTimer(5f), "timeout");
-
+        
+        _soundScapeHandler.PlayYawn();
+        await ToSignal(GetTree().CreateTimer(4f), "timeout");
         _console.OminousGlow = true;
+        _window.ShowEye(true);
         
         await ToSignal(GetTree().CreateTimer(5f), "timeout");
 
-        _camera.MoveSpeed = 2;
+        _camera.MoveSpeed = 0.5f;
+        _camera.ZoomSpeed = 1f;
         _camera.Turn("right");
 
         await ToSignal(GetTree().CreateTimer(5f), "timeout");
         _soundScapeHandler.PlayFinalSong();
+
+        await ToSignal(_soundScapeHandler, "FinalSongDone");
+
+        GetTree().ChangeSceneToFile($"res://Scenes/final_screen.tscn");
     }
 
     public override void RecordDone()

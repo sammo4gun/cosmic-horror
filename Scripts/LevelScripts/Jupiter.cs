@@ -122,8 +122,8 @@ public partial class Jupiter : Shuttle
         _console.OutputLine("===============================");
         _console.OutputLine("Golden Drive activated, awaiting run");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("┗╸Confirm sequence E-1-4-D");
-        _console.LaunchCodes = "E14D";
+        _console.OutputLine("┗╸Confirm sequence E-1-4-C");
+        _console.LaunchCodes = "E14C";
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)

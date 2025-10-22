@@ -1,9 +1,9 @@
-ColorRect
 AudioStreamPlayer
+Sprite2D
+ColorRect
 TextureRect
 AnimatedSprite2D
 Node2D
-Sprite2D
 Label      - Matches the "text" keyword.
 TextEdit
 Node

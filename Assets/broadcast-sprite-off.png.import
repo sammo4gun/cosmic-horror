@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu1niru1t56gh"
-path="res://.godot/imported/light_placeholder_on.png-1c865fa62203268f9a8df86c6f869172.ctex"
+uid="uid://ccllme32sm87e"
+path="res://.godot/imported/broadcast-sprite-off.png-081afb9d9cd5311cac4a51f6cfdea87c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/light_placeholder_on.png"
-dest_files=["res://.godot/imported/light_placeholder_on.png-1c865fa62203268f9a8df86c6f869172.ctex"]
+source_file="res://Assets/broadcast-sprite-off.png"
+dest_files=["res://.godot/imported/broadcast-sprite-off.png-081afb9d9cd5311cac4a51f6cfdea87c.ctex"]
 
 [params]
 

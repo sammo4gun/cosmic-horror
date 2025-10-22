@@ -12,6 +12,7 @@ public partial class Console : Node2D
     private DistDisplay _distDisplay;
     private TimeDisplay _timeDisplay;
     private RadioReceiver _radioReceiver;
+    private TextureRect _glowLight;
     public string LaunchCodes;
 
     [Signal]
@@ -38,6 +39,7 @@ public partial class Console : Node2D
         _radioReceiver = GetNode<RadioReceiver>("RadioReceiver");
         _timeDisplay = GetNode<TimeDisplay>("TimeDisplay");
         _distDisplay = GetNode<DistDisplay>("DistDisplay");
+        _glowLight = GetNode<TextureRect>("OminousGlow");
 
         _textDisplay.InputReceived += ReceiveInput;
     }
@@ -46,9 +48,12 @@ public partial class Console : Node2D
     public override void _Process(double delta)
     {
         base._Process(delta);
-        if (OminousGlow)
+        if (OminousGlow && _glowLight.Position.X > -(400/2))
         {
-            GetNode<ColorRect>("OminousGlow").Modulate = new Color(255, 255, 255, Math.Min(GetNode<ColorRect>("OminousGlow").Modulate.A + (float)delta * 50, 255));
+            GetNode<TextureRect>("OminousGlow").Modulate = new Color(1, 1, 1, Math.Min(GetNode<TextureRect>("OminousGlow").Modulate.A + (float)delta * 1.0f, 0.8f));
+            _glowLight.Position = new Vector2(_glowLight.Position.X - (float)delta * 300f, _glowLight.Position.Y);
+            _glowLight.Size = new Vector2(_glowLight.Size.X + (float)delta * 600f, _glowLight.Size.Y);
+            // GD.Print(GetNode<TextureRect>("OminousGlow").Modulate.A);
         }
     }
 

@@ -35,8 +35,7 @@ public partial class Asteroids : Shuttle
         _spaceHandler.StartDistance(2_315_487_315f);
         Speed = 21f;
 
-        // _console.ToggleButtonPressed("BackupLeft", true, silent: true); // to set the backup to being used
-        _recordPlayer.LoadSong(4, repeated: false, loadBar: false);
+        _recordPlayer.LoadSong(1, repeated: false, loadBar: false);
 
         _ = _hibernationHandler.EndHibernation(delay:1.5f, speedFactor: 4);
         // _ = _hibernationHandler.EndHibernation(delay: 0f, speedFactor: 1);
@@ -198,6 +197,7 @@ public partial class Asteroids : Shuttle
         if (buttonName == "BackupLeft" && toggled)
         {
             BackupDeployed();
+            _console.ToggleActivateButton("BackupLeft", false);
         }
     }
 }

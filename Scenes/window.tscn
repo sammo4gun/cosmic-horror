@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://botib5kax6p3u"]
+[gd_scene load_steps=18 format=3 uid="uid://botib5kax6p3u"]
 
 [ext_resource type="Script" uid="uid://3ycbya702pf5" path="res://Scripts/Window.cs" id="1_30sqi"]
 [ext_resource type="Script" uid="uid://tbmuvrmik6ct" path="res://Scripts/Stars.cs" id="2_0slyu"]
 [ext_resource type="Script" uid="uid://1xijxcktdj2x" path="res://Scripts/PlanetBody.cs" id="3_30sqi"]
+[ext_resource type="Texture2D" uid="uid://ddllou8e0wk1v" path="res://Assets/EvilEye.png" id="3_j100b"]
 [ext_resource type="Script" uid="uid://d0kc0ist6itlw" path="res://Scripts/AsteroidHandler.cs" id="4_pff0d"]
 [ext_resource type="Shader" uid="uid://cuc2xbcxwh60s" path="res://Shaders/lensflare.gdshader" id="4_r37kj"]
 [ext_resource type="PackedScene" uid="uid://dos7hvxaxhthg" path="res://Scenes/record_player.tscn" id="5_gvfsm"]
@@ -10,6 +11,17 @@
 [ext_resource type="PackedScene" uid="uid://da7iu2ygv7p7a" path="res://Scenes/blot.tscn" id="5_u56ti"]
 [ext_resource type="Shader" uid="uid://dg6xr4s3hb425" path="res://Shaders/solarflare.gdshader" id="6_8vpwn"]
 [ext_resource type="Shader" uid="uid://dyipnr1slkgwy" path="res://Shaders/sun.gdshader" id="6_u56ti"]
+[ext_resource type="Texture2D" uid="uid://cakhtafj6y2pr" path="res://Assets/voyagerbg.png" id="12_j100b"]
+
+[sub_resource type="Gradient" id="Gradient_mhsga"]
+offsets = PackedFloat32Array(0, 0.52, 1)
+colors = PackedColorArray(1, 0, 0, 0, 0.45490196, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_j100b"]
+resource_local_to_scene = true
+gradient = SubResource("Gradient_mhsga")
+fill = 1
+fill_from = Vector2(0.4906542, 0.50934577)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8vpwn"]
 shader = ExtResource("4_r37kj")
@@ -58,6 +70,26 @@ position = Vector2(324, 314)
 script = ExtResource("4_pff0d")
 SpawnInterval = 2.0
 
+[node name="Eye" type="Sprite2D" parent="."]
+visible = false
+z_index = -2
+position = Vector2(333.99997, 294)
+rotation = 1.5311899
+scale = Vector2(0.20644088, 0.20644088)
+texture = ExtResource("3_j100b")
+
+[node name="OminousGlow" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.654902)
+z_index = 2
+offset_left = -51.0
+offset_top = -70.0
+offset_right = 549.0
+offset_bottom = 478.0
+scale = Vector2(1.3634863, 1.3634863)
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_j100b")
+
 [node name="Saturn" type="SubViewportContainer" parent="."]
 visible = false
 z_index = -20
@@ -91,6 +123,7 @@ PlanetShader = "res://Shaders/saturn.gdshader"
 RotationSpeed = 100.0
 
 [node name="Stars" type="SubViewportContainer" parent="."]
+visible = false
 z_index = -20
 offset_right = 648.0
 offset_bottom = 648.0
@@ -99,7 +132,7 @@ mouse_filter = 2
 [node name="SubViewport" type="SubViewport" parent="Stars"]
 handle_input_locally = false
 size = Vector2i(648, 648)
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Stars" type="ColorRect" parent="Stars/SubViewport"]
 z_index = -2
@@ -110,10 +143,10 @@ script = ExtResource("2_0slyu")
 
 [node name="Blot" parent="Stars/SubViewport" instance=ExtResource("5_u56ti")]
 visible = false
-offset_left = 467.0
-offset_top = 61.0
-offset_right = 659.0
-offset_bottom = 253.0
+offset_left = 260.0
+offset_top = 251.0
+offset_right = 452.0
+offset_bottom = 443.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Jupiter" type="SubViewportContainer" parent="."]
@@ -287,3 +320,10 @@ offset_top = 513.00006
 offset_right = 407.0
 offset_bottom = 621.00006
 scale = Vector2(1.370738, 1.370738)
+
+[node name="Background" type="TextureRect" parent="."]
+visible = false
+offset_left = -1944.0
+offset_right = 648.0
+offset_bottom = 648.0
+texture = ExtResource("12_j100b")

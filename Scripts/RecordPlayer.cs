@@ -61,6 +61,12 @@ public partial class RecordPlayer : TextureButton
             _loadBar.Size = new Vector2(0, _loadBar.Size.Y);
         }
         // IF the musicplayer is playing and not paused, progress the loading bar accordingly.
+        
+        if (GetNode<AudioStreamPlayer>("MusicPlayer8").Playing)
+        {
+            if (GetNode<AudioStreamPlayer>("MusicPlayer8").VolumeDb < -10f)
+                GetNode<AudioStreamPlayer>("MusicPlayer8").VolumeDb += 0.1f * (float)delta; // 0.1 dB per second
+        }
     }
 
     private void RecordActivated(bool toggle)

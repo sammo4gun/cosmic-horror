@@ -7,6 +7,10 @@ public partial class SoundScapeHandler : Node
     private AudioStreamPlayer _voyagerReversedPlayer;
     private AudioStreamPlayer _humPlayer;
 
+    [Signal]
+    public delegate void FinalSongDoneEventHandler();
+    public bool FinalScene = false;
+
     public override void _Ready()
     {
         base._Ready();
@@ -21,7 +25,7 @@ public partial class SoundScapeHandler : Node
     {
         base._Process(delta);
         // Fade out the voyag-er reversed sound over time
-        if (_voyagerReversedPlayer.VolumeDb > -80)
+        if (_voyagerReversedPlayer.VolumeDb > -80 && !FinalScene)
             _voyagerReversedPlayer.VolumeDb -= 0.5f * (float)delta; // 1 dB per second
     }
 
@@ -40,9 +44,18 @@ public partial class SoundScapeHandler : Node
         GetNode<AudioStreamPlayer>("CrashEndPlayer").Play();
     }
     
+    public void PlayYawn()
+    {
+        GetNode<AudioStreamPlayer>("YawnPlayer").Play();
+    }
 
     public void PlayFinalSong()
     {
         GetNode<AudioStreamPlayer>("FinalSongPlayer").Play();
+    }
+
+    public void OnFinalSongFinished()
+    {
+        EmitSignal("FinalSongDone");
     }
 }

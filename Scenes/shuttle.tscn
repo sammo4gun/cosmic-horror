@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c0ablt7k8teao" path="res://Scripts/Shuttle.cs" id="1_x30pb"]
 [ext_resource type="PackedScene" uid="uid://botib5kax6p3u" path="res://Scenes/window.tscn" id="3_gosty"]
 [ext_resource type="PackedScene" uid="uid://ve3mcaxygs60" path="res://Scenes/camera.tscn" id="4_j7j3f"]
-[ext_resource type="Texture2D" uid="uid://cakhtafj6y2pr" path="res://Assets/voyagerbg.png" id="4_y8b7f"]
+[ext_resource type="Texture2D" uid="uid://c4ut6npdagcu0" path="res://Assets/voyagerbg.png" id="4_y8b7f"]
 [ext_resource type="Script" uid="uid://bh2fuxs36fxte" path="res://Scripts/TimeHandler.cs" id="7_0uqxh"]
 [ext_resource type="Script" uid="uid://c6djcormwfpyy" path="res://Scripts/SpaceHandler.cs" id="8_23dal"]
 [ext_resource type="Script" uid="uid://bsim3q725pqj1" path="res://Scripts/HibernationHandler.cs" id="9_qp0on"]

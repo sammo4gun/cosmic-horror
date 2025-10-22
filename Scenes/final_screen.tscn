@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt8a5m673owew"]
+
+[ext_resource type="PackedScene" uid="uid://ve3mcaxygs60" path="res://Scenes/camera.tscn" id="1_8xhws"]
+[ext_resource type="AudioStream" uid="uid://davs42muu2yrv" path="res://Assets/SFX/Static.mp3" id="2_vi8pr"]
+
+[node name="FinalScreen" type="Node2D"]
+
+[node name="Camera" parent="." instance=ExtResource("1_8xhws")]
+z_index = 2
+position = Vector2(1620, 324)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_vi8pr")
+volume_db = -24.807
+pitch_scale = 1.29
+autoplay = true

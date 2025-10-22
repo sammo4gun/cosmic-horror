@@ -1,19 +1,19 @@
 [gd_scene load_steps=7 format=3 uid="uid://l3i23e4u2cux"]
 
 [ext_resource type="Script" uid="uid://cjc3leormvxmu" path="res://Scripts/RadioReceiver.cs" id="1_1nhh5"]
-[ext_resource type="Texture2D" uid="uid://cu1niru1t56gh" path="res://Assets/light_placeholder_on.png" id="2_5to70"]
-[ext_resource type="Texture2D" uid="uid://cytq82t85ekwh" path="res://Assets/light_placeholder_off.png" id="3_a6tqo"]
+[ext_resource type="Texture2D" uid="uid://c3s0vv0fk40e8" path="res://Assets/broadcast-sprite-on.png" id="2_a6tqo"]
 [ext_resource type="AudioStream" uid="uid://c5goniqkl1vox" path="res://Assets/SFX/RadioReceived.mp3" id="4_5to70"]
+[ext_resource type="Texture2D" uid="uid://ccllme32sm87e" path="res://Assets/broadcast-sprite-off.png" id="4_45yc6"]
 [ext_resource type="AudioStream" uid="uid://b4mfobht5npm4" path="res://Assets/SFX/ScreenOn.mp3" id="5_a6tqo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1nhh5"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_a6tqo")
+"texture": ExtResource("2_a6tqo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_5to70")
+"texture": ExtResource("4_45yc6")
 }],
 "loop": true,
 "name": &"default",
@@ -25,11 +25,13 @@ script = ExtResource("1_1nhh5")
 
 [node name="OnSprite" type="AnimatedSprite2D" parent="."]
 visible = false
+scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_1nhh5")
 frame_progress = 0.4669141
 
 [node name="OffSprite" type="Sprite2D" parent="."]
-texture = ExtResource("2_5to70")
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_45yc6")
 
 [node name="AlertPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5to70")

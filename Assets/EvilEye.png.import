@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cytq82t85ekwh"
-path="res://.godot/imported/light_placeholder_off.png-6b0044f68ef4bea20d43fc5d4ad4fc56.ctex"
+uid="uid://ddllou8e0wk1v"
+path="res://.godot/imported/EvilEye.png-5b414f5144fc06e21709a423c25fb649.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/light_placeholder_off.png"
-dest_files=["res://.godot/imported/light_placeholder_off.png-6b0044f68ef4bea20d43fc5d4ad4fc56.ctex"]
+source_file="res://Assets/EvilEye.png"
+dest_files=["res://.godot/imported/EvilEye.png-5b414f5144fc06e21709a423c25fb649.ctex"]
 
 [params]
 

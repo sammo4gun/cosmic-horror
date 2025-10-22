@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b336dobar7jq8" path="res://Scripts/Console.cs" id="1_2kium"]
 [ext_resource type="PackedScene" uid="uid://lv6of8i8mu6e" path="res://Scenes/text_display.tscn" id="3_127ai"]
-[ext_resource type="Texture2D" uid="uid://cakhtafj6y2pr" path="res://Assets/voyagerbg.png" id="3_sdxnn"]
+[ext_resource type="Texture2D" uid="uid://c4ut6npdagcu0" path="res://Assets/voyagerbg.png" id="3_sdxnn"]
 [ext_resource type="PackedScene" uid="uid://cvust45cuswxf" path="res://Scenes/time_display.tscn" id="4_atbq5"]
 [ext_resource type="Texture2D" uid="uid://beirqqv3qjl7p" path="res://Assets/hibernate-button-on.png" id="5_7kqtp"]
 [ext_resource type="PackedScene" uid="uid://bfqd4ln5jt8ry" path="res://Scenes/dist_display.tscn" id="5_qxy8f"]
@@ -16,12 +16,12 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hfjju"]
 
-[sub_resource type="Gradient" id="Gradient_mhsga"]
+[sub_resource type="Gradient" id="Gradient_7kqtp"]
 offsets = PackedFloat32Array(0, 0.5466667, 1)
 colors = PackedColorArray(1, 0, 0, 1, 0.4554031, 1.0769255e-06, 2.1658838e-07, 0.62, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_7kqtp"]
-gradient = SubResource("Gradient_mhsga")
+gradient = SubResource("Gradient_7kqtp")
 fill = 1
 fill_from = Vector2(0.4906542, 0.49532712)
 
@@ -38,88 +38,88 @@ texture = ExtResource("3_sdxnn")
 script = ExtResource("7_uqptw")
 
 [node name="FlippableButtonA" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 421.0
-offset_top = 145.84447
-offset_right = 529.0
-offset_bottom = 253.84447
+offset_left = 416.0
+offset_top = 146.0
+offset_right = 524.0
+offset_bottom = 254.0
 rotation = -1.3023305
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonB" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 444.0
-offset_top = 163.84447
-offset_right = 552.0
-offset_bottom = 271.84448
+offset_left = 441.0
+offset_top = 166.0
+offset_right = 549.0
+offset_bottom = 274.0
 rotation = -1.3023305
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonC" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 464.99994
-offset_top = 187.84447
-offset_right = 572.9999
-offset_bottom = 295.84448
+offset_left = 466.0
+offset_top = 186.0
+offset_right = 573.99994
+offset_bottom = 294.0
 rotation = -1.3023305
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonD" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 486.0
-offset_top = 211.84447
-offset_right = 594.0
-offset_bottom = 319.84448
+offset_left = 491.0
+offset_top = 206.0
+offset_right = 599.0
+offset_bottom = 314.0
 rotation = -1.3023305
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButtonE" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 507.0
-offset_top = 234.84447
-offset_right = 615.0
-offset_bottom = 342.84448
+offset_left = 516.0
+offset_top = 226.0
+offset_right = 624.0
+offset_bottom = 334.0
 rotation = -1.3023305
 scale = Vector2(0.33462042, 0.33462042)
 flip_h = true
 
 [node name="FlippableButton1" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 192.63908
-offset_top = 108.0
-offset_right = 300.6391
-offset_bottom = 216.0
-rotation = 0.8288105
+offset_left = 207.0
+offset_top = 110.0
+offset_right = 315.0
+offset_bottom = 218.0
+rotation = 1.2915436
 scale = Vector2(0.33462042, 0.33462042)
 
 [node name="FlippableButton2" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 167.63908
-offset_top = 122.71485
-offset_right = 275.6391
-offset_bottom = 230.71484
-rotation = 0.8288105
+offset_left = 182.0
+offset_top = 130.0
+offset_right = 290.0
+offset_bottom = 238.0
+rotation = 1.2915436
 scale = Vector2(0.33462042, 0.33462042)
 
 [node name="FlippableButton3" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 143.63908
-offset_top = 141.71489
-offset_right = 251.63908
-offset_bottom = 249.71492
-rotation = 0.8288105
+offset_left = 157.0
+offset_top = 150.0
+offset_right = 265.0
+offset_bottom = 258.00003
+rotation = 1.2915436
 scale = Vector2(0.33462042, 0.33462042)
 
 [node name="FlippableButton4" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 119.6391
-offset_top = 161.71486
-offset_right = 227.6391
-offset_bottom = 269.7149
-rotation = 0.8288105
+offset_left = 132.0
+offset_top = 170.0
+offset_right = 240.0
+offset_bottom = 278.00006
+rotation = 1.2915436
 scale = Vector2(0.33462042, 0.33462042)
 
 [node name="FlippableButton5" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
-offset_left = 95.639084
-offset_top = 183.71486
-offset_right = 203.63908
-offset_bottom = 291.7149
-rotation = 0.8288105
+offset_left = 107.0
+offset_top = 190.0
+offset_right = 215.0
+offset_bottom = 298.00006
+rotation = 1.2915436
 scale = Vector2(0.33462042, 0.33462042)
 
 [node name="FlippableButtonLaunch" parent="ButtonHandler" instance=ExtResource("7_uukfc")]
@@ -165,27 +165,63 @@ Available = false
 script = ExtResource("9_gyscv")
 
 [node name="FlippableLight1" parent="LightHandler" instance=ExtResource("10_ekwfd")]
-position = Vector2(241, 234)
+visible = false
+position = Vector2(252, 296)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="FlippableLight2" parent="LightHandler" instance=ExtResource("10_ekwfd")]
-position = Vector2(270, 234)
+visible = false
+position = Vector2(281, 296)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="FlippableLight3" parent="LightHandler" instance=ExtResource("10_ekwfd")]
-position = Vector2(301, 234)
+visible = false
+position = Vector2(312, 296)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="FlippableLight4" parent="LightHandler" instance=ExtResource("10_ekwfd")]
-position = Vector2(331, 234)
+visible = false
+position = Vector2(342, 296)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="FlippableLight5" parent="LightHandler" instance=ExtResource("10_ekwfd")]
-position = Vector2(362, 234)
+visible = false
+position = Vector2(373, 296)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="FlippableLight6" parent="LightHandler" instance=ExtResource("10_ekwfd")]
-position = Vector2(394, 234)
+visible = false
+position = Vector2(405, 296)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight7" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+visible = false
+position = Vector2(252, 264)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight8" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+visible = false
+position = Vector2(281, 264)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight9" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+visible = false
+position = Vector2(312, 264)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight10" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+visible = false
+position = Vector2(342, 264)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight11" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+visible = false
+position = Vector2(373, 264)
+scale = Vector2(0.25246653, 0.25246653)
+
+[node name="FlippableLight12" parent="LightHandler" instance=ExtResource("10_ekwfd")]
+visible = false
+position = Vector2(405, 264)
 scale = Vector2(0.25246653, 0.25246653)
 
 [node name="DistDisplay" parent="." instance=ExtResource("5_qxy8f")]
@@ -209,7 +245,7 @@ scale = Vector2(0.7350093, 0.7350093)
 [node name="TextDisplay" parent="." instance=ExtResource("3_127ai")]
 z_index = 1
 material = SubResource("ShaderMaterial_hfjju")
-position = Vector2(94, 288)
+position = Vector2(91, 288)
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
@@ -224,52 +260,53 @@ text = "54321"
 [node name="Label2" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 501.00003
-offset_top = 119.0
-offset_right = 553.0
-offset_bottom = 142.0
-rotation = 0.7279254
+offset_left = 494.99997
+offset_top = 122.99997
+offset_right = 547.0
+offset_bottom = 145.99997
+rotation = 0.6118292
 text = "ABCDE"
 
 [node name="Label3" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 288.0
-offset_top = 96.0
-offset_right = 354.0
-offset_bottom = 119.0
+offset_left = 286.0
+offset_top = 158.0
+offset_right = 352.0
+offset_bottom = 181.0
 text = "LAUNCH"
 
 [node name="Label4" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 1411.0001
-offset_top = 41.99994
-offset_right = 1478.0001
-offset_bottom = 90.99994
-rotation = 0.74531037
-text = "Thruster
-BackupL"
+offset_left = 1357.0
+offset_top = 59.0
+offset_right = 1424.0
+offset_bottom = 108.0
+rotation = -0.83909005
+text = "Thruster1
+Backup"
 
 [node name="Label5" type="Label" parent="."]
-modulate = Color(0, 0, 0, 1)
 z_index = 1
-offset_left = 1800.2317
-offset_top = 104.99994
-offset_right = 1868.2317
-offset_bottom = 153.99994
-rotation = -0.7749453
-text = "Thruster
-BackupR"
+offset_left = 1882.0
+offset_top = 20.000061
+offset_right = 1958.0
+offset_bottom = 69.00006
+rotation = 0.80198175
+text = "Thruster2
+Backup"
 
 [node name="RadioReceiver" parent="." instance=ExtResource("11_ekwfd")]
 z_index = 1
-position = Vector2(595, 612.99994)
+position = Vector2(601, 550.99994)
 scale = Vector2(0.51353294, 0.51353294)
 
 [node name="OminousGlow" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_right = 648.0
-offset_bottom = 648.0
+z_index = 2
+offset_left = 292.0
+offset_top = -50.0
+offset_right = 356.0
+offset_bottom = 698.0
 mouse_filter = 2
 texture = SubResource("GradientTexture2D_7kqtp")

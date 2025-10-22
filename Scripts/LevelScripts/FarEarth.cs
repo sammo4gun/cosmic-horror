@@ -100,8 +100,8 @@ public partial class FarEarth : Shuttle
         _console.OutputLine("┗╸Enter thruster sequence{p=1.0}");
         _console.OutputLine("===============================");
         _console.OutputLine("Thruster sequence loaded");
-        _console.OutputLine("┗╸Confirm sequence D-C-A-3"); ;
-        _console.LaunchCodes = "DCA3";
+        _console.OutputLine("┗╸Confirm sequence 2-C-A-3"); ;
+        _console.LaunchCodes = "2CA3";
     }
 
     public override void LaunchCodesEnteredHandler(bool correct, bool shuffled)

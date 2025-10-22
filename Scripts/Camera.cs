@@ -6,9 +6,9 @@ using static Godot.Control;
 public partial class Camera : Camera2D
 {
     [Export]
-    public int MoveSpeed { get; set; } = 8;
+    public float MoveSpeed { get; set; } = 8;
     [Export]
-    public int ZoomSpeed { get; set; } = 8;
+    public float ZoomSpeed { get; set; } = 8;
     [Export]
     public float ZoomFactor { get; set; } = 1.2f;
     [Export]
